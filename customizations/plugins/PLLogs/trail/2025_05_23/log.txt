@@ -1,5 +1,0 @@
-[2025-05-23 15:34:16pm] New log has been created.
-[2025-05-23 15:34:16pm] SYSADMIN printing an x-reading.
-[2025-05-23 15:38:06pm] SYSADMIN opened a drawer.
-[2025-05-23 15:38:30pm] SYSADMIN closed a drawer.
-[2025-05-23 15:38:32pm] SYSADMIN closed a drawer.

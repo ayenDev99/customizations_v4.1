@@ -1,9 +1,0 @@
-"2025-04-05 11:59:17am",SYSADMIN,"Closed a drawer"
-"2025-04-05 11:59:23am",SYSADMIN,"Opened a drawer"
-"2025-04-05 11:59:28am",SYSADMIN,"Created new transaction",REGULAR
-"2025-04-05 12:00:10pm",SYSADMIN,"Added global discount to transaction"
-"2025-04-05 12:00:41pm",SYSADMIN,"Completed the tranasction",,20
-"2025-04-05 12:04:42pm",SYSADMIN,"Created new transaction",REGULAR
-"2025-04-05 12:05:01pm",SYSADMIN,"Added item discount to transaction"
-"2025-04-05 12:05:10pm",SYSADMIN,"Added global discount to transaction"
-"2025-04-05 12:05:20pm",SYSADMIN,"Completed the tranasction",,21

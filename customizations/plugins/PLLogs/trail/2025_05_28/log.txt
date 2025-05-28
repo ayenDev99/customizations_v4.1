@@ -1,6 +1,0 @@
-[2025-05-28 10:57:17am] New log has been created.
-[2025-05-28 10:57:17am] SYSADMIN printing an x-reading.
-[2025-05-28 11:07:55am] SYSADMIN printing an x-reading.
-[2025-05-28 11:11:41am] SYSADMIN printing an x-reading.
-[2025-05-28 11:13:00am] SYSADMIN printing an x-reading.
-[2025-05-28 11:14:16am] SYSADMIN printing an x-reading.

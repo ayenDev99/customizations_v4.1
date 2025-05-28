@@ -1,3 +1,0 @@
-[2024-12-09 09:40:31am] New log has been created.
-[2024-12-09 09:40:31am] SYSADMIN closed a drawer.
-[2024-12-09 09:40:32am] SYSADMIN closed a drawer.

@@ -1,8 +1,0 @@
-[2025-02-28 08:35:05am] New log has been created.
-[2025-02-28 08:35:05am] SYSADMIN opened a drawer.
-[2025-02-28 08:35:12am] SYSADMIN created new tranasction. SID: 737530911000566035
-[2025-02-28 08:35:28am] SYSADMIN adding global discount to tranasction: 737530911000566035 ... reason: null, total discount amount: undefined
-[2025-02-28 08:35:38am] SYSADMIN completed the tranasction: 737530911000566035 and created a receipt ... Doc NO: 1
-[2025-02-28 08:35:57am] SYSADMIN created new tranasction. SID: 737530957000504051
-[2025-02-28 08:56:35am] SYSADMIN created new tranasction. SID: 737532194000577072
-[2025-02-28 08:57:42am] SYSADMIN created new tranasction. SID: 737532262000565082
