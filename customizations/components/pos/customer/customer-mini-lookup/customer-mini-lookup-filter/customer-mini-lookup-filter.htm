@@ -1,0 +1,34 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2024 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+<div class="row" ng-controller="DiscountCtrl" >
+    <div class="col-xs-12" ng-if="details2 === null">
+        <div class="row">
+            <div ng-if="!$ctrl.isPortrait" ng-class="{'col-xs-12':$ctrl.isPortrait,'pos-quick-customer-input':!$ctrl.isPortrait}">
+                <rp-select-input pre-addons="$ctrl.newCustomerButton" repeater-data="$ctrl.filters" ng-model="$ctrl.filter" default-obj="$ctrl.defaultFilter" ng-disabled="$ctrl.posDisabled" ng-change="$ctrl.addFilter()" key-string="'name'" ng-required="true"></rp-select-input>
+            </div>
+            <div ng-if="!$ctrl.isPortrait" style="width:36px; float: left">
+                <customer-mini-lookup-btn pos-disabled="$ctrl.posDisabled" pos-callback="$ctrl.posCallback" is-shipping="$ctrl.isShipping"></customer-mini-lookup-btn>
+            </div>
+        </div>
+        <div ng-if="$ctrl.column" class="row top-margin">
+            <div>
+                <resource-lookup-filter-types disable-operators="$ctrl.posDisabled" submit-enter="$ctrl.keySearch" column="$ctrl.column" column-idx="0" criteria="$ctrl.criteria" criteria-idx="0" use-default="lk" submit-direct="$ctrl.initSearch"></resource-lookup-filter-types>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div ng-repeat="eligibility in details2.eligibilityDetails" class="col-xs-12" style="background-color: #fff; height: 80px;">
+            <p ng-if="eligibility.eligible === 'true'">Vitality Barcode No.: {{ details2.membershipNum }}</p>
+            <p ng-if="eligibility.eligible === 'true'">Credit Limit: {{ eligibility.limits[0].amountRemaining | number: '2' }}</p>
+            <p ng-if="eligibility.eligible === 'true'">Expiry Date: {{ details2.memberPolicyEndDate | date: 'MM-dd-yyyy' }}</p>
+        </div>
+    </div>
+</div>
+
+  

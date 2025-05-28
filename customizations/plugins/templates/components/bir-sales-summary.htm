@@ -1,0 +1,66 @@
+<table id="tbl_report" class="table table-bordered hover custom-table" style="margin: 0;" width="100%">
+    <tr class="tr-head">
+        <th align="center" rowspan="2">Date</th>
+        <th align="center" rowspan="2">From</th>
+        <th align="center" rowspan="2">To</th>
+        <th align="center" align="center" colspan="2">Balance (at net)</th>
+        <th align="center" rowspan="2">Net Amount</th>
+        <th align="center" align="center" colspan="3">Discounts</th>
+        <th align="center" rowspan="2">Return</th>
+        <th align="center" rowspan="2">Refund</th>
+        <th align="center" rowspan="2">Voids</th>
+        <th align="center" rowspan="2">VAT Adjustments</th>
+        <th align="center" rowspan="2">Total Income</th>
+        <th align="center" rowspan="2">Other Income</th>
+        <th align="center" rowspan="2">Gross Amount</th>
+        <th align="center" rowspan="2">Vatable Sales</th>
+        <th align="center" rowspan="2">VAT Amount</th>
+        <th align="center" rowspan="2">VAT Exempt*</th>
+        <th align="center" rowspan="2">Zero-Rated</th>
+        <th align="center" rowspan="2">VAT Payable</th>
+        <th align="center" rowspan="2">Sales Overrun</th>
+        <th align="center" rowspan="2">Total Sales</th>
+        <th align="center" rowspan="2">Reset Counter</th>
+        <th align="center" rowspan="2">Z-Counter</th>
+        <th align="center" rowspan="2">Remarks</th>
+    </tr>
+    <tr class="tr-head">
+        <th align="center">Beginning</th>
+        <th align="center">Ending</th>
+        <th align="center">SC</th>
+        <th align="center">PWD</th>
+        <th align="center">OTHERS</th>
+    </tr>
+    <tr ng-if="searchResult.results.length > 0" dir-paginate="item in searchResult.results | itemsPerPage: salesReport.itemsPerPage" current-page="pagination.current" pagination-id="invnReportID" total-items="searchResult.recordCount">
+
+        <td>{{item.CREATED_DATE}}</td>
+        <td>{{item.MIN_INVOICE_NO}}</td>
+        <td>{{item.MAX_INVOICE_NO}}</td>
+        <td>{{item.BEGINNING | number:2}}</td>
+        <td>{{item.ENDING | number:2}}</td>
+        <td>{{item.NET_AMOUNT | number:2}}</td>
+        <td>{{item.SC_DISC | number:2}}</td>
+        <td>{{item.PWD_DISC | number:2}}</td>
+        <td>{{item.OTHER_DISC | number:2}}</td>
+        <td>{{item.RETURNS | number:2}}</td>
+        <td>{{'0' | number:2}}</td>
+        <td>{{item.VOIDS | number:2}}</td>
+        <td>{{item.VAT_ADJUSTMENT | number:2}}</td>
+        <td>{{item.TOTAL_INCOME | number:2}}</td>
+        <td>{{item.OTHER_INCOME | number:2}}</td>
+        <td>{{item.GROSS_INCOME | number:2}}</td>
+        <td>{{item.VAT_SALES | number:2}}</td>
+        <td>{{item.VAT_AMOUNT | number:2}}</td>
+        <td>{{item.VAT_EXEMPT | number:2}}</td>
+        <td>{{item.ZERO_RATED | number:2}}</td>
+        <td>{{item.VAT_PAYABLE | number:2}}</td>
+        <td>{{'0' | number:2}}</td>
+        <td>{{item.TOTAL_SALES | number:2}}</td>
+        <td>{{'0' | number:2}}</td>
+        <td>{{item.ZCOUNTERS}}</td>
+        <td>{{item.REMARKS}}</td>
+        <td ng-repeat="size_qty in item.SIZE_QTY track by $index">
+            {{size_qty}}
+        </td>
+    </tr>
+</table>

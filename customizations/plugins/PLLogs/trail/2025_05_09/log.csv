@@ -1,0 +1,46 @@
+"2025-05-09 13:06:42pm",SYSADMIN,"Opened a drawer"
+"2025-05-09 13:06:47pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 13:08:46pm",SYSADMIN,"Added item discount to transaction"
+"2025-05-09 13:08:55pm",SYSADMIN,"Added global discount to transaction"
+"2025-05-09 13:09:14pm",SYSADMIN,"Completed the tranasction",,81
+"2025-05-09 13:09:21pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 13:10:53pm",SYSADMIN,"Completed the tranasction",,82
+"2025-05-09 13:11:00pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 13:11:30pm",SYSADMIN,"Added global discount to transaction"
+"2025-05-09 09:03:19am",SYSADMIN,"Opened a drawer"
+"2025-05-09 09:03:25am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:04:05am",SYSADMIN,"Completed the tranasction",,8
+"2025-05-09 09:04:12am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:05:29am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:05:30am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:13:54am",SYSADMIN,"Opened a drawer"
+"2025-05-09 09:19:38am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:21:03am",SYSADMIN,"Completed the tranasction",,9
+"2025-05-09 09:21:10am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:22:12am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:22:13am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:23:09am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:23:10am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:39:59am",SYSADMIN,"Opened a drawer"
+"2025-05-09 09:40:08am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:40:36am",SYSADMIN,"Added item discount to transaction"
+"2025-05-09 09:41:50am",SYSADMIN,"Completed the tranasction",,88
+"2025-05-09 09:41:57am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:42:22am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:42:23am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:48:33am",SYSADMIN,"Opened a drawer"
+"2025-05-09 09:48:38am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:49:04am",SYSADMIN,"Added global discount to transaction"
+"2025-05-09 09:49:19am",SYSADMIN,"Completed the tranasction",,89
+"2025-05-09 09:49:26am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:49:52am",SYSADMIN,"Created return transaction",RETURN
+"2025-05-09 09:50:01am",SYSADMIN,"Added global discount to transaction"
+"2025-05-09 09:50:14am",SYSADMIN,"Completed the tranasction",,3
+"2025-05-09 09:50:29am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 09:55:15am",SYSADMIN,"Closed a drawer"
+"2025-05-09 09:55:16am",SYSADMIN,"Closed a drawer"
+"2025-05-09 11:50:24am",SYSADMIN,"Opened a drawer"
+"2025-05-09 11:50:28am",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-09 11:51:02am",SYSADMIN,"Added global discount to transaction"
+"2025-05-09 11:51:15am",SYSADMIN,"Completed the tranasction",,90
+"2025-05-09 11:51:23am",SYSADMIN,"Created new transaction",REGULAR

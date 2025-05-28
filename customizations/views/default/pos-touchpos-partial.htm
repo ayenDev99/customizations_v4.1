@@ -1,0 +1,230 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2020 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+<form novalidate id="touchPOSForm" name="touchPOSForm" class="form-horizontal">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-7">
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group">
+                        <button event-name="posTouchMainMenu" type="button" class="btn btn-default btn-block" ng-disabled="!(menuLevels.length > 1)" ng-click="navigateToMainMenu()">
+                            {{ prefs.touch_menu_default_main_menu_button_label }}
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button event-name="posTouchPreviousMenu" type="button" class="btn btn-default btn-block" ng-disabled="!(menuLevels.length > 1)" ng-click="navigateToParentMenu()">
+                            {{ prefs.touch_menu_default_previous_menu_button_label }}
+                        </button>
+                    </div>
+                    <div class="btn-group" ng-show="numberOfPages > 0">
+                        <button event-name="posTouchPreviousPage" type="button" class="btn btn-default btn-block" ng-disabled="currentPage === 1" ng-click="currentPage = currentPage - 1">
+                            {{previousLabel}}
+                        </button>
+                    </div>
+                    <div class="btn-group" ng-show="numberOfPages > 0">
+                        <button event-name="posTouchNextPage" type="button" class="btn lg btn-default btn-block" ng-disabled="currentPage >= numberOfPages" ng-click="currentPage = currentPage + 1">
+                            {{nextLabel}}
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="breadcrumb">
+                            <li ng-repeat="menu in menuLevels">
+                                <a event-name="posTouchPosThisMenu" ng-show="menuLevels.length !== ($index + 1)" ng-click="navigateToMenuIndex($index)">{{ menu.menutext }} </a>
+                                <span ng-show="menuLevels.length === ($index + 1)">{{ menu.menutext }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="buttonArea" touch-menu="undefined" menu-model="viewData" item-button-class="btn btn-large touchposButton" navigation-button-class="btn btn-large touchposButton touchPOSNavButton" item-event-handler="processTouchItem" navigation-event-handler="onNavigationClick" disable-buttons="menuButtons" class="paddingleft5px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+		        <div class="col-xs-5">
+		            <div class="panel panel-default">
+		                <div class="panel-heading" ng-if="runIt && defaultSearchType !== false">
+                      <customer-mini-lookup id="bt_customer" doc-search="true" pos-document="document" pos-callback="processCustomerSearch" pos-disabled="disableCustomerForm()" default-search="defaultSearchType"></customer-mini-lookup>
+                      <!-- <document-customer doc-search="true" id="bt_customer"></document-customer> -->
+		                </div>
+		                <div class="panel-body" ng-show="document.bt_first_name || document.bt_last_name || document.bt_primary_phone_no || document.bt_email || customer.storecredit || customer.loyalty || customer.lastsaledate">
+		                    <div class="row" ng-show="document.bt_first_name || document.bt_last_name">
+				                    <div class="col-xs-5 text-right">
+						                    <strong data-translate="751">Customer Name</strong>
+				                    </div>
+				                    <div class="col-xs-7">
+						                    {{document.bt_first_name}} {{document.bt_last_name}}
+				                    </div>
+		                    </div>
+		                    <div class="row" ng-show="document.bt_primary_phone_no">
+				                    <div class="col-xs-5 text-right">
+						                    <strong data-translate="752">Primary Phone</strong>
+				                    </div>
+				                    <div class="col-xs-7">
+						                    {{document.bt_primary_phone_no}}
+				                    </div>
+		                    </div>
+		                    <div class="row" ng-show="document.bt_email">
+				                    <div class="col-xs-5 text-right">
+						                    <strong data-translate="2796">Primary Email</strong>
+				                    </div>
+				                    <div class="col-xs-7">
+						                    {{document.bt_email}}
+				                    </div>
+		                    </div>
+		                    <div class="row" ng-show="!toBoolean(prefs.centrals_credit_enabled) && customer.storecredit && (document.status == 3)">
+				                    <div class="col-xs-5 text-right">
+						                    <strong data-translate="753">Store Credit</strong>
+				                    </div>
+				                    <div class="col-xs-7">
+						                    {{customer.storecredit|currency}}
+				                    </div>
+		                    </div>
+		                    <div class="row" ng-show="toBoolean(prefs.centrals_credit_enabled) && customer.centralcredit && (document.status == 3)">
+				                    <div class="col-xs-5 text-right">
+                              <strong>{{labelCustomerBalance}}</strong>
+				                    </div>
+				                    <div class="col-xs-7">
+						                    {{customer.centralcredit|currency}}
+				                    </div>
+		                    </div>
+		                    <div class="row" ng-show="toBoolean(prefs.pos_loyalty_enabled) && document.lty_lvl_sid">
+                          <div class="col-xs-5 text-right">
+                            <strong data-translate="754">Avail Lty Points</strong>
+                          </div>
+                          <div ng-if="!permissions.seeloyaltypoints || permissions.seeloyaltypoints==='OVERRIDE'" ng-class="{'text-danger':!document.lty_lvl_sid}" class="col-xs-7 dsw-result">
+                            <span>***</span>
+                          </div>
+                          <div ng-if="permissions.seeloyaltypoints==='ALLOW'" ng-class="{'text-danger':!document.lty_lvl_sid}" class="col-xs-7 dsw-result">
+                            {{document.lty_balance_for_item_redeem|number:lty_decimals}}
+                          </div>
+		                    </div>
+		                    <div class="row" ng-show="customer.lastsaledate">
+				                    <div class="col-xs-5 text-right">
+						                    <strong data-translate="755">Last Purchase</strong>
+				                    </div>
+				                    <div class="col-xs-7">
+						                    {{customer.lastsaledate|cleanDate:'locale':true}}
+				                    </div>
+		                    </div>
+		                </div>
+				            <div class="row top-margin">
+								        <div class="col-xs-5 btn-group btn-group-justified">
+								            <div class="btn-group"><button event-name="posTransactionQuickCustomer" tabindex="103" type="button" id="quickCustomerButton" class="btn btn-info" ng-click="quickCustomer()" data-permission="CustomersCreateCustomer" data-permission-disabled="quickCustomerButton"><span data-translate="758">Quick Customer</span></button></div>
+										        <div class="btn-group"><button event-name="posTouchCustomerDetails" tabindex="102" type="button" id="customerDetailsButton" class="btn btn-info" ng-click="customerDetails()" ng-disabled="disableCustomerDetailsButton"><span data-translate="1522">Details</span></button></div>
+								            <div class="btn-group"><button event-name="posTransactionRemoveCustome" tabindex="104" type="button" id="removeCustomerButton" class="btn btn-info" ng-click="removeCustomer()" ng-disabled="removeCustomerButton"><span data-translate="759">Remove Customer</span></button></div>
+                            <div class="btn-group"><button event-name="posTransactionTransactionType" tabindex="104" type="button" id="transactionTypesButton" class="btn btn-info" ng-click="transactionTypes()" ng-disabled="quickCustomerButton"><span>Transaction Types</span></button></div>
+                            <div class="btn-group" ng-controller="specialDiscountCtrl" ng-show="document.status !== 4 && document.sid && isSpecialDiscountsEnabled"><button class="btn btn-info" ng-click="specialDiscount()"><span>Special Discount</span></button></div>
+								        </div>
+				            </div>
+                  <simple-list-selection list="customerGridOptions.data" select="addCustomerToDocument" offset-x="-25" offset-y="27" ng-if="customerGridOptions.data.length>1" element-id="'bt_customer'" columns="displayColumns" flow="'left'" width="600"></simple-list-selection>
+		            </div>
+
+              <div class="panel panel-default top-margin">
+                <div class="panel-heading">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <item-search ng-disabled="{{(stateParams.mode !== 'edit' && stateParams.mode !== 'new')||(!document.sid)||(document.is_held)||(document.status === 1)||(document.status === 2)||(document.status === 4 && !finalizedOrder)}}" ng-if="!itemLookup"></item-search>
+                      <input type="text" class="form-control" ng-disabled="true" ng-if="itemLookup" placeholder="{{ '1415' | translate }}">
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div id="touchItems" class="autoOverflow height35">
+                    <div class="list-group">
+                      <documentitem template="touch-template.htm"></documentitem>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="simple-tenders noOverflow" ng-if="showQtenders">
+                    <div class="row" ng-repeat="qTender in qTenders" ng-if="$index % 2 == 0">
+                      <div class="col-xs-6 top-margin" ng-if="qTenders[$index].translate!==2245">
+                        <button event-name="posTransaction{{qTenders[$index].name}}" tabindex="{{$index+750}}" type="button" class="btn btn-info btn-block" id="{{qTenders[$index].name}}Button" ng-click="tenderTransaction(qTenders[$index].name)">
+                          <span data-translate="{{qTenders[$index].translate}}">{{qTenders[$index].name}}</span>
+                        </button>
+                      </div>
+                      <div class="col-xs-6 top-margin" ng-if="qTenders[$index].translate===2245">
+                        <button event-name="posTransactionCOD" tabindex="{{$index+750}}" type="button" class="btn btn-info btn-block" id="CODButton" ng-click="tenderTransaction('COD')">
+                          <span>{{qTenders[$index].name}}</span>
+                        </button>
+                      </div>
+                      <div class="col-xs-6 top-margin" ng-if="qTenders[$index+1].translate!==2245 && qTenders[$index+1]">
+                        <button event-name="posTransaction{{qTenders[$index+1].name}}" tabindex="{{$index+1+750}}" type="button" class="btn btn-info btn-block" id="{{qTenders[$index+1].name}}Button" ng-click="tenderTransaction(qTenders[$index+1].name)">
+                          <span data-translate="{{qTenders[$index+1].translate}}">{{qTenders[$index+1].name}}</span>
+                        </button>
+                      </div>
+                      <div class="col-xs-6 top-margin" ng-if="qTenders[$index+1].translate===2245 && qTenders[$index+1]">
+                        <button event-name="posTransactionCOD" tabindex="{{$index+751}}" type="button" class="btn btn-info btn-block" id="CODButton" ng-click="tenderTransaction('COD')">
+                          <span>{{qTenders[$index+1].name}}</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="btn-group btn-group-justified top-margin">
+                    <div class="btn-group">
+                      <order-details-button></order-details-button>
+                    </div>
+                    <div class="btn-group">
+                      <button event-name="posTouchTransactionDetails" type="button" class="btn btn-info btn-block large-text" ng-disabled="transactionDetailsButton" ng-click="transactionDetails()"><span data-translate="779">Transaction Details</span></button>
+                    </div>
+                    <div class="btn-group">
+                      <transaction-coupon-button class="btn btn-info btn-block large-text"></transaction-coupon-button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-3 text-right">
+                      <p class="form-control-static">
+                        <strong data-translate="1524">Subtotal:</strong>
+                      </p>
+                    </div>
+                    <div class="col-xs-3">
+                      <p class="form-control-static">
+                        {{document.transaction_subtotal|currency}}
+                      </p>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                      <p class="form-control-static">
+                        <strong data-translate="1525">Tax:</strong>
+                      </p>
+                    </div>
+                    <div class="col-xs-3">
+                      <p class="form-control-static">
+                        {{document.transaction_total_tax_amt|tax}}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row top-margin">
+                    <div class="col-xs-12">
+                      <input type="text" id="documentTotal" class="text-right bg-info documentTotal text-primary" value="{{document.due_amt |currency}}">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <button event-name="posTouchTenderTransaction" tabindex="799" type="button" id="tenderbutton" class="btn btn-success btn-block btn-large" ng-click="tenderTransaction()" ng-disabled="tenderbutton">
+                        <span data-translate="643" ng-if="!tenderbutton||itemsToProcess.length===0">Tender Transaction</span>
+                        <span ng-if="tenderbutton&&itemsToProcess.length>0">{{'3733'|translate}}...</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+		        </div>
+        </div>
+    </div>
+    <action-button-bar ng-if="posButtons" action-bar="posButtons"></action-button-bar>
+</form>
+<style>
+  #buttonArea {
+    height: calc(77vh - 20px);
+  }
+</style>

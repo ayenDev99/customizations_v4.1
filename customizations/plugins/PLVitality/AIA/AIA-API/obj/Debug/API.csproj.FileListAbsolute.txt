@@ -1,0 +1,202 @@
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\AIA-API.exe.config
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\AIA-API.exe
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\AIA-API.pdb
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Google.Protobuf.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\MySql.Data.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Buffers.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.IO.Pipelines.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Memory.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Text.Json.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.ValueTuple.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Topshelf.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\ZstdSharp.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Google.Protobuf.pdb
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Google.Protobuf.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Diagnostics.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\MySql.Data.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Buffers.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.IO.Pipelines.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Memory.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Text.Json.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\System.ValueTuple.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\bin\Debug\Topshelf.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\obj\Debug\API.csproj.AssemblyReference.cache
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\obj\Debug\API.csproj.SuggestedBindingRedirects.cache
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\obj\Debug\AIA-API.exe.config
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\obj\Debug\API.csproj.CoreCompileInputs.cache
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\obj\Debug\API.csproj.Up2Date
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\obj\Debug\AIA-API.exe
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA\AIA-API\obj\Debug\AIA-API.pdb
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\obj\Debug\API.csproj.AssemblyReference.cache
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\obj\Debug\API.csproj.SuggestedBindingRedirects.cache
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\obj\Debug\AIA-API.exe.config
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\obj\Debug\API.csproj.CoreCompileInputs.cache
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\AIA-API.exe.config
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\AIA-API.exe
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\AIA-API.pdb
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Google.Protobuf.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\GXGlobalLicensing.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\MySql.Data.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Newtonsoft.Json.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Buffers.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.IO.Pipelines.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Memory.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Text.Json.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.ValueTuple.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Topshelf.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\ZstdSharp.dll
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Google.Protobuf.pdb
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Google.Protobuf.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Diagnostics.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\MySql.Data.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Newtonsoft.Json.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Buffers.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.IO.Pipelines.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Memory.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Text.Json.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\System.ValueTuple.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\bin\Debug\Topshelf.xml
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\obj\Debug\API.csproj.Up2Date
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\obj\Debug\AIA-API.exe
+C:\Users\JOHN.TEODORO\OneDrive - Genie Technologies Inc\Desktop\AIA Installer\PLVitality\AIA\AIA-API\obj\Debug\AIA-API.pdb
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\AIA-API.exe.config
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\AIA-API.exe
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\AIA-API.pdb
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\BouncyCastle.Cryptography.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Google.Protobuf.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\K4os.Hash.xxHash.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Options.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\MySql.Data.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Newtonsoft.Json.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Buffers.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.IO.Pipelines.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Memory.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Numerics.Vectors.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Text.Encodings.Web.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Text.Json.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.ValueTuple.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Topshelf.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\ZstdSharp.dll
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\BouncyCastle.Cryptography.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Google.Protobuf.pdb
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Google.Protobuf.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\K4os.Hash.xxHash.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Diagnostics.Abstractions.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Options.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\MySql.Data.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Buffers.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.IO.Pipelines.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Memory.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Numerics.Vectors.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Text.Encodings.Web.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Text.Json.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\System.ValueTuple.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\bin\Debug\Topshelf.xml
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\obj\Debug\API.csproj.AssemblyReference.cache
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\obj\Debug\API.csproj.SuggestedBindingRedirects.cache
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\obj\Debug\AIA-API.exe.config
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\obj\Debug\API.csproj.CoreCompileInputs.cache
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\obj\Debug\API.csproj.Up2Date
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\obj\Debug\AIA-API.exe
+C:\ProgramData\RetailPro\Server\WebClient\customizations\plugins\PLVitality\AIA\AIA-API\obj\Debug\AIA-API.pdb

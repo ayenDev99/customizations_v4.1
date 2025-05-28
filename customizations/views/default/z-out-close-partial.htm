@@ -1,0 +1,278 @@
+
+<!--
+==============================================================================================================
+
+Copyright (c) 2020 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+<form novalidate="" id="zOutCloseForm" name="zOutCloseForm" class="form-horizontal relative" ng-init="initialize()">
+  <div class="col-xs-12">
+    <div ng-switch on="state.step" ng-show="!DisplayReport">
+      <div ng-switch-when="0">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <h4 class="panel-title" data-translate="2244">Close Register</h4>
+              </div>
+
+              <div class="col-xs-6">
+                <top-filter-change-button asklayout="2" disable="doDisableTFButton" on-close="updateTopFilter">
+                </top-filter-change-button>
+              </div>
+
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-12">
+                <p class="text-center" data-translate="2272">
+                  Select the location of the register you would like to close.
+                  Click Next to continue.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h3 class="panel-title" data-translate="2265">
+                      Register Criteria
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="col-xs-12">
+                      <div class="form-group">
+                        <label class="control-label" for="subsidiary" data-translate="562">Subsidiary:</label>
+                        <input type="text" id="subsidiary" ng-model="state.subsidiaryName" class="form-control" ng-readonly="true">
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label" for="store" data-translate="683">Store:</label>
+                        <input type="text" id="store" ng-model="state.storeName" class="form-control" ng-readonly="true">
+                      </div>
+
+                      <div class="form-group" ng-class="{'has-error': !zOutCloseForm.workstation.$valid }">
+                        <label class="control-label" for="workstation" data-translate="809">Workstation:</label>
+                        <select id="workstation" name="workstation" ng-model="filter.workstation" ng-change="changeWorkstation(filter.workstation,'{{filter.workstation}}')" class="form-control" ng-options="c.sid as c.workstation_number + ' :' + c.workstation_name for c in workstations" ng-disabled="state.workstationDisabled" ng-required="!state.workstationDisabled">
+                          <option value="" data-translate="1143" ng-if="state.workstationDisabled">All</option>
+                        </select>
+                        <!-- <input type="checkbox" id="zout-consolidate-all-checkbox">
+                        <label>Consolidate data from all workstations (print-out only)</label> -->
+                      </div>
+
+                      <div class="form-group" ng-class="{'has-error': !zOutCloseForm.drawer.$valid }">
+                        <label class="control-label" for="drawer" data-translate="662">Drawer:</label>
+                        <select id="drawer" name="drawer" ng-change="changeFilter()" ng-model="filter.drawer" class="form-control" ng-disabled="state.drawerDisabled" ng-required="!state.drawerDisabled">
+                          <option value="" data-translate="1143" ng-if="state.drawerDisabled">All</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group" ng-class="{'has-error': !zOutCloseForm.till.$valid }">
+                        <label class="control-label" for="till" data-translate="661">Till:</label>
+                        <select id="till" name="till" ng-model="filter.till" ng-change="changeFilter()" class="form-control" ng-options="c.sid as c.till_name for c in tills" ng-disabled="state.tillDisabled" ng-required="!state.tillDisabled">
+                          <option value="" data-translate="1143" ng-if="state.tillDisabled">All</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group" ng-class="{'has-error': !zOutCloseForm.cashier.$valid }">
+                        <label class="control-label" for="cashier" data-translate="622">Cashier:</label>
+                        <select id="cashier" name="cashier" ng-change="changeFilter()" ng-model="filter.cashier" class="form-control" ng-options="e.value as e.name for e in employees" ng-disabled="state.cashierDisabled" ng-required="!state.cashierDisabled">
+                          <option value="" data-translate="1143" ng-if="state.cashierDisabled">All</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-8">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-switch-when="1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <h4 class="panel-title" data-translate="2244">Close Register</h4>
+              </div>
+
+              <div class="col-xs-6">
+                <top-filter-change-button asklayout="2" disable="doDisableTFButton" on-close="updateTopFilter">
+                </top-filter-change-button>
+              </div>
+
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-12" ng-hide="requireDenominationCounts">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th data-translate="961">
+                        Currency
+                      </th>
+                      <th data-translate="964">
+                        Open Amount
+                      </th>
+                      <th data-translate="2273">
+                        Close Amount
+                      </th>
+                      <th data-translate="965">
+                        Leave Amount
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="currency in currencies" ng-init="">
+                      <td>
+                        {{currency.alphabetic_code }} : {{
+                        currency.currency_name }}
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" ng-model="openAmounts[currency.sid].amount" foreign-currency-formatter="currency" ng-disabled="true">
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" ng-model="closeAmounts[currency.sid].amount" ng-blur="blurComplete(currency.sid,'close');updateOpenTotal(0);" ng-focus="focusClear(currency.sid, 'close')" foreign-currency-formatter="currency">
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" ng-model="leaveAmounts[currency.sid].amount" ng-blur="blurComplete(currency.sid,'leave');updateOpenTotal(1);" ng-focus="focusClear(currency.sid, 'leave')" foreign-currency-formatter="currency">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span data-translate="1833">Total</span> -
+                        {{base_currency.currency_name}}
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" ng-model="totalOpenAmount" name="totalOpenAmount" ng-disabled="true" foreign-currency-formatter="base_currency" ng-required="{{requireOpenCounts}}">
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" ng-model="totalCloseAmount" name="totalCloseAmount" ng-disabled="true" foreign-currency-formatter="base_currency" ng-required="{{requireOpenCounts}}">
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" ng-model="totalLeaveAmount" name="totalOpenAmount" ng-disabled="true" foreign-currency-formatter="base_currency" ng-required="{{requireOpenCounts}}">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ng-switch-when="2">
+        <!-- ng-controller="zOutCurrencyMediaCountController" -->
+
+        <div ng-include="templates.pos.register.zout_currency_media_counts()"></div>
+
+        <!-- <div class="col-sm-4">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h1 class="panel-title"> <span data-translate="962">Currency:</span> {{ selected_currency.currency_name }}</h1>
+								</div>
+								<div class="panel-body">
+									<div class="col-sm-12">
+										<ul class="nav nav-pills nav-stacked">
+											<li ng-class="{'active': selected_currency.sid ===  currency.sid, '': selected_currency.sid !==  currency.sid}" ng-repeat="currency in currencies" ng-click="changeCurrency(currency);">
+												<a>
+													{{currency.alphabetic_code }} : {{ currency.name }}
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-8">
+							<div class="panel panel-default">
+
+								<div class="panel-heading">
+									<h1 class="panel-title" data-translate="1830">Z Out Close: Currency Media Counts</h1>
+								</div>
+								<div class="panel-body">
+									<div class="col-sm-8">
+										<table class="table table-striped table-bordered table-condensed">
+											<thead>
+											<tr>
+												<th class="col-sm-4" data-translate="1831">
+													Denomination
+												</th>
+												<th class="col-sm-1" data-translate="1832">
+													Count
+												</th>
+												<th class="col-sm-4" data-translate="1833">
+													Total
+												</th>
+											</tr>
+											</thead>
+											<tr ng-repeat="denomination in selected_currency.denominations">
+												<td class="col-sm-4">
+													{{ denomination.denoomination_name }}
+												</td>
+												<td class="col-sm-1">
+													<input type="text" class="form-control" ng-blur="checkValue(denomination);" reg-exp-require="^[0-9]\d*$" ng-model="denomination.count" ng-change="updateDenomination(denomination, selected_currency); refreshTotal();" ng-disabled="isReconciled" />
+												</td>
+												<td class="col-sm-4">
+													{{ denomination.formatted_total  }}
+												</td>
+											</tr>
+										</table>
+										<input type="text" ng-model="selected_currency.override_amount" placeholder="{{ '1859' | translate }}" ng-change="overrideTotal()" ng-show="false" />
+									</div>
+									<div class="col-sm-4">
+										<div class="control-group">
+											<label class="control-label" for="open_amount" data-translate="964">Open Amount:</label>
+											<div class="controls">
+												<input id="open_amount" class="form-control" type="text" ng-model="selected_currency.open_amount" ng-disabled="true" format-decimal="selected_currency.decimals" />
+											</div>
+
+											<label class="control-label" for="leave_amount" data-translate="965">Leave Amount:</label>
+											<div class="controls">
+												<input id="leave_amount" class="form-control" type="text" ng-model="selected_currency.leave_amount" ng-disabled="isReconciled" format-decimal="selected_currency.decimals" />
+											</div>
+
+											<label class="control-label" for="total_currency"><span data-translate="1833">Total</span> {{ selected_currency.name }}:</label>
+											<div class="controls">
+												<input id="total_currency" class="form-control" type="text" ng-model="selected_currency.total_currency_string" ng-readonly="true" ng-required="true" />
+											</div>
+
+											<label class="control-label" for="grand_total" data-translate="967">Grand Total:</label>
+											<div class="controls">
+												<input id="grand_total" class="form-control" type="text" ng-model="grand_total_currency_string" ng-readonly="true" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> -->
+      </div>
+      <div ng-switch-when="3">
+        <div ng-include="templates.pos.register.zout_non_currency_media_counts()"></div>
+      </div>
+      <div ng-switch-when="4">
+        <div ng-include="templates.pos.register.zout_close_summary_partial()"></div>
+      </div>
+    </div>
+
+    <div class="col-xs-12" ng-show="DisplayReport" id="xOutReport">
+      <div class="panel panel-default">
+        <div class="panel-heading" data-translate="1862">Preview Z-Out</div>
+        <div class="panel-body">
+          <iframe id="preview_frame" class="col-xs-12" ng-src="{{templates.pos.register.xout_preview()}}" style="height: 700px; border: none;">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button-bar button-view="nav-z-out-close-buttons-partial.htm"></button-bar>
+</form>

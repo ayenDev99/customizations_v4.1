@@ -1,0 +1,1274 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2024 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+<form name="form.transactionDetailsForm" id="transactionDetailsForm" class="form-horizontal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 data-translate="779">Transaction Details</h4>
+        </div>
+        <div class="modal-body inheritOverflow">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <p class="form-control-static">
+                        <strong data-translate="622">Cashier:</strong> {{form.document.cashier_login_name}}
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="form-control-static">
+                          <strong data-translate="794">Document Number</strong> {{form.document.document_number}}
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="form-control-static">
+                          <strong data-translate="7468">Return Ref Number</strong> {{form.document.ref_sale_doc_no}}
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                      <p class="form-control-static">
+                        <strong data-translate="7469">Order Ref Number</strong> {{form.document.ref_order_doc_no}}
+                      </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <p class="form-control-static">
+                          <strong data-translate="562">Subsidiary:</strong> {{form.document.subsidiary_number}} : {{form.document.subsidiary_name}}
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="form-control-static">
+<!--                            <strong data-translate="553">Price Level:</strong> {{form.document.price_lvl_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong data-translate="4866">Season</strong> {{form.seasonName}}-->
+                            <strong data-translate="553">Price Level:</strong> {{form.document.price_lvl_name}}
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="form-control-static">
+                            <strong data-translate="7470">Return Ref Doc Date/Time</strong><span class="form-control-static" ng-if="form.document.ref_sale_created_datetime"> {{form.document.ref_sale_created_datetime|cleanDate:'locale'}}</span>
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                      <p class="form-control-static">
+                        <strong data-translate="7471">Order Ref Doc Date/Time</strong> <span class="form-control-static" ng-if="form.document.ref_order_created_datetime"> {{form.document.ref_order_created_datetime|cleanDate:'locale'}}</span>
+                      </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <p class="form-control-static">
+                          <strong data-translate="683">Store:</strong> {{form.document.store_number}} : {{form.document.store_name}}
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                      <p class="form-control-static">
+                        <strong data-translate="554">Tax Area:</strong> {{form.document.tax_area_name}}
+                      </p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="form-control-static">
+                            <strong data-translate="7472">Return Ref Doc Tax Area</strong> {{form.document.ref_sale_tax_area_name}}
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                      <p class="form-control-static">
+                        <strong data-translate="7473">Order Ref Doc Tax Area</strong> {{form.document.ref_order_tax_area_name}}
+                      </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <button event-name="posTransactionDetailsGeneral" type="button" class="btn btn-info" tabindex="1" id="General-Tab" ng-disabled="tabs.general" ng-click="changeTemplate('general')">
+                            <span data-translate="685">General</span></button>
+                        <button event-name="posTransactionDetailsFees" type="button" class="btn btn-info" tabindex="2" id="Fees-Tab" ng-disabled="tabs.fees" ng-click="changeTemplate('fees')">
+                            <span data-translate="783">Fees</span></button>
+                        <button event-name="posTransactionDetailsShipping" type="button" class="btn btn-info" tabindex="3" id="Shipping-Tab" ng-disabled="tabs.shipping || form.hasItemShipping" ng-click="changeTemplate('shipping')">
+                            <span data-translate="784">Shipping</span></button>
+                        <button event-name="posTransactionDetailsAssociate" type="button" class="btn btn-info" tabindex="4" id="Associate-Tab" ng-disabled="tabs.associate" ng-click="changeTemplate('associate')">
+                            <span data-translate="699">Associate</span></button>
+                        <button event-name="posTransactionDetailsPriceLevels" type="button" class="btn btn-info" tabindex="5" id="PriceLevels-Tab" ng-disabled="tabs.pricelevels" ng-click="changeTemplate('pricelevels')">
+                            <span data-translate="710">Price Levels</span></button>
+                        <button event-name="posTransactionDetailsDiscounts" type="button" class="btn btn-info" tabindex="6" id="Discounts-Tab" ng-disabled="tabs.discounts" ng-click="changeTemplate('discounts')">
+                            <span data-translate="713">Discounts</span></button>
+                        <button event-name="posTransactionDetailsLoyalty" type="button" class="btn btn-info" tabindex="7" id="Loyalty-Tab" ng-disabled="tabs.loyalty" ng-click="changeTemplate('loyalty')" ng-if="prefs.pos_loyalty_enabled.toLowerCase() !== 'false'">
+                            <span data-translate="4618">Loyalty</span></button>
+                        <button event-name="posTransactionDetailsTaxes" type="button" class="btn btn-info" tabindex="7" id="Taxes-Tab" ng-disabled="tabs.taxes" ng-click="changeTemplate('taxes')">
+                            <span data-translate="719">Taxes</span></button>
+                        <button event-name="posTransactionDetailsNotes" type="button" class="btn btn-info" tabindex="8" id="Notes-Tab" ng-disabled="tabs.notes" ng-click="changeTemplate('notes')">
+                            <span data-translate="594">Notes</span></button>
+                    </div>
+                </div>
+                <div ng-show="tabs.general">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="1391">Store</span> / <span data-translate="3267">Transaction Date</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="col-xs-4 text-right">
+                                            <p class="form-control-static">
+                                                <strong data-translate="683">Store</strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select convert-to-number id="storeNumber" name="storeNumber" class="form-control" tabindex="9" ng-disabled="true" ng-model="form.document.store_number" ng-options="s.store_number as s.store_number   + ': ' + s.store_name for s in storeInThisSubsidiaryList">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                    </div>
+                                  <pos-invoice-posted-date></pos-invoice-posted-date>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6" ng-if="form.document.reason_code">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="8016">Discard Reason Code</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="col-xs-4 text-right">
+                                            <p class="form-control-static">
+                                                <strong data-translate="686">Reason</strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select id="reasonCode" name="reasonCode" class="form-control" tabindex="10" ng-disabled="true" ng-model="form.document.reason_code" ng-options="r.name as r.name for r in transactionReasonList">
+                                            </select>
+                                        </div>
+                                    </div>
+                                  <div class="form-group">
+                                      <div class="col-xs-4 text-right">
+                                        <p class="form-control-static">
+                                        </p>
+                                      </div>
+                                      <div class="col-xs-8">
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-6 disp-flex">
+                            <div class="panel panel-default flex-grow1">
+                                <div class="panel-heading">
+                                    <span data-translate="1968">POS Flags</span>
+                                </div>
+                                <div class="panel-body">
+                                  <label class="col-xs-4 control-label">{{form.posFlag1}}</label>
+                                    <div class="form-group ng-class:{'has-error':posFlag1Required && !form.document.pos_flag1}">
+
+                                        <div class="col-xs-8">
+                                            <input id="pos_flag1_view" name="pos_flag1_view" class="form-control" type="text" tabindex="11" ng-hide="form.editMode" ng-disabled="true" ng-model="form.document.pos_flag1">
+                                            <select id="pos_flag1" name="pos_flag1" class="form-control" tabindex="11" data-permission="EditFormerPOSDetails" data-collect-permission data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" ng-show="form.editMode" ng-model="optionValue1" ng-options="s.flag_id.toString() as s.flag_option disable when !s.is_active for s in posFlag1List" ng-change="selectedOption(1,optionValue1)">
+                                            </select>
+                                        </div>
+                                    </div>
+                                  <label class="col-xs-4 control-label">{{form.posFlag2}}</label>
+                                    <div class="form-group ng-class:{'has-error':posFlag2Required && !form.document.pos_flag2}">
+
+                                        <div class="col-xs-8">
+                                            <input id="pos_flag2_view" name="pos_flag2_view" class="form-control" type="text" tabindex="13" ng-hide="form.editMode" ng-disabled="true" ng-model="form.document.pos_flag2">
+                                            <select id="pos_flag2" name="pos_flag2" class="form-control" tabindex="13" data-permission="EditFormerPOSDetails" data-collect-permission data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" ng-show="form.editMode" ng-model="optionValue2" ng-options="s.flag_id.toString() as s.flag_option disable when !s.is_active for s in posFlag2List" ng-change="selectedOption(2,optionValue2)">
+                                            </select>
+                                        </div>
+                                    </div>
+                                  <label class="col-xs-4 control-label">{{form.posFlag3}}</label>
+                                    <div class="form-group ng-class:{'has-error':posFlag3Required && !form.document.pos_flag3}">
+
+                                        <div class="col-xs-8">
+                                            <input id="pos_flag3_view" name="pos_flag3_view" class="form-control" type="text" tabindex="15" ng-hide="form.editMode" ng-disabled="true" ng-model="form.document.pos_flag3">
+                                            <select id="pos_flag3" name="pos_flag3" class="form-control" tabindex="15" data-permission="EditFormerPOSDetails" data-collect-permission data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" ng-show="form.editMode" ng-model="optionValue3" ng-options="s.flag_id.toString() as s.flag_option disable when !s.is_active for s in posFlag3List" ng-change="selectedOption(3,optionValue3)">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="1969">Comments</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="690">Comment 1</label>
+                                        <div class="col-xs-8">
+                                            <input type="text" id="comment1" name="comment1" class="form-control" tabindex="13" ng-model="form.document.comment1" data-permission="EditFormerPOSDetails" data-permission-disabled="!form.editMode" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" data-collect-permission ng-change="resetCommentDropdown(1)">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label">&nbsp;</label>
+                                        <div class="col-xs-8">
+                                            <select id="comment1Suggestion" name="comment1Suggestion" class="form-control" tabindex="12" ng-model="form.comment1Suggestion" ng-change="setComment(1)" data-permission="EditFormerPOSDetails" data-permission-disabled="!form.editMode" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" data-collect-permission ng-options="c.comments as c.comments for c in commentsInThisSubsidiaryList">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="691">Comment 2</label>
+                                        <div class="col-xs-8">
+                                            <input type="text" id="comment2" name="comment2" class="form-control" tabindex="13" ng-model="form.document.comment2" data-permission="EditFormerPOSDetails" data-permission-disabled="!form.editMode" data-collect-permission data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" ng-change="resetCommentDropdown(2)">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-4 text-right">
+                                            <p class="form-control-static">&nbsp;</p>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select id="comment2Suggestion" name="comment2Suggestion" class="form-control" tabindex="14" ng-model="form.comment2Suggestion" ng-change="setComment(2)" data-permission="EditFormerPOSDetails" data-permission-disabled="!form.editMode" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" data-collect-permission ng-options="c.comments as c.comments for c in commentsInThisSubsidiaryList">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="tabs.fees">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="692">Sales Fee</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="693">Fee Amount</label>
+                                        <div class="col-xs-8">
+                                          <button ng-if="perm2posallowsalesfee==='OVERRIDE'" class="form-control btn btn-info" ng-disabled="disableSaleFees || disableEdit " ng-click="overrideTrigger('posallowsalesfee')" title="Click Override">
+                                            <span>{{form.document.fee_amt1 | currency}}</span>
+                                          </button>
+                                          <input ng-if="perm2posallowsalesfee!=='OVERRIDE'" class="form-control" id="sales_fee_amt1" name="sales_fee_amt1" type="tel" tabindex="16" autoselect="true" data-currency-formatter numberonly ng-model="form.document.fee_amt1" ng-blur="validateNegative('posallownegativesalesfee')" ng-disabled="!perm2posallowsalesfee || disableSaleFees || disableEdit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="694">Fee Type</label>
+                                        <div class="col-xs-8">
+                                          <button ng-if="perm2posallowsalesfee==='OVERRIDE'" class="form-control btn btn-info" ng-disabled="disableSaleFees || disableEdit" ng-click="overrideTrigger('posallowsalesfee')" title="Click Override">
+                                            <span ng-if="form.document.fee_type1_sid">{{form.document.fee_name1}}</span>
+                                            <span ng-if="!form.document.fee_type1_sid" data-translate="1358">Select...</span>
+                                          </button>
+                                          <select ng-if="perm2posallowsalesfee!=='OVERRIDE'" class="form-control" id="sales_fee_name1_select" name="sales_fee_name1_select" tabindex="17" ng-required="form.document.fee_amt1" ng-model="form.document.fee_type1_sid" ng-disabled="!perm2posallowsalesfee || disableSaleFees || disableEdit" ng-options="s.sid as s.fee_name for s in saleFeeTypesInThisSubsidiaryList">
+                                            <option value style="display:none" data-translate="1358">Select...</option></select>
+                                          <input ng-if="perm2posallowsalesfee!=='OVERRIDE' && disableEdit" id="sales_fee_name1" name="sales_fee_name1" class="form-control" tabindex="17" ng-model="form.document.fee_name1" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="includeSalesTax" class="col-xs-8 col-xs-offset-4 form-control-static">
+                                            <input name="includeSalesTax" id="includeSalesTax" tabindex="18" type="checkbox" ng-disabled="true" class="checkbox-inline" ng-model="form.document.fee_tax_included1">
+                                            <span data-translate="1529">Include Tax</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="697">Fee Tax Amount:</label>
+                                        <div class="col-xs-8">
+                                            <input id="sale_fee_tax_amt1" name="sale_fee_tax_amt1" tabindex="19" type="tel" autoselect="true" class="form-control" numberonly data-currency-formatter="tax" ng-disabled="true" ng-model="form.document.fee_tax_amt1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-4 text-right">
+                                            <p class="form-control-static">
+                                                <strong data-translate="698">Fee Tax %</strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <input id="sale_fee_tax_perc1" name="sale_fee_tax_perc1" tabindex="20" type="tel" autoselect="true" class="form-control" numberonly data-currency-formatter="number" ng-disabled="true" ng-model="form.document.fee_tax_perc1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="692.1">Order Fee</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="693">Fee Amount</label>
+                                        <div class="col-xs-8">
+                                          <button ng-if="perm2posalloworderfee==='OVERRIDE'" class="form-control btn btn-info" ng-disabled="disableOrderFees||disableOrders" ng-click="overrideTrigger('posalloworderfee')" title="Click Override">
+                                            <span>{{form.document.order_fee_amt1 | currency}}</span>
+                                          </button>
+                                          <input ng-if="perm2posalloworderfee!=='OVERRIDE'" class="form-control" id="order_fee_amt1" name="order_fee_amt1" type="tel" tabindex="16" autoselect="true" data-currency-formatter="currency" numberonly ng-model="form.document.order_fee_amt1" ng-disabled="!perm2posalloworderfee||disableOrderFees||disableOrders">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="694">Fee Type</label>
+                                        <div class="col-xs-8">
+                                          <button ng-if="perm2posalloworderfee==='OVERRIDE'" class="form-control btn btn-info" ng-disabled="disableOrderFees||disableOrders" ng-click="overrideTrigger('posalloworderfee')" title="Click Override">
+                                            <span ng-if="form.document.order_fee_type1_sid">{{form.document.order_fee_name1}}</span>
+                                            <span ng-if="!form.document.order_fee_type1_sid" data-translate="1358">Select...</span>
+                                          </button>
+                                          <select ng-if="perm2posalloworderfee!=='OVERRIDE' && !disableEdit" class="form-control" id="order_fee_name1_select" name="order_fee_name1_select" tabindex="17" ng-required="!disableOrderFees&&form.document.order_fee_amt1" ng-model="form.document.order_fee_type1_sid" ng-disabled="!perm2posalloworderfee||disableOrderFees||disableOrders" ng-options="o.sid as o.fee_name for o in orderFeeTypesInThisSubsidiaryList">
+                                            <option value style="display:none" data-translate="1358">Select...</option>
+                                          </select>
+                                          <input ng-if="perm2posalloworderfee!=='OVERRIDE' && disableEdit" id="order_fee_name1" name="order_fee_name1" class="form-control" tabindex="17" ng-model="form.document.order_fee_name1" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="includeOrdersTax" class="col-xs-8 col-xs-offset-4 form-control-static">
+                                            <input name="includeOrdersTax" id="includeOrdersTax" tabindex="18" type="checkbox" class="checkbox-inline" ng-disabled="true" ng-model="form.document.order_fee_tax_included1">
+                                            <span data-translate="1529">Include Tax</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="697">Fee Tax Amount:</label>
+                                        <div class="col-xs-8">
+                                            <input id="order_fee_tax_amt1" name="order_fee_tax_amt1" tabindex="19" type="tel" autoselect="true" class="form-control" data-currency-formatter="tax" numberonly ng-disabled="true" ng-model="form.document.order_fee_tax_amt1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-4 text-right">
+                                            <p class="form-control-static">
+                                                <strong data-translate="698">Fee Tax %</strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <input id="order_fee_tax_perc1" name="order_fee_tax_perc1" tabindex="20" type="tel" class="form-control" data-currency-formatter="number" numberonly ng-disabled="true" ng-model="form.document.order_fee_tax_perc1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-translate="2102">
+                                    Fee Totals
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <div class="col-xs-7 text-right">
+                                                <p class="form-control-static">
+                                                    <strong data-translate="2103">
+                                                        Total Fee W/O Tax:
+                                                    </strong>
+                                                </p>
+                                            </div>
+                                            <div class="col-xs-5">
+                                                <input id="totalFeeWithoutTax" name="totalFeeWithoutTax" tabindex="21" type="tel" class="form-control" data-currency-formatter numberonly ng-disabled="true" ng-model="form.document.total_fee_amt_no_tax">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="col-xs-7 text-right">
+                                                <p class="form-control-static">
+                                                    <strong data-translate="2146">
+                                                        Total Fee With Tax
+                                                    </strong>
+                                                </p>
+                                            </div>
+                                            <div class="col-xs-5">
+                                                <input id="totalFeeWithTax" name="totalFeeWithTax" tabindex="21" type="tel" class="form-control" data-currency-formatter numberonly ng-disabled="true" ng-model="form.document.total_fee_amt">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <div class="col-xs-7 text-right">
+                                                <p class="form-control-static">
+                                                    <strong data-translate="2104">
+                                                        Total Fee Tax
+                                                    </strong>
+                                                </p>
+                                            </div>
+                                            <div class="col-xs-5">
+                                                <input id="totalFeeTax" name="totalFeeTax" tabindex="21" type="tel" class="form-control" data-currency-formatter numberonly ng-disabled="true" ng-model="form.document.total_fee_tax_amt">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="tabs.shipping" class="height50 autoOverflow">
+                  <div class="row row-eq-height">
+                    <div class="col-xs-6 disp-flex">
+                      <div class="panel panel-default flex-grow1">
+                        <div class="panel-heading">
+                          <span data-translate="1376">Bill To Customer</span>
+                        </div>
+                        <div class="panel-body">
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="637">First Name</label>
+                            <div class="col-xs-8">
+                              <p class="form-control-static">{{document.bt_first_name}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="636">Last Name</label>
+                            <div class="col-xs-8">
+                              <p class="form-control-static">{{document.bt_last_name}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="536">Address 1</label>
+                            <div class="col-xs-8">
+                              <p class="form-control-static">{{document.bt_address_line1}}</p>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="538">Address 2</label>
+                            <div class="col-xs-8">
+                              <p class="form-control-static">{{document.bt_address_line2}}</p>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-4 text-right">
+                              <p class="form-control-static">
+                                <strong data-translate="541">Postal Code</strong>
+                              </p>
+                            </div>
+                            <div class="col-xs-8">
+                              <p class="form-control-static">{{document.bt_postal_code}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xs-6">
+                      <div class="panel panel-default" ng-disabled="document.ref_record_sale">
+                        <div class="panel-heading text-right">
+                          <p class="pull-left form-control-static" data-translate="1377">Ship To Customer</p>
+                          <button event-name="posNewCustomer" tabindex="13" type="button" class="btn btn-info" id="shippingCustomerNewButton" data-permission="customerscreatecustomer" data-permission-disabled="!form.editMode || disableEdit || document.ref_record_sale" ng-click="newCustomer()">
+                            <span data-translate="516">New Customer</span>
+                          </button>
+                          <button event-name="posTransDetailCustomerLookup" tabindex="14" type="button" class="btn btn-info" id="shippingCustomerLookupButton" ng-disabled="!form.editMode || disableEdit || document.ref_record_sale " ng-click="shippingCustomer()"><span data-translate="517">Customer Lookup</span></button>
+                          <button event-name="posTransDetailShippingAddressLookup" tabindex="15" type="button" class="btn btn-info" id="shippingAddressLookupButton" ng-disabled="!perm2posallowposcustomeredit|| !form.editMode || !document.st_cuid || disableEdit || document.ref_record_sale" ng-click="shippingAddress()"><span data-translate="3096">Shipping Address</span></button>
+                          <button event-name="posTransDetailRemoveShippingAddress" tabindex="15" type="button" class="btn btn-info" id="shippingAddressRemoveButton" ng-disabled="!perm2posallowposcustomeredit|| !form.editMode || !document.st_cuid || disableEdit || document.ref_record_sale" ng-click="removeShippingAddress()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+
+                        </div>
+                        <div class="panel-body">
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="637">First Name</label>
+                            <div class="col-xs-8">
+                              <input readonly="readonly" tabindex="5" type="text" id="st_first_name" name="st_first_name" class="form-control" data-permission="EditFormerPOSCustomer" data-collect-permission data-permission-disabled="disableEdit || form.viewMode || item.kit_flag == 5" data-apply-permission-when="[{permission:'EditFormerPOSCustomer', condition:document.status === 4 || disableEdit}]" ng-model="form.document.st_first_name">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="636">Last Name</label>
+                            <div class="col-xs-8">
+                              <input readonly="readonly" tabindex="6" type="text" class="form-control" id="st_last_name" name="st_last_name" data-permission="EditFormerPOSCustomer" data-collect-permission data-permission-disabled="disableEdit || form.viewMode || document.kit_flag == 5" data-apply-permission-when="[{permission:'EditFormerPOSCustomer', condition:document.status === 4 || disableEdit}]" ng-model="form.document.st_last_name">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="536">Address 1</label>
+                            <div class="col-xs-8">
+                              <input readonly="readonly" tabindex="7" type="text" class="form-control" id="st_address_line1" name="st_address_line1" data-permission="EditFormerPOSCustomer" data-collect-permission data-permission-disabled="form.viewMode || document.kit_flag == 5" data-apply-permission-when="[{permission:'EditFormerPOSCustomer', condition:document.status === 4}]" ng-model="form.document.st_address_line1">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="538">Address 2</label>
+                            <div class="col-xs-8">
+                              <input readonly="readonly" tabindex="8" type="text" class="form-control" id="st_address_line2" name="st_address_line2" data-permission="EditFormerPOSCustomer" data-collect-permission data-permission-disabled="form.viewMode || document.kit_flag == 5" data-apply-permission-when="[{permission:'EditFormerPOSCustomer', condition:document.status === 4}]" ng-model="form.document.st_address_line2">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-xs-4 control-label" data-translate="541">Postal Code</label>
+                            <div class="col-xs-8">
+                              <input readonly="readonly" tabindex="9" type="tel" class="form-control" id="st_postal_code" name="st_postal_code" data-permission="EditFormerPOSCustomer" data-collect-permission data-permission-disabled="form.viewMode || document.kit_flag == 5" data-apply-permission-when="[{permission:'EditFormerPOSCustomer', condition:document.status === 4}]" ng-model="form.document.st_postal_code">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <span data-translate="974">Sales</span>
+                              </div>
+                              <div class="panel-body">
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="863">Shipping Amount</label>
+                                      <div class="col-xs-4">
+                                          <input type="text" id="saleShippingAmount" name="saleShippingAmount" class="form-control" data-currency-formatter numberonly ng-disabled="(!hasSaleItems&&!hasReturnItems)||(form.document.status === 4)||disableEdit || form.document.ref_record_sale" ng-model="form.document.shipping_amt_manual">
+                                      </div>
+                                      <div class="col-xs-3 col-xs-offset-1">
+                                          <input name="includeShippingTax" id="includeShippingTax" tabindex="18" type="checkbox" ng-disabled="true" ng-checked="form.document.shipping_tax_included===1" ng-model="form.document.shipping_tax_included">
+                                          <label class="control-label" for="includeShippingTax" data-translate="1529">Include Tax</label>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="861">Shipping Method</label>
+                                      <div class="col-xs-8">
+                                          <select tabindex="12" class="form-control" id="shippingMethod" name="shippingMethod" ng-disabled="!hasSaleItems||(form.document.status === 4 && !form.editMode)||disableEdit || form.document.ref_record_sale" ng-model="form.document.ship_method_sid" data-permission="EditFormerPOSDetails" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" ng-options="sm.sid as sm.method for sm in shipMethods">
+                                              <option value style="display:none;" data-translate="1358">Select...</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="2963">Shipping Tax Amount</label>
+                                      <div class="col-xs-8">
+                                          <input type="text" id="shippingTaxAmount" name="shippingTaxAmount" class="form-control" data-currency-formatter numberonly ng-disabled="true" ng-model="form.document.shipping_tax_amt">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="2964">Shipping Tax %</label>
+                                      <div class="col-xs-8">
+                                          <input type="text" id="shipingTaxPercent" name="shipingTaxPercent" class="form-control" ng-disabled="true" ng-model="form.document.shipping_tax_percentage">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="2965">Tracking Number</label>
+                                      <div class="col-xs-8">
+                                          <input type="text" id="shippingTrackingNumber" name="shippingTrackingNumber" class="form-control" ng-disabled="!hasSaleItems||(form.document.status === 4 && !form.editMode) || form.document.ref_record_sale" ng-model="form.document.tracking_number" data-permission="EditFormerPOSTrackingNumber" maxlength="30" data-apply-permission-when="[{permission:'EditFormerPOSTrackingNumber', condition:form.document.status === 4}]">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-6">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <span data-translate="749">Order</span>
+                              </div>
+                              <div class="panel-body">
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="863">Shipping Amount</label>
+                                      <div class="col-xs-4">
+                                          <input type="text" id="orderShippingAmount" name="orderShippingAmount" class="form-control" ng-class="{'ng-invalid':(hasOrderItems && !disableOrders) && form.document.order_shipping_amt_manual > 0 && form.document.order_shipping_amt_manual <= document.order_shipping_amt_manual_used}" data-currency-formatter numberonly ng-disabled="!hasOrderItems||disableOrders||(form.document.status === 4 && document.so_cancel_flag && !form.editMode)" ng-model="form.document.order_shipping_amt_manual" data-permission="EditFormerPOSDetails" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:(form.document.status === 4 && form.document.so_cancel_flag)}]">
+                                      </div>
+                                      <div class="col-xs-3 col-xs-offset-1">
+                                          <input name="includeOrderTax" id="includeOrderTax" tabindex="18" type="checkbox" ng-disabled="true" ng-checked="form.document.order_shipping_tax_included===1" ng-model="form.document.order_shipping_tax_included">
+                                          <label class="control-label" for="includeOrderTax" data-translate="1529">Include Tax</label>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="861">Shipping Method</label>
+                                      <div class="col-xs-8">
+                                          <select tabindex="12" class="form-control" id="orderShippingMethod" name="orderShippingMethod" ng-disabled="!hasOrderItems||disableOrders||(form.document.status === 4 && form.document.so_cancel_flag && !form.editMode)" ng-model="form.document.order_ship_method_sid" data-permission="EditFormerPOSDetails" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:document.status === 4}]" ng-options="sm.sid as sm.method for sm in shipMethods">
+                                              <option value style="display:none" data-translate="1358">Select...</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="2963">Shipping Tax Amount</label>
+                                      <div class="col-xs-8">
+                                          <input type="text" id="orderShippingTaxAmount" name="orderShippingTaxAmount" class="form-control" data-currency-formatter numberonly ng-disabled="true" ng-model="form.document.order_shipping_tax_amt">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="2964">Shipping Tax %</label>
+                                      <div class="col-xs-8">
+                                          <input type="text" id="orderShippingTaxPercent" name="orderShippingTaxPercent" class="form-control" ng-disabled="true" ng-model="form.document.order_shipping_tax_perc">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-xs-4 control-label" data-translate="2965">Tracking Number</label>
+                                      <div class="col-xs-8">
+                                          <input type="text" id="orderShippingTrackingNumber" name="orderShippingTrackingNumber" class="form-control" ng-disabled="!hasOrderItems||disableOrders||(form.document.status === 4 && !form.editMode)" ng-model="form.document.order_tracking_number" maxlength="30" data-permission="EditFormerPOSTrackingNumber" data-apply-permission-when="[{permission:'EditFormerPOSTrackingNumber', condition:document.status === 4}]">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="2966">Shipping Totals</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                          <label class="control-label col-xs-8" data-translate="2969">Total Shipping W/O Tax</label>
+                                          <div class="col-xs-4">
+                                            <input type="text" id="documentShippingTotalWithoutTax" name="documentShippingTotalWithoutTax" class="form-control" data-currency-formatter numberonly ng-disabled="true" ng-model="form.document.transaction_total_shipping_amt_no_tax">
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-4">
+                                          <label class="control-label col-xs-8" data-translate="2971">Total Shipping With Tax</label>
+                                          <div class="col-xs-4">
+                                            <input type="text" id="documentShippingTotalWithTax" name="documentShippingTotalWithTax" class="form-control" data-currency-formatter numberonly ng-disabled="true" ng-model="form.document.transaction_total_shipping_amt_with_tax">
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-4">
+
+                                          <label class="control-label col-xs-8" data-translate="2970">Total Shipping Tax</label>
+                                          <div class="col-xs-4">
+                                            <input type="text" id="documentShippingTax" name="documentShippingTax" class="form-control" data-currency-formatter numberonly ng-disabled="true" ng-model="form.document.transaction_total_shipping_tax">
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="tabs.associate">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="622">Cashier</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-right">
+                                            <p class="form-control-static">
+                                                <strong data-translate="622">Cashier</strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select id="cashier_login_name" name="cashier_login_name" data-permission="PosChangeCashier" data-permission-disabled="form.document.status === 4||disableEdit" class="form-control" tabindex="21" ng-options="cashier.value as cashier.name for cashier in cashierList" ng-model="form.document.cashier_sid"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="699">Associate</span>
+                                </div>
+                                <div class="panel-body" id="associatePane">
+                                    <div class="form-group">
+                                      <label class="col-xs-2 control-label" data-translate="700">Associate 1</label>
+                                      <div class="col-xs-4">
+                                        <select id="employee1_login_name" name="employee1_login_name" tabindex="22" class="form-control" data-permission="EditFormerPOSAssociate,PosChangeAssociate" data-permission-disabled="!form.editMode || form.document.ref_record_sale" data-apply-permission-when="[{permission:'EditFormerPOSAssociate', condition:form.document.status === 4},{permission:'PosChangeAssociate', condition:true}]" ng-change="detectDuplicateAssociates(form.document.employee1_sid, 0)" ng-model="form.document.employee1_sid" ng-options="associate.value as associate.name for associate in associateList"><option value style="display:none" data-translate="1358">Select...</option>
+                                        </select>
+                                      </div>
+                                      <div class="col-xs-1">
+                                        <button event-name="removeAssociate1" type="button" class="btn btn-info" ng-disabled="!form.editMode || form.document.employee1_sid === '' || form.document.activity_percent>0 || form.document.ref_record_sale" ng-click="removeAssociate(1)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                      </div>
+                                      <label class="col-xs-1 control-label" data-translate="701">Associate 1 Act %</label>
+                                      <div class="col-xs-4">
+                                        <input id="activity_percent" name="activity_percent" tabindex="23" type="tel" autoselect="true" class="form-control" data-currency-formatter="number" numberonly ng-disabled="!form.editMode || !form.document.employee1_sid || form.document.ref_record_sale" ng-model="form.document.activity_percent">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-xs-2 control-label" data-translate="702">Associate 2</label>
+                                      <div class="col-xs-4">
+                                        <select id="employee2_login_name" name="employee2_login_name" tabindex="24" class="form-control" data-permission="EditFormerPOSAssociate,PosChangeAssociate" data-permission-disabled="!form.editMode || form.document.ref_record_sale" data-apply-permission-when="[{permission:'EditFormerPOSAssociate', condition:form.document.status === 4},{permission:'PosChangeAssociate', condition:true}]" ng-change="detectDuplicateAssociates(form.document.employee2_sid, 1)" ng-model="form.document.employee2_sid" ng-options="associate.value as associate.name for associate in associateList"><option value style="display:none" data-translate="1358">Select...</option>
+                                        </select>
+                                      </div>
+                                      <div class="col-xs-1">
+                                        <button event-name="removeAssociate2" type="button" class="btn btn-info" ng-disabled="!form.editMode || form.document.employee1_sid === '' || form.document.activity2_percent>0 || form.document.ref_record_sale" ng-click="removeAssociate(2)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                      </div>
+                                      <label class="col-xs-1 control-label" data-translate="703">Associate 2 Act %</label>
+                                      <div class="col-xs-4">
+                                        <input id="activity2_percent" name="activity2_percent" tabindex="25" type="tel" autoselect="true" class="form-control" data-currency-formatter="number" numberonly ng-disabled="!form.editMode || !form.document.employee2_sid || form.document.ref_record_sale" ng-model="form.document.activity2_percent">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-xs-2 control-label" data-translate="704">Associate 3</label>
+                                      <div class="col-xs-4">
+                                        <select id="employee3_login_name" name="employee3_login_name" tabindex="26" class="form-control" data-permission="EditFormerPOSAssociate,PosChangeAssociate" data-permission-disabled="!form.editMode || form.document.ref_record_sale" data-apply-permission-when="[{permission:'EditFormerPOSAssociate', condition:form.document.status === 4},{permission:'PosChangeAssociate', condition:true}]" ng-change="detectDuplicateAssociates(form.document.employee3_sid, 2)" ng-model="form.document.employee3_sid" ng-options="associate.value as associate.name for associate in associateList"><option value style="display:none" data-translate="1358">Select...</option>
+                                        </select>
+                                      </div>
+                                      <div class="col-xs-1">
+                                        <button event-name="removeAssociate3" type="button" class="btn btn-info" ng-disabled="!form.editMode || form.document.employee1_sid === '' || form.document.activity3_percent>0 || form.document.ref_record_sale" ng-click="removeAssociate(3)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                      </div>
+                                      <label class="col-xs-1 control-label" data-translate="705">Associate 3 Act %</label>
+                                      <div class="col-xs-4">
+                                        <input id="activity3_percent" name="activity3_percent" tabindex="27" type="tel" autoselect="true" class="form-control" data-currency-formatter="number" numberonly ng-disabled="!form.editMode || !form.document.employee3_sid || form.document.ref_record_sale" ng-model="form.document.activity3_percent">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-xs-2 control-label" data-translate="706">Associate 4</label>
+                                      <div class="col-xs-4">
+                                        <select id="employee4_login_name" name="employee4_login_name" tabindex="28" class="form-control" data-permission="EditFormerPOSAssociate,PosChangeAssociate" data-permission-disabled="!form.editMode || form.document.ref_record_sale" data-apply-permission-when="[{permission:'EditFormerPOSAssociate', condition:form.document.status === 4},{permission:'PosChangeAssociate', condition:true}]" ng-change="detectDuplicateAssociates(form.document.employee4_sid, 3)" ng-model="form.document.employee4_sid" ng-options="associate.value as associate.name for associate in associateList"><option value style="display:none" data-translate="1358">Select...</option>
+                                        </select>
+                                      </div>
+                                      <div class="col-xs-1">
+                                        <button event-name="removeAssociate4" type="button" class="btn btn-info" ng-disabled="!form.editMode || form.document.employee1_sid === '' || form.document.activity4_percent>0 || form.document.ref_record_sale" ng-click="removeAssociate(4)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                      </div>
+                                      <label class="col-xs-1 control-label" data-translate="707">Associate 4 Act %</label>
+                                      <div class="col-xs-4">
+                                        <input id="activity4_percent" name="activity4_percent" tabindex="29" type="tel" autoselect="true" class="form-control" data-currency-formatter="number" numberonly ng-disabled="!form.editMode || !form.document.employee4_sid || form.document.ref_record_sale" ng-model="form.document.activity4_percent">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-xs-2 control-label" data-translate="708">Associate 5</label>
+                                      <div class="col-xs-4">
+                                        <select id="employee5_login_name" name="employee5_login_name" tabindex="30" class="form-control" data-permission="EditFormerPOSAssociate,PosChangeAssociate" data-permission-disabled="!form.editMode || form.document.ref_record_sale" data-apply-permission-when="[{permission:'EditFormerPOSAssociate', condition:form.document.status === 4},{permission:'PosChangeAssociate', condition:true}]" ng-change="detectDuplicateAssociates(form.document.employee5_sid, 4)" ng-model="form.document.employee5_sid" ng-options="associate.value as associate.name for associate in associateList"><option value style="display:none" data-translate="1358">Select...</option>
+                                        </select>
+                                      </div>
+                                      <div class="col-xs-1">
+                                        <button event-name="removeAssociate5" type="button" class="btn btn-info" ng-disabled="!form.editMode || form.document.employee1_sid === '' || form.document.activity5_percent>0 || form.document.ref_record_sale" ng-click="removeAssociate(5)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                                      </div>
+                                      <label class="col-xs-1 control-label" data-translate="709">Associate 5 Act %</label>
+                                      <div class="col-xs-4">
+                                        <input id="activity5_percent" name="activity5_percent" tabindex="31" type="tel" autoselect="true" class="form-control" data-currency-formatter="number" numberonly ng-disabled="!form.editMode || !form.document.employee5_sid || form.document.ref_record_sale" ng-model="form.document.activity5_percent">
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="tabs.pricelevels">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <p data-translate="1531">From the drop-down menu, choose the Price Level you want to apply to the transaction</p>
+                                    <div class="form-group">
+                                        <label class="col-xs-4 control-label" data-translate="553">
+                                            Price Level:
+                                        </label>
+                                        <div class="col-xs-4">
+                                            <select id="price_lvl" name="price_lvl" tabindex="32" class="form-control" ng-disabled="form.document.status === 4 || permissionService.checkDeny('poschangepricelevel') || disableEdit" ng-change="checkPermPriceLevelChange()" ng-model="form.document.price_lvl" ng-options="p.pricelvl as p.pricelvlname for p in pricelevelList"><option value style="display:none" data-translate="1358">Select...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-4 col-xs-offset-4">
+                                            <div class="checkbox">
+                                                <label for="applyToNew">
+                                                    <input name="applyToNew" id="applyToNew" tabindex="33" type="checkbox" ng-disabled="form.document.status === 4 || permissionService.checkDeny('poschangepricelevel') || (!canChangePriceLevel)" ng-model="form.priceLevelChangeExisting">
+                                                    <strong data-translate="1532">Apply to Existing Items</strong>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <p><span data-translate="1534">Making changes will override the current transaction price level.</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs->Discount  -->
+                <div ng-if="(tabs.discounts&&!isCustomerRequiredForDiscount||(isCustomerRequiredForDiscount&&tabs.discounts&&document.bt_cuid.length>0))">
+                    <div class="row">
+                        <!-- Tabs->Discount->Sales Pane  -->
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-translate="2895">
+                                    Sale Discount
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row top-margin">
+                                            <div class="col-xs-12 btn-group btn-group-justified">
+                                              <div class="btn-group">
+                                                    <button event-name="posTransactionDetailsDiscountAmount" name="discount_amount_button" type="button" class="btn btn-info" btn-radio="'amt'" onclick="setTimeout(function(){document.getElementById('discountInput1').focus();document.getElementById('discountInput1').select()},100)" ng-click="changeSaleDiscType('amt')" id="discount_amount_button" data-permission-disabled="(!hasItems && form.document.discount_amount === 0 && form.document.discount_perc === 0) || form.document.status === 4 || (form.discountType === 'amt')" data-collect-permission ng-model="form.discountType" ng-disabled="form.discountType === 'amt' || giveDocDiscPermission">
+                                                            <span data-translate="715">Discount Amount</span>
+                                                    </button>
+                                              </div>
+                                              <div class="btn-group">
+                                                    <button event-name="posTransactionDetailsDiscountPercent" name="discount_percent_button" type="button" class="btn btn-info" btn-radio="'pct'" onclick="setTimeout(function(){document.getElementById('discountInput2').focus();document.getElementById('discountInput2').select()},100)" ng-click="changeSaleDiscType('pct')" id="discount_percent_button" data-permission-disabled="(!hasItems && form.document.discount_amount === 0 && form.document.discount_perc === 0) || form.document.status === 4 || (form.discountType !== 'amt')" data-collect-permission ng-model="form.discountType" ng-disabled="form.discountType !== 'amt' || giveDocDiscPermission">
+                                                            <span data-translate="714">Discount %</span>
+                                                    </button>
+                                              </div>
+                                            </div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <label class="col-xs-6 control-label" data-translate="2106">
+                                            Specify the amount of discount to apply to the transaction.
+                                        </label>
+                                        <!--Discount input fields are showed conditionally using ng-show(don't remove),so at all times those input fields are present in DOM which are being used for automation testing -->
+                                        <div class="col-xs-6" ng-show="saleDiscInput">
+                                            <input type="text" ng-blur="setFirstSaleReason()" name="discountInput" id="discountInput1" class="form-control" data-currency-formatter numberonly ng-disabled="saleDiscountInputDisable()||disableDiscounts()||disableEdit" ng-model="form.discountInput" min="0">
+                                        </div>
+                                        <div class="col-xs-6" ng-show="!saleDiscInput">
+                                          <input type="text" autofocus ng-disabled="saleDiscountInputDisable()||disableDiscounts()||disableEdit" tabindex="708" name="discountInput" id="discountInput2" class="form-control" percent-field placeholder="{{ '5395' | translate }}" ng-model="form.discountInput" ng-blur="setFirstSaleReason()" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-6 text-right">
+                                            <p class="form-control-static">
+                                                <strong data-translate="716">Discount Reason</strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <select ng-model="form.document.manual_disc_reason" ng-required="isDiscountRequired('sale')&&form.discountInput*1!==0" class="form-control" tabindex="36" id="discount_reason" name="discount_reason" ng-disabled="saleDiscountInputDisable()||disableDiscounts()||disableEdit" ng-options="r.name as r.name for r in discountReasonList">
+                                                <option value style="display:none" data-translate="{{saleReasonDefaultValue}}"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-3 col-xs-offset-1" data-translate="Sales Discount Amount">Sales Discount Amount:</div>
+                                        <div class="col-xs-2 text-right">{{form.document.discount_amount|currency}}</div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-3 col-xs-offset-1" data-translate="Sales Discount %">Sales Discount %</div>
+                                        <div class="col-xs-2 text-right">{{form.document.discount_perc|number:numFormat}}</div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-3 col-xs-offset-1" data-translate="4391">Transaction Discount:</div>
+                                        <div class="col-xs-2 text-right">{{form.document.total_discount_amt|currency}}</div>
+                                    </div>
+                                    <div class="row top-margin">
+                                      <div class="col-xs-3 col-xs-offset-1"><span data-translate="4618">Loyalty</span>:</div>
+                                      <div class="col-xs-2 text-right">{{form.document.lty_redeem_amt | currency}}</div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-3">
+                                          <button event-name="posDocumentSaleDiscountDetail" ng-click="showDiscount(1)" type="button" class="btn btn-info btn-block">
+                                            <span data-translate="3931">Show Discount</span>
+                                          </button>
+                                        </div>
+                                        <div class="col-xs-offset-3 col-xs-3">
+                                            <button id="saleSpreadButton" name="saleSpreadButton" type="button" class="btn btn-info btn-block" ng-disabled="!hasItems || !form.editMode || form.document.discount_amount === 0" ng-click="spreadDiscount(false, 0)">
+                                              <span data-translate="3217">Spread</span>
+                                            </button>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <button id="saleUnSpreadButton" name="saleUnSpreadButton" type="button" class="btn btn-info btn-block" ng-disabled="disableUnspread" data-collect-permission ng-click="spreadDiscount(true, 0)">
+                                              <span data-translate="3218">Unspread</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tabs->Discount->Order Pane  -->
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-translate="2896">
+                                    Order Discount
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row top-margin">
+                                        <div class="col-xs-12 btn-group btn-group-justified">
+                                          <div class="btn-group">
+                                            <button id="order_discount_amount_button" name="order_discount_amount_button" type="button" class="btn btn-info" btn-radio="'amt'" onclick="setTimeout(function(){document.getElementById('order_discountInput1').focus();document.getElementById('order_discountInput1').select()},100)" ng-click="changeOrderDiscType('amt')" data-collect-permission data-permission-disabled="form.document.status === 4 || disableOrders || (form.discountOrderType === 'amt')" ng-disabled="form.discountOrderType === 'amt' || giveDocDiscPermission" ng-model="form.discountOrderType">
+                                                <span data-translate="715">Discount Amount</span>
+                                            </button>
+                                          </div>
+                                          <div class="btn-group">
+                                            <button id="order_discount_percent_button" onclick="setTimeout(function(){document.getElementById('order_discountInput2').focus();document.getElementById('order_discountInput2').select()},100)" ng-click="changeOrderDiscType('pct')" name="order_discount_percent_button" type="button" class="btn btn-info" btn-radio="'pct'" data-collect-permission data-permission-disabled="form.document.status === 4 || disableOrders || (form.discountOrderType !== 'amt')" ng-disabled="form.discountOrderType !== 'amt' || giveDocDiscPermission" ng-model="form.discountOrderType">
+                                                <span data-translate="714">Discount %</span>
+                                            </button>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <label class="col-xs-6 control-label" data-translate="2106">
+                                            Specify the amount of discount to apply to the transaction.
+                                        </label>
+                                        <!--Discount input fields are showed conditionally using ng-show(don't remove),so at all times those input fields are present in DOM which are being used for automation testing disableOrders-->
+                                        <div class="col-xs-6" ng-show="orderDiscInput">
+                                            <input type="text" ng-blur="setFirstOrderReason()" name="order_discountInput" id="order_discountInput1" class="form-control" data-currency-formatter numberonly ng-disabled="orderDiscountInputDisable()||disableDiscounts()||disableEdit" ng-model="form.discountInputOrder" min="0">
+                                        </div>
+                                        <div class="col-xs-6" ng-show="!orderDiscInput">
+                                            <input type="text" ng-blur="setFirstOrderReason()" name="order_discountInput" id="order_discountInput2" class="form-control" data-currency-formatter="number" percent-field ng-disabled="orderDiscountInputDisable()||disableDiscounts()||disableEdit" ng-model="form.discountInputOrder" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-6 text-right">
+                                            <p class="form-control-static">
+                                                <strong data-translate="716">Discount Reason:</strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <select ng-init="form.document.manual_order_disc_reason = null" ng-model="form.document.manual_order_disc_reason" ng-required="isDiscountRequired('order')" class="form-control" tabindex="36" id="order_discount_reason" name="order_discount_reason" ng-disabled="orderDiscountInputDisable()||disableDiscounts()||disableEdit" ng-options="r.name as r.name for r in discountReasonList">
+                                                <option value style="display:none" data-translate="{{orderReasonDefaultValue}}">Select...</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-3 col-xs-offset-1" data-translate="Order Discount Amount">Order Discount Amount</div>
+                                        <div class="col-xs-2 text-right">{{form.document.order_discount_amount|currency}}</div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-3 col-xs-offset-1" data-translate="Order Discount %">Order Discount %</div>
+                                        <div class="col-xs-2 text-right">{{form.document.order_discount_perc|number:numFormat}}</div>
+                                    </div>
+                                    <div class="row top-margin">
+                                        <div class="col-xs-3 col-xs-offset-1" data-translate="4391">Transaction Discount:</div>
+                                        <div class="col-xs-2 text-right">{{form.document.total_discount_amt|currency}}</div>
+                                    </div>
+                                    <div class="row top-margin">
+                                      &nbsp; <!-- place holder space -->
+                                    </div>
+                                    <div class="row top-margin">
+                                      <div class="col-xs-3">
+                                        <button event-name="posDocumentOrderDiscountDetail" ng-click="showDiscount(2)" type="button" class="btn btn-info btn-block">
+                                          <span data-translate="3931">Show Discount</span>
+                                        </button>
+                                      </div>
+                                      <div class="col-xs-offset-3 col-xs-3">
+                                          <button id="order_SpreadButton" name="order_SpreadButton" type="button" class="btn btn-info btn-block" ng-disabled="!hasItems || disableOrders || !form.editMode || form.document.order_discount_amount === 0" data-collect-permission ng-click="spreadDiscount(false, 1)">
+                                            <span data-translate="3217">Spread</span>
+                                          </button>
+                                        </div>
+                                      <div class="col-xs-3">
+                                          <button id="order_UnSpreadButton" name="order_UnSpreadButton" type="button" class="btn btn-info btn-block" ng-disabled="disableOrderUnspread||disableOrders" data-collect-permission ng-click="spreadDiscount(true, 1)">
+                                            <span data-translate="3218">Unspread</span>
+                                          </button>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-if="tabs.discounts&&isCustomerRequiredForDiscount&&tabs.discounts&&!document.bt_cuid.length">
+                  <div class="col-xs-12">
+                    <div class="well well-sm">
+                      <em data-translate="5729">A customer is required to perform manual discounts.</em>
+                    </div>
+                  </div>
+                </div>
+                <div ng-show="tabs.loyalty">
+                    <div class="row">
+                        <div class="col-xs-12">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-translate="4674">
+                                    Loyalty Points
+                                </div>
+                                <div class="panel-body">
+
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4675">Loyalty available</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_start_balance" name="lty_start_balance" tabindex="36" type="tel" class="form-control" data-currency-formatter="number" data-format-decimal="{{lty_decimals}}" decimals="{{lty_decimals}}" numberonly ng-model="document.lty_start_balance" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4676">Loyalty earned</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_earned_points" name="lty_earned_points" tabindex="37" type="tel" class="form-control" data-currency-formatter="number" data-format-decimal="{{lty_decimals}}" decimals="{{lty_decimals}}" numberonly ng-model="document.lty_earned_points" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4677">Loyalty earned (positive)</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_earned_points_positive" name="lty_earned_points_positive" tabindex="38" type="tel" class="form-control" data-currency-formatter="number" data-format-decimal="{{lty_decimals}}" decimals="{{lty_decimals}}" numberonly ng-model="document.lty_earned_points_positive" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4678">Loyalty earned (negative)</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_earned_points_negative" name="lty_earned_points_negative" tabindex="39" type="tel" class="form-control" data-currency-formatter="number" data-format-decimal="{{lty_decimals}}" decimals="{{lty_decimals}}" numberonly ng-model="negLtyErn" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4679">Loyalty redeemed</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_used_points" name="lty_used_points" tabindex="41" type="tel" class="form-control" data-currency-formatter="number" data-format-decimal="{{lty_decimals}}" decimals="{{lty_decimals}}" numberonly ng-model="document.lty_used_points" ng-disabled="true" ng-readonly="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4682">Loyalty remained points</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_end_balance" name="lty_end_balance" tabindex="45" type="tel" class="form-control" data-currency-formatter="number" data-format-decimal="{{lty_decimals}}" decimals="{{lty_decimals}}" numberonly ng-model="document.lty_end_balance" ng-disabled="true" ng-readonly="true">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-translate="4683">
+                                    Loyalty Amounts
+                                </div>
+                                <div class="panel-body">
+
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4684">Total based reward amount</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_sale_total_based_disc" name="lty_sale_total_based_disc" tabindex="46" type="tel" class="form-control" data-currency-formatter="currency" numberonly ng-model="document.lty_sale_total_based_disc" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="5303">Item based reward amount</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_item_based_reward_amt" name tabindex="47" type="tel" class="form-control" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="5304">Percent reward amount</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_perc_reward_disc_amt" name="lty_perc_reward_disc_amt" tabindex="48" type="tel" class="form-control" data-currency-formatter="currency" numberonly ng-model="document.lty_perc_reward_disc_amt" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4687">Item reward amount</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_gift_amt" name="lty_gift_amt" tabindex="49" type="tel" class="form-control" data-currency-formatter="currency" numberonly ng-model="document.lty_gift_amt" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4688">Total loyalty discount amount</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_redeem_amt" name="lty_redeem_amt" tabindex="49" type="tel" class="form-control" data-currency-formatter="currency" numberonly ng-model="document.lty_redeem_amt" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4689">Loyalty tender amount</label>
+                                            <div class="col-xs-7">
+                                                <input id name tabindex="49" type="tel" class="form-control" ng-readonly="true" ng-disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4690">Total earn program name</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_total_earn_pgm_name" name="lty_total_earn_pgm_name" tabindex="50" type="text" class="form-control" ng-model="document.lty_total_earn_pgm_name" ng-disabled="true" ng-readonly="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4691">Item earn program name</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_item_earn_pgm_name" name="lty_item_earn_pgm_name" tabindex="50" type="text" class="form-control" ng-model="document.lty_item_earn_pgm_name" ng-disabled="true" ng-readonly="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4692">Total based reward program</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_total_redeem_pgm_name" name="lty_total_redeem_pgm_name" tabindex="50" type="text" class="form-control" ng-model="document.lty_total_redeem_pgm_name" ng-disabled="true" ng-readonly="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4685">Item based reward program</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_item_redeem_pgm_name" name="lty_item_redeem_pgm_name" tabindex="51" type="text" class="form-control" ng-model="document.lty_item_redeem_pgm_name" ng-disabled="true" ng-readonly="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-5 control-label" data-translate="4693">Loyalty reward %</label>
+                                            <div class="col-xs-7">
+                                                <input id="lty_perc_reward_disc_perc" name="lty_perc_reward_disc_perc" tabindex="52" type="tel" class="form-control" data-currency-formatter="number" numberonly ng-model="document.lty_perc_reward_disc_perc" ng-disabled="true" ng-readonly="true">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group text-center block-10">
+                                <button type="button" ng-click="usePoints()" ng-disabled="maxTotalZero||!document.lty_lvl_sid||!document.lty_total_earn_pgm_name||document.status === 4||document.is_held" event-name="useLtyPoints" id="useLtyPoints" class="btn btn-info">
+                                    <span data-translate="4695">Use Points</span>
+                                </button>
+                                <button type="button" ng-click="redeemItem()" ng-disabled="!document.lty_lvl_sid||!document.lty_item_earn_pgm_name||document.status === 4" event-name="redeemLtyITem" id="redeemLtyItem" class="btn btn-info">
+                                    <span data-translate="5213">Redeem Item</span>
+                                </button>
+                                <button type="button" ng-click="giftItem()" ng-disabled="!document.lty_lvl_sid||!ltyGiftAvailable||document.status === 4" event-name="giftLtyITem" id="giftLtyItem" ng-mouseenter="hovering=true" ng-class="{'glowing':!hovering}" class="btn btn-danger red">
+                                    <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                                    <span data-translate="5214"> Gift</span>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="tabs.taxes">
+                    <div class="height50 autoOverflow">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" data-translate="2108">
+                                        Tax Areas
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row top-margin">
+                                            <div class="form-group">
+                                                <label class="col-xs-2 control-label" data-translate="554">Tax Area</label>
+                                                <div class="col-xs-4">
+                                                    <select id="tax_area_name" name="tax_area_name" tabindex="39" class="form-control" ng-disabled="disableTaxEdit" ng-change="checkPermTaxAreaChange(1, '{{form.document.tax_area_name}}')" ng-model="form.document.tax_area_name" ng-options="t.tax_area_name as t.tax_area_name for t in taxareaList">
+                                                      <option value style="display:none" data-translate="1358">Select...</option>
+                                                    </select>
+                                                </div>
+                                                <label class="col-xs-2 control-label" data-translate="722">Tax Area 2</label>
+                                                <div class="col-xs-4">
+                                                  <select id="tax_area2_name" name="tax_area2_name" tabindex="40" class="form-control" ng-disabled="disableTaxEdit2" ng-change="checkPermTaxAreaChange(2, '{{form.document.tax_area2_name}}')" ng-model="form.document.tax_area2_name" ng-options="t.tax_area_name as t.tax_area_name for t in taxareaList">
+                                                    <option value style="display:none" data-translate="1358">Select...</option>
+                                                  </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-xs-2 control-label" data-translate="720">Tax %</label>
+                                                <div class="col-xs-4">
+                                                    <input id="tax_area_percent" name="tax_area_percent" tabindex="41" type="tel" class="form-control" data-currency-formatter="number" numberonly ng-readonly="true" ng-disabled="true" ng-model="form.document.tax_area_percent">
+                                                </div>
+                                                <label class="col-xs-2 control-label" data-translate="723">Tax 2%</label>
+                                                <div class="col-xs-4">
+                                                    <input id="tax_area2_percent" name="tax_area2_percent" tabindex="42" type="tel" class="form-control" data-currency-formatter="number" numberonly ng-disabled="true" ng-readonly="true" ng-model="form.document.tax_area2_percent">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-xs-2 control-label" data-translate="721">Tax Amount</label>
+                                                <div class="col-xs-4">
+                                                    <input id="tax_area_amt" name="tax_area_amt" tabindex="43" type="tel" class="form-control" data-currency-formatter="tax" numberonly ng-readonly="true" ng-model="form.document.transaction_tax1_amt">
+                                                </div>
+                                                <label class="col-xs-2 control-label" data-translate="724">Tax 2 Amount</label>
+                                                <div class="col-xs-4">
+                                                    <input id="tax_area2_amt" name="tax_area2_amt" tabindex="44" type="tel" class="form-control" data-currency-formatter="tax" numberonly ng-readonly="true" ng-model="form.document.transaction_tax2_amt">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <span class data-translate="1536">Tax Breakout</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row top-margin">
+                                            <div class="form-group">
+                                                <label class="col-xs-2 control-label" data-translate="725">Sales Tax Amount</label>
+                                                <div class="col-xs-4">
+                                                    <input id="sale_tax1_amt" name="sale_tax1_amt" tabindex="45" type="tel" class="form-control" data-currency-formatter="tax" numberonly ng-readonly="true" ng-model="form.document.sale_tax1_amt">
+                                                </div>
+                                                <label class="col-xs-2 control-label" data-translate="727">Sales Tax 2 Amount</label>
+                                                <div class="col-xs-4">
+                                                    <input id="sale_tax2_amt" name="sale_tax2_amt" tabindex="46" type="tel" class="form-control" data-currency-formatter="tax" numberonly ng-readonly="true" ng-model="form.document.sale_tax2_amt">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-xs-2 control-label" data-translate="726">Order Tax Amount</label>
+                                                <div class="col-xs-4">
+                                                    <input name tabindex="47" type="tel" class="form-control" data-currency-formatter="tax" numberonly ng-disabled="true" ng-model="form.document.order_tax1_amt">
+                                                </div>
+                                                <label class="col-xs-2 control-label" data-translate="728">Order Tax 2 Amount</label>
+                                                <div class="col-xs-4">
+                                                    <input name tabindex="48" type="tel" class="form-control" data-currency-formatter="tax" numberonly ng-disabled="true" ng-model="form.document.order_tax2_amt">
+                                                </div>
+                                            </div>
+                                        </div>
+                                      <div class="row">
+                                        <div class="form-group">
+                                          <label class="col-xs-2 control-label" data-translate="8096">Return Tax Amount</label>
+                                          <div class="col-xs-4">
+                                            <input name tabindex="47" type="tel" class="form-control" data-currency-formatter="tax" numberonly ng-disabled="true" ng-model="form.document.return_total_tax_amt_rounded">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="(form.preferences.taxes_general_tax_method === '1' || form.preferences.taxes_general_tax_method === '2') && form.preferences.taxes_general_allow_tax_rebates === 'true' ">
+                            <div class="col-xs-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <span data-translate="1537">Tax Rebates</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row top-margin">
+                                            <div class="form-group">
+                                                <label class="col-xs-2 control-label" data-translate="731">Tax Rebate %</label>
+                                                <div class="col-xs-4">
+                                                    <input id="tax_rebate_percent" name="tax_rebate_percent" type="tel" tabindex="52" class="form-control" data-currency-formatter="number" data-permission="changetaxrebateamount" data-collect-permission data-permission-disabled="disableRebateFields()" ng-model="form.document.tax_rebate_percent">
+                                                </div>
+                                                <div class="col-xs-5">
+                                                    <div ng-show="form.document.tax_rebate_persisted > 0">
+                                                        <strong data-translate="734">Tax Rebate</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-1">
+                                                    <button type="button" id="taxRebateButton" name="taxRebateButton" class="btn btn-info btn-block" ng-disabled="disableRebateButton()" ng-click="applyTaxRebate()">
+                                                        <span data-translate="3036">Rebate</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-xs-2 control-label" data-translate="732">Tax Rebate Amount</label>
+                                                <div class="col-xs-4">
+                                                    <input id="tax_rebate_amt" name="tax_rebate_amt" type="tel" tabindex="54" class="form-control" data-currency-formatter="tax" data-permission="changetaxrebateamount" data-collect-permission data-permission-disabled="disableRebateFields() || form.document.tax_rebate_persisted !== 1" ng-model="form.document.tax_rebate_amt">
+                                                </div>
+                                                <div class="col-xs-5">
+                                                    <div ng-show="form.document.tax_rebate_persisted === 2">
+                                                        <strong data-translate="736">Persisted</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-1">
+                                                    <button type="button" id="taxRebatePersistedButton" name="taxRebatePersitedButton" class="btn btn-info btn-block" ng-disabled="disablePersistButton()" ng-click="persistTaxRebate()">
+                                                        <span data-translate="736">Persist</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span data-translate="1539">Detax Transaction</span>
+                                </div>
+                                <div class="panel-body">
+                                    <detax template="pos-detax-template.htm"></detax>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div ng-show="tabs.notes">
+                    <div class="col-xs-2">
+                        <button event-name="posTransactionDetailsGeneralNotes" id="generalNotes" tabindex="57" class="btn btn-info btn-block col-xs-12" type="button" data-permission="EditFormerPOSDetails" data-collect-permission data-permission-disabled="form.editNoteDisabled == 1 || form.document.ref_record_sale" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" ng-click="editThisNote(form.document.notes_general, 1)">
+                            <span data-translate="1540">General Notes</span>{{form.hasGeneralNote}}
+                        </button>
+                        <button event-name="posTransactionDetailsOrderNotes" id="orderNotes" tabindex="57" class="btn btn-info btn-block col-xs-12" type="button" data-permission="EditFormerPOSDetails" data-collect-permission data-permission-disabled="form.editNoteDisabled == 3" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:form.document.status === 4}]" ng-click="editThisNote(form.document.notes_order, 3)">
+                            <span data-translate="1542">Order Notes</span>{{form.hasOrderNote}}
+                        </button>
+                    </div>
+                    <div class="col-xs-10">
+                        <textarea tabindex="61" id="transNoteEditor" name="transNoteEditor" rows="18" maxlength="255" cols class="form-control" ui-event="{ blur : 'saveTransNote();'}" ng-disabled="(form.noteEditorDisabled && !form.editMode) || !form.noteNumber" ng-model="form.notedetails" style="resize:vertical; max-height: 400px">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <button event-name="posTransactionDetailsOk" type="button" id="okButton" tabindex="61" class="btn btn-lg btn-default" ng-disabled="form.viewMode || tdSaving || (form.transactionDetailsForm.$dirty && form.transactionDetailsForm.$invalid)||!form.transactionDetailsForm.$dirty" ng-click="saveDetails(true)">
+                      <span data-translate="1.1">OK</span>
+                    </button>
+                    <button event-name="posTransactionDetailsApply" type="button" id="applyButton" tabindex="62" class="btn btn-lg btn-default" ng-disabled="form.viewMode || tdSaving || (form.transactionDetailsForm.$dirty && form.transactionDetailsForm.$invalid)||!form.transactionDetailsForm.$dirty" ng-click="saveDetails(false)">
+                      <span data-translate="1.3">Apply</span>
+                    </button>
+                    <button event-name="posTransactionDetailsCancel" type="button" id="closeTransactionDetailsForm" tabindex="63" class="btn btn-lg btn-default" ng-click="closeForm()">
+                      <span data-translate="1.2" ng-if="form.transactionDetailsForm.$dirty">Cancel</span>
+                      <span data-translate="583" ng-if="!form.transactionDetailsForm.$dirty">Close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+<script type="text/javascript">iosModalFix();</script>

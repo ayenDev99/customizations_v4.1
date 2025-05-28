@@ -1,0 +1,215 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2024 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+<form name="transactionSearchForm" id="transactionSearchForm">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="row">
+              <div class="col-xs-6">
+                <h3 class="modal-title" data-translate="503">Transaction Lookup</h3>
+              </div>
+
+              <div class="col-xs-6">
+                <top-filter-change-button asklayout="asklayout" ng-disabled="doDisableTFButton" on-close="updateTopFilter">
+                </top-filter-change-button>
+              </div>
+
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-4">
+                      <div class="form-group">
+                        <label data-translate="5683">Date Type</label>
+                        <select id="dateType" tabindex="0" class="form-control" ng-model="fields.date_type">
+                          <option value="invoice_posted_date" data-translate="3267">Transaction Date</option>
+                          <option value="ordered_date" data-translate="5597">Ordered Date</option>
+                          <option value="ship_date" data-translate="4020">Ship Date</option>
+                          <option value="cancel_date" data-translate="4012">Cancel Date</option>
+                        </select>
+                      </div>
+                        <div class="form-group">
+                            <label class="control-label" for="start-date" data-translate="1451">From Date:</label>
+                            <p class="input-group" ng-click="openCalendar($event, 'startDate')">
+                                <span class="input-group-btn">
+                                  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                <input type="button" class="form-control" datetime-picker="medium" ng-model="startDate.date" value="{{(startDate.date)?(startDate.date | date:'medium'):(startDate.placeholder)}}" is-open="startDate.open" enable-time="true" datepicker-options="startDate.datepickerOptions" timepicker-options="startDate.timepickerOptions" when-closed="startDate.closed()" placeholder="{{startDate.placeholder}}">
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="end-date" data-translate="1452">To Date:</label>
+                            <p class="input-group" ng-click="openCalendar($event, 'endDate')">
+                                <span class="input-group-btn">
+                                  <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                <input type="button" class="form-control" datetime-picker="medium" ng-model="endDate.date" value="{{(endDate.date)?(endDate.date | date:'medium'):(endDate.placeholder)}}" is-open="endDate.open" enable-time="true" datepicker-options="endDate.datepickerOptions" timepicker-options="endDate.timepickerOptions" when-closed="endDate.closed()" placeholder="{{endDate.placeholder}}">
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <input id="documentNumber" type="text" tabindex="2" placeholder="{{ '835' | translate }}" class="form-control" ng-model="fields.document_number">
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-xs-6">
+                            <input type="text" id="bt_first_name" placeholder="{{ '637' | translate }}" tabindex="1" class="form-control" ng-model="fields.bt_first_name">
+                          </div>
+                          <div class="col-xs-6">
+                            <input type="text" id="bt_last_name" placeholder="{{ '636' | translate }}" tabindex="1" class="form-control" ng-model="fields.bt_last_name">
+                        </div>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="barcode" placeholder="{{ '5508' | translate }}" tabindex="3" class="form-control" ng-model="fields.barcode" ng-change="searchTransactions()">
+                        </div>
+                        <div class="form-group">
+                          <label data-translate="683">Store</label>
+                          <select name="store_uid" class="form-control" ng-disabled="false" ng-model="fields.store_uid" ng-options="s.sid as s.store_number   + ': ' + s.store_name for s in storesList" ng-change="loadWorkstations()">
+                            <option value="" data-translate="1143">All</option>
+                          </select>
+                        </div>
+                        <div class="form-group" id="workstationDiv">
+                          <label for="workstation" data-translate="809">Workstation:</label>
+                          <select id="workstation" tabindex="4" ng-model="fields.workstation_name" class="form-control" ng-options="w.workstation_name as w.workstation_name for w in workstationList">
+                            <option value="" data-translate="1143">All</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                            <label data-translate="610">Transaction Type:</label>
+                            <select id="itemType" tabindex="3" class="form-control" ng-model="fields.transaction_type">
+                                <option value="all" data-translate="1143">All</option>
+                                <option value="document_number" data-translate="746">Sale</option>
+                                <option value="order_document_number" data-translate="3163">All Orders</option>
+                                <option value="0" data-translate="893">Customer Order</option>
+                                <option value="1" data-translate="894">Special Order</option>
+                                <option value="2" data-translate="895">Layaway</option>
+                                <option value="6" data-translate="991">Send Sale</option>
+                              <option value="return" data-translate="747">Return</option>
+                            </select>
+                        </div>
+                        <div class="form-group" ng-show="fields.transaction_type!=='document_number'">
+                            <label data-translate="3011">Order Status:</label>
+                            <select id="orderStatus" tabindex="3" class="form-control" ng-model="fields.order_status">
+                                <option value="" data-translate="1143">All</option>
+                                <option value="0" data-translate="3012">Pending</option>
+                                <option value="1" data-translate="3013">Partial</option>
+                                <option value="2" data-translate="1983">Complete</option>
+                                <option value="X" data-translate="2302">Closed</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label data-translate="634">Sort By:</label>
+                                <select id="sortBy" tabindex="3" class="form-control" ng-model="fields.sort_by">
+                                    <option value="document_number" data-translate="1921">Receipt Number</option>
+                                    <option value="order_document_number" data-translate="1473.1">Order Number</option>
+                                    <option value="bt_last_name" data-translate="1456">Customer Name</option>
+                                    <option value="invoice_posted_date" data-translate="3267">Transaction Date</option>
+                                    <option value="transaction_total_amt" data-translate="1472">Transaction Total</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-6">
+                                <label data-translate="908">Sort Order:</label>
+                                <select id="sortOrder" tabindex="3" class="form-control" ng-model="fields.sort_order">
+                                    <option value="asc" data-translate="1459">Ascending</option>
+                                    <option value="desc" data-translate="1460">Descending</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div id="transLookupResults" class="modal-maxHeight autoOverflow">
+                            <div class="list-group">
+                                <a name="link{{$index}}" event-name="posSearchTransactionsThisTransaction" class="list-group-item" id="searchTransactionResult{{$index}}" tabindex="10{{$index}}" index="{{$index}}" data-item-group="data-item-group" ng-repeat="thisTransaction in pendingTransactions" ng-click="selectTransaction($index)" ng-dblclick="viewTransaction($index)">
+                                  <div class="row">
+                                    <div class="col-xs-4">
+                                      <span ng-show="thisTransaction.document_number"><strong>{{thisTransaction.receipt_type|receipt_type_names}}</strong> <strong data-translate="1635">number</strong> {{ thisTransaction.document_number }}</span>
+                                    </div>
+                                    <div class="col-xs-4">
+                                    <span ng-show="thisTransaction.order_document_number"><strong>{{thisTransaction.order_type|order_type_names}}</strong> <strong data-translate="1635">Number</strong> {{ thisTransaction.order_document_number }}</span>
+                                    </div>
+                                    <div class="col-xs-4">
+                                          <span ng-show="thisTransaction.bt_first_name || thisTransaction.bt_last_name"><strong data-translate="790">Customer:</strong> {{thisTransaction.bt_first_name}} {{thisTransaction.bt_last_name}}</span>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-xs-8">
+                                          <strong data-translate="3267">Transaction Date:</strong> {{ thisTransaction.invoice_posted_date|cleanDate:'locale' }}
+                                      </div>
+                                      <div class="col-xs-4">
+                                          <strong data-translate="979">Total:</strong> {{ thisTransaction.transaction_total_amt|currency }}
+                                      </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-xs-8">
+                                      <strong data-translate="563">Store Code</strong> {{ thisTransaction.store_code }}
+                                    </div>
+                                    <div class="col-xs-4" ng-if="thisTransaction.eft_invoice_number!==''">
+                                      <strong data-translate="4061">EFT Invoice Number</strong> {{ thisTransaction.eft_invoice_number }}
+                                    </div>
+                                  </div>
+                                  <div class="row" ng-if="thisTransaction.ref_order_order_doc_no">
+                                    <div class="col-xs-4">
+                                      <span><strong data-translate="7469">Order Ref Number </strong> {{ thisTransaction.ref_order_order_doc_no }}</span>
+                                    </div>
+                                  </div>
+
+                                  <div class="row" ng-if="thisTransaction.order_qty>0">
+                                    <div class="col-xs-12">
+                                      <progressbar class="progress-striped active" max="thisTransaction.order_qty" value="thisTransaction.order_quantity_filled" type="{{thisTransaction.orderFilledType}}"><i><span data-translate="5828">Order Quantity Filled</span> {{thisTransaction.orderFilledPct|number:2}}%</i></progressbar>
+
+                                    </div>
+                                  </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- <span class="pull-left">
+                        <button event-name="posSearchTransactionsSearch" type="submit" tabindex="4" ng-disabled="before>today" ng-click="searchTransactions()" class="btn btn-lg btn-default"><span data-translate="630">Search</span></button>
+                        <button event-name="posSearchTransactionsReset" id="resetSearchButton" type="button" tabindex="5" class="btn btn-lg btn-default" ng-click="resetSearchFields()"><span data-translate="614">Reset</span></button>
+                         {{display.statusMessage}}
+                    </span>
+                    <button event-name="posResendSendSales" type="submit" tabindex="4" ng-click="resend()" class="btn btn-lg btn-default" ng-show="showResendButton" ng-disabled="form.promisesRunning"><span data-translate="2799">Resend</span></button>
+                    <button event-name="posSearchTransactionsView" type="button" id="viewTransactionButton" class="btn btn-lg btn-default" ng-click="viewTransaction()" ng-disabled="display.viewTransactionButton"><span data-translate="1474">View Transaction</span></button>
+                     <button event-name="posSearchTransactionsTouchPosView" type="button" id="viewTransactionInTouchPosButton" class="btn btn-lg btn-default" ng-click="viewTransaction(undefined, true)" ng-disabled="display.viewTransactionButton" ng-hide="disableTouchPOS()"><span data-translate="3293">View Transaction in Touch POS</span></button>
+                    <button event-name="posSearchTransactionsClose" type="button" id="closeTransactionSearchButton" class="btn btn-lg btn-default" ng-click="closeForm()"><span data-translate="907">Close</span></button>
+                </div> -->
+
+                <div class="col-xs-3 text-left">
+                    <span class="pull-left">
+                        <button event-name="posSearchTransactionsSearch" type="submit" tabindex="4" ng-disabled="disablePosLookup" ng-click="searchTransactions()" class="btn btn-lg btn-default"><span data-translate="630">Search</span></button>
+                        <button event-name="posSearchTransactionsReset" id="resetSearchButton" type="button" tabindex="5" class="btn btn-lg btn-default" ng-click="resetSearchFields()"><span data-translate="614">Reset</span></button>
+                         {{display.statusMessage}}
+                    </span>
+                  </div>
+                  <div class="col-xs-4 text-left">
+                    <paging-control ng-if="pendingTransactions.length > 0" results-per-page="pageSize" grid-reference="gridApi" total-records="mTotalRecords" call-back="getPage" results-per-search="10"></paging-control>
+                  </div>
+                  <div class="col-xs-5 text-right">
+                    <button event-name="posResendSendSales" type="submit" tabindex="4" ng-click="resend()" class="btn btn-lg btn-default" ng-show="showResendButton" ng-disabled="form.promisesRunning"><span data-translate="2799">Resend</span></button>
+                    <button event-name="posSearchTransactionsView" type="button" id="viewTransactionButton" class="btn btn-lg btn-default" ng-click="viewTransaction()" ng-disabled="display.viewTransactionButton"><span data-translate="1474">View Transaction</span></button>
+                     <button event-name="posSearchTransactionsTouchPosView" type="button" id="viewTransactionInTouchPosButton" class="btn btn-lg btn-default" ng-click="viewTransaction(undefined, true)" ng-disabled="display.viewTransactionButton" ng-hide="disableTouchPOS()"><span data-translate="3293">View Transaction in Touch POS</span></button>
+                    <button event-name="posSearchTransactionsClose" type="button" id="closeTransactionSearchButton" class="btn btn-lg btn-default" ng-click="closeForm()"><span data-translate="907">Close</span></button>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div></form>
+
+
+<!-- <div class="col-xs-3">
+                        <button event-name="navLandingTouchPos" tabindex="121" type="button" data-translate="1292" ng-click="newTransaction(true)" data-permission="CreatePOSTransaction" img-btn="/images/pos/pos_new_48.png" ng-hide="disableTouchPOS()">
+                            Touch POS
+                        </button>
+                    </div> -->

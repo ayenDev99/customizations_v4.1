@@ -1,0 +1,47 @@
+"2024-10-21 11:23:53am",OWNER,"Opened a drawer"
+"2024-10-21 11:24:21am",CASHIER,"Created new transaction",REGULAR
+"2024-10-21 11:24:50am",CASHIER,"Added global discount to transaction"
+"2024-10-21 11:36:39am",CASHIER,"Completed the tranasction",,43
+"2024-10-21 11:38:18am",CASHIER,"Created new transaction",REGULAR
+"2024-10-21 11:38:41am",CASHIER,"Added a customer to transaction"
+"2024-10-21 11:39:05am",CASHIER,"Added global discount to transaction"
+"2024-10-21 11:39:19am",CASHIER,"Added item discount to transaction"
+"2024-10-21 11:39:29am",CASHIER,"Added global discount to transaction"
+"2024-10-21 11:39:37am",CASHIER,"Completed the tranasction",,44
+"2024-10-21 11:40:38am",CASHIER,"Created new transaction",REGULAR
+"2024-10-21 11:40:50am",CASHIER,"Added a customer to transaction"
+"2024-10-21 11:40:55am",CASHIER,"Added item discount to transaction"
+"2024-10-21 11:41:06am",CASHIER,"Added global discount to transaction"
+"2024-10-21 11:41:20am",CASHIER,"Completed the tranasction",,45
+"2024-10-21 11:45:12am",CASHIER,"Created new transaction",REGULAR
+"2024-10-21 11:45:36am",CASHIER,"Added a customer to transaction"
+"2024-10-21 11:45:40am",CASHIER,"Added item discount to transaction"
+"2024-10-21 11:45:49am",CASHIER,"Added global discount to transaction"
+"2024-10-21 11:45:57am",CASHIER,"Completed the tranasction",,46
+"2024-10-21 11:50:40am",CASHIER,"Created new transaction",REGULAR
+"2024-10-21 11:51:18am",CASHIER,"Added global discount to transaction"
+"2024-10-21 11:51:30am",CASHIER,"Completed the tranasction",,47
+"2024-10-21 11:51:47am",CASHIER,"Created new transaction",REGULAR
+"2024-10-21 11:52:09am",CASHIER,"Added global discount to transaction"
+"2024-10-21 11:52:32am",CASHIER,"Completed the tranasction",,48
+"2024-10-21 11:52:53am",CASHIER,"Created new transaction",REGULAR
+"2024-10-21 11:54:16am",CASHIER,"Created return transaction",RETURN
+"2024-10-21 11:54:25am",CASHIER,"Added global discount to transaction"
+"2024-10-21 14:35:50pm",CASHIER,"Created new transaction",REGULAR
+"2024-10-21 14:36:06pm",CASHIER,"Added global discount to transaction"
+"2024-10-21 14:36:38pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 14:37:30pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 14:37:50pm",SYSADMIN,"Added global discount to transaction"
+"2024-10-21 14:38:12pm",SYSADMIN,"Completed the tranasction",,49
+"2024-10-21 15:17:32pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 15:17:49pm",SYSADMIN,"Added global discount to transaction"
+"2024-10-21 15:18:20pm",SYSADMIN,"Completed the tranasction",,50
+"2024-10-21 15:45:30pm",SYSADMIN,"Added global discount to transaction"
+"2024-10-21 16:53:19pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 17:23:43pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 17:23:54pm",SYSADMIN,"Added global discount to transaction"
+"2024-10-21 18:21:01pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 18:24:19pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 18:29:21pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 18:31:28pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-21 18:36:00pm",SYSADMIN,"Created new transaction",REGULAR

@@ -1,0 +1,107 @@
+<form name="itemLookupForm" id="itemLookupForm" class="form-horizontal">
+<!--
+==============================================================================================================
+
+Copyright (c) 2024 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="row">
+        <div class="col-xs-2">
+          <h4>
+            <span data-translate="1415">Item Lookup</span><span> | {{searchStr}}</span>
+          </h4>
+        </div>
+        <div class="col-xs-4 col-xs-offset-6">
+          <div class="row">
+            <div class="col-xs-6">
+              <label data-translate="634">Sort By</label>
+              <select class="form-control" ng-disabled="!(searching !== true)" ng-change="sortItems()" ng-options="sort.value as sort.name |  translate for sort in sortBy" ng-model="sortFilter.sortby"></select>
+            </div>
+            <div class="col-xs-6">
+              <label data-translate="908">Sort Order</label>
+              <select class="form-control" ng-disabled="!(searching !== true)" ng-change="sortItems()" ng-options="order.value as order.name |  translate for order in orderBy" ng-model="sortFilter.orderby"></select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <div id="selectItem" class="panel panel-default ModalSearchPanel autoOverflow" ng-if="!sorting">
+              <div class="list-group">
+                <a name="link{{$index}}" event-name="posItemSelectionThisItem" id="itemLookupResult{{$index}}" index="{{$index}}" class="list-group-item" data-item-group="data-item-group" ng-repeat="thisInventory in lookup" ng-click="selectItem(thisInventory)" ng-dblclick="addMe(thisInventory)">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <strong data-translate="675">Desc 1</strong> {{ thisInventory.description1}}
+                    </div>
+                    <div class="col-xs-3" ng-hide="thisInventory.altvendcode">
+                      <strong data-translate="680">VC</strong> {{ (thisInventory.vendor_code ? thisInventory.vendor_code : thisInventory.vendorcode)}}
+                    </div>
+                    <div class="col-xs-3" ng-show="thisInventory.altvendcode">
+                      <strong>{{'Alt VC' | translate}}</strong> {{ thisInventory.altvendcode }}
+                    </div>
+                    <div class="col-xs-3" ng-hide="thisInventory.altupc">
+                      <strong data-translate="677">UPC</strong> {{ thisInventory.upc|padUPC }}
+                    </div>
+                    <div class="col-xs-3" ng-show="thisInventory.altupc">
+                      <strong>{{'Alt Upc' | translate}}</strong> {{ thisInventory.altupc|padUPC }}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <strong data-translate="676">Desc 2</strong> {{ thisInventory.description2 }}
+                    </div>
+
+                    <div class="col-xs-3">
+                      <strong data-translate="681">DCS</strong> {{ thisInventory.dcs_code }}
+                    </div>
+                    <div class="col-xs-3" ng-hide="thisInventory.altalu">
+                      <strong data-translate="841">ALU</strong> {{ thisInventory.alu }}
+                    </div>
+                    <div class="col-xs-3" ng-show="thisInventory.altalu">
+                      <strong>{{'Alt Alu' | translate}}</strong> {{ thisInventory.altalu }}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6" ng-if="['purchaseorderitem','voucheritem'].indexOf(resource)===-1">
+                      <strong data-translate="773">Price</strong> {{ thisInventory.active_price|currency}}
+                    </div>
+                   <div class="col-xs-6" style="visibility: hidden;" ng-if="['purchaseorderitem','voucheritem'].indexOf(resource)!==-1">
+                      <strong data-translate="3202">Order Cost</strong> {{ (thisInventory.showCostOnPO ? thisInventory.showCostOnPO : thisInventory.order_cost ) | currency}}
+                    </div>
+                    <div class="col-xs-3">
+                      <strong data-translate="678">Attr</strong> {{ thisInventory.attribute}}
+                    </div>
+                    <div class="col-xs-3">
+                      <strong data-translate="679">Size</strong> {{ thisInventory.item_size}}
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-xs-6 text-center">
+          <div class="well well-sm" ng-if="lookup.length > 99">
+            <img src="/images/pos/incomplete.png" height="22" width="22"> <span data-translate="5210"><em>Record limit exceeded.  Only the first 100 records are displayed.  Refine your search using advanced lookup.</em></span>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <button event-name="resetSort" type="button" class="btn btn-lg btn-default" ng-click="resetSort()"><span data-translate="3946">Reset Sort</span></button>
+          <button event-name="posItemSelectionSelectItem" type="submit" tabindex="6" id="posItemSelectionSelectItemButton" name="posItemSelectionSelectItemButton" class="btn btn-lg btn-default" ng-disabled="selectDisabled" ng-click="selectTransactionItem()"><span data-translate="1416">Select Item</span></button>
+          <button event-name="posItemSelectionClose" type="button" tabindex="8" id="closeSearchButton" name="closeSearchButton" class="btn btn-lg btn-default" ng-click="closeForm()"><span data-translate="907">Close</span></button>&nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+"2024-10-04 08:17:28am",SYSADMIN,"Closed a drawer"
+"2024-10-04 08:17:29am",SYSADMIN,"Closed a drawer"
+"2024-10-04 08:17:41am",SYSADMIN,"Opened a drawer"
+"2024-10-04 08:17:46am",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-04 12:36:30pm",SYSADMIN,"Added a customer to transaction"
+"2024-10-04 12:36:40pm",SYSADMIN,"Added item discount to transaction"
+"2024-10-04 12:36:56pm",SYSADMIN,"Added global discount to transaction"
+"2024-10-04 12:37:14pm",SYSADMIN,"Completed the tranasction",,10
+"2024-10-04 13:29:07pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-04 13:31:12pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-04 13:31:30pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-04 13:31:45pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-04 13:32:00pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-04 13:52:19pm",SYSADMIN,"Added a customer to transaction"
+"2024-10-04 13:52:30pm",SYSADMIN,"Added item discount to transaction"
+"2024-10-04 14:23:09pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-10-04 14:23:24pm",SYSADMIN,"Added a customer to transaction"
+"2024-10-04 14:23:34pm",SYSADMIN,"Added a customer to transaction"
+"2024-10-04 14:23:44pm",SYSADMIN,"Added item discount to transaction"
+"2024-10-04 14:23:56pm",SYSADMIN,"Added global discount to transaction"
+"2024-10-04 14:24:25pm",SYSADMIN,"Completed the tranasction",,11

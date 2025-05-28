@@ -1,0 +1,1 @@
+var config_lotAssignmentPluginsEnabled 	= true;

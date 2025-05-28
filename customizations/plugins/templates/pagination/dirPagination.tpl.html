@@ -1,0 +1,27 @@
+<ul class="pagination-sm pagination" ng-if="1 < pages.length || !autoHide">
+    <li>
+        <button type="button" ng-click="setCurrent(1)" ng-if="boundaryLinks" ng-disabled="pagination.current == 1" class="btn btn-default">
+            <span class="glyphicon glyphicon-fast-backward"></span>
+        </button>
+    </li>
+    <li>
+        <button type="button" ng-if="directionLinks" ng-disabled="pagination.current == 1" ng-click="setCurrent(pagination.current - 1)" class="btn btn-default">
+            <span class="glyphicon glyphicon-backward"></span>
+        </button>
+    </li>
+    <li ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)">
+        <button type="button" class="btn btn-default" ng-disabled="pagination.current == pageNumber || pageNumber == '...'" ng-click="setCurrent(pageNumber)">
+            <span>{{ pageNumber }}</span>
+        </button>
+    </li>
+    <li>
+        <button type="button" ng-if="directionLinks" class="btn btn-default" ng-disabled="pagination.current == pagination.last" ng-click="setCurrent(pagination.current + 1)">
+            <span class="glyphicon glyphicon-forward"></span>
+        </button>
+    </li>
+    <li>
+        <button ng-if="boundaryLinks"  ng-disabled="pagination.current == pagination.last"  ng-click="setCurrent(pagination.last)" class="btn btn-default">
+            <span class="glyphicon glyphicon-fast-forward"></span>
+        </button>
+    </li>
+</ul>

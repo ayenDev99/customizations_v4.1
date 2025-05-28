@@ -1,0 +1,11 @@
+[2024-11-11 08:40:58am] New log has been created.
+[2024-11-11 08:40:58am] SYSADMIN closed a drawer.
+[2024-11-11 08:40:58am] SYSADMIN closed a drawer.
+[2024-11-11 08:41:09am] SYSADMIN opened a drawer.
+[2024-11-11 08:41:13am] SYSADMIN created new tranasction. SID: 726631272000485703
+[2024-11-11 08:44:51am] SYSADMIN adding new customer to tranasction: 726631272000485703 ... customer name: sc customer, diplomat: NO
+[2024-11-11 08:45:11am] SYSADMIN adding new customer to tranasction: 726631272000485703 ... customer name: sc customer, diplomat: NO
+[2024-11-11 08:45:19am] SYSADMIN adding new customer to tranasction: 726631272000485703 ... customer name: sc customer, diplomat: NO
+[2024-11-11 08:45:26am] SYSADMIN adding item discount to tranasction: 726631272000485703 item: 726631290000487704 ... reason: SC, total discount amount: 460
+[2024-11-11 08:45:30am] SYSADMIN adding new customer to tranasction: 726631272000485703 ... customer name: sc customer, diplomat: NO
+[2024-11-11 08:46:22am] SYSADMIN adding global discount to tranasction: 726631272000485703 ... reason: null, total discount amount: undefined

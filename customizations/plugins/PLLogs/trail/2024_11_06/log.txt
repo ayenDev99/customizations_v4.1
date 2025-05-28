@@ -1,0 +1,63 @@
+[2024-11-06 07:54:42am] New log has been created.
+[2024-11-06 07:54:42am] SYSADMIN printing an x-reading.
+[2024-11-06 07:54:55am] SYSADMIN printing an x-reading.
+[2024-11-06 07:57:53am] SYSADMIN created new tranasction. SID: 726128673000430116
+[2024-11-06 08:35:29am] SYSADMIN closed a drawer.
+[2024-11-06 08:35:30am] SYSADMIN closed a drawer.
+[2024-11-06 08:35:41am] SYSADMIN opened a drawer.
+[2024-11-06 08:35:44am] SYSADMIN created new tranasction. SID: 726130944000450161
+[2024-11-06 08:35:50am] SYSADMIN adding new customer to tranasction: 726130944000450161 ... customer name: Michele Salen, diplomat: NO
+[2024-11-06 08:36:06am] SYSADMIN adding global discount to tranasction: 726130944000450161 ... reason: null, total discount amount: undefined
+[2024-11-06 08:40:11am] SYSADMIN completed the tranasction: 726130944000450161 and created a receipt ... Doc NO: 4
+[2024-11-06 08:40:17am] SYSADMIN created new tranasction. SID: 726131216000487179
+[2024-11-06 08:41:22am] SYSADMIN adding global discount to tranasction: 726131216000487179 ... reason: null, total discount amount: undefined
+[2024-11-06 08:41:35am] SYSADMIN completed the tranasction: 726131216000487179 and created a receipt ... Doc NO: 5
+[2024-11-06 08:41:40am] SYSADMIN created new tranasction. SID: 726131300000411189
+[2024-11-06 08:43:35am] SYSADMIN created new tranasction. SID: 726131415000458204
+[2024-11-06 08:43:52am] SYSADMIN adding global discount to tranasction: 726131415000458204 ... reason: null, total discount amount: undefined
+[2024-11-06 08:44:26am] SYSADMIN adding new customer to tranasction: 726131415000458204 ... customer name: Michele Salen, diplomat: NO
+[2024-11-06 08:44:39am] SYSADMIN completed the tranasction: 726131415000458204 and created a receipt ... Doc NO: 6
+[2024-11-06 08:45:06am] SYSADMIN created new tranasction. SID: 726131506000452223
+[2024-11-06 08:46:20am] SYSADMIN adding global discount to tranasction: 726131506000452223 ... reason: null, total discount amount: undefined
+[2024-11-06 08:46:30am] SYSADMIN adding new customer to tranasction: 726131506000452223 ... customer name: Michele Salen, diplomat: NO
+[2024-11-06 08:55:18am] SYSADMIN completed the tranasction: 726131506000452223 and created a receipt ... Doc NO: 2
+[2024-11-06 08:55:30am] SYSADMIN created new tranasction. SID: 726132130000464258
+[2024-11-06 11:13:05am] SYSADMIN created new tranasction. SID: 726140384000479347
+[2024-11-06 11:13:20am] SYSADMIN adding global discount to tranasction: 726140384000479347 ... reason: null, total discount amount: undefined
+[2024-11-06 11:13:34am] SYSADMIN completed the tranasction: 726140384000479347 and created a receipt ... Doc NO: 7
+[2024-11-06 11:13:50am] SYSADMIN created new tranasction. SID: 726140430000435359
+[2024-11-06 11:51:52am] SYSADMIN created new tranasction. SID: 726142711000489404
+[2024-11-06 11:52:08am] SYSADMIN adding global discount to tranasction: 726142711000489404 ... reason: null, total discount amount: undefined
+[2024-11-06 11:52:26am] SYSADMIN completed the tranasction: 726142711000489404 and created a receipt ... Doc NO: 8
+[2024-11-06 11:59:43am] SYSADMIN created new tranasction. SID: 726143183000449421
+[2024-11-06 12:03:12pm] SYSADMIN created new tranasction. SID: 726143392000442434
+[2024-11-06 12:03:48pm] SYSADMIN adding new customer to tranasction: 726143392000442434 ... customer name: Michele Salen, diplomat: NO
+[2024-11-06 12:04:01pm] SYSADMIN adding global discount to tranasction: 726143392000442434 ... reason: null, total discount amount: undefined
+[2024-11-06 12:28:30pm] SYSADMIN created new tranasction. SID: 726144910000435452
+[2024-11-06 12:28:43pm] SYSADMIN adding global discount to tranasction: 726144910000435452 ... reason: null, total discount amount: undefined
+[2024-11-06 12:35:40pm] SYSADMIN created new tranasction. SID: 726145339000491466
+[2024-11-06 12:35:52pm] SYSADMIN adding global discount to tranasction: 726145339000491466 ... reason: null, total discount amount: undefined
+[2024-11-06 12:36:07pm] SYSADMIN completed the tranasction: 726145339000491466 and created a receipt ... Doc NO: 9
+[2024-11-06 12:36:18pm] SYSADMIN created new tranasction. SID: 726145378000455481
+[2024-11-06 12:50:43pm] SYSADMIN created new tranasction. SID: 726146243000450494
+[2024-11-06 13:02:18pm] SYSADMIN created new tranasction. SID: 726146938000463508
+[2024-11-06 13:32:05pm] SYSADMIN created new tranasction. SID: 726148725000426529
+[2024-11-06 13:32:15pm] SYSADMIN adding new customer to tranasction: 726148725000426529 ... customer name: Michele Salen, diplomat: NO
+[2024-11-06 13:32:29pm] SYSADMIN adding global discount to tranasction: 726148725000426529 ... reason: null, total discount amount: undefined
+[2024-11-06 13:34:44pm] SYSADMIN created new tranasction. SID: 726148883000474544
+[2024-11-06 15:22:05pm] SYSADMIN created new tranasction. SID: 726155324000489672
+[2024-11-06 16:54:33pm] SYSADMIN adding global discount to tranasction: 726155324000489672 ... reason: null, total discount amount: undefined
+[2024-11-06 16:54:39pm] SYSADMIN adding global discount to tranasction: 726155324000489672 ... reason: null, total discount amount: undefined
+[2024-11-06 16:55:07pm] SYSADMIN completed the tranasction: 726155324000489672 and created a receipt ... Doc NO: 10
+[2024-11-06 16:58:08pm] SYSADMIN created new tranasction. SID: 726161088000414738
+[2024-11-06 17:36:02pm] SYSADMIN created new tranasction. SID: 726163362000410769
+[2024-11-06 17:36:08pm] SYSADMIN printing an x-reading.
+[2024-11-06 17:36:18pm] SYSADMIN printing an x-reading.
+[2024-11-06 17:36:39pm] SYSADMIN created new tranasction. SID: 726163398000478772
+[2024-11-06 17:36:48pm] SYSADMIN adding global discount to tranasction: 726163398000478772 ... reason: null, total discount amount: undefined
+[2024-11-06 17:37:02pm] SYSADMIN completed the tranasction: 726163398000478772 and created a receipt ... Doc NO: 11
+[2024-11-06 17:37:22pm] SYSADMIN created new tranasction. SID: 726163442000463787
+[2024-11-06 17:37:33pm] SYSADMIN adding global discount to tranasction: 726163442000463787 ... reason: null, total discount amount: undefined
+[2024-11-06 17:37:48pm] SYSADMIN completed the tranasction: 726163442000463787 and created a receipt ... Doc NO: 12
+[2024-11-06 17:37:56pm] SYSADMIN created new tranasction. SID: 726163476000404800
+[2024-11-06 17:38:06pm] SYSADMIN printing an x-reading.

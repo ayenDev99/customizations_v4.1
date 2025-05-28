@@ -1,0 +1,17 @@
+[2024-10-15 00:57:52am] New log has been created.
+[2024-10-15 00:57:52am] SYSADMIN printing an x-reading.
+[2024-10-15 08:24:46am] SYSADMIN printing an x-reading.
+[2024-10-15 08:25:40am] SYSADMIN printing an x-reading.
+[2024-10-15 09:03:56am] SYSADMIN printing an x-reading.
+[2024-10-15 09:36:57am] SYSADMIN closed a drawer.
+[2024-10-15 09:37:01am] SYSADMIN opened a drawer.
+[2024-10-15 09:37:05am] SYSADMIN created new tranasction. SID: 724034625000376017
+[2024-10-15 09:46:34am] SYSADMIN created new tranasction. SID: 724035194000375074
+[2024-10-15 09:46:56am] SYSADMIN adding global discount to tranasction: 724035194000375074 ... reason: null, total discount amount: undefined
+[2024-10-15 10:00:10am] SYSADMIN printing an x-reading.
+[2024-10-15 10:20:08am] SYSADMIN created new tranasction. SID: 724037208000378103
+[2024-10-15 10:20:45am] SYSADMIN adding item discount to tranasction: 724037208000378103 item: 724037225000373113 ... reason: Sale, total discount amount: 200
+[2024-10-15 10:22:21am] SYSADMIN adding new customer to tranasction: 724037208000378103 ... customer name: mark saway, diplomat: NO
+[2024-10-15 10:22:31am] SYSADMIN adding global discount to tranasction: 724037208000378103 ... reason: null, total discount amount: undefined
+[2024-10-15 10:23:08am] SYSADMIN completed the tranasction: 724037208000378103 and created a receipt ... Doc NO: 27
+[2024-10-15 15:30:16pm] SYSADMIN created new tranasction. SID: 724055816000375330

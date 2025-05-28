@@ -1,0 +1,31 @@
+[2024-10-24 09:20:35am] New log has been created.
+[2024-10-24 09:20:35am] SYSADMIN opened a drawer.
+[2024-10-24 09:20:45am] SYSADMIN created new tranasction. SID: 724933645000349097
+[2024-10-24 09:20:59am] SYSADMIN adding new customer to tranasction: 724933645000349097 ... customer name: NAAC customer, diplomat: NO
+[2024-10-24 09:53:20am] SYSADMIN created new tranasction. SID: 724935600000342211
+[2024-10-24 09:54:31am] SYSADMIN adding global discount to tranasction: 724935600000342211 ... reason: null, total discount amount: undefined
+[2024-10-24 09:55:30am] SYSADMIN completed the tranasction: 724935600000342211 and created a receipt ... Doc NO: 72
+[2024-10-24 09:55:40am] SYSADMIN created new tranasction. SID: 724935740000343225
+[2024-10-24 11:45:26am] SYSADMIN created new tranasction. SID: 724942326000381289
+[2024-10-24 11:45:39am] SYSADMIN adding global discount to tranasction: 724942326000381289 ... reason: null, total discount amount: undefined
+[2024-10-24 11:46:07am] SYSADMIN completed the tranasction: 724942326000381289 and created a receipt ... Doc NO: 73
+[2024-10-24 11:46:13am] SYSADMIN created new tranasction. SID: 724942372000384302
+[2024-10-24 12:13:39pm] SYSADMIN adding global discount to tranasction: 724942326000381289 ... reason: null, total discount amount: undefined
+[2024-10-24 13:42:16pm] SYSADMIN created new tranasction. SID: 724949336000349399
+[2024-10-24 13:43:24pm] SYSADMIN created new tranasction. SID: 724949404000344410
+[2024-10-24 13:43:43pm] SYSADMIN adding global discount to tranasction: 724949404000344410 ... reason: null, total discount amount: undefined
+[2024-10-24 14:20:49pm] SYSADMIN completed the tranasction: 724949404000344410 and created a receipt ... Doc NO: 74
+[2024-10-24 14:21:25pm] SYSADMIN created new tranasction. SID: 724951685000345443
+[2024-10-24 14:21:47pm] SYSADMIN adding global discount to tranasction: 724951685000345443 ... reason: null, total discount amount: undefined
+[2024-10-24 14:22:06pm] SYSADMIN adding global discount to tranasction: 724951685000345443 ... reason: null, total discount amount: undefined
+[2024-10-24 14:22:29pm] SYSADMIN completed the tranasction: 724951685000345443 and created a receipt ... Doc NO: 75
+[2024-10-24 14:22:50pm] SYSADMIN created new tranasction. SID: 724951770000352461
+[2024-10-24 14:33:00pm] SYSADMIN created new tranasction. SID: 724952380000331469
+[2024-10-24 14:33:22pm] SYSADMIN adding global discount to tranasction: 724952380000331469 ... reason: null, total discount amount: undefined
+[2024-10-24 14:33:33pm] SYSADMIN adding global discount to tranasction: 724952380000331469 ... reason: null, total discount amount: undefined
+[2024-10-24 14:33:40pm] SYSADMIN completed the tranasction: 724952380000331469 and created a receipt ... Doc NO: 76
+[2024-10-24 14:34:46pm] SYSADMIN created new tranasction. SID: 724952486000362484
+[2024-10-24 14:35:02pm] SYSADMIN adding global discount to tranasction: 724952486000362484 ... reason: null, total discount amount: undefined
+[2024-10-24 14:35:11pm] SYSADMIN completed the tranasction: 724952486000362484 and created a receipt ... Doc NO: 77
+[2024-10-24 15:44:15pm] SYSADMIN created new tranasction. SID: 724956655000306532
+[2024-10-24 15:44:34pm] SYSADMIN created new tranasction. SID: 724956674000308535

@@ -1,0 +1,50 @@
+<table id="tbl_report" class="table table-bordered hover custom-table" style="margin: 0;" width="100%">
+    <tr class="tr-head">
+        <th align="center" rowspan="2">Date</th>
+        <th align="center" rowspan="2">SI #</th>
+        <th align="center" rowspan="2">Gross</th>
+        <th align="center" rowspan="2">Other Charges</th>
+        <th align="center" align="center" colspan="3">Discounts</th>
+        <th align="center" rowspan="2">VAT Adjustments</th>
+        <th align="center" rowspan="2">Net Amount</th>
+        <th align="center" rowspan="2">Vatable Sales</th>
+        <th align="center" rowspan="2">VAT Amount</th>
+        <th align="center" rowspan="2">VAT Exempt Sales</th>
+        <th align="center" rowspan="2">Zero Rated Sales</th>
+        <th align="center" rowspan="2" class="net_rounding_off">Net Rounding Amount</th>
+        <th align="center" align="center" colspan="3">Mode Of Payment</th>
+        <th align="center" rowspan="2">Remarks</th>
+    </tr>
+    <tr class="tr-head">
+        <th align="center">SC</th>
+        <th align="center">PWD</th>
+        <th align="center">Others</th>
+        <th align="center">Cash</th>
+        <th align="center">Credit Card</th>
+        <th align="center">Others</th>
+    </tr>
+    <tr ng-if="searchResult.results.length > 0" dir-paginate="item in searchResult.results | itemsPerPage: salesReport.itemsPerPage" current-page="pagination.current" pagination-id="invnReportID" total-items="searchResult.recordCount" on-finish-render="ngRepeatFinished">
+
+        <td>{{item.CREATED_DATE}}</td>
+        <td>{{item.INVOICE_NO}}</td>
+        <td>{{item.GROSS | number:2 }}</td>
+        <td>{{item.TOTAL_FEES | number:2 }}</td>
+        <td>{{item.SC_DISC | number:2 }}</td>
+        <td>{{item.PWD_DISC | number:2 }}</td>
+        <td>{{item.OTHER_DISC | number:2 }}</td>
+        <td>{{item.VAT_ADJUSTMENT | number:2 }}</td>
+        <td>{{item.NET_AMOUNT | number:2 }}</td>
+        <td>{{item.VAT_SALES | number:2 }}</td>
+        <td>{{item.VAT_AMOUNT | number:2 }}</td>
+        <td>{{item.VAT_EXEMPT | number:2 }}</td>
+        <td>{{item.ZERO_RATED | number:2 }}</td>
+        <td class="net_rounding_off">{{item.ROUNDING_OFFSET | number:2 }}</td>
+        <td>{{item.PAY_CASH | number:2 }}</td>
+        <td>{{item.PAY_CARD | number:2 }}</td>
+        <td>{{item.PAY_OTHERS | number:2 }}</td>
+        <td>{{item.REMARKS}}</td>
+        <td ng-repeat="size_qty in item.SIZE_QTY track by $index">
+            {{size_qty}}
+        </td>
+    </tr>
+</table>

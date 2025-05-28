@@ -1,0 +1,32 @@
+{
+    "1": {
+        "stores": {
+            "3": {
+                "workstations": {
+                    "1": {
+                        "workstationNo": "1",
+                        "serialNo": "SERIAL NO: XXXXXXXXX",
+                        "min": "MIN:XXXXXXXXXXX",
+                        "ptuNo": "PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX",
+                        "dateIssue": "DATE ISSUED: MM\/DD\/YYYY",
+                        "validUntil": ""
+                    }
+                },
+                "storeNo": "3",
+                "address1": "COMPANY NAME/TRADE NAME",
+                "address2": "ADDRESS AAA",
+                "address3": "ADDRESS BBB",
+                "address4": "ADDRESS CCC",
+                "address5": "ADDRESS DDD",
+                "address6": "OPERATED BY:QUORUM INT'L INC.",
+                "vatRegTin": "VAT REG TIN:XXX-XXX-XXX-XXXXX",
+                "softwareVersion": "SoftwareVersion:RetailPro Prismv2"
+            }
+        },
+        "subsidiaryNo": "1"
+    }
+}
+
+
+
+

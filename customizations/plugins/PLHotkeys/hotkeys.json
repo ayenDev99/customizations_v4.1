@@ -1,0 +1,814 @@
+{
+    "general": {
+        "url_path": "\/",
+        "label": "General Settings",
+        "paths": [
+            {
+                "label": "",
+                "keys": [
+                    {
+                        "label": "Arrow Left",
+                        "slug": "arrowleft",
+                        "keylabel": "ArrowLeft",
+                        "keycode": 37,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": ".list-group,.list-group > .list-group-item,prev",
+                                "event": "navigateList()"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Arrow Up",
+                        "slug": "arrowup",
+                        "keylabel": "ArrowUp",
+                        "keycode": 38,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": ".list-group,.list-group > .list-group-item,prev",
+                                "event": "navigateList()"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Arrow Right",
+                        "slug": "arrowright",
+                        "keylabel": "ArrowRight",
+                        "keycode": 39,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": ".list-group,.list-group > .list-group-item,next",
+                                "event": "navigateList()"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Arrow Down",
+                        "slug": "arrowdown",
+                        "keylabel": "ArrowDown",
+                        "keycode": 40,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": ".list-group,.list-group > .list-group-item,next",
+                                "event": "navigateList()"
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Close Modal",
+                        "slug": "closemodal",
+                        "keylabel": "Escape",
+                        "keycode": 27,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[ng-click='closeForm()']",
+                                "event": "click",
+                                "conditions": [
+                                    "[ng-click='closeForm()'],checkIfElemExisting()",
+                                    ".modal,checkIfElemExisting()"
+                                ]
+                            },
+                            {
+                                "element": "[ng-click='cancel()']",
+                                "event": "click",
+                                "conditions": [
+                                    "[ng-click='cancel()'],checkIfElemExisting()",
+                                    ".modal,checkIfElemExisting()"
+                                ]
+                            },
+                            {
+                                "element": "[ng-click='$close()']",
+                                "event": "click",
+                                "conditions": [
+                                    "[ng-click='$close()'],checkIfElemExisting()",
+                                    ".modal,checkIfElemExisting()"
+                                ]
+                            },
+                            {
+                                "element": "[ng-enter='$close()']",
+                                "event": "click",
+                                "conditions": [
+                                    "[ng-enter='$close()'],checkIfElemExisting()",
+                                    ".modal,checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Remove Cursor\/Focus",
+                        "slug": "removecursorfocus",
+                        "keylabel": "Delete",
+                        "keycode": 46,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "html",
+                                "event": "deleteFocus()",
+                                "conditions": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "Main Menu",
+                "keys": [
+                    {
+                        "label": "Toggle Menu",
+                        "slug": "togglemenu",
+                        "keylabel": "Space",
+                        "keycode": 32,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "#mainRProButton",
+                                "event": "click",
+                                "conditions": [
+                                    "#mainRProButton,checkIfElemExisting()",
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            },
+                            {
+                                "element": ".modal",
+                                "event": "click",
+                                "conditions": [
+                                    "[ng-controller='sideButtonsCtrl'],checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Point of Sale",
+                        "slug": "pointofsale",
+                        "keylabel": "Digit1",
+                        "keycode": 49,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='sideButtonHome']",
+                                "event": "click",
+                                "conditions": [
+                                    "[ng-controller='sideButtonsCtrl'],checkIfElemExisting()",
+                                    ".modal,checkElemLength(),le,1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Store Operations",
+                        "slug": "storeoperations",
+                        "keylabel": "Digit2",
+                        "keycode": 50,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='storeOperationButton']",
+                                "event": "click",
+                                "conditions": [
+                                    "[ng-controller='sideButtonsCtrl'],checkIfElemExisting()",
+                                    ".modal,checkElemLength(),le,1"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Admin Console",
+                        "slug": "adminconsole",
+                        "keylabel": "Digit3",
+                        "keycode": 51,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='mainAdminConsole']",
+                                "event": "click",
+                                "conditions": [
+                                    "[ng-controller='sideButtonsCtrl'],checkIfElemExisting()",
+                                    ".modal,checkElemLength(),le,1"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "dashboard": {
+        "url_path": "\/prism.shtml#\/register",
+        "label": "Dashboard",
+        "paths": [
+            {
+                "label": "Point of Sale",
+                "keys": [
+                    {
+                        "label": "New Transaction",
+                        "slug": "newtransaction",
+                        "keylabel": "F1",
+                        "keycode": 112,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navLandingNewTransaction']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Transaction Lookup",
+                        "slug": "transactionlookup",
+                        "keylabel": "F2",
+                        "keycode": 113,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navLandingTransactionLookup']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Pending Transactions",
+                        "slug": "pendingtransactions",
+                        "keylabel": "F3",
+                        "keycode": 114,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navLandingPendingTransactions']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Change Till\/Drawer",
+                        "slug": "changetilldrawer",
+                        "keylabel": "F8",
+                        "keycode": 119,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navLandingChangeTillDrawer']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Check In",
+                        "slug": "checkin",
+                        "keylabel": "F9",
+                        "keycode": 120,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navLandingCheckIn']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Check Out",
+                        "slug": "checkout",
+                        "keylabel": "F10",
+                        "keycode": 121,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navLandingCheckOut']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Time Clock",
+                        "slug": "timeclock",
+                        "keylabel": "F11",
+                        "keycode": 122,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navLandingCheckOut']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "transactionLookupModal": {
+        "url_path": "\/prism.shtml#\/register,\/prism.shtml#\/register\/pos?",
+        "label": "Transaction Lookup Modal",
+        "paths": [
+            {
+                "label": "",
+                "keys": [
+                    {
+                        "label": "Search",
+                        "slug": "search",
+                        "keylabel": "F1",
+                        "keycode": 112,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posSearchTransactionsSearch']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemExisting()",
+                                    "#transactionSearchForm,checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "View Transaction",
+                        "slug": "viewtransaction",
+                        "keylabel": "Enter",
+                        "keycode": 13,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posSearchTransactionsView']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemExisting()",
+                                    "#transactionSearchForm,checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "View Transaction in Touch POS",
+                        "slug": "viewtransactionintouchpos",
+                        "keylabel": "Ctrl+Enter",
+                        "keycode": 13,
+                        "ctrlKey": true,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posSearchTransactionsTouchPosView']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemExisting()",
+                                    "#transactionSearchForm,checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "transaction": {
+        "url_path": "\/prism.shtml#\/register\/pos?",
+        "label": "Transaction",
+        "paths": [
+            {
+                "label": "Main View",
+                "keys": [
+                    {
+                        "label": "Order Item Type",
+                        "slug": "orderitemtype",
+                        "keylabel": "Ctrl+KeyO",
+                        "keycode": 79,
+                        "ctrlKey": true,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posTransactionOrder']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "New Customer Button",
+                        "slug": "newcustomerbutton",
+                        "keylabel": "Ctrl+KeyC",
+                        "keycode": 67,
+                        "ctrlKey": true,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "#customerNewButton",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Remove Customer Button",
+                        "slug": "removecustomerbutton",
+                        "keylabel": "Ctrl+KeyR",
+                        "keycode": 82,
+                        "ctrlKey": true,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posTransactionRemoveCustomer']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='posTransactionRemoveCustomer'],checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Item Detail Button",
+                        "slug": "itemdetailbutton",
+                        "keylabel": "KeyI",
+                        "keycode": 73,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posTransactionItemDetails']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='posTransactionItemDetails'],checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Transaction Detail Button",
+                        "slug": "transactiondetailbutton",
+                        "keylabel": "KeyT",
+                        "keycode": 84,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posTransactionTransactionDetails']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='posTransactionTransactionDetails'],checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Tender Button",
+                        "slug": "tenderbutton",
+                        "keylabel": "Ctrl+Enter",
+                        "keycode": 13,
+                        "ctrlKey": true,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posTransactionTenderTransaction']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='posTransactionTenderTransaction'],checkIfElemExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "New Transaction",
+                        "slug": "transactionnewtransaction",
+                        "keylabel": "KeyN",
+                        "keycode": 78,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navPosTransactionNew']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='navPosTransactionNew'],checkIfElemExisting()",
+                                    "[event-name='navPosTransactionNew'],checkIfElemNotDisabled()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Cancel Transaction",
+                        "slug": "transactioncanceltransaction",
+                        "keylabel": "KeyC",
+                        "keycode": 67,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navPosTransactionCancel']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='navPosTransactionCancel'],checkIfElemExisting()",
+                                    "[event-name='navPosTransactionCancel'],checkIfElemNotDisabled()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Copy Transaction",
+                        "slug": "transactioncopytransaction",
+                        "keylabel": "Alt+KeyC",
+                        "keycode": 67,
+                        "ctrlKey": false,
+                        "altKey": true,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navPosTransactionCopy']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='navPosTransactionCopy'],checkIfElemExisting()",
+                                    "[event-name='navPosTransactionCopy'],checkIfElemNotDisabled()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Hold\/Unhold Transaction",
+                        "slug": "transactionholdunholdtransaction",
+                        "keylabel": "KeyH",
+                        "keycode": 72,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navPosTransactionHold']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='navPosTransactionHold'],checkIfElemExisting()",
+                                    "[event-name='navPosTransactionHold'],checkIfElemNotDisabled()"
+                                ]
+                            },
+                            {
+                                "element": "[event-name='navPosTransactionUnHold']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='navPosTransactionUnHold'],checkIfElemExisting()",
+                                    "[event-name='navPosTransactionUnHold'],checkIfElemNotDisabled()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Print",
+                        "slug": "transactionprinttransaction",
+                        "keylabel": "KeyP",
+                        "keycode": 80,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navPosTransactionPrint']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='navPosTransactionPrint'],checkIfElemExisting()",
+                                    "[event-name='navPosTransactionPrint'],checkIfElemNotDisabled()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Option",
+                        "slug": "transactionoptiontransaction",
+                        "keylabel": "KeyO",
+                        "keycode": 79,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='posOptionsButton']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()",
+                                    "[event-name='posOptionsButton'],checkIfElemExisting()",
+                                    "[event-name='posOptionsButton'],checkIfElemNotDisabled()"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "Tender",
+                "keys": [
+                    {
+                        "label": "Cash",
+                        "slug": "cash",
+                        "keylabel": "Ctrl+KeyA",
+                        "keycode": 65,
+                        "ctrlKey": true,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "rp-select-input [popover-is-open='rpSelect.popOpen']",
+                                "event": "click",
+                                "proceedToNextTarget": 100,
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            },
+                            {
+                                "element": "[event-name='posTenderTypesCash']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Check",
+                        "slug": "check",
+                        "keylabel": "Ctrl+KeyS",
+                        "keycode": 83,
+                        "ctrlKey": true,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "rp-select-input [popover-is-open='rpSelect.popOpen']",
+                                "event": "click",
+                                "proceedToNextTarget": 100,
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            },
+                            {
+                                "element": "[event-name='posTenderTypesCheck']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Credit Card",
+                        "slug": "creditcard",
+                        "keylabel": "Ctrl+KeyD",
+                        "keycode": 68,
+                        "ctrlKey": true,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "rp-select-input [popover-is-open='rpSelect.popOpen']",
+                                "event": "click",
+                                "proceedToNextTarget": 100,
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            },
+                            {
+                                "element": "[event-name='posTenderTypesCredit']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "label": "Return To Document",
+                        "slug": "returntodocument",
+                        "keylabel": "Backspace",
+                        "keycode": 8,
+                        "ctrlKey": false,
+                        "altKey": false,
+                        "shiftKey": false,
+                        "metaKey": false,
+                        "targets": [
+                            {
+                                "element": "[event-name='navPosTenderReturnTo']",
+                                "event": "click",
+                                "conditions": [
+                                    ".modal,checkIfElemNotExisting()"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

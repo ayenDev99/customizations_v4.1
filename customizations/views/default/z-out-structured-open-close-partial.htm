@@ -1,0 +1,35 @@
+<form novalidate="" id="zOutStructuredOpenClose" name="zOutStructuredOpenClose">
+	<div class="modalouter">
+		<div class="modal-header">
+			<div class="row">
+				<div class="col-sm-12">
+					<h4 data-translate="507">Z-Out</h4>
+				</div>
+			</div>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-sm-6">
+					<button event-name="zOutStructuredOpenRegister" ng-disabled="disableOpen" class="btn btn-large btn-primary btn-block" tabindex="15" type="button" ng-click="openRegister()"><img src="/images/pos/Register_Open_32.png"><span data-translate="2243">Open Register</span></button>
+				</div>
+				<div class="col-sm-6">
+					<button event-name="zOutStructuredCloseRegister" ng-disabled="disableClose" class="btn btn-large btn-primary btn-block" tabindex="16" type="button" ng-click="closeRegister()"><img src="/images/pos/Register_Close_32.png"><span data-translate="2244">Close Register</span></button>
+				</div>
+			</div>
+
+			<!-- <div class="row" style="margin-top: 10px;">
+				<div class="col-sm-6">
+					<button event-name="zOutGenerateTextFiles" ng-disabled="disableClose" class="btn btn-large btn-primary btn-block" tabindex="16" type="button" ng-click="zOutGenerateTextFiles()">Generate all text files</button>
+				</div>
+			</div> -->
+		</div>
+
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-xs-6 col-xs-offset-6">
+					<button event-name="zOutStructuredCancel" class="btn btn-large btn-default btn-block" tabindex="16" type="button" id="cancelButton" ng-click="cancel()" data-translate="1.2">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

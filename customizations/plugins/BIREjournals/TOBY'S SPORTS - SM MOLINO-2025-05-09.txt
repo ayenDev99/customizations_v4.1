@@ -1,0 +1,246 @@
+        TOBY'S SPORTS - SM MOLINO
+   COMPANY NAME/TRADE NAME ADDRESS AAA
+               ADDRESS BBB
+               ADDRESS CCC
+               ADDRESS DDD
+      OPERATED BY:QUORUM INT'L INC.
+      VAT REG TIN:XXX-XXX-XXX-XXXXX
+   Date Range: 05/09/2025 - 05/09/2025
+    SoftwareVersion:RetailPro Prismv2
+      ACCN: 0572086520292023091860
+           POS Terminal No: 6
+          Cashier: GENIEX ID: 
+                Z-READING
+               Z-COUNT: 11
+            NON-RESET TOTALS
+BEGINING BALANCE                9,975.00
+ENDING BALANCE                 12,275.00
+               GROSS SALES
+GROSS SALES                     2,300.00
+FEE/GC EXCESS                       0.00
+OTHER CHARGES                       0.00
+TOTAL                           2,300.00
+          ADJUSTED GROSS SALES
+GROSS SALES                     2,300.00
+DISCOUNTS                           0.00
+VAT ADJ.                            0.00
+OTHER CHARGES                       0.00
+NET SALES                       2,300.00
+              FEE BREAKDOWN
+FEE/GC EXCESS                       0.00
+              VAT BREAKDOWN
+VATABLE SALES                   2,053.57
+VAT AMOUNT                        246.43
+VAT EXEMPT SALES                    0.00
+ZERO RATED SALES                    0.00
+                 RETURN
+RETURN                              0.00
+             PAYMENT SUMMARY
+CASH TOTAL                      2,300.00
+NON-CASH TOTAL                      0.00
+TOTAL PAYMENTS                  2,300.00
+            NON-CASH PAYMENTS
+                DISCOUNTS
+SC DISC                             0.00
+PWD DISC                            0.00
+SP DISC                             0.00
+NAAC DISC                           0.00
+OTHERS                              0.00
+TOTAL DISCOUNTS                     0.00
+           CASH FLOW BREAKDOWN
+OPEN AMOUNT                     2,000.00
+CASH SALES                      2,300.00
+DISBURSEMENT PAID IN            2,600.00
+DISBURSEMENT PAID OUT           1,000.00
+          CASH DROP (LESS)         600.00
+TOTAL IN DRAWER                     0.00
+CASH COUNT DECLARATION          2,600.00
+CASH OVER/SHORT                -2,700.00
+         CASH COUNT DENOMINATION
+100                                    6
+500                                    2
+1000                                   1
+           TRANSACTION COUNTER
+BEGINNING OR                     0000008
+ENDING OR                        0000008
+TOTAL OR                               1
+BEGINNING RETURN                 0000000
+ENDING RETURN                    0000000
+TOTAL RETURN                           0
+RESET COUNTER                          0
+ACCUM GRAND TOTAL SALES        12,275.00
+                    
+
+        TOBY'S SPORTS - SM MOLINO
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+      VAT REG TIN:XXX-XXX-XXX-XXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000008
+        Date: 05/09/2025 09:04 am
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                SYSADMIN
+5365000435387           i1 I120200240017
+OVICX  COLUMN DISC PC           SYSADMIN
+1@          2,300.00          2,300.00v
+Subtotal:           1           2,300.00
+Total Amount Due                2,300.00
+VATable Sales                   2,053.57
+VAT (12%) Amount                  246.43
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Cash                            2,300.00
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+
+    THIS SERVES AS YOUR SALES INVOICE
+
+        TOBY'S SPORTS - SM MOLINO
+   COMPANY NAME/TRADE NAME ADDRESS AAA
+               ADDRESS BBB
+               ADDRESS CCC
+               ADDRESS DDD
+      OPERATED BY:QUORUM INT'L INC.
+      VAT REG TIN:XXX-XXX-XXX-XXXXX
+   Date Range: 05/09/2025 - 05/09/2025
+    SoftwareVersion:RetailPro Prismv2
+      ACCN: 0572086520292023091860
+           POS Terminal No: 6
+          Cashier: GENIEX ID: 
+                Z-READING
+               Z-COUNT: 12
+            NON-RESET TOTALS
+BEGINING BALANCE               12,275.00
+ENDING BALANCE                 14,575.00
+               GROSS SALES
+GROSS SALES                     2,300.00
+FEE/GC EXCESS                       0.00
+OTHER CHARGES                       0.00
+TOTAL                           2,300.00
+          ADJUSTED GROSS SALES
+GROSS SALES                     2,300.00
+DISCOUNTS                           0.00
+VAT ADJ.                            0.00
+OTHER CHARGES                       0.00
+NET SALES                       2,300.00
+              FEE BREAKDOWN
+FEE/GC EXCESS                       0.00
+              VAT BREAKDOWN
+VATABLE SALES                   2,053.57
+VAT AMOUNT                        246.43
+VAT EXEMPT SALES                    0.00
+ZERO RATED SALES                    0.00
+                 RETURN
+RETURN                              0.00
+             PAYMENT SUMMARY
+CASH TOTAL                      1,300.00
+NON-CASH TOTAL                  1,000.00
+TOTAL PAYMENTS                  2,300.00
+            NON-CASH PAYMENTS
+BDO - 0% 3MOS                   1,000.00
+                DISCOUNTS
+SC DISC                             0.00
+PWD DISC                            0.00
+SP DISC                             0.00
+NAAC DISC                           0.00
+OTHERS                              0.00
+TOTAL DISCOUNTS                     0.00
+           CASH FLOW BREAKDOWN
+OPEN AMOUNT                     2,000.00
+CASH SALES                      1,300.00
+DISBURSEMENT PAID IN                0.00
+DISBURSEMENT PAID OUT               0.00
+           CASH DROP (LESS)          0.00
+TOTAL IN DRAWER                     0.00
+CASH COUNT DECLARATION              0.00
+CASH OVER/SHORT                -3,300.00
+         CASH COUNT DENOMINATION
+           TRANSACTION COUNTER
+BEGINNING OR                     0000009
+ENDING OR                        0000009
+TOTAL OR                               1
+BEGINNING RETURN                 0000000
+ENDING RETURN                    0000000
+TOTAL RETURN                           0
+RESET COUNTER                          0
+ACCUM GRAND TOTAL SALES        14,575.00
+                    
+
+        TOBY'S SPORTS - SM MOLINO
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+      VAT REG TIN:XXX-XXX-XXX-XXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000009
+        Date: 05/09/2025 09:21 am
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                SYSADMIN
+5365000435387           i1 I120200240017
+OVICX  COLUMN DISC PC           SYSADMIN
+1@          2,300.00          2,300.00v
+Subtotal:           1           2,300.00
+Total Amount Due                2,300.00
+VATable Sales                   2,053.57
+VAT (12%) Amount                  246.43
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Cash                            1,300.00
+BDO - 0% 3MOS                   1,000.00
+Auth #:                           456778
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+
+    THIS SERVES AS YOUR SALES INVOICE
+

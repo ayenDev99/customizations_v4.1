@@ -1,0 +1,25 @@
+[2025-05-22 09:47:03am] New log has been created.
+[2025-05-22 09:47:03am] SYSADMIN closed a drawer.
+[2025-05-22 09:47:04am] SYSADMIN closed a drawer.
+[2025-05-22 09:47:05am] SYSADMIN closed a drawer.
+[2025-05-22 09:47:57am] SYSADMIN closed a drawer.
+[2025-05-22 09:47:58am] SYSADMIN closed a drawer.
+[2025-05-22 09:47:59am] SYSADMIN closed a drawer.
+[2025-05-22 09:48:08am] SYSADMIN closed a drawer.
+[2025-05-22 09:48:24am] SYSADMIN opened a drawer.
+[2025-05-22 09:49:38am] SYSADMIN printing an x-reading.
+[2025-05-22 09:59:39am] SYSADMIN printing an x-reading.
+[2025-05-22 10:32:27am] SYSADMIN created new tranasction. SID: 746137947000512407
+[2025-05-22 10:33:34am] SYSADMIN adding new customer to tranasction: 746137947000512407 ... customer name: JOHN ASADA, diplomat: NO
+[2025-05-22 10:33:58am] SYSADMIN adding item discount to tranasction: 746137947000512407 item: 746137991000547412 ... reason: Philam Discount, total discount amount: 0
+[2025-05-22 10:34:10am] SYSADMIN adding global discount to tranasction: 746137947000512407 ... reason: null, total discount amount: undefined
+[2025-05-22 10:34:27am] SYSADMIN printing an x-reading.
+[2025-05-22 10:34:53am] SYSADMIN created new tranasction. SID: 746138092000555432
+[2025-05-22 10:36:00am] SYSADMIN adding item discount to tranasction: 746138092000555432 item: 746138122000559434 ... reason: Philam Discount, total discount amount: 0
+[2025-05-22 10:36:19am] SYSADMIN adding global discount to tranasction: 746138092000555432 ... reason: null, total discount amount: undefined
+[2025-05-22 10:36:50am] SYSADMIN completed the tranasction: 746138092000555432 and created a receipt ... Doc NO: 98
+[2025-05-22 10:36:58am] SYSADMIN created new tranasction. SID: 746138218000502448
+[2025-05-22 10:39:11am] SYSADMIN closed a drawer.
+[2025-05-22 10:39:12am] SYSADMIN closed a drawer.
+[2025-05-22 10:39:13am] SYSADMIN closed a drawer.
+[2025-05-22 10:39:40am] SYSADMIN printing an x-reading.

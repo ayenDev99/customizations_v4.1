@@ -1,0 +1,77 @@
+"2025-04-03 10:11:23am",SYSADMIN,"Closed a drawer"
+"2025-04-03 10:11:24am",SYSADMIN,"Closed a drawer"
+"2025-04-03 10:14:50am",SYSADMIN,"Opened a drawer"
+"2025-04-03 10:15:00am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 10:15:59am",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 10:39:04am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 10:47:09am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 11:03:21am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 11:42:31am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 11:43:54am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 11:44:14am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 11:44:23am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 11:44:32am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 11:55:46am",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 13:00:08pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:00:17pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:00:26pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:01:03pm",SYSADMIN,"Added global discount to transaction"
+"2025-04-03 13:01:54pm",SYSADMIN,"Completed the tranasction",,10
+"2025-04-03 13:03:42pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 13:04:39pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:04:47pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:05:00pm",SYSADMIN,"Added global discount to transaction"
+"2025-04-03 13:05:29pm",SYSADMIN,"Completed the tranasction",,11
+"2025-04-03 13:21:55pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 13:23:14pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:23:22pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:23:34pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:23:50pm",SYSADMIN,"Added global discount to transaction"
+"2025-04-03 13:24:58pm",SYSADMIN,"Completed the tranasction",,12
+"2025-04-03 13:27:07pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 13:30:25pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:30:32pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:31:26pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:31:57pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:32:30pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:35:12pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:36:25pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:37:08pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:38:20pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:38:58pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:39:16pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:39:33pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:47:51pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:48:36pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:49:44pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:50:13pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 13:57:19pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:01:53pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:02:34pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:02:46pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:03:36pm",SYSADMIN,"Added global discount to transaction"
+"2025-04-03 14:03:52pm",SYSADMIN,"Completed the tranasction",,13
+"2025-04-03 14:04:11pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 14:05:25pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 14:05:31pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 14:05:56pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:06:41pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:07:00pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:11:24pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:11:53pm",SYSADMIN,"Added global discount to transaction"
+"2025-04-03 14:12:06pm",SYSADMIN,"Completed the tranasction",,14
+"2025-04-03 14:12:38pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 14:13:08pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:13:33pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:13:45pm",SYSADMIN,"Added global discount to transaction"
+"2025-04-03 14:14:00pm",SYSADMIN,"Completed the tranasction",,15
+"2025-04-03 14:15:19pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 14:15:46pm",SYSADMIN,"Added item discount to transaction"
+"2025-04-03 14:16:35pm",SYSADMIN,"Added global discount to transaction"
+"2025-04-03 14:16:50pm",SYSADMIN,"Completed the tranasction",,16
+"2025-04-03 14:18:13pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 16:34:24pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 16:34:30pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-04-03 16:35:26pm",SYSADMIN,"Added global discount to transaction"
+"2025-04-03 16:35:54pm",SYSADMIN,"Completed the tranasction",,17
+"2025-04-03 16:36:16pm",SYSADMIN,"Created new transaction",REGULAR

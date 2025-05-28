@@ -1,0 +1,62 @@
+"2024-11-13 08:16:40am",SYSADMIN,"Closed a drawer"
+"2024-11-13 08:16:40am",SYSADMIN,"Closed a drawer"
+"2024-11-13 08:17:01am",SYSADMIN,"Opened a drawer"
+"2024-11-13 08:17:06am",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 08:17:16am",SYSADMIN,"Added a customer to transaction"
+"2024-11-13 08:20:08am",SYSADMIN,"Added item discount to transaction"
+"2024-11-13 08:20:21am",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 08:38:49am",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 08:39:05am",SYSADMIN,"Added a customer to transaction"
+"2024-11-13 08:39:14am",SYSADMIN,"Added item discount to transaction"
+"2024-11-13 08:39:27am",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 08:40:14am",SYSADMIN,"Completed the tranasction",,14
+"2024-11-13 08:42:01am",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 09:37:05am",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 13:37:23pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 13:41:08pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 13:41:20pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 13:41:37pm",SYSADMIN,"Completed the tranasction",,15
+"2024-11-13 13:49:22pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 13:52:55pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 13:53:11pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 13:54:01pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 13:54:21pm",SYSADMIN,"Completed the tranasction",,16
+"2024-11-13 13:55:21pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 13:55:47pm",SYSADMIN,"Added item discount to transaction"
+"2024-11-13 13:56:02pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 13:56:20pm",SYSADMIN,"Completed the tranasction",,17
+"2024-11-13 13:56:50pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 13:57:12pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 13:57:26pm",SYSADMIN,"Added a customer to transaction"
+"2024-11-13 13:59:13pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 13:59:36pm",SYSADMIN,"Completed the tranasction",,18
+"2024-11-13 14:00:46pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 14:01:13pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 14:06:30pm",CASHIER,"Created new transaction",REGULAR
+"2024-11-13 14:11:02pm",CASHIER,"Added a customer to transaction"
+"2024-11-13 14:11:12pm",CASHIER,"Created return transaction",RETURN
+"2024-11-13 14:11:21pm",CASHIER,"Added global discount to transaction"
+"2024-11-13 14:11:30pm",CASHIER,"Completed the tranasction",,3
+"2024-11-13 14:13:32pm",CASHIER,"Created new transaction",REGULAR
+"2024-11-13 14:20:07pm",CASHIER,"Created new transaction",REGULAR
+"2024-11-13 14:21:24pm",CASHIER,"Added global discount to transaction"
+"2024-11-13 14:21:53pm",CASHIER,"Completed the tranasction",,19
+"2024-11-13 14:22:26pm",CASHIER,"Created new transaction",REGULAR
+"2024-11-13 14:22:38pm",CASHIER,"Added global discount to transaction"
+"2024-11-13 14:23:09pm",CASHIER,"Completed the tranasction",,20
+"2024-11-13 14:23:30pm",CASHIER,"Created new transaction",REGULAR
+"2024-11-13 14:23:38pm",CASHIER,"Added a customer to transaction"
+"2024-11-13 14:24:06pm",CASHIER,"Created new transaction",REGULAR
+"2024-11-13 14:27:15pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 17:15:52pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 17:16:11pm",SYSADMIN,"Created return transaction",RETURN
+"2024-11-13 17:16:55pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 17:17:15pm",SYSADMIN,"Completed the tranasction",,4
+"2024-11-13 17:17:27pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 17:47:54pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 17:48:12pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 17:50:33pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-13 17:51:20pm",SYSADMIN,"Created return transaction",RETURN
+"2024-11-13 17:51:34pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-13 17:52:19pm",SYSADMIN,"Completed the tranasction",,5
+"2024-11-13 17:52:28pm",SYSADMIN,"Created new transaction",REGULAR

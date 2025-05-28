@@ -1,0 +1,50 @@
+<div class="modal-content" id="membersModal">
+    <div class="modal-header">
+        <h4 class="modal-title">Member's Eligibility Checking</h4>
+    </div>
+    <div class="modal-body"> 
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <label for="eligibility-input">Scan/Enter Barcode Number:</label>
+                <input type="text" id="eligibility-input" class="form-control" placeholder="Enter member details">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 text-right">
+                    <button type="button" class="btn btn-primary" ng-click="submitDetails()">Submit</button>
+                    <button type="button" id="closeModals" class="btn btn-primary" ng-click="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    #discounts .discount {
+        margin-bottom: 10px;
+    }
+
+    #discounts .discount button {
+        width: 100%;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    /* Hover effect for text box */
+    #eligibility-input {
+        margin-bottom: 15px;
+        transition: border-color 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    #eligibility-input:hover {
+        border-color: red;
+        box-shadow: 0 0 5px red;
+    }
+
+    .modal-footer .btn {
+        margin-left: 5px; /* Adds spacing between buttons */
+    }
+</style>

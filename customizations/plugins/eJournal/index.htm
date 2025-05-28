@@ -1,0 +1,124 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">eJournal Page</h4>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="col-md-4">
+          <form name="searchDetails" class="form-horizontal">
+            <div class="row">
+                <div class="form-group">
+                  <label class="control-label col-sm-4" for="fromDate">From Date:</label>
+                  <div id="datepicker" class="col-sm-8">
+                       <input type="text" class="form-control" ng-init="search.fromDate = Date" ng-model="search.fromDate">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-4" for="toDate">To Date:</label>
+                  <div id="datepicker" class="col-sm-8">
+                       <input type="text" class="form-control" ng-init="search.toDate = tDate" ng-model="search.toDate">
+                  </div>
+                </div>
+
+                <!-- <div class="form-group">
+                  <label class="control-label col-sm-4" for="transList">Transaction Type:</label>
+                    <div class="col-sm-8">
+                      <select class="form-control" ng-init="search.transList = transType[0]" ng-options="t as t.name for t in transType" ng-model="search.transList" >
+                      </select>
+                    </div>
+                </div> -->
+
+                <div class="form-group">
+                  <label class="control-label col-sm-4" for="storeList">Store:</label>
+                  <div class="col-sm-8">
+                    <select class="form-control" ng-options="s as s.store_name for s in stores track by s.sid" ng-model="search.storeList">
+                       <option value="">Select Store</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-sm-4" for="workstationList">Workstation:</label>
+                    <div class="col-sm-8">
+                      <select class="form-control" ng-options="w as w.workstation_name for w in workstations track by w.sid" ng-model="search.workstationList" >
+                         <option value="">All</option>
+                      </select>
+                    </div>
+                </div>
+              </div>
+          </form>
+      </div>
+<!--      <div class="col-md-4 height70 autoOverflow">
+        <div class="well well-sm" ng-repeat="doc in documents">
+          <div class="row">
+            <div class="col-md-6 resultMargin">
+                <span ng-show="doc.document_number"><h6><b>Sale Number:</b> {{doc.document_number}}</h6></span>
+            </div>
+            <div class="col-md-6 resultMargin">
+                <span ng-show="doc.bt_first_name"><h6><b>Customer:</b> {{doc.bt_first_name}} {{doc.bt_last_name}}</h6></span>
+            </div>
+            <div class="col-md-6 resultMargin">
+                <span ng-show="doc.order_document_number"><h6><b>Order Number:</b> {{doc.order_document_number}}</h6></span>
+            </div>
+            <div class="col-md-6 resultMargin">
+                <h6><b>Transaction Date:</b> {{doc.invoice_posted_date | date:'yyyy-MM-dd'}}</h6>
+            </div>
+            <div class="col-md-6 resultMargin">
+                <h6><b>Store Number:</b> {{doc.store_number}}</h6>
+            </div>
+            <div class="col-md-6 resultMargin">
+                <h6><b>Transaction Amount:</b> {{doc.transaction_total_amt}}</h6>
+            </div>
+            <div class="col-md-6">
+              <h6><b>EFT Invoice Number:</b> {{doc.eft_invoice_number}}</h6>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div class="col-md-8 height70 autoOverflow" >
+         <!-- <iframe class="col-md-12 height70 autoOverflow" name="preview_frame" id="preview_frame" style="border: none"></iframe> -->
+
+      </div>
+         <!-- <iframe name="test" id="test" style="width:0;height:0;border:0; border:none;"></iframe> -->
+
+    </div>
+
+
+  </div>
+  <div class="modal-footer">
+    <div class="pull-left">
+      <!-- <button type="button" class="btn btn-primary" ng-click="printBtn()">Prism Print</button>
+      <button type="button" class="btn btn-primary" ng-click="syncDocuments()">Sync to Local</button>
+      <!--<button type="button" class="btn btn-primary" ng-click="//search()" ng-disabled="!search.designList">Search</button>-->
+      Record/s Found: {{totalRecords}}
+
+      <button type="button" class="btn btn-primary" ng-click="processAll()">Process All  </button>
+    </div>
+
+    <button type="button" class="btn btn-primary" ng-click="previewBtn()">Generate  </button>
+    <!--<button type="button" class="btn btn-primary" onClick="printContent()" ng-disabled="!iframe">Print</button>  <!--ng-disabled has been added-->  <!-- ng-click="printBtn()" ng-disabled="!search.printerList || !search.designList" -->
+    <button type="button" class="btn btn-primary" ng-click="exportContent()" ng-disabled="isExport">Export</button>  <!--ng-disabled has been added-->  <!-- ng-click="printBtn()" ng-disabled="!search.printerList || !search.designList" -->
+    <button type="button" class="btn btn-primary" ng-click="closeModal()">Close</button>
+  </div>
+</div>
+
+<style>
+.datepicker{z-index:1151 !important;}
+.resultMargin{margin-bottom: -15px;}
+</style>
+
+<script>
+$(function(){
+  $('#datepicker input').datepicker({
+      autoclose: true
+  });
+});
+
+function printContent() {
+  window.frames["preview_frame"].focus();
+  window.frames["preview_frame"].print();
+}
+
+</script>

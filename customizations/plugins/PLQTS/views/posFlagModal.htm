@@ -1,0 +1,71 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4 class="modal-title">Transaction Type</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group types">
+                        <!-- <label>Type:</label> -->
+                        <!-- <select ng-model="currentPosFlagOption" class="form-control">
+                            <option ng-repeat="option in posFlags" value="{{option.flag_option}}">{{option.flag_option}}</option>
+                        </select> -->
+
+                        <div class="type" ng-repeat="option in posFlags">
+                            <a href="#" ng-click="savePosFlag(option.flag_option)">
+                                <img src="./customizations/plugins/PLQTS/images/transactionTypeButtons/{{option.flag_option | lowercase}}.PNG">
+                                <div class="type-text"><span>{{option.flag_option}}</span></div>
+                            </a>
+                        </div>
+                    </div>
+                  
+                    <!-- <div class="form-group text-right">
+                        <button type="button" class="btn btn-lg btn-default" ng-click="savePosFlag()"><span>save</span></button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="modal-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-2 text-right">
+                    <button type="button" class="btn btn-lg btn-default" ng-click="close()"><span data-translate="Close">Close</span></button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>
+
+<style type="text/css">
+    .form-group.types .type {
+        width: 120px;
+        height: 120px;
+        margin: 0 10px;
+        border: 1px solid #ccc;
+        display: inline-block;
+    }
+
+    .form-group.types .type img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+
+    .form-group.types .type .type-text {
+        text-align: center;
+        display: block;
+    }
+    
+</style>

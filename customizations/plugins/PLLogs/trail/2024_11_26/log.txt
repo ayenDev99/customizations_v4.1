@@ -1,0 +1,25 @@
+[2024-11-26 15:07:29pm] New log has been created.
+[2024-11-26 15:07:29pm] SYSADMIN opened a drawer.
+[2024-11-26 15:07:33pm] SYSADMIN created new tranasction. SID: 728154453000471632
+[2024-11-26 15:07:51pm] SYSADMIN adding global discount to tranasction: 728154453000471632 ... reason: null, total discount amount: undefined
+[2024-11-26 15:08:06pm] SYSADMIN completed the tranasction: 728154453000471632 and created a receipt ... Doc NO: 46
+[2024-11-26 15:08:14pm] SYSADMIN created new tranasction. SID: 728154493000475645
+[2024-11-26 16:00:07pm] SYSADMIN created new tranasction. SID: 728157607000467768
+[2024-11-26 16:00:21pm] SYSADMIN adding item discount to tranasction: 728157607000467768 item: 728157613000477769 ... reason: Sale, total discount amount: 230
+[2024-11-26 16:00:31pm] SYSADMIN adding global discount to tranasction: 728157607000467768 ... reason: null, total discount amount: undefined
+[2024-11-26 16:00:43pm] SYSADMIN completed the tranasction: 728157607000467768 and created a receipt ... Doc NO: 47
+[2024-11-26 16:00:51pm] SYSADMIN created new tranasction. SID: 728157651000425786
+[2024-11-26 16:10:05pm] SYSADMIN created new tranasction. SID: 728158204000487813
+[2024-11-26 16:10:41pm] SYSADMIN adding item discount to tranasction: 728158204000487813 item: 728158223000462835 ... reason: Sale, total discount amount: 235
+[2024-11-26 16:10:48pm] SYSADMIN adding global discount to tranasction: 728158204000487813 ... reason: null, total discount amount: undefined
+[2024-11-26 16:11:05pm] SYSADMIN completed the tranasction: 728158204000487813 and created a receipt ... Doc NO: 48
+[2024-11-26 16:11:40pm] SYSADMIN created new tranasction. SID: 728158300000457859
+[2024-11-26 16:45:04pm] SYSADMIN created new tranasction. SID: 728160304000403924
+[2024-11-26 16:45:27pm] SYSADMIN adding new customer to tranasction: 728160304000403924 ... customer name: sc customer, diplomat: NO
+[2024-11-26 16:46:06pm] SYSADMIN adding item discount to tranasction: 728160304000403924 item: 728160317000402941 ... reason: SC, total discount amount: 1000
+[2024-11-26 16:46:07pm] SYSADMIN adding item discount to tranasction: 728160304000403924 item: 728160315000474936 ... reason: SC, total discount amount: 936
+[2024-11-26 16:46:09pm] SYSADMIN adding item discount to tranasction: 728160304000403924 item: 728160314000456931 ... reason: SC, total discount amount: 940
+[2024-11-26 16:46:10pm] SYSADMIN adding item discount to tranasction: 728160304000403924 item: 728160313000449926 ... reason: SC, total discount amount: 359
+[2024-11-26 16:46:28pm] SYSADMIN adding global discount to tranasction: 728160304000403924 ... reason: null, total discount amount: undefined
+[2024-11-26 16:46:45pm] SYSADMIN completed the tranasction: 728160304000403924 and created a receipt ... Doc NO: 49
+[2024-11-26 16:46:50pm] SYSADMIN created new tranasction. SID: 728160410000401983

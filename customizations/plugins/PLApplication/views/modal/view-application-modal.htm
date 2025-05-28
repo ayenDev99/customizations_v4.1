@@ -1,0 +1,34 @@
+<div class="modal-content" ng-controller="ApplicationModalController">
+    <!-- Modal content goes here -->
+    <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
+        <center>
+            <h4>Application</h4>
+        </center>
+        <button class="close" style="color: white; opacity: unset;" ng-click="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" style="padding: 5px;">
+
+        <div class="grid-container">
+            <div ng-repeat="area in areasConfig">
+                <div style="background-color:  #5F7D9B;">
+                    <h4 style="padding: 5px; color: white;">{{ area.name }}</h2>
+                </div>
+
+                <div class="area-box">
+                    <ul>
+                        <li ng-repeat="item in area.menu">
+                            <input type="checkbox" id="{{ item }}" ng-model="checkboxModel[item]"
+                                ng-click="addToSelectedArea(item, area.field)" ng-disabled="!isSaveButtonEnabled"/>
+                            <label for="{{ item }}" ng-class="{ 'checked': checkboxModel[item] }">{{ item }}</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <!-- Modal footer content -->
+        <button class="btn btn-default" ng-click="saveApplication()" ng-disabled="!isSaveButtonEnabled">Save & Close</button>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+        TOBY'S SPORTS - SM MOLINO
+   COMPANY NAME/TRADE NAME ADDRESS AAA
+               ADDRESS BBB
+               ADDRESS CCC
+               ADDRESS DDD
+      OPERATED BY:QUORUM INT'L INC.
+      VAT REG TIN:XXX-XXX-XXX-XXXXX
+   Date Range: 05/07/2025 - 05/07/2025
+    SoftwareVersion:RetailPro Prismv2
+      ACCN: 0572086520292023091860
+           POS Terminal No: 6
+         Cashier: SYSADMIN ID: 1
+                Z-READING
+               Z-COUNT: 3
+            NON-RESET TOTALS
+BEGINING BALANCE                4,390.00
+ENDING BALANCE                  6,985.00
+               GROSS SALES
+GROSS SALES                     2,595.00
+FEE/GC EXCESS                       0.00
+OTHER CHARGES                       0.00
+TOTAL                           2,595.00
+          ADJUSTED GROSS SALES
+GROSS SALES                     2,595.00
+DISCOUNTS                           0.00
+VAT ADJ.                            0.00
+OTHER CHARGES                       0.00
+NET SALES                       2,595.00
+              FEE BREAKDOWN
+FEE/GC EXCESS                       0.00
+              VAT BREAKDOWN
+VATABLE SALES                   2,316.96
+VAT AMOUNT                        278.04
+VAT EXEMPT SALES                    0.00
+ZERO RATED SALES                    0.00
+                 RETURN
+RETURN                              0.00
+             PAYMENT SUMMARY
+CASH TOTAL                      2,595.00
+NON-CASH TOTAL                      0.00
+TOTAL PAYMENTS                  2,595.00
+            NON-CASH PAYMENTS
+                DISCOUNTS
+SC DISC                             0.00
+PWD DISC                            0.00
+SP DISC                             0.00
+NAAC DISC                           0.00
+OTHERS                              0.00
+TOTAL DISCOUNTS                     0.00
+           TRANSACTION COUNTER
+BEGINNING OR                     0000003
+ENDING OR                        0000003
+TOTAL OR                               1
+BEGINNING RETURN                 0000000
+ENDING RETURN                    0000000
+ 
+ 
+TOTAL RETURN                           0
+RESET COUNTER                          0
+ACCUM GRAND TOTAL SALES         6,985.00
+                    
+

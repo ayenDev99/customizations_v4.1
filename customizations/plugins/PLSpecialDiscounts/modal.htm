@@ -1,0 +1,154 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h4 class="modal-title">Apply Special Discount</h4>
+	</div>
+	<div class="modal-body">
+		<div class="container-fluid">
+			<div class="col-md-12">
+				<div class="row" id="discounts">
+
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('SC')" ng-disabled="!isSCSpecialDiscountEnabled">Senior Citizen 20%</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('PWD')" ng-disabled="!isPWDSpecialDiscountEnabled">PWD 20%</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('ATHLETE')" ng-disabled="!isAthleteSpecialDiscountEnabled">Athlete</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('SP')" ng-disabled="!isSoloParentSpecialDiscountEnabled">Solo Parent</span></button>
+					</div>
+
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applyGlobalSpecialDiscount('SC')" ng-disabled="!isSCSpecialDiscountEnabled">Senior Citizen 5%</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applyGlobalSpecialDiscount('PWD')" ng-disabled="!isPWDSpecialDiscountEnabled">PWD 5%</span></button>
+					</div>
+					
+<!-- 
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('EMP')" ng-disabled="!isEMPSpecialDiscountEnabled">Employee</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('MA')" ng-disabled="!isMASpecialDiscountEnabled">Manager</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('BARFREE')" ng-disabled="!isBARFREESpecialDiscountEnabled">Barista</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('DRCOUP')" ng-disabled="!isDRCOUPSpecialDiscountEnabled">Drink Coupon</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('PERCARD')" ng-disabled="!isPERCARDSpecialDiscountEnabled">Percentage Card</span></button>
+					</div>
+					
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('MARKFOC')" ng-disabled="!isMARKFOCSpecialDiscountEnabled">Marketing FOC</span></button>
+					</div>
+
+					<div class="col-sm-3 mb-2 discount">
+						<button type="button" class="btn btn-info ng-isolate-scope" ng-click="applySpecialDiscount('EXECFOC')" ng-disabled="!isEXECFOCSpecialDiscountEnabled">Executive FOC</span></button>
+					</div>
+					
+ -->
+					<!-- <div class="form-horizontal"> -->
+						<!-- <div class="form-group">
+							<label for="discountType" class="col-sm-4">Discount Type: </label>
+							<div class="col-sm-8"> -->
+								<!-- <select class="form-control" name="discountType" ng-model="discountType" ng-change="changeDiscountType()">
+									<option value="">Please select a discount type...</option>
+									<option ng-show="isSCSpecialDiscountEnabled">SC</option>
+									<option ng-show="isPWDSpecialDiscountEnabled">PWD</option>
+									<option ng-show="isAthleteSpecialDiscountEnabled">ATHLETE</option>
+									<option value="SP" ng-show="isSoloParentSpecialDiscountEnabled">Solo Parent</option>
+								</select> -->
+							<!-- </div> -->
+						<!-- </div> -->
+						<!-- <div class="form-group" ng-show="discountType!==''">
+							<label for="discountPerc" class="col-sm-4">Discount Percentage: </label>
+							<div class="col-sm-8">
+								<input type="number" class="form-control" name="discountPerc" id="discountPerc" ng-model="discountPerc" placeholder="Enter discount amount (percentage)..." disabled/>
+							</div>
+						</div>
+
+						<div class="form-group" ng-show="(discountType==='SC'||discountType==='PWD')&&config_special_discount_process_type=='restaurant'">
+							<label for="guestCount" class="col-sm-4">No. of guests: </label>
+							<div class="col-sm-8">
+								<input type="number" class="form-control" name="guestCount" id="guestCount" ng-model="guestCount" placeholder="Enter number of guests..."/>
+							</div>
+						</div>
+
+						<div class="form-group" ng-show="(discountType==='SC'||discountType==='PWD')&&config_special_discount_process_type=='restaurant'">
+							<label for="guestCountSCPWD" class="col-sm-4">No. of SC/PWD guests: </label>
+							<div class="col-sm-8">
+								<input type="number" class="form-control" name="guestCountSCPWD" id="guestCountSCPWD" ng-model="guestCountSCPWD" placeholder="Enter number of SC/PWD guests..." ng-change="changeSCPWDGuestCount()" min="0" max="{{config_special_discount_restauran_max_cust}}"/>
+							</div>
+						</div>
+
+
+						<hr>
+
+						<div ng-repeat="guest in SCPWDGuests track by $index" class="mb-2" ng-show="(discountType==='SC'||discountType==='PWD')&&config_special_discount_process_type=='restaurant'">
+							<span style="color: #333; font-size:1rem; display: block; font-weight: 600; padding-left: 5px; font-size: 1.6rem; text-decoration: underline;">Guest {{$index+1}}</span>
+							<div class="form-group">
+
+								<label for="guestNames" class="col-sm-4">SC/PWD Name: </label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="guestNames" id="guestNames" ng-model="guestNames[$index]" placeholder="Enter SC/PWD Guest Name..."/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="guestTins" class="col-sm-4">TIN: </label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="guestTins" id="guestTins" ng-model="guestTins[$index]" placeholder="Enter SC/PWD Guest TIN..."/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="guestIds" class="col-sm-4">OSCA ID No./PWD ID No.: </label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="guestIds" id="guestIds" ng-model="guestIds[$index]" placeholder="Enter SC/PWD Guest ID #..."/>
+								</div>
+							</div>
+						</div> -->
+
+
+					<!-- </div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<button type="button" class="btn btn-primary" ng-click="closeModal()">Close</button>
+					<!-- <button type="button" class="btn btn-primary" ng-click="modify()" ng-show="(discountType==='SC'||discountType==='PWD')&&config_special_discount_process_type=='restaurant'">Modify Guests</button> -->
+					<!-- <button type="button" class="btn btn-primary" ng-click="apply()">Apply Discount</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+	#discounts .discount {
+		margin-bottom: 10px;
+	}
+
+	#discounts .discount button {
+	    width: 100%;
+	    padding-top: 12px;
+	    padding-bottom: 12px;
+	}
+	
+</style>

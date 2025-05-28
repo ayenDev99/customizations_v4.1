@@ -1,0 +1,28 @@
+.selected {
+    background-color: #f5f5f5; /* Change to the color you prefer */
+    /* Other styles for selected items */
+}
+
+.input-container {
+    display: flex;
+    align-items: baseline;
+}
+
+.quantity-box {
+    width: 60px; /* Adjust width as needed */
+}
+
+.item-lookup {
+    flex: 1; /* Expand to fill remaining space */
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa; /* Adjust as needed */
+}
+
+.stretched-table {
+    table-layout: fixed;
+    width: 100%; /* Ensure the table takes up the full width */
+}

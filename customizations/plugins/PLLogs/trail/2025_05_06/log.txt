@@ -1,0 +1,35 @@
+[2025-05-06 18:58:29pm] New log has been created.
+[2025-05-06 18:58:29pm] SYSADMIN opened a drawer.
+[2025-05-06 19:00:32pm] SYSADMIN created new tranasction. SID: 744568432000519105
+[2025-05-06 19:01:49pm] SYSADMIN adding global discount to tranasction: 744568432000519105 ... reason: null, total discount amount: undefined
+[2025-05-06 19:02:03pm] SYSADMIN completed the tranasction: 744568432000519105 and created a receipt ... Doc NO: 2
+[2025-05-06 19:02:11pm] SYSADMIN created new tranasction. SID: 744568530000582126
+[2025-05-06 19:02:52pm] SYSADMIN closed a drawer.
+[2025-05-06 19:02:54pm] SYSADMIN closed a drawer.
+[2025-05-06 19:03:19pm] SYSADMIN printing an x-reading.
+[2025-05-06 19:03:54pm] SYSADMIN closed a drawer.
+[2025-05-06 19:03:56pm] SYSADMIN closed a drawer.
+[2025-05-06 19:04:07pm] SYSADMIN printing an x-reading.
+[2025-05-06 19:13:04pm] SYSADMIN closed a drawer.
+[2025-05-06 19:13:06pm] SYSADMIN closed a drawer.
+[2025-05-06 19:16:10pm] SYSADMIN closed a drawer.
+[2025-05-06 19:16:12pm] SYSADMIN closed a drawer.
+[2025-05-06 19:16:37pm] SYSADMIN closed a drawer.
+[2025-05-06 19:16:39pm] SYSADMIN closed a drawer.
+[2025-05-06 19:29:32pm] SYSADMIN closed a drawer.
+[2025-05-06 19:29:34pm] SYSADMIN closed a drawer.
+[2025-05-06 19:31:06pm] SYSADMIN closed a drawer.
+[2025-05-06 19:31:08pm] SYSADMIN closed a drawer.
+[2025-05-06 08:33:50am] SYSADMIN opened a drawer.
+[2025-05-06 08:36:42am] SYSADMIN created new tranasction. SID: 744531001000543009
+[2025-05-06 08:37:15am] SYSADMIN adding global discount to tranasction: 744531001000543009 ... reason: null, total discount amount: undefined
+[2025-05-06 08:37:31am] SYSADMIN completed the tranasction: 744531001000543009 and created a receipt ... Doc NO: 5
+[2025-05-06 08:37:38am] SYSADMIN created new tranasction. SID: 744531058000526027
+[2025-05-06 08:38:15am] SYSADMIN printing an x-reading.
+[2025-05-06 08:38:58am] SYSADMIN closed a drawer.
+[2025-05-06 08:39:00am] SYSADMIN closed a drawer.
+[2025-05-06 08:40:51am] SYSADMIN closed a drawer.
+[2025-05-06 08:40:53am] SYSADMIN closed a drawer.
+[2025-05-06 18:27:32pm] SYSADMIN printing an x-reading.
+[2025-05-06 18:28:17pm] SYSADMIN printing an x-reading.
+[2025-05-06 18:28:42pm] SYSADMIN printing an x-reading.

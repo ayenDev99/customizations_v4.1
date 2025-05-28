@@ -1,0 +1,31 @@
+[2024-10-18 09:06:56am] New log has been created.
+[2024-10-18 09:06:56am] OWNER closed a drawer.
+[2024-10-18 09:06:57am] OWNER closed a drawer.
+[2024-10-18 09:07:15am] OWNER opened a drawer.
+[2024-10-18 09:07:27am] OWNER created new tranasction. SID: 724332847000328421
+[2024-10-18 09:31:13am] BS created new tranasction. SID: 724334272000383573
+[2024-10-18 09:31:42am] BS adding global discount to tranasction: 724334272000383573 ... reason: null, total discount amount: undefined
+[2024-10-18 09:31:51am] BS completed the tranasction: 724334272000383573 and created a receipt ... Doc NO: 37
+[2024-10-18 09:32:36am] BS created new tranasction. SID: 724334356000306598
+[2024-10-18 09:32:49am] BS adding global discount to tranasction: 724334356000306598 ... reason: null, total discount amount: undefined
+[2024-10-18 09:33:07am] BS completed the tranasction: 724334356000306598 and created a receipt ... Doc NO: 38
+[2024-10-18 09:33:44am] BS created new tranasction. SID: 724334424000329618
+[2024-10-18 09:34:10am] BS adding global discount to tranasction: 724334424000329618 ... reason: null, total discount amount: undefined
+[2024-10-18 09:34:22am] BS completed the tranasction: 724334424000329618 and created a receipt ... Doc NO: 39
+[2024-10-18 09:35:09am] BS created new tranasction. SID: 724334508000388642
+[2024-10-18 09:35:43am] BS adding global discount to tranasction: 724334508000388642 ... reason: null, total discount amount: undefined
+[2024-10-18 09:35:56am] BS completed the tranasction: 724334508000388642 and created a receipt ... Doc NO: 40
+[2024-10-18 09:37:04am] BS created new tranasction. SID: 724334624000349690
+[2024-10-18 09:39:11am] BS created new tranasction. SID: 724334750000391703
+[2024-10-18 09:40:09am] BS created new tranasction. SID: 724334809000370722
+[2024-10-18 09:43:58am] BS adding global discount to tranasction: 724334809000370722 ... reason: null, total discount amount: undefined
+[2024-10-18 09:44:15am] BS completed the tranasction: 724334809000370722 and created a receipt ... Doc NO: 41
+[2024-10-18 09:44:30am] BS created new tranasction. SID: 724335070000358765
+[2024-10-18 09:53:27am] ABS created new tranasction. SID: 724335607000378856
+[2024-10-18 10:08:51am] ABS adding global discount to tranasction: 724335607000378856 ... reason: null, total discount amount: undefined
+[2024-10-18 10:09:32am] ABS completed the tranasction: 724335607000378856 and created a receipt ... Doc NO: 42
+[2024-10-18 18:09:12pm] SYSADMIN closed a drawer.
+[2024-10-18 18:09:13pm] SYSADMIN closed a drawer.
+[2024-10-18 18:09:21pm] SYSADMIN opened a drawer.
+[2024-10-18 18:09:32pm] SYSADMIN closed a drawer.
+[2024-10-18 18:09:33pm] SYSADMIN closed a drawer.

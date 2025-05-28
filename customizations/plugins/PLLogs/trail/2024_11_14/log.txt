@@ -1,0 +1,19 @@
+[2024-11-14 09:35:41am] New log has been created.
+[2024-11-14 09:35:41am] SYSADMIN closed a drawer.
+[2024-11-14 09:35:41am] SYSADMIN closed a drawer.
+[2024-11-14 09:36:09am] SYSADMIN closed a drawer.
+[2024-11-14 09:36:10am] SYSADMIN closed a drawer.
+[2024-11-14 10:23:31am] SYSADMIN opened a drawer.
+[2024-11-14 10:23:35am] SYSADMIN created new tranasction. SID: 726937415000436113
+[2024-11-14 10:24:35am] SYSADMIN adding global discount to tranasction: 726937415000436113 ... reason: null, total discount amount: undefined
+[2024-11-14 10:24:42am] SYSADMIN adding global discount to tranasction: 726937415000436113 ... reason: null, total discount amount: undefined
+[2024-11-14 10:25:36am] SYSADMIN completed the tranasction: 726937415000436113 and created a receipt ... Doc NO: 21
+[2024-11-14 10:27:34am] SYSADMIN created new tranasction. SID: 726937654000417127
+[2024-11-14 10:28:01am] SYSADMIN adding global discount to tranasction: 726937415000436113 ... reason: null, total discount amount: undefined
+[2024-11-14 10:45:11am] SYSADMIN created new tranasction. SID: 726938711000428140
+[2024-11-14 15:03:31pm] SYSADMIN created new tranasction. SID: 726954211000425302
+[2024-11-14 17:21:05pm] SYSADMIN created new tranasction. SID: 726962464000478407
+[2024-11-14 17:22:32pm] SYSADMIN adding global discount to tranasction: 726962464000478407 ... reason: null, total discount amount: undefined
+[2024-11-14 17:23:09pm] SYSADMIN completed the tranasction: 726962464000478407 and created a receipt ... Doc NO: 22
+[2024-11-14 17:23:35pm] SYSADMIN created new tranasction. SID: 726962615000469421
+[2024-11-14 18:05:42pm] SYSADMIN printing an x-reading.

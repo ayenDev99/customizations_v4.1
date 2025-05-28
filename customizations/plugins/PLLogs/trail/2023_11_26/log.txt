@@ -1,0 +1,9 @@
+[2023-11-26 12:44:52pm] New log has been created.
+[2023-11-26 12:44:52pm] SYSADMIN created new tranasction. SID: 691645891000156805
+[2023-11-26 12:45:11pm] SYSADMIN adding new customer to tranasction: 691645891000156805 ... customer name: test, diplomat: YES
+[2023-11-26 12:46:24pm] SYSADMIN created new tranasction. SID: 691645984000172812
+[2023-11-26 13:12:24pm] SYSADMIN created new tranasction. SID: 691647543000189827
+[2023-11-26 13:12:41pm] SYSADMIN adding new customer to tranasction: 691647543000189827 ... customer name: test, diplomat: YES
+[2023-11-26 13:13:10pm] SYSADMIN adding item discount to tranasction: 691647543000189827 item: 691647577000189835 ... reason: SC, total discount amount: 499.8
+[2023-11-26 13:13:24pm] SYSADMIN completed the tranasction: 691647543000189827 and created a receipt ... Doc NO: 190
+[2023-11-26 13:13:29pm] SYSADMIN created new tranasction. SID: 691647609000164843

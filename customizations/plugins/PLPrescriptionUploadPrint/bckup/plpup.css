@@ -1,0 +1,73 @@
+.table-container {
+    margin-bottom: 100px; /* Adjust the margin as needed */
+  }
+
+
+
+/* Make the modal draggable */
+/* .modal-dialog {
+  cursor: move;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
+  z-index: 1050;
+} */
+
+/* Ensure the backdrop is transparent */
+/* .modal-backdrop {
+  background-color: rgba(0, 0, 0, 0);
+} */
+
+/* custom-modal-class */
+
+
+
+.custom-modal-backdrop {
+  display:none;
+}
+
+.custom-modal-class {
+  display: flex;
+  align-items: center;     /* Center vertically */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: unset;
+  left: unset;
+  z-index: 1050;
+  overflow: unset;
+  overflow-y: unset;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.image-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-height: 70vh; /* Adjust as needed */
+  margin: 0 auto;
+  text-align: center;
+  cursor: zoom-in; /* Initial cursor style */
+  user-select: none; /* Disable text selection for better UX */
+  touch-action: none; /* Disable touch events for better mobile UX */
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  cursor: grab;
+  position: relative;
+  transition: transform 0.2s ease-in-out;
+  touch-action: none; /* Disable touch events for better mobile UX */
+}
+
+.controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* button {
+  margin: 5px;
+} */

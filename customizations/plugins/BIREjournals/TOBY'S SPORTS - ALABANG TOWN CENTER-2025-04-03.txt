@@ -1,0 +1,533 @@
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+   COMPANY NAME/TRADE NAME ADDRESS AAA
+               ADDRESS BBB
+               ADDRESS CCC
+               ADDRESS DDD
+      OPERATED BY:QUORUM INT'L INC.
+      VAT REG TIN:XXX-XXX-XXX-XXXXX
+   Date Range: 04/02/2025 - 04/03/2025
+          SERIAL NO: XXXXXXXXX
+             MIN:XXXXXXXXXXX
+    SoftwareVersion:RetailPro Prismv2
+      ACCN: 0572086520292023091860
+    PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX
+           POS Terminal No: 1
+          Cashier: GENIEX ID: 
+                Z-READING
+               Z-COUNT: 3
+            NON-RESET TOTALS
+BEGINING BALANCE                4,095.00
+ENDING BALANCE                 55,924.00
+               GROSS SALES
+GROSS SALES                    51,829.00
+FEE/GC EXCESS                       0.00
+OTHER CHARGES                       0.00
+TOTAL                          51,829.00
+          ADJUSTED GROSS SALES
+GROSS SALES                    51,829.00
+DISCOUNTS                           0.00
+VAT ADJ.                            0.00
+OTHER CHARGES                       0.00
+NET SALES                      51,829.00
+              FEE BREAKDOWN
+FEE/GC EXCESS                       0.00
+              VAT BREAKDOWN
+VATABLE SALES                  46,275.89
+VAT AMOUNT                      5,553.11
+VAT EXEMPT SALES                    0.00
+ZERO RATED SALES                    0.00
+                 RETURN
+RETURN                              0.00
+             PAYMENT SUMMARY
+CASH TOTAL                     51,829.00
+NON-CASH TOTAL                      0.00
+TOTAL PAYMENTS                 51,829.00
+            NON-CASH PAYMENTS
+                DISCOUNTS
+SC DISC                             0.00
+PWD DISC                            0.00
+SP DISC                             0.00
+NAAC DISC                           0.00
+OTHERS                              0.00
+TOTAL DISCOUNTS                     0.00
+           TRANSACTION COUNTER
+BEGINNING OR                     0000003
+ENDING OR                        0000009
+TOTAL OR                               7
+BEGINNING RETURN                 0000000
+ENDING RETURN                    0000000
+TOTAL RETURN                           0
+RESET COUNTER                          0
+ACCUM GRAND TOTAL SALES        55,924.00
+                    
+
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+     VAT REG TIN:XXX-XXX-XXX-XXXXX 
+            MIN:XXXXXXXXXXX 
+          SERIAL NO: XXXXXXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000010
+        Date: 04/03/2025 01:01 pm
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                     JAI
+                           5365000438630
+OVICX i5 RUNNING BOARD PC            JAI
+1@          2,250.00          2,250.00v
+                                     JAI
+5365000439578             A2S20210180012
+OVICX A2S MONITOR PC                 JAI
+1@            375.00            375.00v
+                                     JAI
+5365000435334             Q1 Q2020113016
+OVICX  KNOB PC                       JAI
+1@          4,125.00          4,125.00v
+Subtotal:           3           6,750.00
+Total Amount Due                6,750.00
+VATable Sales                   6,026.79
+VAT (12%) Amount                  723.21
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Cash                            6,750.00
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+   PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX 
+         DATE ISSUED: MM/DD/YYYY
+
+    THIS SERVES AS YOUR SALES INVOICE
+
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+     VAT REG TIN:XXX-XXX-XXX-XXXXX 
+            MIN:XXXXXXXXXXX 
+          SERIAL NO: XXXXXXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000011
+        Date: 04/03/2025 01:05 pm
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                     JAI
+5365000439578             A2S20210180012
+OVICX A2S MONITOR PC                 JAI
+1@            375.00            375.00v
+                                     JAI
+5365000435334             Q1 Q2020113016
+OVICX  KNOB PC                       JAI
+1@          4,125.00          4,125.00v
+Subtotal:           2           4,500.00
+Total Amount Due                4,500.00
+VATable Sales                   4,017.86
+VAT (12%) Amount                  482.14
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+BPI - 0% 12MOS                  4,500.00
+Auth #:                             6465
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+   PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX 
+         DATE ISSUED: MM/DD/YYYY
+
+    THIS SERVES AS YOUR SALES INVOICE
+
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+     VAT REG TIN:XXX-XXX-XXX-XXXXX 
+            MIN:XXXXXXXXXXX 
+          SERIAL NO: XXXXXXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000012
+        Date: 04/03/2025 01:24 pm
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                     JAI
+                           5365000438630
+OVICX i5 RUNNING BOARD PC            JAI
+1@          2,250.00          2,250.00v
+                                     JAI
+5365000439578             A2S20210180012
+OVICX A2S MONITOR PC                 JAI
+1@            375.00            375.00v
+                                     JAI
+5365000435334             Q1 Q2020113016
+OVICX  KNOB PC                       JAI
+1@          4,125.00          4,125.00v
+Subtotal:           3           6,750.00
+Total Amount Due                6,750.00
+VATable Sales                   6,026.79
+VAT (12%) Amount                  723.21
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Gift Card                       6,750.00
+Auth #:                         45343535
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+   PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX 
+         DATE ISSUED: MM/DD/YYYY
+
+    THIS SERVES AS YOUR SALES INVOICE
+
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+     VAT REG TIN:XXX-XXX-XXX-XXXXX 
+            MIN:XXXXXXXXXXX 
+          SERIAL NO: XXXXXXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000013
+        Date: 04/03/2025 02:03 pm
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                     JAI
+                           5365000438630
+OVICX i5 RUNNING BOARD PC            JAI
+1@          2,500.00          2,500.00v
+                                     JAI
+5365000439578             A2S20210180012
+OVICX A2S MONITOR PC                 JAI
+1@            375.00            375.00v
+                                     JAI
+5365000435334             Q1 Q2020113016
+OVICX  KNOB PC                       JAI
+1@          4,125.00          4,125.00v
+Subtotal:           3           7,000.00
+Total Amount Due                7,000.00
+VATable Sales                   6,250.00
+VAT (12%) Amount                  750.00
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Charge                          7,000.00
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+   PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX 
+         DATE ISSUED: MM/DD/YYYY
+
+    THIS SERVES AS YOUR SALES INVOICE
+
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+     VAT REG TIN:XXX-XXX-XXX-XXXXX 
+            MIN:XXXXXXXXXXX 
+          SERIAL NO: XXXXXXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000014
+        Date: 04/03/2025 02:12 pm
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                     KAI
+5365000439578             A2S20210180012
+OVICX A2S MONITOR PC                 KAI
+1@            375.00            375.00v
+                                     KAI
+5365000435334             Q1 Q2020113016
+OVICX  KNOB PC                       KAI
+1@          4,125.00          4,125.00v
+Subtotal:           2           4,500.00
+Total Amount Due                4,500.00
+VATable Sales                   4,017.86
+VAT (12%) Amount                  482.14
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Cash                            4,500.00
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+   PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX 
+         DATE ISSUED: MM/DD/YYYY
+
+    THIS SERVES AS YOUR SALES INVOICE
+
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+     VAT REG TIN:XXX-XXX-XXX-XXXXX 
+            MIN:XXXXXXXXXXX 
+          SERIAL NO: XXXXXXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000015
+        Date: 04/03/2025 02:14 pm
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                     JAI
+5365000439578             A2S20210180012
+OVICX A2S MONITOR PC                 JAI
+1@            375.00            375.00v
+                                     JAI
+5365000435334             Q1 Q2020113016
+OVICX  KNOB PC                       JAI
+1@          4,125.00          4,125.00v
+Subtotal:           2           4,500.00
+Total Amount Due                4,500.00
+VATable Sales                   4,017.86
+VAT (12%) Amount                  482.14
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Cash                            4,500.00
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+   PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX 
+         DATE ISSUED: MM/DD/YYYY
+
+    THIS SERVES AS YOUR SALES INVOICE
+
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+     VAT REG TIN:XXX-XXX-XXX-XXXXX 
+            MIN:XXXXXXXXXXX 
+          SERIAL NO: XXXXXXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000016
+        Date: 04/03/2025 02:16 pm
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                     JAI
+5365000435361      X3 PLUS  XP2020024003
+OVICX  LEFT AND RIGHT ARMRESTS PC    JAI
+2@            225.00            450.00v
+Subtotal:            2            450.00
+Total Amount Due                  450.00
+VATable Sales                     401.79
+VAT (12%) Amount                   48.21
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Cash                              450.00
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+   PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX 
+         DATE ISSUED: MM/DD/YYYY
+
+    THIS SERVES AS YOUR SALES INVOICE
+
+   TOBY'S SPORTS - ALABANG TOWN CENTER
+         COMPANY NAME/TRADE NAME
+               ADDRESS AAA
+              ADDRESS BBB 
+               ADDRESS CCC
+              ADDRESS DDD 
+     OPERATED BY:QUORUM INT'L INC. 
+     VAT REG TIN:XXX-XXX-XXX-XXXXX 
+            MIN:XXXXXXXXXXX 
+          SERIAL NO: XXXXXXXXX
+
+
+          *** SALES INVOICE ***
+SI#                               000017
+        Date: 04/03/2025 04:35 pm
+            Cashier: sysadmin
+DESCRIPTION                       AMOUNT
+                                     JAI
+5365000436418             A2S20210810001
+OVICX  A2S RUNNING BOARD PC          JAI
+1@          2,595.00          2,595.00v
+Subtotal:           1           2,595.00
+Total Amount Due                2,595.00
+VATable Sales                   2,316.96
+VAT (12%) Amount                  278.04
+VAT-Exempt Sales                    0.00
+Zero-Rated Sales                    0.00
+Payment Method                    Amount
+Cash                            2,595.00
+                  Name:
+Address:
+TIN:
+Bus. Style:
+               Signature:
+            SHOP ONLINE 24/7 
+            AT WWW.TOBYS.COM
+             FB:/tobyssports
+        IG &amp; TW:@tobyssports
+         THANK YOU FOR SHOPPING!
+          NO RECEIPT, NO RETURN
+                    
+         Genie Technologies Inc.
+   Unit B201, 2nd Flr., Coral Center 
+ Southwoods City San Francisco (Halang) 
+ 4024 City of Biñan Laguna Philippines
+     VAT-REG-TIN: 208-652-029-00000
+Accreditation No.: 0482086520292022101635
+        Date Issued: 10/07/2022 
+         Valid Until:10/06/2027
+   PTU No.FPXXXXXX-XXX-XXXXXXX-XXXXX 
+         DATE ISSUED: MM/DD/YYYY
+
+    THIS SERVES AS YOUR SALES INVOICE
+

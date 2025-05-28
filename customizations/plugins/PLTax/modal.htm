@@ -1,0 +1,40 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h4 class="modal-title">Apply Withholding Tax</h4>
+	</div>
+	<div class="modal-body">
+		<div class="container-fluid">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<label for="wtax_perc" class="col-sm-3">Wittholding Tax Percentage: </label>
+							<div class="col-sm-9">
+								<select class="form-control" ng-options="percOption.value for percOption in percOptions track by percOption.value" ng-model="wTaxPerc" ng-change="computeWithholdingTax()">
+									 <option value="" disabled>Please select a percentage</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="wTax" class="col-sm-3">Wittholding Tax Amount: </label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="wTax" id="wTax" ng-model="wTax" readonly placeholder="Please select a percentage"/>
+								<div><small>This generated value is the total computed withholding tax based on the selected percentage</small></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<button type="button" class="btn btn-primary" ng-click="closeModal()">Close</button>
+					<button type="button" class="btn btn-primary" ng-click="apply()">apply</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+/* CSS for 2x2 grid layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+    grid-gap: 5px; /* Gap between grid items */
+  }
+  
+  .area-box {
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    text-align: left;
+  }
+  
+  /* Additional styling for checkboxes */
+  .area-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .area-box li {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+.checked {
+    background-color: yellow; /* Set your desired highlight color */
+    font-weight: bold; /* Apply other styles as needed */
+}
+  /* Rest of your CSS styles */
+  

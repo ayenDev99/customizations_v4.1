@@ -1,0 +1,16 @@
+"2025-05-26 13:33:27pm",SYSADMIN,"Opened a drawer"
+"2025-05-26 13:33:46pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-26 13:41:34pm",SYSADMIN,"Added a customer to transaction"
+"2025-05-26 13:42:16pm",SYSADMIN,"Added global discount to transaction"
+"2025-05-26 13:43:55pm",SYSADMIN,"Completed the tranasction",,99
+"2025-05-26 13:44:03pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-26 13:46:01pm",SYSADMIN,"Closed a drawer"
+"2025-05-26 13:46:02pm",SYSADMIN,"Closed a drawer"
+"2025-05-26 15:31:14pm",SYSADMIN,"Opened a drawer"
+"2025-05-26 15:31:20pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-26 15:32:28pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-26 15:42:48pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-26 16:10:05pm",SYSADMIN,"Created new transaction",REGULAR
+"2025-05-26 16:11:03pm",SYSADMIN,"Added item discount to transaction"
+"2025-05-26 16:43:10pm",SYSADMIN,"Completed the tranasction",,100
+"2025-05-26 16:43:18pm",SYSADMIN,"Created new transaction",REGULAR

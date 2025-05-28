@@ -1,0 +1,90 @@
+<!doctype html>
+<html ng-controller="baseController">
+<!--[if gt IE 8]><!--> <html class="no-js" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Prism - Retail Pro </title>
+  <!--Test Comment!-->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <script type="text/javascript" src="locale/database-column-mappings.js"></script>
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link ng-if="defaultTheme.name!==undefined" rel="stylesheet" ng-href="styles/external/{{defaultTheme.name}}">
+  <link rel="stylesheet" href="styles/0ae0f28c.main.css">
+  <link href="styles/customer.css" rel="stylesheet" />
+</head>
+<body keydown-listener>
+<input type="text" id="auto-lock-focus" style="position:absolute;left:-1000px" />
+<!--[if lt IE 9]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<request-counter threshold="requestCounter.threshold" queue-array="requestCounter.array"></request-counter>
+<div ui-view id="prismBody"></div>
+<div class="prism-alert-wrapper">
+  <prism-alert></prism-alert>
+</div>
+<!-- Preloading loader image so it displays faster -->
+<img style="display:none" src="images/prism-ajax-loader.svg">
+<script src="scripts/4b9e1255.modules.js"></script>
+<script type="text/javascript" id= "localeJS"></script>
+<script>
+  function setLocaleJS(){
+    var localeScriptElement = document.getElementById('localeJS');
+    localeScriptElement.src = "locale/angular-locale_"+JSON.parse(sessionStorage.getItem('session')).preferences.regional_settings_region+".js";
+  }
+  setLocaleJS();
+</script>
+<script src="scripts/c0e0e729.scripts.js"></script>
+<script src="scripts/viewport-units-buggyfill.js"></script>
+<!-- Checking if browser is mobile safari, and forcing the buggyfill script to run only if true -->
+<script>
+  if( /(iPhone|iPod|iPad).+AppleWebKit/i.test(window.navigator.userAgent)) {
+    window.viewportUnitsBuggyfill.init({force: true});
+  }
+</script>
+<script type="text/ng-template" id="iconButton.tpl.htm">
+  <table class="table table-responsive table-condensed">
+    <tbody>
+    <tr>
+      <td class="text-left"><img ng-src="{{imgBtn}}" align="center" alt="{{buttonText}}" /></td>
+      <td class="text-left" data-translate="{{trans}}">{{buttonText}}</td>
+    </tr>
+    </tbody>
+  </table>
+</script>
+
+<div class="prism-ajax-loader" ng-if="LoadingScreen.Enable">
+  <div class="message-container">
+    <div class="row" ng-if="LoadingScreen.topMsg">
+      <div class="col-xs-12 text-center">
+        {{LoadingScreen.topMsg}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <img src="images/prism-ajax-loader.svg" alt="{{ '5028' | translate }}">
+      </div>
+    </div>
+    <div class="row" ng-if="LoadingScreen.bottomMsg">
+      <div class="col-xs-12 text-center">
+        {{LoadingScreen.bottomMsg}}
+      </div>
+    </div>
+    <div class="row" ng-if="LoadingScreen.canceller">
+      <div class="col-xs-12 text-center">
+        <button class="btn btn-info" ng-if="LoadingScreen.canceller" ng-click="LoadingScreen.cancel()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--#include virtual="customizations.html" -->
+<script src="customizations.js" type="text/javascript"></script>
+<script src="scripts/a7605ce1.eftscripts.js"></script>
+</body>
+
+</html>

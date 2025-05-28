@@ -1,0 +1,45 @@
+[2025-05-07 19:32:46pm] New log has been created.
+[2025-05-07 19:32:46pm] SYSADMIN opened a drawer.
+[2025-05-07 19:32:52pm] SYSADMIN created new tranasction. SID: 744670372000503266
+[2025-05-07 19:33:17pm] SYSADMIN adding global discount to tranasction: 744670372000503266 ... reason: null, total discount amount: undefined
+[2025-05-07 19:33:43pm] SYSADMIN completed the tranasction: 744670372000503266 and created a receipt ... Doc NO: 3
+[2025-05-07 19:33:50pm] SYSADMIN created new tranasction. SID: 744670430000518284
+[2025-05-07 19:34:09pm] SYSADMIN printing an x-reading.
+[2025-05-07 19:34:14pm] SYSADMIN printing an x-reading.
+[2025-05-07 19:34:28pm] SYSADMIN printing an x-reading.
+[2025-05-07 19:34:38pm] SYSADMIN printing an x-reading.
+[2025-05-07 19:35:06pm] SYSADMIN closed a drawer.
+[2025-05-07 19:35:08pm] SYSADMIN closed a drawer.
+[2025-05-07 08:41:34am] SYSADMIN closed a drawer.
+[2025-05-07 08:41:34am] SYSADMIN closed a drawer.
+[2025-05-07 09:29:23am] SYSADMIN opened a drawer.
+[2025-05-07 09:31:40am] SYSADMIN closed a drawer.
+[2025-05-07 09:31:41am] SYSADMIN closed a drawer.
+[2025-05-07 10:15:34am] SYSADMIN created new tranasction. SID: 744636933000583847
+[2025-05-07 10:27:10am] SYSADMIN created new tranasction. SID: 744637629000593055
+[2025-05-07 10:27:45am] SYSADMIN adding global discount to tranasction: 744637629000593055 ... reason: null, total discount amount: undefined
+[2025-05-07 10:28:11am] SYSADMIN completed the tranasction: 744637629000593055 and created a receipt ... Doc NO: 75
+[2025-05-07 10:28:33am] SYSADMIN created new tranasction. SID: 744637713000535072
+[2025-05-07 10:29:56am] SYSADMIN closed a drawer.
+[2025-05-07 10:29:57am] SYSADMIN closed a drawer.
+[2025-05-07 10:31:42am] SYSADMIN opened a drawer.
+[2025-05-07 10:31:52am] SYSADMIN created new tranasction. SID: 744637911000573113
+[2025-05-07 10:32:29am] SYSADMIN completed the tranasction: 744637911000573113 and created a receipt ... Doc NO: 76
+[2025-05-07 10:32:36am] SYSADMIN created new tranasction. SID: 744637955000561126
+[2025-05-07 11:16:17am] SYSADMIN closed a drawer.
+[2025-05-07 11:16:19am] SYSADMIN closed a drawer.
+[2025-05-07 11:20:39am] SYSADMIN printing an x-reading.
+[2025-05-07 11:21:04am] SYSADMIN printing an x-reading.
+[2025-05-07 11:21:28am] SYSADMIN printing an x-reading.
+[2025-05-07 11:31:10am] SYSADMIN printing an x-reading.
+[2025-05-07 11:34:42am] SYSADMIN opened a drawer.
+[2025-05-07 11:34:47am] SYSADMIN created new tranasction. SID: 744641686000588506
+[2025-05-07 11:35:14am] SYSADMIN adding item discount to tranasction: 744641686000588506 item: 744641706000545510 ... reason: Sale, total discount amount: 230
+[2025-05-07 11:35:23am] SYSADMIN adding global discount to tranasction: 744641686000588506 ... reason: null, total discount amount: undefined
+[2025-05-07 11:35:52am] SYSADMIN completed the tranasction: 744641686000588506 and created a receipt ... Doc NO: 77
+[2025-05-07 11:36:00am] SYSADMIN created new tranasction. SID: 744641759000547530
+[2025-05-07 11:36:39am] SYSADMIN closed a drawer.
+[2025-05-07 11:36:40am] SYSADMIN closed a drawer.
+[2025-05-07 17:14:05pm] SYSADMIN printing an x-reading.
+[2025-05-07 17:15:44pm] SYSADMIN closed a drawer.
+[2025-05-07 17:15:45pm] SYSADMIN closed a drawer.

@@ -1,0 +1,49 @@
+[2025-05-09 13:06:42pm] New log has been created.
+[2025-05-09 13:06:42pm] SYSADMIN opened a drawer.
+[2025-05-09 13:06:47pm] SYSADMIN created new tranasction. SID: 744847207000504458
+[2025-05-09 13:08:46pm] SYSADMIN adding item discount to tranasction: 744847207000504458 item: 744847311000526474 ... reason: Sale, total discount amount: 2000
+[2025-05-09 13:08:55pm] SYSADMIN adding global discount to tranasction: 744847207000504458 ... reason: null, total discount amount: undefined
+[2025-05-09 13:09:14pm] SYSADMIN completed the tranasction: 744847207000504458 and created a receipt ... Doc NO: 81
+[2025-05-09 13:09:21pm] SYSADMIN created new tranasction. SID: 744847361000506492
+[2025-05-09 13:10:53pm] SYSADMIN completed the tranasction: 744847361000506492 and created a receipt ... Doc NO: 82
+[2025-05-09 13:11:00pm] SYSADMIN created new tranasction. SID: 744847459000568512
+[2025-05-09 13:11:30pm] SYSADMIN adding global discount to tranasction: 744847459000568512 ... reason: null, total discount amount: undefined
+[2025-05-09 09:03:19am] SYSADMIN opened a drawer.
+[2025-05-09 09:03:25am] SYSADMIN created new tranasction. SID: 744832605000510365
+[2025-05-09 09:04:05am] SYSADMIN completed the tranasction: 744832605000510365 and created a receipt ... Doc NO: 8
+[2025-05-09 09:04:12am] SYSADMIN created new tranasction. SID: 744832652000534381
+[2025-05-09 09:05:29am] SYSADMIN closed a drawer.
+[2025-05-09 09:05:30am] SYSADMIN closed a drawer.
+[2025-05-09 09:13:54am] SYSADMIN opened a drawer.
+[2025-05-09 09:19:38am] SYSADMIN created new tranasction. SID: 744833578000540493
+[2025-05-09 09:21:03am] SYSADMIN completed the tranasction: 744833578000540493 and created a receipt ... Doc NO: 9
+[2025-05-09 09:21:10am] SYSADMIN created new tranasction. SID: 744833670000541515
+[2025-05-09 09:22:12am] SYSADMIN closed a drawer.
+[2025-05-09 09:22:13am] SYSADMIN closed a drawer.
+[2025-05-09 09:23:09am] SYSADMIN closed a drawer.
+[2025-05-09 09:23:10am] SYSADMIN closed a drawer.
+[2025-05-09 09:39:59am] SYSADMIN opened a drawer.
+[2025-05-09 09:40:08am] SYSADMIN created new tranasction. SID: 744834808000544655
+[2025-05-09 09:40:36am] SYSADMIN adding item discount to tranasction: 744834808000544655 item: 744834826000504662 ... reason: VIP, total discount amount: 300
+[2025-05-09 09:41:50am] SYSADMIN completed the tranasction: 744834808000544655 and created a receipt ... Doc NO: 88
+[2025-05-09 09:41:57am] SYSADMIN created new tranasction. SID: 744834916000569684
+[2025-05-09 09:42:22am] SYSADMIN closed a drawer.
+[2025-05-09 09:42:23am] SYSADMIN closed a drawer.
+[2025-05-09 09:48:33am] SYSADMIN opened a drawer.
+[2025-05-09 09:48:38am] SYSADMIN created new tranasction. SID: 744835317000597737
+[2025-05-09 09:49:04am] SYSADMIN adding global discount to tranasction: 744835317000597737 ... reason: null, total discount amount: undefined
+[2025-05-09 09:49:19am] SYSADMIN completed the tranasction: 744835317000597737 and created a receipt ... Doc NO: 89
+[2025-05-09 09:49:26am] SYSADMIN created new tranasction. SID: 744835366000528753
+[2025-05-09 09:49:52am] SYSADMIN Created return transaction: 744835366000528753 and created a receipt ... Doc NO: undefined
+[2025-05-09 09:50:01am] SYSADMIN adding global discount to tranasction: 744835366000528753 ... reason: null, total discount amount: undefined
+[2025-05-09 09:50:14am] SYSADMIN completed the tranasction: 744835366000528753 and created a receipt ... Doc NO: 3
+[2025-05-09 09:50:29am] SYSADMIN created new tranasction. SID: 744835428000579776
+[2025-05-09 09:50:42am] SYSADMIN printing an x-reading.
+[2025-05-09 09:54:30am] SYSADMIN printing an x-reading.
+[2025-05-09 09:55:15am] SYSADMIN closed a drawer.
+[2025-05-09 09:55:16am] SYSADMIN closed a drawer.
+[2025-05-09 11:50:24am] SYSADMIN opened a drawer.
+[2025-05-09 11:50:28am] SYSADMIN created new tranasction. SID: 744842628000517443
+[2025-05-09 11:51:02am] SYSADMIN adding global discount to tranasction: 744842628000517443 ... reason: null, total discount amount: undefined
+[2025-05-09 11:51:15am] SYSADMIN completed the tranasction: 744842628000517443 and created a receipt ... Doc NO: 90
+[2025-05-09 11:51:23am] SYSADMIN created new tranasction. SID: 744842683000529460

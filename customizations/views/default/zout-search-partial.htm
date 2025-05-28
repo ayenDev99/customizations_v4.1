@@ -1,0 +1,203 @@
+<form name="zoutSearchForm" id="zoutSearchForm" ng-init="init()">
+  <div class="modal-content">
+        <div class="modal-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4 class="modal-title" data-translate="508">Z-Out Lookup</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-4">
+                  <div class="form-group">
+                    <label class="control-label" for="from-date" data-translate="2286">From Date:</label>
+                    <p class="input-group" ng-click="openCalendar($event, 'startDate')">
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                        <input type="button" class="form-control" datetime-picker="MMM dd, yyyy hh:mm:ss a" ng-model="startDate.date" value="{{(startDate.date)?(startDate.date | date:'MMM dd, yyyy hh:mm:ss a'):(startDate.placeholder)}}" is-open="startDate.open" enable-time="true" datepicker-options="startDate.datepickerOptions" timepicker-options="startDate.timepickerOptions" when-closed="startDate.closed()" placeholder="{{startDate.placeholder}}">
+                    </p>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="to-date" data-translate="2287">To Date:</label>
+                    <p class="input-group" ng-click="openCalendar($event, 'endDate')">
+                        <span class="input-group-btn">
+                          <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                        <input type="button" class="form-control" datetime-picker="MMM dd, yyyy hh:mm:ss a" ng-model="endDate.date" value="{{(endDate.date)?(endDate.date | date:'MMM dd, yyyy hh:mm:ss a'):(endDate.placeholder)}}" is-open="endDate.open" enable-time="true" datepicker-options="endDate.datepickerOptions" timepicker-options="endDate.timepickerOptions" when-closed="endDate.closed()" placeholder="{{endDate.placeholder}}">
+                    </p>
+                  </div>
+                  <div class="form-group">
+                    <select tabindex="1" class="form-control" id="subsidiary" name="subsidiary" ng-model="filters.subsidiary" ng-change="subsidiaryChange()" ng-options="s.sid as s.subsidiary_number + ' :' + s.subsidiary_name for s in subsidiaries">
+                      <option value="" data-translate="2288">Subsidiary (All)</option>
+                                  </select>
+                  </div>
+                  <div class="form-group">
+                      <select tabindex="2" class="form-control" id="store" name="store" ng-model="filters.store" ng-change="storeChange()" ng-options="c.sid as c.store_number + ' :' + c.store_name for c in stores">
+                      <option value="" data-translate="2289">Store (All)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select tabindex="3" class="form-control" id="workstation" name="workstation" ng-model="filters.workstation" ng-options="c.sid as c.workstation_number + ' :' + c.workstation_name for c in workstations">
+                      <option value="" data-translate="2290">Workstation (All)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select id="cashier" name="cashier" ng-model="filters.cashier" class="form-control" ng-options="e.value as e.name for e in employees">
+                      <option value="" data-translate="2291">Cashier (All)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select tabindex="4" class="form-control" id="till" name="till" ng-model="filters.till" ng-options="c.sid as c.till_name for c in tills">
+                      <option value="" data-translate="2292">Till (All)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select tabindex="5" class="form-control" id="drawer" name="drawer" ng-model="filters.drawer">
+                      <option value="" data-translate="2293">Drawer (All)</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select tabindex="5" class="form-control" id="status" name="status" ng-model="filters.status">
+                      <option value="" data-translate="2294">Status (All)</option>
+                      <option value="3" data-translate="2303">Reconciled</option>
+                      <option value="4" data-translate="2304">Force Closed</option>
+                      <option value="1" data-translate="973">Open</option>
+                      <!--<option value="3">Reconciled</option>-->
+                      <!--<option value="4">Recounted</option>-->
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select tabindex="5" class="form-control" id="sort" name="sort" ng-model="filters.sort">
+                      <option value="" data-translate="634">Sort By</option>
+                      <option value="0" data-translate="622">Cashier</option>
+                      <option value="1" data-translate="2317">Close Date</option>
+                      <option value="2" data-translate="2318">Open Date</option>
+                      <option value="3" data-translate="1453">Status</option>
+                      <option value="4" data-translate="683">Store</option>
+                      <option value="5" data-translate="562">Subsidiary</option>
+                      <option value="6" data-translate="809">Workstation</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-xs-8" ng-show="DisplayReport">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <iframe id="preview_frame" class="col-md-12 height70 autoOverflow" ng-src="{{templates.pos.register.xout_preview()}}" style="border: none;">
+                      </iframe>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-8">
+                    <div id="customerSearchPane" class="ModalSearchPanel height70 autoOverflow" ng-hide="DisplayReport">
+                      <div class="list-group">
+                          <a event-name="zOutSearchThisResult" sid="{{result.sid}}" name="link{{$index}}" class="list-group-item" id="searchCustomerResult{{$index}}" tabindex="10{{$index}}" index="{{$index}}" data-item-group="" ng-click="select($index)" ng-repeat="result in zoutResults" ng-dblclick="editMe($index)">
+                            <div class="row">
+                              <div class="col-xs-4">
+                                <strong data-translate="2296">Open Date:</strong> {{ result.period_begin | date : 'short'  }}
+                              </div>
+                              <div class="col-xs-4">
+                                <strong data-translate="2297">Sub:</strong> {{ result.subsidiary_name }}
+                              </div>
+                              <div class="col-xs-4">
+                                <strong data-translate="2298">Open Amount:</strong> {{ result.register_open_amount | currency : '' }}
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-4">
+                                <strong data-translate="2299">Close Date:</strong> {{ result.period_end | date : 'short'}}
+                              </div>
+                              <div class="col-xs-4">
+                                <strong data-translate="2234">Store:</strong> {{ result.store_name }}
+                              </div>
+                              <div class="col-xs-4">
+                                <strong data-translate="2300">Net Sales:</strong> {{ result.total_sales | currency : '' }}
+                              </div>
+                           </div>
+                            <div class="row">
+                              <div class="col-xs-4">
+                                <strong data-translate="2301">Status:</strong>
+                                <span ng-switch="result.status">
+                                  <span ng-switch-when="1">
+                                    <span data-translate="973">Open</span>
+                                  </span>
+                                  <span ng-switch-when="2">
+                                    <span data-translate="2302">Closed</span>
+                                  </span>
+                                  <span ng-switch-when="3">
+                                    <span data-translate="2303">Reconciled</span>
+                                  </span>
+                                  <span ng-switch-when="4">
+                                    <span data-translate="2304">Force Closed</span>
+                                  </span>
+                                  <span ng-switch-when="5">
+                                    <span data-translate="2305">Recounted</span>
+                                  </span>
+                                </span>
+                              </div>
+                              <div class="col-xs-4">
+                                <strong data-translate="2235">Workstation:</strong> {{result.workstation_name}}
+                              </div>
+                              <div class="col-xs-4">
+                                <strong data-translate="2306">Close Amount:</strong> {{ result.register_close_amount | currency }}
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-xs-4">
+                                <strong data-translate="622">Cashier:</strong> {{result.cashier_name}}
+                              </div>
+                              <div class="col-xs-4">
+                                <strong data-translate="2236">Drawer:</strong> {{result.drawer_number}}
+                              </div>
+                              <div class="col-xs-4">
+                                <strong data-translate="2307">Over/Short:</strong> <span ng-class="{ 'text-danger' : result.register_overshort_amount < 0, 'text-success' : result.register_overshort_amount > 0 }">{{ result.register_overshort_amount | currency }}</span>
+                              </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-xs-4">
+                              <strong data-translate="2339">Closed By:</strong> {{result.closed_by}}
+                            </div>
+                            <div class="col-xs-4">
+                              <strong data-translate="2237">Till:</strong> {{result.till_name}}
+                            </div>
+                            <div class="col-xs-4">
+                              <strong data-translate="2308">Leave:</strong> {{ result.register_leave_amount | currency }}
+                            </div>
+                          </div>
+                         </a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="container-fluid">
+                <div class="row">
+                  <div class="pull-left cols-xs-3">
+                    <button event-name="zOutSearchSearch" type="button" class="btn btn-lg btn-default" ng-click="search()" ng-disabled="disableZoutSearch" data-translate="630">Search</button>
+                    <button event-name="zOutSearchReset" type="button" class="btn btn-lg btn-default" ng-click="reset()" data-translate="614">Reset</button>
+                    <span ng-show="results">{{zoutResultsTotal}} <span data-translate="2295">records found.</span></span>
+                  </div>
+                  <div class="col-xs-3">
+                    <paging-control ng-if="zoutResultsTotal>0" total-records="zoutResultsTotal" results-per-page="5" call-back="getData"></paging-control>
+                  </div>
+                  <div class="pull-right col-xs-6">
+                    <button event-name="zOutSearchPrint" type="button" tabindex="10" id="printButton" name="printButton" ng-disabled="isDisabledAction(2)" ng-click="printReport()" class="btn btn-lg btn-default" data-translate="522">Print</button>
+                    <button event-name="zOutSearchExport" type="button" tabindex="11" id="exportButton" name="exportButton" ng-show="false" class="btn btn-lg btn-default" data-translate="816">Export</button>
+                    <button event-name="zOutSearchCloseRegister" type="button" tabindex="12" id="closeRegisterButton" name="closeRegisterButton" ng-disabled="isDisabledAction(3)" ng-click="closeRegister()" class="btn btn-lg btn-default" data-translate="2244">Close Register</button>
+                    <button event-name="zOutSearchForceClose" type="button" tabindex="13" id="forceCloseButton" name="forceCloseButton" ng-disabled="isDisabledAction(4)||disableForceClose" ng-click="forceCloseRegister()" class="btn btn-lg btn-default" data-translate="2310">Force Close</button>
+                    <button event-name="zOutSearchCancel" type="button" tabindex="14" id="cancelButton" name="closeSearchButton" class="btn btn-lg btn-default" ng-click="cancel()" data-translate="1.2">Cancel</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,37 @@
+<!-- The modal that you want to show -->
+<div id="myModal" class="custom-modal">
+  <div class="modal-content">
+    <!-- Modal content goes here -->
+    <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
+      <center>
+        <h4>View Prescription</h4>
+      </center>
+      <button class="close" style="color: white; opacity: unset;" ng-click="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" zoom-and-print>
+      <div class="image-container">
+        <!-- Content within the modal -->
+        <div class="hide-except">
+          <!-- Elements with class hide-except will remain visible -->
+          <!-- <h1>TEST</h1> -->
+          <img id="zoomable-image" ng-src="{{ prescription.imageUrl }}" alt="Prescription Image" class="modal-image">
+        </div>
+      </div>
+      <div class="controls">
+        <!-- Additional controls within the modal -->
+        <button class="btn btn-info" id="zoom-in-button">Zoom In</button>
+        <button class="btn btn-info" id="zoom-out-button">Zoom Out</button>
+        <button class="btn btn-info" id="print-button">Print</button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <!-- Modal footer content -->
+      <button class="btn btn-default" ng-click="goBack()">Back</button>
+    </div>
+  </div>
+</div>
+
+<div id="printPrescriptionImage" style="display: none; max-width: 100%; max-height: 100vh; width: auto; height: auto; text-align: center;">
+  <img ng-src="{{ prescription.imageUrl }}" alt="Prescription Image" style="max-width: 100%; max-height: 100%; width: auto; height: auto; display: inline-block;">
+</div>
+

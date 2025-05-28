@@ -1,0 +1,12 @@
+[2025-05-12 06:48:29am] New log has been created.
+[2025-05-12 06:48:29am] SYSADMIN opened a drawer.
+[2025-05-12 06:51:02am] SYSADMIN created new tranasction. SID: 745124661000547797
+[2025-05-12 06:51:48am] SYSADMIN completed the tranasction: 745124661000547797 and created a receipt ... Doc NO: 87
+[2025-05-12 06:51:55am] SYSADMIN created new tranasction. SID: 745124715000504813
+[2025-05-12 06:54:11am] SYSADMIN closed a drawer.
+[2025-05-12 06:54:13am] SYSADMIN closed a drawer.
+[2025-05-12 06:54:14am] SYSADMIN closed a drawer.
+[2025-05-12 06:58:51am] SYSADMIN closed a drawer.
+[2025-05-12 06:58:52am] SYSADMIN closed a drawer.
+[2025-05-12 06:58:53am] SYSADMIN closed a drawer.
+[2025-05-12 07:01:48am] SYSADMIN printing an x-reading.

@@ -1,0 +1,87 @@
+<div ng-controller="PrescriptionModalController">
+
+  <div class="modal-header">
+    <h3 class="modal-title">Upload Prescription</h3>
+  </div>
+  <div class="modal-body" >
+  
+  
+    <div class="container" style="width: 100%;">
+    
+        <div class="table-container" style="max-height: 300px; width: 100%; overflow-y: auto;">
+          <table class="table table-bordered text-center" style="width: 100%;">
+            <thead>
+              <tr>
+                <th>RN</th><!--DESCRIPTION4-->
+                <th>INVC SID</th> <!--DESCRIPTION2-->
+                <th>Store Code</th> <!--DESCRIPTION3-->
+                <th>Date/Time</th> <!--DESCRIPTION1-->
+                <th>Doctor</th> <!--Text1-->
+                <th>Prescription</th>
+                <th>RF</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="prescription in prescriptions">
+                <td><input type="checkbox" ng-model="prescription.RN" ng-checked="prescription.description4 === 'true' ? true : false" ng-disabled="true"> </td> <!--RN-->
+                <td>{{ prescription.description2 }}</td> <!--INVC_SID-->
+                <td>{{ prescription.description3 }}</td> <!--STORE_CODE-->
+                <td>{{ prescription.description1 }}</td> <!--DATE_TIME-->
+                <td>{{ prescription.text1 }}</td> <!--DOCTOR-->
+                <td><!--Prescription-->
+                  <button class="btn btn-info" ng-click="viewPrescription(prescription)" id="btn1">View</button>
+                  <button class="btn btn-warning" ng-click="editPrescription(prescription)">Edit</button>
+                  <button class="btn btn-danger" ng-click="deletePrescription(prescription.sid)">Delete</button>
+                </td>
+                <td><input type="checkbox" ng-model="prescription.RF" ng-click="addToSelectedPrescriptions(prescription)" ng-disabled="prescription.description4 === 'true' ? false : true"></td><!--RF-->
+  
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+    </div>
+    
+    <div class="container" style="width: 100%;">
+      <div class="form-group">
+        <!-- Image Preview -->
+        <div class="image-preview">
+          <div ng-repeat="imageData in selectedImages">
+              <img src="{{ imageData }}" alt="Image Preview" style="max-width: 100%; max-height: 300px;">
+          </div>
+        </div>
+      
+    
+        <!-- Choose Image Button -->
+        <button class="btn btn-success" ng-click="openImageUpload()">Choose Image</button>
+    
+        <!-- Image Upload Input -->
+        <input ng-model="selectedImage" type="file" id="imageUpload" accept="image/*" style="display: none;" onchange="angular.element(this).scope().updateImagePreview(this)" multiple>
+      </div>
+    
+      <div class="form-group">
+        <!-- Doctor's Name -->
+        <label for="doctorName">Doctor's Name:</label>
+        <input type="text" id="doctorName" ng-model="doctorName" class="form-control" placeholder="Enter Doctor's Name">
+      </div>
+    
+      <div class="form-group">
+        <!-- RN Checkbox -->
+        <div class="form-check">
+          <input type="checkbox" id="rnCheckbox" ng-model="rnCheckbox" class="form-check-input">
+          <label class="form-check-label" for="rnCheckbox">RN (Renewable)</label>
+        </div>
+      </div>
+    </div>
+    
+      
+  
+    
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="savePrescription()" id="savePrescriptionBtn">Save</button>
+    <button class="btn btn-default" ng-click="closePrescription()" id="closePrescriptionBtn">Close</button>
+  </div>
+  
+
+</div>

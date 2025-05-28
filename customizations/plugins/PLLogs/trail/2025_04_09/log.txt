@@ -1,0 +1,30 @@
+[2025-04-09 00:10:20am] New log has been created.
+[2025-04-09 00:10:20am] SYSADMIN created new tranasction. SID: 741700619000520262
+[2025-04-09 00:11:54am] SYSADMIN created new tranasction. SID: 741700714000542265
+[2025-04-09 00:12:20am] SYSADMIN adding global discount to tranasction: 741700714000542265 ... reason: null, total discount amount: undefined
+[2025-04-09 00:12:45am] SYSADMIN adding global discount to tranasction: 741700714000542265 ... reason: null, total discount amount: undefined
+[2025-04-09 18:46:17pm] SYSADMIN closed a drawer.
+[2025-04-09 18:46:25pm] SYSADMIN opened a drawer.
+[2025-04-09 18:46:29pm] SYSADMIN created new tranasction. SID: 741767588000571996
+[2025-04-09 18:47:02pm] SYSADMIN adding global discount to tranasction: 741767588000571996 ... reason: null, total discount amount: undefined
+[2025-04-09 19:50:05pm] SYSADMIN adding global discount to tranasction: 741767588000571996 ... reason: null, total discount amount: undefined
+[2025-04-09 19:55:23pm] SYSADMIN adding global discount to tranasction: 741767588000571996 ... reason: null, total discount amount: undefined
+[2025-04-09 19:55:45pm] SYSADMIN adding global discount to tranasction: 741767588000571996 ... reason: null, total discount amount: undefined
+[2025-04-09 19:56:31pm] SYSADMIN created new tranasction. SID: 741771790000547038
+[2025-04-09 19:56:56pm] SYSADMIN adding global discount to tranasction: 741771790000547038 ... reason: null, total discount amount: undefined
+[2025-04-09 19:57:52pm] SYSADMIN adding global discount to tranasction: 741771790000547038 ... reason: null, total discount amount: undefined
+[2025-04-09 19:58:34pm] SYSADMIN adding global discount to tranasction: 741771790000547038 ... reason: null, total discount amount: undefined
+[2025-04-09 20:00:20pm] SYSADMIN adding global discount to tranasction: 741771790000547038 ... reason: null, total discount amount: undefined
+[2025-04-09 20:00:50pm] SYSADMIN adding global discount to tranasction: 741771790000547038 ... reason: null, total discount amount: undefined
+[2025-04-09 20:01:08pm] SYSADMIN adding global discount to tranasction: 741771790000547038 ... reason: null, total discount amount: undefined
+[2025-04-09 20:01:35pm] SYSADMIN adding global discount to tranasction: 741771790000547038 ... reason: null, total discount amount: undefined
+[2025-04-09 20:02:13pm] SYSADMIN created new tranasction. SID: 741772132000550041
+[2025-04-09 20:02:38pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined
+[2025-04-09 20:18:33pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined
+[2025-04-09 20:21:23pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined
+[2025-04-09 20:23:43pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined
+[2025-04-09 20:30:49pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined
+[2025-04-09 20:31:30pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined
+[2025-04-09 20:35:04pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined
+[2025-04-09 20:35:37pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined
+[2025-04-09 20:39:29pm] SYSADMIN adding global discount to tranasction: 741772132000550041 ... reason: null, total discount amount: undefined

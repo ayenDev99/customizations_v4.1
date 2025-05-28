@@ -1,0 +1,6 @@
+[2024-11-04 13:24:40pm] New log has been created.
+[2024-11-04 13:24:40pm] SYSADMIN closed a drawer.
+[2024-11-04 13:24:40pm] SYSADMIN closed a drawer.
+[2024-11-04 13:24:50pm] SYSADMIN opened a drawer.
+[2024-11-04 13:24:54pm] SYSADMIN created new tranasction. SID: 725948294000401992
+[2024-11-04 13:25:08pm] SYSADMIN adding new customer to tranasction: 725948294000401992 ... customer name: sc customer, diplomat: NO

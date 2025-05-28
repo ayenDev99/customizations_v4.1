@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h5 class="modal-title">Vitality Transactions</h3>
+</div>
+<div class="modal-body">
+    <p>LIMIT EXCEEDED</p>
+    <p><strong>Limit Account:</strong> {{ exceedLimit | number: 2 }}</p>
+    <p><strong>Applied Amount:</strong> {{ exceedAmount | number: 2 }}</p>
+    <p><strong>Remaining Balance:</strong> {{ exceedLimit | number: 2 }}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="close()">OK</button>
+</div>

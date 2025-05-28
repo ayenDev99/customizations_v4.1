@@ -1,0 +1,42 @@
+<div class="modal-content">
+	<div class="modal-header">
+		<h4 class="modal-title">Apply Global Special Discount</h4>
+	</div>
+	<div class="modal-body">
+		<div class="container-fluid">
+			<div class="col-md-12">
+				<div class="row">
+
+					<div class="col-sm-12">
+						<label>Discount Amount</label>
+						<input type="text" id="amount" class="form-control ng-pristine ng-valid ng-isolate-scope ng-empty ng-touched" ng-model="discountAmount" placeholder="Enter discount amount (max: {{maxDiscount}})">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<button type="button" class="btn btn-primary" ng-click="closeModal()">Close</button>
+					<!-- <button type="button" class="btn btn-primary" ng-click="modify()" ng-show="(discountType==='SC'||discountType==='PWD')&&config_special_discount_process_type=='restaurant'">Modify Guests</button> -->
+					<button type="button" class="btn btn-primary" ng-click="apply()">Apply Discount</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+	#discounts .discount {
+		margin-bottom: 10px;
+	}
+
+	#discounts .discount button {
+	    width: 100%;
+	    padding-top: 12px;
+	    padding-bottom: 12px;
+	}
+	
+</style>

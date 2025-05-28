@@ -1,0 +1,11 @@
+<div class="modal-header">
+    <h5 class="modal-title">Eligibility Details</h3>
+</div>
+<div class="modal-body">
+    <p><strong>Vitality Barcode No.:</strong> {{ details.membershipNum }}</p>
+    <p><strong>Credit Limit:</strong> {{ details.eligibilityDetails[0].limits[0].amountRemaining | number: 2 }}</p>
+    <p><strong>Expiry Date:</strong> {{ details.memberPolicyEndDate | date: 'MM-dd-yyyy' }}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" id="closeMembersModal" ng-click="close()">OK</button>
+</div>

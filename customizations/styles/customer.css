@@ -1,0 +1,335 @@
+/*========== Custom Spacer ===========*/
+.padding-xs { padding: .25em; }
+.padding-sm { padding: .5em; }
+.padding-md { padding: 1em; }
+.padding-lg { padding: 1.5em; }
+.padding-xl { padding: 3em; }
+
+.padding-x-xs { padding: .25em 0; }
+.padding-x-sm { padding: .5em 0; }
+.padding-x-md { padding: 1em 0; }
+.padding-x-lg { padding: 1.5em 0; }
+.padding-x-xl { padding: 3em 0; }
+
+.padding-y-xs { padding: 0 .25em; }
+.padding-y-sm { padding: 0 .5em; }
+.padding-y-md { padding: 0 1em; }
+.padding-y-lg { padding: 0 1.5em; }
+.padding-y-xl { padding: 0 3em; }
+
+.padding-top-xs { padding-top: .25em; }
+.padding-top-sm { padding-top: .5em; }
+.padding-top-md { padding-top: 1em; }
+.padding-top-lg { padding-top: 1.5em; }
+.padding-top-xl { padding-top: 3em; }
+
+.padding-right-xs { padding-right: .25em; }
+.padding-right-sm { padding-right: .5em; }
+.padding-right-md { padding-right: 1em; }
+.padding-right-lg { padding-right: 1.5em; }
+.padding-right-xl { padding-right: 3em; }
+
+.padding-bottom-xs { padding-bottom: .25em; }
+.padding-bottom-sm { padding-bottom: .5em; }
+.padding-bottom-md { padding-bottom: 1em; }
+.padding-bottom-lg { padding-bottom: 1.5em; }
+.padding-bottom-xl { padding-bottom: 3em; }
+
+.padding-left-xs { padding-left: .25em; }
+.padding-left-sm { padding-left: .5em; }
+.padding-left-md { padding-left: 1em; }
+.padding-left-lg { padding-left: 1.5em; }
+.padding-left-xl { padding-left: 3em; }
+
+.margin-xs { margin: .25em; }
+.margin-sm { margin: .5em; }
+.margin-md { margin: 1em; }
+.margin-lg { margin: 1.5em; }
+.margin-xl { margin: 3em; }
+
+.margin-x-xs { margin: .25em 0; }
+.margin-x-sm { margin: .5em 0; }
+.margin-x-md { margin: 1em 0; }
+.margin-x-lg { margin: 1.5em 0; }
+.margin-x-xl { margin: 3em 0; }
+
+.margin-y-xs { margin: 0 .25em; }
+.margin-y-sm { margin: 0 .5em; }
+.margin-y-md { margin: 0 1em; }
+.margin-y-lg { margin: 0 1.5em; }
+.margin-y-xl { margin: 0 3em; }
+
+.margin-top-xs { margin-top: .25em; }
+.margin-top-sm { margin-top: .5em; }
+.margin-top-md { margin-top: 1em; }
+.margin-top-lg { margin-top: 1.5em; }
+.margin-top-xl { margin-top: 3em; }
+
+.margin-right-xs { margin-right: .25em; }
+.margin-right-sm { margin-right: .5em; }
+.margin-right-md { margin-right: 1em; }
+.margin-right-lg { margin-right: 1.5em; }
+.margin-right-xl { margin-right: 3em; }
+
+.margin-bottom-xs { margin-bottom: .25em; }
+.margin-bottom-sm { margin-bottom: .5em; }
+.margin-bottom-md { margin-bottom: 1em; }
+.margin-bottom-lg { margin-bottom: 1.5em; }
+.margin-bottom-xl { margin-bottom: 3em; }
+
+.margin-left-xs { margin-left: .25em; }
+.margin-left-sm { margin-left: .5em; }
+.margin-left-md { margin-left: 1em; }
+.margin-left-lg { margin-left: 1.5em; }
+.margin-left-xl { margin-left: 3em; }
+
+/*========== End of Custom Spacer ===========*/
+
+.table-fixed tbody {
+    display:block;
+    height: 167px;
+    overflow:auto;
+}
+.table-fixed thead, .table-fixed tbody tr {
+	width: 100%;
+    display:table;
+    table-layout:fixed;
+}
+.table-fixed thead.with-scroll {
+    width: calc( 100% - 1em );
+}
+
+.table-fixed-10 tbody {
+    display:block;
+    height: 320px;
+    overflow:auto;
+}
+.table-fixed-10 thead, .table-fixed-10 tbody tr {
+    width: 100%;
+    display:table;
+    table-layout:fixed;
+}
+.table-fixed-10 thead.with-scroll {
+    width: calc( 100% - 1.23em );
+}
+
+.thead-default th{
+	background-color: #f9f9f9;
+}
+.text-bold{font-weight: bold;}
+
+/*== Tim Updates ==*/
+.full-width{width: 100% !important;}
+.auto-width{width: auto !important;}
+
+/*Style for button with image*/
+.btn-image {
+  position: relative;
+  text-align: center;
+}
+.btn-container img {
+    margin-right: 5px !important;
+    vertical-align: middle !important;
+}
+.btn-txt {
+    vertical-align: middle !important;
+}
+
+.break-word{
+	word-wrap: break-word !important;
+	white-space: normal !important;
+}
+.btn-delete{
+	width: 34px !important;
+	height: 34px !important;
+}
+.btn-proceed{
+	width: 28px !important;
+	height: 28px !important;
+}
+
+.border-bottom-right-radius {
+    border-bottom-right-radius: 6px !important;
+}
+
+.hide-scrollbar{
+    overflow: hidden !important;
+}
+
+.custom-table {
+    border-collapse: collapse;
+    width: 100%;
+    display: block;
+}
+.tr-head th{
+    vertical-align: middle !important;
+    white-space: nowrap !important;
+    text-overflow: inherit !important;
+}
+.custom-table thead, .tr-head {
+    background-color: #EFEFEF;
+}
+.custom-table thead, .custom-table tbody {
+    display: block;
+}
+.custom-table tbody {
+    overflow: auto;
+    height: 300px;
+    width: 100%;
+}
+.custom-table td{
+    min-width: 100px;
+    height: 25px;
+    border: dashed 1px lightblue;
+    overflow:hidden;
+    /* text-overflow: ellipsis; */
+    /* max-width: 100px; */
+    white-space: nowrap;
+}
+.custom-notes{
+    font-size: 12px;
+    font-weight: normal;
+    color: #b40505;
+    font-style: italic;
+}
+
+/*== End of Tim Updates ==*/
+
+#iframe-xout-zout-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #fff;
+}
+
+/*Transaction POS maximize spacing*/
+#transactionForm > .container-fluid > .row:nth-child(2) {
+	display: flex;
+	height: 90vh;
+}
+
+#transactionForm > .container-fluid > .row:nth-child(2) > .col-xs-7 {
+	width: 100%;
+}
+
+#transactionForm > .container-fluid > .row:nth-child(2) > .col-xs-7 > div:nth-child(1) {
+	height: 100%;
+}
+
+#transactionForm > .container-fluid > .row:nth-child(2) > .col-xs-7 > div:nth-child(1) > .panel{
+	height: 100% !important;
+}
+
+#transactionForm > .container-fluid > .row:nth-child(2) > .col-xs-4 {
+	margin-left: 0;
+}
+
+#transactionForm > .container-fluid > .row:nth-child(2) > .col-xs-4 > .panel {
+	height: 100% !important;
+}
+/*End Transaction POS maximize spacing*/
+
+
+
+/*Hide 5discount SC PWD*/
+#discounts > div:nth-child(5),
+#discounts > div:nth-child(6),
+/*hide solo parent*/
+#discounts > div:nth-child(4),
+/*serial type*/
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(9),
+/*decimal*/
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(11),
+/*Department button*/
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div:nth-child(1) > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-main > fieldset > div:nth-child(1) > div.col-xs-3,
+/*Department class subclass*/
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(5),
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(6),
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(7),
+#prismBody > inven > div > inven-style > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(5),
+#prismBody > inven > div > inven-style > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(6),
+#prismBody > inven > div > inven-style > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(7),
+/*enforce price and skip commited*/
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-general > div > div:nth-child(15),
+/*Markdown season*/
+#pmUpdateForm > div > div.modal-body.allow-overlay > div.row > div.col-xs-7 > div:nth-child(2),
+/*Inventory Season*/
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-heading > div > div.col-xs-9.text-right.ng-scope > split-panel-compiler > inven-item-top-filters > div > div > div:nth-child(4),
+#prismBody > inven > div > inven-lookup > div > div:nth-child(1) > div > resource-lookup > div > div.panel-heading > div > div.col-xs-9.text-right > split-panel-compiler > inven-top-filters > div > div > div:nth-child(4),
+#prismBody > inven > div > inven-style > split-panel-ui > div > div.panel-heading > div > div.col-xs-9.text-right.ng-scope > split-panel-compiler > inven-item-top-filters > div > div > div:nth-child(4),
+/*cash tender buttons*/
+#tenderDialogueForm > div > div > div.col-xs-5 > div.panel.panel-default.ng-scope > div.panel-body > div:nth-child(2) > div:nth-child(3) > div > table > tbody > tr,
+/*Romove Void Button*/
+#transactionItems > div > div > div > div:nth-child(4),
+/*Send Sale Button*/
+#itemTypeForm > div > div:nth-child(3) > div > div:nth-child(3) > div:nth-child(2),
+/*cash tender buttons*/
+#tenderDialogueForm > div > div > div.col-xs-5 > div.panel.panel-default.ng-scope > div.panel-body > div:nth-child(2) > div:nth-child(3) > div > table > tbody > tr,
+/*Multiple PO Printing*/
+#POPrintMultipleButton,
+/*Register workstation*/
+#prismBody > z-out > div > register-definition > structured > div.panel.panel-default.ng-scope > div.panel-body.ng-scope > div > div.col-xs-4 > div > div.panel-body.ng-scope > div.row.form-group.ng-scope,
+#prismBody > z-out > div > register-definition > structured > div.panel.panel-default.ng-scope > div.panel-body.ng-scope > div > div.col-xs-4 > div > div.panel-body.ng-scope > div.row.form-group.ng-scope > div,
+/*Inventory order cost to hide at store view*/
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-purchasing > div > div:nth-child(1) > div > div.panel-body > div:nth-child(1) > div > div.col-xs-4,
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-purchasing > div > div:nth-child(1) > div > div.panel-body > div:nth-child(1) > div > div.col-xs-3,
+/*Customer remove hide*/
+#bt_customer > div > div.ng-scope > div > div > div.top-margin10 > div:nth-child(1),
+/*Customer fields*/
+#prismBody > customer > div > customer-details > ng-form > div > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > customer-payment > ng-form > fieldset > div.row.row-container.panel-default > div > div.panel-body > fieldset > div:nth-child(1),
+#prismBody > customer > div > customer-details > ng-form > div > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > customer-payment > ng-form > fieldset > div.row.row-container.panel-default > div > div.panel-body > fieldset > div:nth-child(2),
+#prismBody > customer > div > customer-details > ng-form > div > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > customer-payment > ng-form > fieldset > div.row.row-container.panel-default > div > div.panel-body > fieldset > div:nth-child(3),
+#prismBody > customer > div > customer-details > ng-form > div > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > customer-payment > ng-form > fieldset > div.row.row-container.panel-default > div > div.panel-body > fieldset > div:nth-child(4) > div:nth-child(1),
+#prismBody > customer > div > customer-details > ng-form > div > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > customer-payment > ng-form > fieldset > div:nth-child(2) > div,
+#prismBody > customer > div > customer-details > ng-form > div > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > customer-payment > ng-form > fieldset > div:nth-child(3) > div,
+#prismBody > customer > div > customer-details > ng-form > div > split-panel-ui > div > div.panel-body > div > div > div:nth-child(1) > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > customer-main > ng-form > fieldset > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(2) > customer-primary-associate > div > div,
+#prismBody > customer > div > customer-details > ng-form > div > split-panel-ui > div > div.panel-body > div > div > div:nth-child(1) > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > customer-main > ng-form > fieldset > div:nth-child(2) > div > div:nth-child(3) > div:nth-child(2) > customer-region > div > div,
+/*Inventory sublocation Main 1, 2, 3 location hide*/
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-sublocations > div > div:nth-child(4),
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-sublocations > div > div:nth-child(5),
+#prismBody > inven > div > inven-details > ng-form > split-panel-ui > div > div.panel-body > div > div > div.ng-scope.col-xs-6 > div > div.row.row-container.split-ui-tab-content.single-tab > split-panel-compiler > inven-sublocations > div > div:nth-child(6),
+/*Force authoriztion Credit Card*/
+#tenderDialogueForm > div > div.row > div.col-xs-5 > div.panel.panel-default.ng-scope > div.panel-body > div.ng-scope > div.row,
+/*Ship to customer hide*/
+#bt_customer > div > div.row > div > div:nth-child(2),
+/*Transaction details GENERAL store*/
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div:nth-child(6) > div:nth-child(1) > div > div > div.panel-body > div:nth-child(1),
+/*Transaction details SHIPPING Bill to and ship to customer*/
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div.height50.autoOverflow > div.row.row-eq-height > div.col-xs-6.disp-flex > div,
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div.height50.autoOverflow > div:nth-child(2) > div:nth-child(2) > div,
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div.height50.autoOverflow > div.row.row-eq-height > div.col-xs-6.disp-flex,
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div.height50.autoOverflow > div.row.row-eq-height > div:nth-child(2) > div > div.panel-heading.text-right,
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div.height50.autoOverflow > div.row.row-eq-height > div:nth-child(2) > div > div.panel-body,
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div.height50.autoOverflow > div:nth-child(2) > div:nth-child(1) > div > div.panel-body > div:nth-child(2),
+/*Associate Transaction Details*/
+#Associate-Tab,
+/*Discount Transaction Details*/
+#PriceLevels-Tab,
+/*Fee details*/
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div:nth-child(7) > div:nth-child(1) > div:nth-child(2),
+/*Order discount*/
+#transactionDetailsForm > div > div.modal-body.inheritOverflow > div > div.ng-scope > div > div:nth-child(2),
+/*Item Details Shipping*/
+#itemDetailsForm > div > div.modal-body > div > div.row.no-margin > ul > li:nth-child(4),
+/*Item Associates*/
+#itemDetailsForm > div > div.modal-body > div > div:nth-child(9) > div:nth-child(1) > div > div > div.panel-body > div:nth-child(2),
+#itemDetailsForm > div > div.modal-body > div > div:nth-child(9) > div:nth-child(1) > div > div > div.panel-body > div:nth-child(3),
+#itemDetailsForm > div > div.modal-body > div > div:nth-child(9) > div:nth-child(1) > div > div > div.panel-body > div:nth-child(4),
+#itemDetailsForm > div > div.modal-body > div > div:nth-child(9) > div:nth-child(1) > div > div > div.panel-body > div:nth-child(5),
+#itemDetailsForm > div > div.modal-body > div > div:nth-child(9) > div:nth-child(2),
+/*POS Logo*/
+#transactionForm > div > div:nth-child(1),
+/*bill to customer hide*/
+#bt_customer > div > div.row > div,
+/*Hide Sales Order buttons*/
+#transactionForm > div > div:nth-child(2) > div.col-xs-7 > div > div > div.no-pad > div > div.pos-item-search-area.top-margin > div:nth-child(2) > div > span > div > div:nth-child(2),
+#transactionForm > div > div:nth-child(2) > div.col-xs-4.col-xs-offset-1 > div > div.panel-body.bg-primary > div.row.docButtons > div:nth-child(1) > div:nth-child(2),
+/*Hide item type*/
+#transactionItems > div > div > div > div:nth-child(2)
+
+{
+	display: none;
+}
+
+
+

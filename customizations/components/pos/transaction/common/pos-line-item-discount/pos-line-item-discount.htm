@@ -1,0 +1,105 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2020 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+
+<ng-form name="form" id="discDropMenu">
+    <button index="{{index}}" tabindex="714" type="button" event-name="posTransactionDisc" class="btn btn-block btn-info" id="discountButton" ng-click="toggleDiscountEdit()" ng-disabled="ngDisabled" >
+        <span data-translate="2107">Discount</span></button>
+    <div ng-if="discEditMode"><!-- Moved Input into drop menu to provide more room for input on smaller devices/screens DT 15925-->
+        <div ng-if="!smallMenu">
+            <ul id="discDropMenuList" class="nav nav-tabs nav-stacked">
+                <li class="drop-menu">
+                    <div class="input-group" ng-class="{'has-error' : (discountType==='price' && formData.discountInput < 0)}">
+                        <input ng-if="discTypeIsAmt" type="text" autofocus tabindex="708" name="discountInput" id="discountInput1" class="form-control" data-permission-disabled="disableEdit || formData.editOrderItem || formData.viewMode" data-collect-permission data-permission="GiveItemDiscount,EditFormerPOSDetails" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:document.status === 4 || disableEdit}]" ng-disabled="disableDiscountInput" data-currency-formatter="currency" numberonly min="0" ng-keyup="submitIt($event)" ng-model="formData.discountInput">
+                        <input ng-if="!discTypeIsAmt" type="text" autofocus tabindex="708" name="discountInput" id="discountInput2" class="form-control" data-permission-disabled="disableEditLimited || form.editOrderItem || (form.viewMode && !disableEdit)" data-collect-permission data-permission="GiveItemDiscount,EditFormerPOSDetails" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:document.status === 4 || disableEdit}]" ng-disabled="disableDiscountInput" percent-field min="0" onclick="setTimeout(setSelectionRange(0, 9999),0);" ng-keyup="submitIt($event);" ng-model="formData.discountInput" placeholder="{{ '5395' | translate }}">
+                        <span class="input-group-btn">
+                        <button type="button" class="btn btn-info" event-name="posItemDiscountChange" id="itemDiscountClick" ng-disabled="(discountType==='price' && formData.discountInput < 0) || disableDiscountInput" ng-click="toggleDiscountEdit();getIndex($index)" style="padding-left:10px;">
+                            <span class="glyphicon glyphicon-check"></span>
+                        </button>
+                    </span>
+                    </div>
+
+                </li>
+                <li ng-if="discountTypes[0].show" class="drop-menu">
+                    <button tabindex="709" style="height: 3%;" type="button" class="btn btn-small" ng-class="(discountType==='amt') ? 'btn-info' : 'btn-primary'" ng-click="setDiscountType('amt')">
+                        <span data-translate="982">Amount</span></button>
+                </li>
+                <li ng-if="discountTypes[1].show" class="drop-menu">
+                    <button tabindex="710" style="height: 3%;" type="button" class="btn btn-small" ng-class="(discountType==='pct') ? 'btn-info' : 'btn-primary'" ng-click="setDiscountType('pct')">
+                        <span data-translate="3930">Percent</span></button>
+                </li>
+                <li ng-if="discountTypes[2].show" class="drop-menu">
+                    <button tabindex="711" style="height: 3%;" type="button" class="btn btn-small" ng-class="(discountType==='price') ? 'btn-info' : 'btn-primary'" ng-click="setDiscountType('price')">
+                        <span data-translate="773.1">Price</span></button>
+                </li>
+                <li class="drop-menu">
+                    <button ng-controller="DiscountCtrl" id="specialDiscount" style="height: 3%;" type="button" ng-class="(discountType==='spl') ? 'btn-info' : 'btn-primary'"  class="btn btn-small" ng-click="discount()">
+                    <span>Vitality Discount</span>
+                    </button>
+                </li>
+                <li>
+                    <hr class="drop-menu-sep">
+                </li>
+                <li class="drop-menu">
+                    <button tabindex="712" style="height: 3%;" type="button" event-name="posTransactionViewItemDetails" class="btn btn-small btn-primary" id="detailsButton" ng-disabled="kitBreak||itemDetailButton||[3,4,7].indexOf(thisTransactionItem.kit_type*1)!==-1" ng-click="setDiscountType('details')">
+                        <span data-translate="1522">Details</span></button>
+                </li>
+              <li ng-if="item.discounts && item.discounts.length > 0 && item.promo_gift_item!==1" class="drop-menu">
+                <button tabindex="711" style="height: 3%;" type="button" class="btn btn-small btn-primary" ng-click="remove()">
+                  <span data-translate="1523">Remove</span></button>
+              </li>
+            </ul>
+        </div>
+        <div ng-if="smallMenu" id="discDropMenuList">
+            <div class="row">
+                <div>
+                    <!--<ul id="discDropMenuList" class="nav nav-tabs nav-stacked">
+                        <li class="dropup-menu">-->
+                    <div class="input-group" ng-class="{'has-error' : (discountType==='price' && formData.discountInput < 0)}">
+                        <input ng-if="discTypeIsAmt" type="text" autofocus tabindex="708" name="discountInput" id="discountInput1" class="form-control" ng-keyup="submitIt($event)" numberonly ng-disabled="disableDiscountInput" data-currency-formatter="currency" data-permission-disabled="disableEdit || formData.editOrderItem || formData.viewMode" data-collect-permission data-permission="GiveItemDiscount,EditFormerPOSDetails" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:document.status === 4 || disableEdit}]" ng-model="formData.discountInput" min="0">
+                        <input ng-if="!discTypeIsAmt" type="text" autofocus onclick="setTimeout(setSelectionRange(0, 9999),0);" tabindex="708" name="discountInput" id="discountInput2" class="form-control" ng-keyup="submitIt($event)" percent-field ng-disabled="disableDiscountInput" placeholder="{{ '5395' | translate }}" data-permission-disabled="disableEditLimited || form.editOrderItem || (form.viewMode && !disableEdit)" data-collect-permission data-permission="GiveItemDiscount,EditFormerPOSDetails" data-apply-permission-when="[{permission:'EditFormerPOSDetails', condition:document.status === 4 || disableEdit}]" ng-model="formData.discountInput" min="0">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-info" event-name="posItemDiscountChange" id="itemDiscountClick" ng-disabled="(discountType==='price' && formData.discountInput < 0) || disableDiscountInput" ng-click="toggleDiscountEdit()" style="padding-left:10px;">
+                                <span class="glyphicon glyphicon-check"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="position: absolute; width: 238px; right:-20px;">
+                <nav class="navbar navbar-default" style="margin-left: 2px;">
+                    <div class="btn-toolbar" role="toolbar" aria-label="...">
+                        <div class="btn-group btn-group-sm mr-4" role="group" aria-label="First group">
+                            <div class="btn-group">
+                                <button ng-if="discountTypes[0].show" tabindex="709" type="button" event-name="posLineItemDiscountTypeAmt" class="btn btn-sm" ng-class="(discountType==='amt') ? 'btn-info' : 'btn-primary'" ng-click="setDiscountType('amt')">
+                                <span data-translate="1440">Amt</span></button>
+                            </div>
+                            <div class="btn-group">
+                                <button ng-if="discountTypes[1].show" tabindex="710" type="button" event-name="posLineItemDiscountTypePct" class="btn btn-sm" ng-class="(discountType==='pct') ? 'btn-info' : 'btn-primary'" ng-click="setDiscountType('pct')">
+                                <span data-translate="7507">Pct</span></button>
+                            </div>
+                            <div class="btn-group">
+                                <button ng-if="discountTypes[2].show" tabindex="711" type="button" event-name="posLineItemDiscountTypePrc" class="btn btn-sm" ng-class="(discountType==='price') ? 'btn-info' : 'btn-primary'" ng-click="setDiscountType('price')">
+                                <span data-translate="7508">Prc</span></button>
+                            </div>
+                            <div class="btn-group">
+                                <button ng-controller="DiscountCtrl" class="btn btn-sm" ng-class="(discountType==='spl') ? 'btn-info' : 'btn-primary'" type="button" class="btn btn-sm" ng-click="discount()">
+                                <span>Vtd</span></button>
+                            </div>
+                            <div class="btn-group">
+                                <button tabindex="712" type="button" event-name="posLineItemDiscountDetails" class="btn btn-sm btn-primary" id="altDetailsButton" ng-disabled="kitBreak||itemDetailButton||[3,4,7].indexOf(thisTransactionItem.kit_type*1)!==-1" ng-click="setDiscountType('details')">
+                                <span data-translate="7509">Det</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</ng-form>

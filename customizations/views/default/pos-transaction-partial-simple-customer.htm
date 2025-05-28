@@ -1,0 +1,114 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2024 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+<link href="/styles/external/simple-layouts-inc.css" rel="stylesheet" type="text/css">
+<form novalidate="" id="transactionForm" name="transactionForm" class="form-horizontal">
+  <div ng-if="(resourceLock && resourceLock.runningFlag && resourceLock.runningFlag.import_document)" class="text-center well well-sm" style="background-color:#f5cb42">
+    <span data-translate="3719">Import</span> <img src="images/three-dots-loader.svg"> <span data-translate="3055">Running</span>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6">
+        <img class="logo" ng-src="/images/{{defaultTheme.logo}}">
+      </div>
+      <div class="col-xs-6">
+        <div ng-if="showResultNavigation" class="pull-right">
+          <span style="line-height:40px; padding-right:10px;margin-left:10px"><span data-translate="8030">Lookup Result Navigation</span>:</span>
+          <button class="btn btn-info" type="button" ng-disabled="disablePrev || mode == 'edit'" ng-click="previousResult()" data-translate="3167">Previous</button>
+          <button class="btn btn-info" type="button" ng-disabled="disableNext || mode == 'edit'" ng-click="nextResult()" data-translate="800">Next</button>
+        </div>
+        <div class="pull-right text-primary date-span" ng-show="document.invoice_posted_date">
+          <span data-translate="684">Date</span>: <span>{{document.invoice_posted_date|cleanDate:'locale':true}}&nbsp;</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-7">
+        <div ng-include="vwPath + 'simple-transactions-partial.htm'"></div>
+      </div>
+      <div class="col-xs-4 col-xs-offset-1">
+        <div class="panel panel-primary panel-collapse height80">
+          <div class="no-padding col-xs-12" style="margin-top:-5px">
+            <div class="row">
+              <div ng-if="!customerService.addingStCustomer && runIt && defaultSearchType !== false">
+                <simple-customers $scope="this" id="bt_customer" customer="customer" pos-document="document" pos-callback="processCustomerSearch" pos-disabled="disableCustomerForm()" default-search="defaultSearchType">
+                </simple-customers>
+              </div>
+            </div>
+          </div>
+          <simple-list-selection list="customerGridOptions.data" select="addCustomerToDocument" offset-x="10" offset-y="-10" ng-if="customerGridOptions.data.length>1" element-id="'bt_customer'" columns="displayColumns" flow="'left'" width="600"></simple-list-selection>
+          <div class="panel-body bg-primary" style="height:-webkit-calc(100% - 88px);height:-moz-calc(100% - 88px);height:calc(100% - 88px)">
+            <div class="row margin-bottom10">
+              <div class="col-xs-12">
+                <hr>
+              </div>
+            </div>
+            <div class="row docButtons">
+              <!-- <div class="col-xs-4">
+                <button event-name="posTransactionTransactionDetails" tabindex="719" type="button" class="btn large-text btn-info btn-block" id="TransactionDetailsButton" ng-disabled="transactionDetailsButton" ng-click="transactionDetails()">
+                  <span data-translate="779">Transaction Details</span>
+                </button>
+              </div>
+              <div class="col-xs-4">
+                <order-details-button></order-details-button>
+              </div>
+              <div class="col-xs-4">
+                <transaction-coupon-button></transaction-coupon-button>
+              </div> -->
+              <div class="col-xs-6" style="display: grid; gap: 8px;">
+                <div class="col-xs-12">
+                  <button event-name="posTransactionTransactionDetails" tabindex="719" type="button" class="btn large-text btn-info btn-block" id="TransactionDetailsButton" ng-disabled="transactionDetailsButton" ng-click="transactionDetails()">
+                    <span data-translate="779">Transaction Details</span>
+                  </button>
+                </div>
+                <div class="col-xs-12">
+                  <order-details-button></order-details-button>
+                </div>
+              </div>
+              <div class="col-xs-6" style="display: grid; gap: 8px;">
+                <div class="col-xs-12">
+                  <transaction-coupon-button></transaction-coupon-button>
+                </div>
+                <div class="col-xs-12">
+                  <div ng-controller="specialDiscountCtrl" ng-show="document.status !== 4 &amp;&amp; document.sid &amp;&amp; isSpecialDiscountsEnabled" class="ng-scope">
+                    <button class="btn btn-info" ng-click="specialDiscount()" style="width: 100%;">Special Discount</button>
+                  </div>
+                </div>
+              </div>
+
+              
+              
+            </div>
+            <div class="top-padding10" style="height:-webkit-calc(100% - 302px);height:-moz-calc(100% - 302px);height:calc(100% - 302px)">
+              <div class="row docInfo">
+                <div class="col-xs-12 autoOverflow">
+                  <div ng-include="vwPath + 'simple-transactions-detailblock-partial.htm'"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-xs-12">
+                <input type="text" id="documentTotal" class="text-right bg-info documentTotal text-primary" value="{{document.due_amt |currency}}" ng-disabled="true"></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <button event-name="posTransactionTenderTransaction" tabindex="799" type="button" id="tenderbutton" class="btn btn-success btn-block btn-large" ng-click="tenderTransaction()" ng-disabled="tenderbutton||document.so_cancel_flag || searching">
+                  <span data-translate="643" ng-if="!tenderbutton||itemsToProcess.length===0">Tender Transaction</span>
+                  <span ng-if="tenderbutton&&itemsToProcess.length>0">{{'3733'|translate}}...</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <action-button-bar ng-if="posButtons" action-bar="posButtons"></action-button-bar>
+</form>

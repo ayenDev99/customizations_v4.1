@@ -1,0 +1,148 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 data-translate="E-Sales Report">E-Sales Report</h4>
+        <button class="btn btn-default" ng-click="toggleFilters()">
+            <span class="glyphicon glyphicon-chevron-left" ng-if="filtersOn"></span>
+            <span class="glyphicon glyphicon-chevron-right" ng-if="!filtersOn"></span>
+            <span data-translate="">Filters</span>
+        </button>
+    </div>
+    <div class="panel-body">
+        <div class="row row-container">
+            <div class="col-xs-3" ng-if="filtersOn">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 data-translate="">Filters</h4>
+                    </div>
+                    <div class="panel-body advanced-search-panel">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label class="control-label" data-translate="Date From">Date From</label>
+                                <input type="text" name="dateFrom" id="dateFrom" class="form-control datepicker" ng-model="salesReport.dateFrom"/>
+                            </div>
+                            <div class="col-xs-12">
+                                <label class="control-label" data-translate="Date To">Date To</label>
+                                <input type="text" name="dateTo" id="dateTo" class="form-control datepicker" ng-model="salesReport.dateTo"/>
+                            </div>
+                            <div class="col-xs-12">
+                                <label class="control-label" data-translate="Report Type">Report Type</label>
+                                <select class="form-control" name="report_type" id="report_type" ng-model="salesReport.report_type">
+                                    <option value="DETAILED_SUMMARY">Detailed Sales Summary Report</option>
+                                    <option value="SALES_SUMMARY">BIR Sales Summary Report</option>
+                                    <option value="RETURN_REPORT">Return Report</option>
+                                    <option value="ZERO_RATED">Zero Rated Sales Report</option>
+                                    <option value="PWD_DISCOUNT">PWD Discount Report</option>
+                                    <option value="SP_DISCOUNT">Solo Parent Discount Report</option>
+                                    <option value="ATHLETE_DISCOUNT">Athlete Discount Report</option>
+                                    <option value="SENIOR_CITIZENS_DISCOUNT">Senior Citizens Discount Report</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12">
+                                <label class="control-label" data-translate="Workstations">Workstations</label>
+                                <select class="form-control" name="workstation" id="workstation" ng-model="salesReport.workstation"
+                                ng-options="workstation.workstation_name for workstation in salesReport.workstation_list track by workstation.sid" ng-change="clear()"
+                                >
+                                </select>
+                            </div>
+                            <div class="col-xs-12">
+                                <label class="control-label" data-translate="Cashier">Cashier</label>
+                                <select class="form-control" name="cashier" id="cashier" ng-model="salesReport.cashier"
+                                ng-options="cashier.emplname for cashier in salesReport.cashier_list track by cashier.sid"
+                                ng-change="clear()">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <button class="btn btn-default" ng-click="resetSearchFilters()">
+                            <span class="glyphicon-ban-circle glyphicon"></span>
+                            <span data-translate="">Clear</span>
+                        </button>
+                        <button class="btn btn-default" ng-click="displayReport(1);">
+                            <span class="glyphicon-search glyphicon"></span>
+                            <span data-translate="">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div ng-class="{'col-xs-9':filtersOn, 'col-xs-12':!filtersOn}">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h4 data-translate="{{salesReport.reportTitle}}">{{salesReport.reportTitle}}</h4>
+                            </div>
+                            <div class="col-xs-4 text-right" ng-if="searchResult.results.length">
+                                <!-- <h5 data-translate="" class="col-xs-6">Export As</h5>
+                                <div class="col-xs-6">
+                                    <select class="form-control" name="export_type" id="export_type" ng-model="export_type">
+                                        <option value="PDF">PDF</option>
+                                    </select>
+                                </div> -->
+                            </div>
+                            <div class="col-xs-2 text-right" ng-if="searchResult.results!==undefined">
+                                <span class="badge-info badge" ng-if="searchResult.results.length">Total Records {{ searchResult.recordCount }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body advanced-search-panel hide-scrollbar">
+                        <sales-summary ng-if="salesReport.current_report_type == 'SALES_SUMMARY'"></sales-summary>
+                        <detailed-summary ng-if="salesReport.current_report_type == 'DETAILED_SUMMARY'"></detailed-summary>
+                        <return-report ng-if="salesReport.current_report_type == 'RETURN_REPORT'"></return-report>
+                        <senior-citizens-discount ng-if="salesReport.current_report_type == 'SENIOR_CITIZENS_DISCOUNT'"></senior-citizens-discount>
+                        <pwd-discount ng-if="salesReport.current_report_type == 'PWD_DISCOUNT'"></pwd-discount>
+                        <sp-discount ng-if="salesReport.current_report_type == 'SP_DISCOUNT'"></sp-discount>
+                        <athlete-discount ng-if="salesReport.current_report_type == 'ATHLETE_DISCOUNT'"></athlete-discount>
+                        <zero-rated ng-if="salesReport.current_report_type == 'ZERO_RATED'"></zero-rated>
+                        <!-- <div class="well well-sm text-center advanced-search-well" style="position:relative;" ng-if="searchResults.results===undefined">
+                            <span style="font-size:18px;" class="glyphicon glyphicon-arrow-left"></span> <em style="font-size:24px;">Choose Filters</em>
+                            <span style="font-size:75px;" class="glyphicon glyphicon-search center-icon"></span>
+                        </div>
+                        <div class="well well-sm text-center advanced-search-well" style="position:relative;" ng-if="searchResults.results.length===0">
+                            <em style="font-size:24px;">No Records Found</em>
+                            <span style="font-size:75px;" class="glyphicon glyphicon-ban-circle center-icon"></span>
+                        </div> -->
+                    </div>
+                    <div class="panel-footer text-center">
+                       <dir-pagination-controls boundary-links="true" direction-links="true" auto-hide="false" pagination-id="invnReportID" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+
+                       <!--  <dir-pagination-controls ng-if="searchResult.results !== undefined && searchResult.results.length > 0" on-page-change="pageChanged(newPageNumber)" boundary-links="true" direction-links="true" auto-hide="true" pagination-id="invnReportID"></dir-pagination-controls> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer text-right">
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-default" ng-if="searchResult.results.length" ng-click="exportReport()">
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                    <span data-translate="">Export</span>
+                </button>
+                <button class="btn btn-default" ng-click="closeModalDialog()">
+                    <span class="glyphicon glyphicon-ban-circle"></span>
+                    <span data-translate="">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        document.addEventListener('scroll', function (event) {
+            if (event.target.id === 'tbl_report') { // or any other filtering condition
+                $("#tbl_report > *").width($("#tbl_report").width() + $("#tbl_report").scrollLeft());
+            }
+        }, true /*Capture event*/);
+
+        $('.datepicker').datepicker({
+            autoclose: true,
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "-100:+0"
+        });
+    });
+
+</script>

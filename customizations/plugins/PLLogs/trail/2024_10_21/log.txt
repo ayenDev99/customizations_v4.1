@@ -1,0 +1,48 @@
+[2024-10-21 11:23:53am] New log has been created.
+[2024-10-21 11:23:53am] OWNER opened a drawer.
+[2024-10-21 11:24:21am] CASHIER created new tranasction. SID: 724641061000306101
+[2024-10-21 11:24:50am] CASHIER adding global discount to tranasction: 724641061000306101 ... reason: null, total discount amount: undefined
+[2024-10-21 11:36:39am] CASHIER completed the tranasction: 724641061000306101 and created a receipt ... Doc NO: 43
+[2024-10-21 11:38:18am] CASHIER created new tranasction. SID: 724641898000337124
+[2024-10-21 11:38:41am] CASHIER adding new customer to tranasction: 724641898000337124 ... customer name: sc customer, diplomat: NO
+[2024-10-21 11:39:05am] CASHIER adding global discount to tranasction: 724641898000337124 ... reason: null, total discount amount: undefined
+[2024-10-21 11:39:19am] CASHIER adding item discount to tranasction: 724641898000337124 item: 724641908000374125 ... reason: SC, total discount amount: 460
+[2024-10-21 11:39:29am] CASHIER adding global discount to tranasction: 724641898000337124 ... reason: null, total discount amount: undefined
+[2024-10-21 11:39:37am] CASHIER completed the tranasction: 724641898000337124 and created a receipt ... Doc NO: 44
+[2024-10-21 11:40:38am] CASHIER created new tranasction. SID: 724642038000352152
+[2024-10-21 11:40:50am] CASHIER adding new customer to tranasction: 724642038000352152 ... customer name: NAAC customer, diplomat: NO
+[2024-10-21 11:40:55am] CASHIER adding item discount to tranasction: 724642038000352152 item: 724642046000393153 ... reason: ATHLETE, total discount amount: 278.57
+[2024-10-21 11:41:06am] CASHIER adding global discount to tranasction: 724642038000352152 ... reason: null, total discount amount: undefined
+[2024-10-21 11:41:20am] CASHIER completed the tranasction: 724642038000352152 and created a receipt ... Doc NO: 45
+[2024-10-21 11:45:12am] CASHIER created new tranasction. SID: 724642312000331184
+[2024-10-21 11:45:36am] CASHIER adding new customer to tranasction: 724642312000331184 ... customer name: NAAC customer, diplomat: NO
+[2024-10-21 11:45:40am] CASHIER adding item discount to tranasction: 724642312000331184 item: 724642320000310186 ... reason: ATHLETE, total discount amount: 200
+[2024-10-21 11:45:49am] CASHIER adding global discount to tranasction: 724642312000331184 ... reason: null, total discount amount: undefined
+[2024-10-21 11:45:57am] CASHIER completed the tranasction: 724642312000331184 and created a receipt ... Doc NO: 46
+[2024-10-21 11:50:40am] CASHIER created new tranasction. SID: 724642639000396215
+[2024-10-21 11:51:18am] CASHIER adding global discount to tranasction: 724642639000396215 ... reason: null, total discount amount: undefined
+[2024-10-21 11:51:30am] CASHIER completed the tranasction: 724642639000396215 and created a receipt ... Doc NO: 47
+[2024-10-21 11:51:47am] CASHIER created new tranasction. SID: 724642707000341231
+[2024-10-21 11:52:09am] CASHIER adding global discount to tranasction: 724642707000341231 ... reason: null, total discount amount: undefined
+[2024-10-21 11:52:32am] CASHIER completed the tranasction: 724642707000341231 and created a receipt ... Doc NO: 48
+[2024-10-21 11:52:53am] CASHIER created new tranasction. SID: 724642773000306245
+[2024-10-21 11:54:16am] CASHIER Created return transaction: 724642773000306245 and created a receipt ... Doc NO: undefined
+[2024-10-21 11:54:25am] CASHIER adding global discount to tranasction: 724642773000306245 ... reason: null, total discount amount: undefined
+[2024-10-21 14:35:50pm] CASHIER created new tranasction. SID: 724652550000333347
+[2024-10-21 14:36:06pm] CASHIER adding global discount to tranasction: 724652550000333347 ... reason: null, total discount amount: undefined
+[2024-10-21 14:36:38pm] SYSADMIN created new tranasction. SID: 724652597000389360
+[2024-10-21 14:37:30pm] SYSADMIN created new tranasction. SID: 724652650000359365
+[2024-10-21 14:37:50pm] SYSADMIN adding global discount to tranasction: 724652650000359365 ... reason: null, total discount amount: undefined
+[2024-10-21 14:38:12pm] SYSADMIN completed the tranasction: 724652650000359365 and created a receipt ... Doc NO: 49
+[2024-10-21 15:17:32pm] SYSADMIN created new tranasction. SID: 724655052000357398
+[2024-10-21 15:17:49pm] SYSADMIN adding global discount to tranasction: 724655052000357398 ... reason: null, total discount amount: undefined
+[2024-10-21 15:18:20pm] SYSADMIN completed the tranasction: 724655052000357398 and created a receipt ... Doc NO: 50
+[2024-10-21 15:45:30pm] SYSADMIN adding global discount to tranasction: 724652650000359365 ... reason: null, total discount amount: undefined
+[2024-10-21 16:53:19pm] SYSADMIN created new tranasction. SID: 724660799000330472
+[2024-10-21 17:23:43pm] SYSADMIN created new tranasction. SID: 724662623000346501
+[2024-10-21 17:23:54pm] SYSADMIN adding global discount to tranasction: 724662623000346501 ... reason: null, total discount amount: undefined
+[2024-10-21 18:21:01pm] SYSADMIN created new tranasction. SID: 724666061000313536
+[2024-10-21 18:24:19pm] SYSADMIN created new tranasction. SID: 724666259000377565
+[2024-10-21 18:29:21pm] SYSADMIN created new tranasction. SID: 724666560000399572
+[2024-10-21 18:31:28pm] SYSADMIN created new tranasction. SID: 724666688000337577
+[2024-10-21 18:36:00pm] SYSADMIN created new tranasction. SID: 724666959000391597

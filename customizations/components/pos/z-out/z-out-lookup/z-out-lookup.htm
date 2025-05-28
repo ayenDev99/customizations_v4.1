@@ -1,0 +1,132 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span data-translate="1563">Search Results</span>
+  </div>
+  <div class="panel-body">
+    <div class="well well-sm text-center advanced-search-well" style="position:relative;height:65vh" ng-if="$ctrl.controlList.length===0">
+      <em style="font-size:24px;"><span data-translate="2333">No Records Found</span></em>
+      <span style="font-size:75px;" class="glyphicon glyphicon-ban-circle center-icon"></span>
+    </div>
+    <div ng-if="$ctrl.controlList.length>0">
+      <div class="list-group" style="height:65vh;overflow-x:auto">
+        <div ng-repeat="result in $ctrl.controlList">
+          <div event-name="zOutSearchThisResult" class="z-out-result-item" ng-class="{'z-out-result-item-active':$ctrl.activeControl===result}" id="searchZOutResult{{$index}}" tabindex="10{{$index}}" index="{{$index}}" data-item-group ng-click="$ctrl.setActiveControl(result)">
+            <div class="row">
+              <div class="col-xs-4">
+                <input type="hidden" value="{{result.sid}}" class="sid">
+                <strong data-translate="7535">Open Date:</strong> {{
+                result.period_begin | date : 'short' }}
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7536">Sub:</strong> {{
+                result.subsidiary_name }}
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7537">Open Amount:</strong> {{
+                result.register_open_amount | currency }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">
+                <strong data-translate="7538">Close Date:</strong>
+                <span ng-if="result.period_end">{{result.period_end | date : 'short'}}</span>
+                <span ng-if="!result.period_end">--</span>
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7539">Store:</strong> {{
+                result.store_name }}
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7540">Net Sales:</strong> {{
+                result.total_sales | currency }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">
+                <strong data-translate="7541">Status:</strong>
+                <span ng-if="!result.finalized">
+                {{result.status | zOutStatus}}
+              </span>
+                <span ng-if="result.finalized" data-translate="1142">Closed</span>
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7542">Workstation:</strong>
+                {{result.workstation_name?result.workstation_name:'--'}}
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7543">Close Amount:</strong> {{
+                result.register_close_amount | currency }}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-4">
+                <strong data-translate="7528">Cashier:</strong>
+                {{result.cashier_name?result.cashier_name:'--'}}
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7544">Drawer:</strong>
+                {{result.drawer_number?result.drawer_number:'--'}}
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7545">Over/Short:</strong>
+                <span ng-class="{ 'text-danger' : result.register_overshort_amount < 0, 'text-success' : result.register_overshort_amount > 0 }">{{ result.register_overshort_amount | currency }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-4">
+                <strong data-translate="7546">Closed By:</strong>
+                {{result.closed_by?result.closed_by:'--'}}
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7547">Till:</strong>
+                {{result.till_name?result.till_name:'--'}}
+              </div>
+              <div class="col-xs-4">
+                <strong data-translate="7548">Leave:</strong> {{
+                result.register_leave_amount | currency }}
+              </div>
+            </div>
+            <div class="row" ng-if="$ctrl.isStruct">
+              <div class="col-xs-4 col-xs-offset-8">
+                <strong data-translate="7161">Audit Count:</strong>
+                {{result.audits.length}}
+              </div>
+            </div>
+            <div ng-if="$ctrl.activeControl===result" style="margin-top:5px;">
+              <div class="btn-group btn-group-justified" ng-if="result.store_sid===$ctrl.sessionStore">
+                <div class="btn-group btn-group-justified" ng-if="result.report_type===3">
+                  <button class="btn btn-info" event-name data-permission="xzoutaccessformeraudit" permission-disabled="!result.audits.length" ng-click="$ctrl.zOut.getAudits(result.sid)"><span data-translate="7162">Audits</span></button>
+                </div>
+                <div class="btn-group btn-group-justified" ng-if="result.status===2||result.report_type===3&&!result.finalized&&result.status===3&&!$ctrl.blind">
+                  <button class="btn btn-info" event-name="navZoutRecount" ng-disabled ng-click="$ctrl.doRecount()"><span data-translate="1850">Recount</span></button>
+                </div>
+                <div class="btn-group btn-group-justified" ng-if="(result.status===3&&!result.finalized)||result.status===1">
+                  <button class="btn btn-info" ng-if="result.status===1" event-name="navZoutCloseOrAudit" ng-click="$ctrl.close()" data-translate="7549"><span data-translate="7549">Close/Audit</span></button>
+                  <button class="btn btn-info" event-name="navZoutFinalize" data-permission="xzoutfinalizezoutreport" ng-disabled="result.finalized" ng-if="!$ctrl.zOut.allSbs&&!$ctrl.zout.allStores&&result.status===3" ng-click="$ctrl.finalize()"><span data-translate="Finalize">Finalize</span></button>
+                </div>
+                <div class="btn-group btn-group-justified" ng-if="result.status===1">
+                  <button class="btn btn-info" event-name="navZoutForceClose" data-permission="xzoutforcecloseregister" ng-click="$ctrl.forceClose()"><span data-translate="2310">Force Close</span></button>
+                </div>
+                <div class="btn-group btn-group-justified" ng-if="result.finalized">
+                  <button class="btn btn-info" event-name="navZoutPrint" ng-click="$ctrl.print(result)" ng-disabled="!result.finalized"><span data-translate="522">Print</span></button>
+                </div>
+              </div>
+              <div class="btn-group btn-group-justified" ng-if="result.store_sid!==$ctrl.sessionStore">
+                <div class="btn-group btn-group-justified" ng-if="result.report_type===3">
+                  <button class="btn btn-info" event-name data-permission="xzoutaccessformeraudit" permission-disabled="!result.audits.length" ng-click="$ctrl.zOut.getAudits(result.sid)"><span data-translate="7162">Audits</span></button>
+                </div>
+                <div class="btn-group btn-group-justified" ng-if="result.finalized">
+                  <button class="btn btn-info" event-name="navZoutPrint" ng-click="$ctrl.print(result)" ng-disabled="!result.finalized"><span data-translate="522">Print</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <paging-control ng-if="$ctrl.controlList.length&&$ctrl.pagingOptions" results-per-page="$ctrl.pagingOptions.page_size" call-back="$ctrl.pagingOptions.callBack" total-records="$ctrl.pagingOptions.total_records"></paging-control>
+      </div>
+    </div>
+  </div>
+</div>

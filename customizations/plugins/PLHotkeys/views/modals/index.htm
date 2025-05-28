@@ -1,0 +1,81 @@
+<div id="hotkeysModal" class="modal-content">
+    <div class="modal-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4 class="modal-title">Shortcut Key / Hotkey</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div id="keys">
+            <div class="path {{ pathKey }}" ng-repeat="(pathKey, path) in hotkeys" data-path-key="{{ pathKey }}">
+               <div class="title">{{ path.label }}</div>
+
+                <div class="subpaths">
+                    <div class="subpath" ng-repeat="(subpathKey, subpath) in path.paths">
+                        <div class="title">{{subpath.label}}</div>
+
+                        <div class="keys">
+                            <form id="hotkeysForm">
+                                <table>
+                                    <tbody>
+                                        <tr class="key" ng-repeat="(keyKey, key) in subpath.keys" data-path="{{ pathKey }}" data-path-label="{{ path.label }}" data-subpath-label="{{subpath.label}}" data-key-label="{{ key.label }}">
+                                            <td width="50%">{{ key.label }}</td>
+                                            <td width="50%">
+                                                <input type="text" data-path-key="{{pathKey}}" data-subpath-key="{{subpathKey}}" data-key-key="{{keyKey}}" ng-model="hotkeys[pathKey].paths[subpathKey].keys[keyKey].keylabel" name="keys[key.slug][label]" class="keyLabel form-control" autocomplete="false">
+                                                <input type="hidden" ng-model="hotkeys[pathKey].paths[subpathKey].keys[keyKey].slug" name="keys[key.slug][slug]" class="slug form-control" value="{{ key.slug }}" autocomplete="false">
+                                                <input type="hidden" ng-model="hotkeys[pathKey].paths[subpathKey].keys[keyKey].keycode" name="keys[key.slug][keycode]" class="keycode form-control" value="{{ key.keycode }}" autocomplete="false">
+                                                <input type="hidden" ng-model="hotkeys[pathKey].paths[subpathKey].keys[keyKey].ctrlKey" name="keys[key.slug][ctrlKey]" class="ctrlKey form-control" value="{{ key.ctrlKey }}" autocomplete="false">
+                                                <input type="hidden" ng-model="hotkeys[pathKey].paths[subpathKey].keys[keyKey].altKey" name="keys[key.slug][altKey]" class="altKey form-control" value="{{ key.altKey }}" autocomplete="false">
+                                                <input type="hidden" ng-model="hotkeys[pathKey].paths[subpathKey].keys[keyKey].shiftKey" name="keys[key.slug][shiftKey]" class=" shiftKey form-control" value="{{ key.shiftKey }}" autocomplete="false">
+                                                <input type="hidden" ng-model="hotkeys[pathKey].paths[subpathKey].keys[keyKey].metaKey" name="keys[key.slug][metaKey]" class="metaKey form-control" value="{{ key.metaKey }}" autocomplete="false">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 text-right">
+                    <button type="button" class="btn btn-lg btn-default" ng-click="closeModal()"><span data-translate="Close">Close</span></button>
+                    <button type="button" class="btn btn-lg btn-default" ng-click="revert()"><span>Revert Changes</span></button>
+                    <button type="button" class="btn btn-lg btn-default" ng-click="default()"><span>Use Default</span></button>
+                    <button type="button" class="btn btn-lg btn-default" ng-click="save()"><span>Save</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    div#keys .path > .title {
+        background-color: #ccc;
+        font-size: 1.7rem;
+        padding: 6px 10px;
+    }
+
+    div#keys .subpath > .title {
+        background: #efefef;
+        font-size: 1.5rem;
+    }
+
+    div#keys .subpath table {
+        width: 100%;
+    }
+
+    div#keys .subpath table td {
+        margin: 3px 0 3px 0;
+        display: inline-block;
+    }
+</style>

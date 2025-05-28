@@ -1,0 +1,20 @@
+[2024-10-07 10:04:28am] New log has been created.
+[2024-10-07 10:04:28am] SYSADMIN closed a drawer.
+[2024-10-07 10:04:28am] SYSADMIN closed a drawer.
+[2024-10-07 10:05:02am] SYSADMIN opened a drawer.
+[2024-10-07 10:05:47am] SYSADMIN created new tranasction. SID: 723236347000336439
+[2024-10-07 10:13:47am] SYSADMIN adding item discount to tranasction: 723236347000336439 item: 723236478000345440 ... reason: Sale, total discount amount: 495
+[2024-10-07 10:14:16am] SYSADMIN adding new customer to tranasction: 723236347000336439 ... customer name: Michele Salen, diplomat: YES
+[2024-10-07 10:15:04am] SYSADMIN adding item discount to tranasction: 723236347000336439 item: 723236478000345440 ... reason: Promo, total discount amount: 595
+[2024-10-07 10:15:17am] SYSADMIN adding item discount to tranasction: 723236347000336439 item: 723236478000345440 ... reason: VIP, total discount amount: 685
+[2024-10-07 10:16:32am] SYSADMIN adding global discount to tranasction: 723236347000336439 ... reason: Promo, total discount amount: 0
+[2024-10-07 10:18:19am] SYSADMIN adding global discount to tranasction: 723236347000336439 ... reason: null, total discount amount: undefined
+[2024-10-07 10:19:09am] SYSADMIN completed the tranasction: 723236347000336439 and created a receipt ... Doc NO: 12
+[2024-10-07 10:19:58am] SYSADMIN created new tranasction. SID: 723237198000380513
+[2024-10-07 10:20:21am] SYSADMIN adding new customer to tranasction: 723237198000380513 ... customer name: undefined, diplomat: NO
+[2024-10-07 10:20:22am] SYSADMIN Created return transaction: 723237198000380513 and created a receipt ... Doc NO: undefined
+[2024-10-07 10:20:40am] SYSADMIN adding global discount to tranasction: 723237198000380513 ... reason: null, total discount amount: undefined
+[2024-10-07 10:20:50am] SYSADMIN completed the tranasction: 723237198000380513 and created a receipt ... Doc NO: 2
+[2024-10-07 10:42:40am] SYSADMIN printing an x-reading.
+[2024-10-07 10:43:43am] SYSADMIN closed a drawer.
+[2024-10-07 10:43:44am] SYSADMIN closed a drawer.

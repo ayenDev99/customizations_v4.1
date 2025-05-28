@@ -1,0 +1,49 @@
+<div ng-repeat="thisTransactionItem in docInfo.Items" ng-controller="DiscountCtrl">
+  <a name="link{{$index}}" id="searchTransactionItemsResult{{$index}}" index="{{$index}}" ng-class="{'list-group-item':true, 'header':thisTransactionItem.kit_flag == 3, 'component':thisTransactionItem.kit_flag == 5}" ng-click="selectTransactionItem($index);toggleIndex($index)" ng-dblclick="viewTransactionItem($index)">
+    <div class="row">
+      <div class="col-xs-4">
+        {{ thisTransactionItem.item_description1 }} - {{ thisTransactionItem.item_description2 }}
+      </div>
+
+      <div class="col-xs-4">
+        <strong data-translate="841">ALU:</strong> {{ thisTransactionItem.alu }}
+      </div>
+      <div class="col-xs-3">
+        <strong data-translate="542">Type:</strong> {{ thisTransactionItem.item_type|itemTypeName : thisTransactionItem.order_type | translate }}
+      </div>  
+      <div class="col-xs-1 text-danger text-center" ng-if="(thisTransactionItem.item_type !== 3 && ((thisTransactionItem.serial_type===2 && !thisTransactionItem.serial_number) || (thisTransactionItem.lot_type === 8 && !thisTransactionItem.lot_number))) || ((thisTransactionItem.lot_type === 4) && (!thisTransactionItem.lot_number) && (lotNoIsRequired(thisTransactionItem)))">
+        <img src="images/pos/incomplete.png" height="22" width="22" ng-click="resolveItemIssues($index);">
+      </div>
+    </div>
+    <div class="row">
+	    <div class="col-xs-4">
+        <strong data-translate="679">Item_Size:</strong> {{ thisTransactionItem.item_size }}
+      </div>
+	    <div class="col-xs-4">
+        <strong data-translate="678">Attrib:</strong> {{ thisTransactionItem.attribute | translate }}
+      </div>
+      <div class="col-xs-4" ng-controller="PL1PriceCTRL" ng-init="Pl1price(thisTransactionItem.invn_sbs_item_sid)">
+        <!-- <strong data-translate="">Quantity:</strong> {{thisTransactionItem.quantity|number:thisTransactionItem.inventory_use_quantity_decimals}} -->
+        <strong data-translate="">Quantity:</strong> {{thisTransactionItem.quantity | number:thisTransactionItem.inventory_use_quantity_decimals}}
+
+        &nbsp;&nbsp;&nbsp;&nbsp; 
+        <strong data-translate="">First Price:</strong> {{ pricepl1 | currency }}
+      </div>
+      <div class="col-xs-4">
+        <strong data-translate="773">Price:</strong> {{ thisTransactionItem.price|price }}
+      </div>
+      <div class="col-xs-4">
+        <strong data-translate="Ext Price">Ext Price:</strong> {{ thisTransactionItem.price * thisTransactionItem.quantity|price}}
+	    </div>
+    </div>
+    <kitflags template="kit-flags-template.htm"></kitflags>
+  </a>
+  <div class="btn-group btn-group-justified actionButtons" ng-if="$index===selectedItem">
+    <div class="btn-group"><button tabindex="711" type="button" event-name="posTransactionItemDetails" class="btn btn-info" id="itemDetailButton" ng-click="itemDetails('inventory')" ng-disabled="itemDetailButton"><span data-translate="1522">Details</span></button></div>
+    <div class="btn-group"><button tabindex="709" type="button" event-name="posTransactionItemType" class="btn btn-info" id="itemTypeButton" ng-click="itemType()" ng-disabled="itemTypeButton||isPackageItem()||thisTransactionItem.lty_type===3||thisTransactionItem.order_type===1"><span data-translate="768">Item Type</span></button></div>
+    <div class="btn-group"><pos-line-item-discount call-back="adjustItemDiscount" is-disabled="(discountButton||document.so_cancel_flag||thisTransactionItem.lty_type===3||processingDiscount||itemFulfilled||(document.status===4&&!finalizedOrder))" item="document.items[selectedItem]" customer="customer"></pos-line-item-discount></div>
+    <div class="btn-group"><button tabindex="" type="button" event-name="posTransactionItemVoid" class="btn btn-info" id="voidItemButton" ng-click="voidItem()" ng-disabled="voidItemButton||!canVoidItem"><span data-translate="1486">Void</span></button></div>
+    <div class="btn-group"><button tabindex="710" type="button" data-permission="removeitemfromposdocument" event-name="posTransactionRemoveItem" class="btn btn-info" id="removeItemButton" ng-click="removeItem()" permission-disabled="removeItemButton"><span data-translate="1523">Remove</span></button></div>
+    <div class="btn-group"><pos-item-qty status="document.status" call-back="adjustQuantity" is-disabled="(quantityPlusOneButton||document.so_cancel_flag||thisTransactionItem.lty_type===3||processingQty||(document.status===4&&!finalizedOrder))&&(!(thisTransactionItem.item_type===3&&stateParams.mode==='edit'))" item="document.items[selectedItem]"></pos-item-qty></div>
+  </div>
+</div>

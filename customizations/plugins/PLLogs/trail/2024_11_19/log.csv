@@ -1,0 +1,11 @@
+"2024-11-19 13:13:57pm",SYSADMIN,"Closed a drawer"
+"2024-11-19 13:13:58pm",SYSADMIN,"Closed a drawer"
+"2024-11-19 13:14:15pm",SYSADMIN,"Opened a drawer"
+"2024-11-19 13:14:20pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-19 13:15:16pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-19 13:15:33pm",SYSADMIN,"Completed the tranasction",,23
+"2024-11-19 13:15:38pm",SYSADMIN,"Created new transaction",REGULAR
+"2024-11-19 13:16:07pm",SYSADMIN,"Created return transaction",RETURN
+"2024-11-19 13:16:22pm",SYSADMIN,"Added global discount to transaction"
+"2024-11-19 13:17:06pm",SYSADMIN,"Completed the tranasction",,6
+"2024-11-19 13:17:38pm",SYSADMIN,"Created new transaction",REGULAR

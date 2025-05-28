@@ -1,0 +1,52 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2024 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+<div class="panel panel-primary panel-collapse height80">
+  <div class="no-pad">
+    <div class="row top-margin">
+      <div class="pos-item-search-area top-margin">
+        <div class="row form-group top-margin">
+          <div class="pos-item-search-bar-area">
+            <item-search ng-if="!itemLookup" ng-disabled="(stateParams.mode !== 'edit' && stateParams.mode !== 'new')||!document.sid||document.is_held||document.status === 1||document.status === 2||(document.status === 4 && !finalizedOrder)||noSearch">
+            </item-search>
+            <input type="text" class="form-control" ng-disabled="true" ng-if="itemLookup" placeholder="{{ '1415' | translate }}">
+          </div>
+          <div class="pos-item-search-button-area">
+            <pos-advanced-item-search-button default-item-type="default.item_type" item-process-list="itemsToProcess" document="document" refresh-transaction="refreshTransactionDetails" doc-selected-item="selectedItem" doc-items="document.items" adjust-qty="adjustQuantity" process-batch-items="processBatchItems()" btn-permission-disabled="(stateParams.mode !== 'edit' && stateParams.mode !== 'new')||(document.status === 1)||(document.status === 2)||(document.status === 4 && !finalizedOrder)||(noSearch)">
+            </pos-advanced-item-search-button>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 15px">
+          <div class="col-xs-12">
+            <item-type-buttons></item-type-buttons>
+          </div>
+        </div>
+      </div>
+      <div class="pos-item-image-area text-center">
+        <item-image item="document.items[selectedItem]" no-edit="true" id="selected-item-img" max-width="110" max-height="110" class="simple-transactions-partial responsive"></item-image>
+      </div>
+    </div>
+  </div>
+  <div ng-show="posPaging.recordCount" class="panel panel-default" style="height:calc(100% - 174px);height:-webkit-calc(100% - 174px);height:-moz-calc(100% - 174px); margin-bottom:5px">
+    <div id="transactionItems" class="panel-body SmallResultsPane autoOverflow" style="height:100%; padding:5px">
+      <div ng-if="!processingQty && !processingDiscount" class="list-group">
+        <documentitem template="simple-layouts-template.htm"></documentitem>
+      </div>
+    </div>
+  </div>
+  <div ng-hide="posPaging.recordCount" class="panel panel-default" style="height:calc(100% - 123px);height:-webkit-calc(100% - 123px);height:-moz-calc(100% - 123px)">
+    <div id="transactionItems" class="panel-body SmallResultsPane autoOverflow" style="height:100%">
+    </div>
+  </div>
+  <div ng-if="posPaging.showPaging" ng-show="posPaging.recordCount" class="panel-footer text-center" style="padding: 5px !important; border-radius: 4px">
+    <paging-control style="margin:10px 0px" results-per-page="posPaging.pageSize" call-back="posPaging.callBack" init-page="posPaging.page" total-records="posPaging.recordCount"></paging-control>
+  </div>
+</div>
+<!-- <div ng-controller="specialDiscountCtrl" ng-show="document.status !== 4 && document.sid && isSpecialDiscountsEnabled">
+  <button class="btn btn-default" ng-click="specialDiscount()">Special Discount</button>
+</div> -->

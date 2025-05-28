@@ -1,0 +1,53 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4 class="modal-title">License Details</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label>System Name: {{systemName}}</label>
+                        <input id="systemName" name="systemName" type="text" class="form-control" ng-model="systemName" ng-disabled="true">
+                    </div>
+                    <div class="form-group">
+                        <label>System Version:</label>
+                        <input id="systemVersion" name="systemVersion" type="text" class="form-control" ng-model="systemVersion" ng-disabled="true">
+                    </div>
+                    <div class="form-group">
+                        <label>Machine Code:</label>
+                        <input id="machineID" name="machineID" type="text" class="form-control" ng-model="machineID" ng-disabled="true">
+                    </div>
+                    <div class="form-group">
+                        <label>License Key:</label>
+                        <textarea id="licenseKey" rows="5" name="licenseKey" class="form-control" ng-model="licenseKey"></textarea>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button type="button" class="btn btn-lg btn-default" ng-click="validateLicense()"><span data-translate="Proceed">Proceed</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-10" style="text-align: left !important;">
+                    <span style="font-style: italic; font-size: 14px;color: red;"><strong>Note:</strong> {{systemNote}}</span>
+                </div>
+                <div class="col-xs-2 text-right">
+                    <button type="button" class="btn btn-lg btn-default" ng-click="close()"><span data-translate="Close">Close</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

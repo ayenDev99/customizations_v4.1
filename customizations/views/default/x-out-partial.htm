@@ -1,0 +1,91 @@
+<form novalidate="novalidate" id="xOutForm" name="xOutForm" class="form-horizontal relative" ng-init="initialize()">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1 class="panel-title" data-translate="1810">Report Filters</h1>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <form>
+                <div class="control-group">
+                  <div class="controls">
+                    <label class="control-label" for="start-date" data-translate="958">Start Date</label>
+                    <p class="input-group" ng-click="openCalendar($event, 'startDate')">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default">
+                          <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                      </span>
+                      <input type="button" class="form-control" datetime-picker="medium" ng-model="startDate.date" value="{{(startDate.date)?(startDate.date | date:'medium'):(startDate.placeholder)}}" is-open="startDate.open" enable-time="true" datepicker-options="startDate.datepickerOptions" timepicker-options="startDate.timepickerOptions" when-closed="startDate.closed()" placeholder="{{startDate.placeholder}}">
+                    </p>
+                  </div>
+                  <div class="controls">
+                    <label class="control-label" for="end-date" data-translate="611">End Date</label>
+                    <p class="input-group" ng-click="openCalendar($event, 'endDate')">
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default">
+                          <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                      </span>
+                      <input type="button" class="form-control" datetime-picker="medium" ng-model="endDate.date" value="{{(endDate.date)?(endDate.date | date:'medium'):(endDate.placeholder)}}" is-open="endDate.open" enable-time="true" datepicker-options="endDate.datepickerOptions" timepicker-options="endDate.timepickerOptions" when-closed="endDate.closed()" placeholder="{{endDate.placeholder}}">
+                    </p>
+                  </div>
+
+                  <div class="controls">
+                    <label class="control-label" for="subsidiary" data-translate="562">Subsidiary:</label>
+                    <select id="subsidiary" ng-model="form.subsidiary" ng-disabled="disableFilters" ng-change="onSubsidiaryChange();changeFilter();" class="form-control" ng-options="s.sid as s.subsidiary_number + ' :' + s.subsidiary_name for s in subsidiaries">
+                      <option value="" data-translate="1358">Select...</option>
+                    </select>
+                  </div>
+                  <div class="controls">
+                    <label class="control-label" for="installation" data-translate="957">Installation:</label>
+                    <select id="installation" ng-model="form.installation" ng-change="changeFilter();" ng-disabled="disableFilters" class="form-control" ng-options="c.sid as c.controllerno + ' :' + c.controllername for c in controllers">
+                      <option value="" selected="selected"><span data-translate="1143">All</span></option>
+                    </select>
+                  </div>
+                  <div class="controls">
+                    <label class="control-label" for="store" data-translate="683">Store:</label>
+                    <select id="store" ng-model="form.store" ng-disabled="disableFilters" ng-change="onStoreChange();changeFilter();" class="form-control" ng-options="s.sid as s.store_number + ' :' + s.store_name for s in stores">
+                      <option value="" selected="selected" hidden> </option></select>
+                  </div>
+                  <div class="controls">
+                    <label class="control-label" for="workstation" data-translate="809">Workstation:</label>
+                    <select id="workstation" ng-model="form.workstation" ng-change="changeWorkstation(form.workstation,'{{form.workstation}}')" ng-disabled="disableFilters" class="form-control" ng-options="w.sid as w.workstation_number + ' :' + w.workstation_name for w in workstations">
+                      <option value="" selected="selected"><span data-translate="1143">All</span></option>
+                    </select>
+                  </div>
+                  <div class="controls">
+                    <label class="control-label" for="drawer" data-translate="662">Drawer:</label>
+                    <select id="drawer" ng-model="form.drawer" ng-change="changeFilter();" ng-disabled="disableFilters" class="form-control">
+                      <option value="" selected="selected"><span data-translate="1143">All</span></option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </div>
+                  <div class="controls">
+                    <label class="control-label" for="till" data-translate="661">Till:</label>
+                    <select id="till" ng-model="form.till" ng-change="changeFilter();" ng-disabled="disableFilters" class="form-control" ng-options="t.sid as t.till_name for t in tills">
+                      <option value="" selected="selected"><span data-translate="1143">All</span></option>
+                    </select>
+                  </div>
+                  <div class="controls">
+                    <label class="control-label" for="cashier" data-translate="622">Cashier:</label>
+                    <select ng-if="employees" id="cashier" ng-change="changeFilter();" ng-disabled="disableFilters" ng-model="form.cashier" class="form-control" ng-options="e.value as e.name for e in employees">
+                      <option value=""><span data-translate="1143">All</span></option>
+                    </select>
+                  </div>
+                  <!-- <div class="controls">
+                    <input type="checkbox" id="separate-return-sequence" checked> (Checked) SI-Return Separate Sequence / (Unchecked) SI-Return Same Sequence
+                  </div> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<button-bar button-view="nav-x-out-buttons-partial.htm"></button-bar>

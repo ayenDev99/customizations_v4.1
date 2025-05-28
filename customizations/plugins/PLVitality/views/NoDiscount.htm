@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <h5 class="modal-title">Vitality Transactions</h3>
+</div>
+<div class="modal-body">
+    <p>Discount Applied on</p>
+    <p>regular price item/s only</p>
+    <p><strong>Limit Account:</strong> {{ accountDetails.eligibilityDetails[0].limits[0].amountRemaining | number: 2 }}</p>
+    <p><strong>Applied Amount:</strong> {{ noAppliedAmount | number: 2 }}</p>
+    <p><strong>Remaining Balance:</strong> {{ accountDetails.eligibilityDetails[0].limits[0].amountRemaining | number: 2 }}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="close()">OK</button>
+</div>

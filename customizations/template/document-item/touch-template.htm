@@ -1,0 +1,112 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2020 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+<div ng-repeat="thisTransactionItem in docInfo.Items">
+  <a name="link{{$index}}" id="searchTransactionItemsResult{{$index}}" index="{{$index}}" ng-class="{'list-group-item':true, 'header':thisTransactionItem.kit_flag == 3, 'component':thisTransactionItem.kit_flag == 5}" class="touch" ng-click="selectTransactionItem($index)" ng-dblclick="viewTransactionItem($index)">
+    <div class="row">
+      <div class="col-xs-12">
+                <h6 class="list-group-item-heading">{{thisTransactionItem.item_description1}}
+         {{ thisTransactionItem.item_size | translate }}
+         {{ thisTransactionItem.attribute | translate }}</h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2">
+        <strong data-translate="2230">Quantity:</strong>
+      </div>
+      <div class="col-xs-2">
+        {{thisTransactionItem.quantity|formatNumber:thisTransactionItem.inventory_use_quantity_decimals:false}}
+      </div>
+      <div class="col-xs-2">
+        <strong data-translate="2231">Price:</strong>
+      </div>
+      <div class="col-xs-3">
+        {{thisTransactionItem.price|price}}
+      </div>
+      <div class="col-xs-2">
+        {{ thisTransactionItem.item_type|itemTypeName : thisTransactionItem.order_type | translate }}
+      </div>
+      <div class="col-xs-1 text-danger text-center" ng-if="(thisTransactionItem.item_type !== 3 && ((thisTransactionItem.serial_type===2 && !thisTransactionItem.serial_number) || (thisTransactionItem.lot_type === 8 && !thisTransactionItem.lot_number))) || ((thisTransactionItem.lot_type === 4) && (!thisTransactionItem.lot_number) && (lotNoIsRequired(thisTransactionItem)))">
+        <img src="images/pos/incomplete.png" height="22" width="22"/>
+      </div>
+    </div>
+        <!-- ************************************************************* -->
+        <div class="row">
+        <div class="col-xs-3" ng-if="thisTransactionItem.discount_perc">
+          <strong data-translate="771">Disc %:</strong> {{ thisTransactionItem.discount_perc|number:percision }}
+          <!--
+            change due to #14954
+            old condition : thisTransactionItem.discount_perc<customer.suggested_discount_percent&&thisTransactionItem.discount_perc!=0&&thisTransactionItem.kit_flag===0 -->
+          <!-- <span ng-if="(thisTransactionItem.maxaccumdiscpercent !== 0 && thisTransactionItem.discount_perc >= thisTransactionItem.maxaccumdiscpercent) || (thisTransactionItem.maxaccumdiscpercent === 0 && thisTransactionItem.discount_perc >= thisTransactionItem.maxdiscpercent)"><em style="color:red">Max</em></span> -->
+          <!-- changed due to new development in #14954 -->
+          <span ng-if="(discount_preference && thisTransactionItem.discount_perc >= thisTransactionItem.maxdiscpercent) || ( !discount_preference && thisTransactionItem.discount_perc >= thisTransactionItem.maxaccumdiscpercent)"><em style="color:red">Max</em></span>
+          <br>
+        </div>
+        <div class="col-xs-3" ng-if="!thisTransactionItem.discount_perc"></div>
+        <div class="col-xs-1 text-danger text-center" ng-if="(thisTransactionItem.ref_order_doc_sid !== '' && thisTransactionItem.ref_order_item_sid !== '')">
+          <img uib-tooltip="{{7844 | translate}}" tooltip-placement="left" src="images/pos/send_sale_32x32.png" height="22" width="22">
+        </div>
+        <div class="col-xs-3" ng-if="thisTransactionItem.discount_amt">
+          <span ng-if="thisTransactionItem.quantity===1"><strong data-translate="3243">Disc Amt:</strong></span>
+          <span ng-if="thisTransactionItem.quantity>1"><strong data-translate="6496">Ext Disc Amt</strong></span>
+          {{ thisTransactionItem.discount_amt|currency }}
+        </div>
+    
+        
+
+      </div>
+        <!-- **************************************************************** -->
+
+
+
+
+    <div class="row" ng-controller="modifiersCtrl">
+      <input type="hidden" value="{{thisTransactionItem.sid}}" class="item-sid">
+      <!-- <div class="col-xs-6" style="margin-bottom: 4px;">
+        <strong>Modifier 1:</strong> <select ng-model="modifier1Value" ng-change="saveModifier(1, 'instant')"><option ng-repeat="item in modifier1Options" value="{{item}}">{{item}}</option></select>
+      </div>
+      <div class="col-xs-6" style="margin-bottom: 4px;">
+        <strong>Modifier 2:</strong> <select ng-model="modifier2Value" ng-change="saveModifier(2, 'instant')"><option ng-repeat="item in modifier2Options" value="{{item}}">{{item}}</option></select>
+      </div>
+      <div class="col-xs-12">
+        <strong>Note:</strong> <input type="text" name="" ng-model="modifier3Value" ng-keyup="saveModifier(3, 0.5)">
+      </div>  -->
+
+
+
+      <div class="col-xs-4" style="margin-bottom: 4px;">
+        <strong>Modifier 1:</strong> {{modifier1Value}}
+      </div>
+      <div class="col-xs-4" style="margin-bottom: 4px;">
+        <strong>Modifier 2:</strong> {{modifier2Value}}
+      </div>
+      <div class="col-xs-4">
+          <strong data-translate="Ext Price">Ext Price:</strong> {{ thisTransactionItem.price*thisTransactionItem.quantity|currency }}
+    </div>
+      <div class="col-xs-12">
+        <strong>Note:</strong> {{modifier3Value}}
+      </div>
+    </div>
+    <kitflags template="kit-flags-template.htm"></kitflags>
+  </a>
+  <div class="row actionButtons" ng-if="$index===selectedItem">
+    <div class="btn-group btn-group-justified">
+      <div class="btn-group"><button tabindex="711" type="button" event-name="posTransactionItemDetails" class="btn btn-info" id="itemDetailButton" ng-click="itemDetails('inventory')" ng-disabled="itemDetailButton"><span data-translate="1522">Details</span></button></div>
+      <div class="btn-group"><button tabindex="709" type="button" event-name="posTransactionItemType" class="btn btn-info" id="itemTypeButton" ng-click="itemType()" ng-disabled="itemTypeButton||thisTransactionItem.lty_type===3"><span data-translate="768">Item Type</span></button></div>
+      <div class="btn-group"><button tabindex="709" type="button" event-name="posTransactionItemModifiers" class="btn btn-info" id="itemModifiersButton" ng-click="itemModifiers()" ng-disabled="itemTypeButton||thisTransactionItem.lty_type===3" data-item-sid="{{thisTransactionItem.sid}}"><span>Modifiers</span></button></div>
+      <div class="btn-group"><pos-line-item-discount clear="removeManualDiscounts" call-back="adjustItemDiscount" ng-disabled="document.so_cancel_flag||thisTransactionItem.lty_type===3||processingDiscount||itemFulfilled||thisTransactionItem.kit_flag===2||(thisTransactionItem.quantity === thisTransactionItem.order_quantity_filled)||(document.status===4&&thisTransactionItem.item_type!==3)||discountButton" item="document.items[selectedItem]" customer="customer"></pos-line-item-discount></div>
+    </div>
+  </div>
+  <div class="row actionButtons" ng-if="$index===selectedItem">
+    <div id="actionButtons" class="btn-group btn-group-justified">
+      <div class="btn-group"><button tabindex="710" type="button" data-permission="removeitemfromposdocument" event-name="posTransactionRemoveItem" class="btn btn-info" id="removeItemButton" ng-click="removeItem()" permission-disabled="removeItemButton"><span data-translate="1523">Remove</span></button></div>
+      <!-- <div class="btn-group"><button tabindex="" type="button" event-name="posTransactionItemVoid" class="btn btn-info" id="voidItemButton" ng-click="voidItem()" ng-disabled="voidItemButton||!canVoidItem"><span data-translate="1486">Void</span></button></div> -->
+      <div class="btn-group"><pos-item-qty call-back="adjustQuantity"  ng-disabled="(quantityPlusOneButton||document.so_cancel_flag||thisTransactionItem.lty_type===3||processingQty)" item="document.items[selectedItem]"></pos-item-qty></div>
+    </div>
+  </div>
+</div>

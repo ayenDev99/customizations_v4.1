@@ -1,0 +1,102 @@
+[2025-04-02 08:14:13am] New log has been created.
+[2025-04-02 08:14:13am] SYSADMIN closed a drawer.
+[2025-04-02 08:14:19am] SYSADMIN opened a drawer.
+[2025-04-02 08:14:25am] SYSADMIN created new tranasction. SID: 741029665000511548
+[2025-04-02 08:15:11am] SYSADMIN created new tranasction. SID: 741029710000572550
+[2025-04-02 08:17:28am] SYSADMIN created new tranasction. SID: 741029847000552565
+[2025-04-02 08:20:14am] SYSADMIN created new tranasction. SID: 741030014000525649
+[2025-04-02 08:52:11am] SYSADMIN created new tranasction. SID: 741031931000506698
+[2025-04-02 09:39:30am] SYSADMIN adding item discount to tranasction: 741031931000506698 item: 741033075000523721 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 09:40:04am] SYSADMIN created new tranasction. SID: 741034804000537748
+[2025-04-02 09:40:34am] SYSADMIN created new tranasction. SID: 741034834000512749
+[2025-04-02 09:42:29am] SYSADMIN adding item discount to tranasction: 741034834000512749 item: 741034928000522759 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 09:43:42am] SYSADMIN adding item discount to tranasction: 741034834000512749 item: 741034928000522759 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 09:44:28am] SYSADMIN adding item discount to tranasction: 741034834000512749 item: 741035060000547791 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 09:44:48am] SYSADMIN adding global discount to tranasction: 741034834000512749 ... reason: null, total discount amount: undefined
+[2025-04-02 09:45:03am] SYSADMIN completed the tranasction: 741034834000512749 and created a receipt ... Doc NO: 3
+[2025-04-02 09:52:46am] SYSADMIN created new tranasction. SID: 741035565000571823
+[2025-04-02 09:53:19am] SYSADMIN adding item discount to tranasction: 741035565000571823 item: 741035572000554824 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 09:54:46am] SYSADMIN adding item discount to tranasction: 741035565000571823 item: 741035675000502845 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 09:59:01am] SYSADMIN created new tranasction. SID: 741035940000587877
+[2025-04-02 09:59:57am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741035975000560878 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:00:24am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741036017000554892 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:03:36am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741036205000505914 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:04:22am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741036243000544930 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:04:44am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741036196000560909 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:06:36am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741036384000571953 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:06:54am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741036406000573967 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:07:39am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741036446000551981 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:08:16am] SYSADMIN adding item discount to tranasction: 741035940000587877 item: 741036489000546998 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:13:03am] SYSADMIN created new tranasction. SID: 741036782000583008
+[2025-04-02 10:14:09am] SYSADMIN adding item discount to tranasction: 741036782000583008 item: 741036834000561020 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:14:17am] SYSADMIN adding item discount to tranasction: 741036782000583008 item: 741036816000546011 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:16:01am] SYSADMIN adding global discount to tranasction: 741036782000583008 ... reason: null, total discount amount: undefined
+[2025-04-02 10:20:57am] SYSADMIN completed the tranasction: 741036782000583008 and created a receipt ... Doc NO: 4
+[2025-04-02 10:22:34am] SYSADMIN created new tranasction. SID: 741037353000574043
+[2025-04-02 10:28:37am] SYSADMIN created new tranasction. SID: 741037716000568055
+[2025-04-02 10:29:30am] SYSADMIN adding item discount to tranasction: 741037716000568055 item: 741037736000541056 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:29:41am] SYSADMIN adding global discount to tranasction: 741037716000568055 ... reason: null, total discount amount: undefined
+[2025-04-02 10:30:04am] SYSADMIN completed the tranasction: 741037716000568055 and created a receipt ... Doc NO: 5
+[2025-04-02 10:32:05am] SYSADMIN created new tranasction. SID: 741037925000542075
+[2025-04-02 10:34:50am] SYSADMIN adding item discount to tranasction: 741037925000542075 item: 741038078000571089 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:48:25am] SYSADMIN created new tranasction. SID: 741038905000508195
+[2025-04-02 10:49:30am] SYSADMIN adding item discount to tranasction: 741038905000508195 item: 741038933000520203 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 10:49:44am] SYSADMIN adding item discount to tranasction: 741038905000508195 item: 741038917000592198 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:00:42am] SYSADMIN adding item discount to tranasction: 741038905000508195 item: 741038933000520203 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:03:15am] SYSADMIN adding item discount to tranasction: 741038905000508195 item: 741039020000504222 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:04:50am] SYSADMIN adding item discount to tranasction: 741038905000508195 item: 741039773000547237 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:05:31am] SYSADMIN adding item discount to tranasction: 741038905000508195 item: 741039773000547237 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:07:37am] SYSADMIN adding item discount to tranasction: 741037925000542075 item: 741040040000580280 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:07:54am] SYSADMIN adding item discount to tranasction: 741037925000542075 item: 741040066000517294 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:08:22am] SYSADMIN adding item discount to tranasction: 741037925000542075 item: 741040066000517294 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:08:32am] SYSADMIN adding item discount to tranasction: 741037925000542075 item: 741040066000517294 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 11:09:57am] SYSADMIN adding global discount to tranasction: 741037925000542075 ... reason: null, total discount amount: undefined
+[2025-04-02 11:10:45am] SYSADMIN completed the tranasction: 741037925000542075 and created a receipt ... Doc NO: 6
+[2025-04-02 13:51:58pm] SYSADMIN created new tranasction. SID: 741049918000516416
+[2025-04-02 13:57:18pm] SYSADMIN adding item discount to tranasction: 741049918000516416 item: 741050079000516436 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:34:41pm] SYSADMIN created new tranasction. SID: 741052480000559495
+[2025-04-02 14:36:46pm] SYSADMIN adding item discount to tranasction: 741052480000559495 item: 741052599000529498 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:37:15pm] SYSADMIN adding item discount to tranasction: 741052480000559495 item: 741052617000589508 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:37:32pm] SYSADMIN adding item discount to tranasction: 741052480000559495 item: 741052644000582522 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:37:51pm] SYSADMIN adding item discount to tranasction: 741052480000559495 item: 741052664000581532 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:38:16pm] SYSADMIN adding item discount to tranasction: 741052480000559495 item: 741052683000573542 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:38:39pm] SYSADMIN adding item discount to tranasction: 741052480000559495 item: 741052711000516556 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:42:19pm] SYSADMIN adding item discount to tranasction: 741052480000559495 item: 741052599000529498 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:42:26pm] SYSADMIN adding item discount to tranasction: 741052480000559495 item: 741052923000551593 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:44:41pm] SYSADMIN adding global discount to tranasction: 741052480000559495 ... reason: null, total discount amount: undefined
+[2025-04-02 14:46:01pm] SYSADMIN completed the tranasction: 741052480000559495 and created a receipt ... Doc NO: 7
+[2025-04-02 14:52:23pm] SYSADMIN created new tranasction. SID: 741053543000533644
+[2025-04-02 14:53:51pm] SYSADMIN created new tranasction. SID: 741053631000537654
+[2025-04-02 14:54:38pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053635000563655 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:55:02pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053665000587660 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:55:10pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053635000563655 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:55:28pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053665000587660 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:55:53pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053693000565674 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:56:13pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053740000568701 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:56:26pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053740000568701 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:56:44pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053796000592725 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 14:56:57pm] SYSADMIN adding item discount to tranasction: 741053631000537654 item: 741053796000592725 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:08:17pm] SYSADMIN created new tranasction. SID: 741054496000574747
+[2025-04-02 15:09:43pm] SYSADMIN adding item discount to tranasction: 741054496000574747 item: 741054555000503781 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:09:51pm] SYSADMIN adding item discount to tranasction: 741054496000574747 item: 741054546000515772 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:10:03pm] SYSADMIN adding item discount to tranasction: 741054496000574747 item: 741054541000532767 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:10:13pm] SYSADMIN adding item discount to tranasction: 741054496000574747 item: 741054535000505762 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:10:22pm] SYSADMIN adding item discount to tranasction: 741054496000574747 item: 741054518000571748 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:13:08pm] SYSADMIN adding item discount to tranasction: 741054496000574747 item: 741054555000503781 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:13:43pm] SYSADMIN adding item discount to tranasction: 741054496000574747 item: 741054522000523753 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:16:10pm] SYSADMIN created new tranasction. SID: 741054970000520832
+[2025-04-02 15:20:11pm] SYSADMIN adding item discount to tranasction: 741054970000520832 item: 741055185000522838 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:20:29pm] SYSADMIN adding item discount to tranasction: 741054970000520832 item: 741055222000549852 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:20:45pm] SYSADMIN adding item discount to tranasction: 741054970000520832 item: 741055238000528862 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:21:04pm] SYSADMIN adding item discount to tranasction: 741054970000520832 item: 741055252000569872 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 15:21:12pm] SYSADMIN adding global discount to tranasction: 741054970000520832 ... reason: null, total discount amount: undefined
+[2025-04-02 15:21:28pm] SYSADMIN completed the tranasction: 741054970000520832 and created a receipt ... Doc NO: 8
+[2025-04-02 16:11:47pm] SYSADMIN created new tranasction. SID: 741058307000541917
+[2025-04-02 16:14:23pm] SYSADMIN adding item discount to tranasction: 741058307000541917 item: 741058443000578953 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 16:14:32pm] SYSADMIN adding item discount to tranasction: 741058307000541917 item: 741058434000509944 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 16:14:43pm] SYSADMIN adding item discount to tranasction: 741058307000541917 item: 741058428000525939 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 16:14:52pm] SYSADMIN adding item discount to tranasction: 741058307000541917 item: 741058424000550934 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 16:15:00pm] SYSADMIN adding item discount to tranasction: 741058307000541917 item: 741058413000560925 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 16:15:11pm] SYSADMIN adding item discount to tranasction: 741058307000541917 item: 741058409000546920 ... reason: Philam Discount, total discount amount: 0
+[2025-04-02 16:15:48pm] SYSADMIN adding global discount to tranasction: 741058307000541917 ... reason: null, total discount amount: undefined
+[2025-04-02 16:16:07pm] SYSADMIN completed the tranasction: 741058307000541917 and created a receipt ... Doc NO: 9

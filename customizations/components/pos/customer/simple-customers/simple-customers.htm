@@ -1,0 +1,261 @@
+<!--
+==============================================================================================================
+
+Copyright (c) 2024 Retail Pro International, LLC. - All Rights Reserved.
+This source code is Proprietary and Confidential Information of Retail Pro International, LLC.
+
+==============================================================================================================
+-->
+
+<div style="height:220px">
+    <div class="row" style="color:white">
+      <div class="col-xs-12 btn-group btn-group-justified" role="group" aria-label="..." ng-if="$ctrl.tab===1 && $ctrl.posDocument">
+        <div class="btn-group">
+          <button style="background-color:transparent !important;font-weight : bold; border-radius:4px 0 0 0" class="btn btn-outline-info" id="billToBtnInact"><span class="highlighted" data-translate="7120">Bill To</span></button>
+        </div>
+        <div class="btn-group">
+          <button style="border-radius:0 4px 0 0" type="button" class="btn btn-info" id="shipToBtnAct" ng-click="$ctrl.changeTabs(2)" data-translate="7121">Ship To</button>
+        </div>
+      </div>
+      <div class="col-xs-12 btn-group btn-group-justified" role="group" aria-label="..." ng-if="$ctrl.tab===2 && $ctrl.posDocument">
+        <div class="btn-group">
+          <button style="border-radius:4px 0 0 0" type="button" class="btn btn-info" id="billToBtnAct" ng-click="$ctrl.changeTabs(1)" data-translate="7120">Bill To</button>
+        </div>
+        <div class="btn-group">
+          <button style="background-color:transparent !important;font-weight : bold; border-radius:0 4px 0 0" type="button" class="btn btn-outline-info" id="shipToBtnInact"><span class="highlighted" data-translate="7121">Ship To</span></button>
+        </div>
+      </div>
+    </div>
+    <div style="padding:10px" ng-if="$ctrl.tab===1 || !$ctrl.posDocument">
+      <div ng-if="!$ctrl.posDocument.bt_cuid">
+        <div class="row col-xs-12" style="margin-top:13px;">
+          <customer-mini-lookup id="bt_customer" doc-search="true" pos-document="$ctrl.posDocument" pos-callback="$ctrl.posCallback" pos-disabled="$ctrl.posDisabled || $ctrl.posDocument.ref_record_sale" default-search="$ctrl.defaultSearch">
+          </customer-mini-lookup>
+        </div>
+        <div class="row col-xs-12 no-padding no-margin top-margin">
+          <hr style="border-top: 1px dashed lightgrey; margin-top:12px">
+        </div>
+        <div class="row col-xs-12 text-center top-margin">
+          <button type="button" id="customerNewButton" class="btn btn-info" data-permission="customerscreatecustomer" data-permission-disabled="$ctrl.posDisabled || $ctrl.posDocument.ref_record_sale" ng-click="$ctrl.$scope.quickCustomer()">
+            <span>New Customers</span>
+          </button>
+          <button ng-controller="PLVitality" type="button" id="vitalityButton" class="btn btn-info" ng-click="vitalityDiscount()" ng-disabled="isDisabled"> 
+            <span>AIA Member</span>
+          </button>
+        </div>
+        
+      </div>
+      
+
+      <div ng-if="$ctrl.posDocument.bt_cuid" style="width:100%">
+        <div class="well well-sm" style="height: 165px">
+          <!--<div style="width:140px;float:left" ng-if="$ctrl.pageWidth > 1200">
+            <customer-image></customer-image>
+          </div>
+          <div ng-if="$ctrl.pageWidth > 1200" style="width:calc(100% - 145px);width:-webkit-calc(100% - 145px);width:-moz-calc(100% - 145px);float:left;overflow-x:auto;overflow-y:auto; height: 125px;">
+            <div class="" ng-show="$ctrl.posDocument.bt_first_name || $ctrl.posDocument.bt_last_name">
+              <div class="no-wrap">
+                <span class="glyphicon glyphicon-user margin-right-5"></span> {{$ctrl.posDocument.bt_first_name}} {{$ctrl.posDocument.bt_last_name}}
+              </div>
+            </div>
+            <div class="" ng-show="$ctrl.posDocument.bt_primary_phone_no">
+              <div class=" no-wrap">
+                <span class="glyphicon glyphicon-earphone margin-right-5"></span> {{$ctrl.posDocument.bt_primary_phone_no}}
+              </div>
+            </div>
+            <div class="" ng-show="$ctrl.posDocument.bt_email">
+              <div class=" no-wrap">
+                <span class="glyphicon glyphicon-envelope margin-right-5"></span> {{$ctrl.posDocument.bt_email}}
+              </div>
+            </div>
+            <div class="" ng-show="!$ctrl.$scope.toBoolean($ctrl.$scope.prefs.centrals_credit_enabled) && $ctrl.customer.storecredit && ($ctrl.posDocument.status == 3)">
+              <div class=" no-wrap">
+                <span class="glyphicon glyphicon-gift margin-right-5"></span> {{$ctrl.customerService.customerBT.storecredit|currency}}
+              </div>
+            </div>
+            <div class="" ng-show="$ctrl.$scope.toBoolean($ctrl.$scope.prefs.centrals_credit_enabled) && $ctrl.customer.centralcredit && ($ctrl.posDocument.status == 3)">
+              <div class="no-wrap">
+                <span class="glyphicon glyphicon-gift margin-right-5"></span> {{$ctrl.customerService.customerBT.centralcredit|currency}}
+              </div>
+            </div>
+            <div class="" ng-show="$ctrl.$scope.toBoolean($ctrl.$scope.prefs.pos_loyalty_enabled)">
+              <div ng-if="!$ctrl.$scope.permissions.seeloyaltypoints || $ctrl.$scope.permissions.seeloyaltypoints==='OVERRIDE'" ng-class="{'text-danger':!$ctrl.posDocument.lty_lvl_sid}" class="no-wrap">
+                <span class="glyphicon glyphicon-star margin-right-5"></span> <span >***</span>
+              </div>
+              <div ng-if="$ctrl.$scope.permissions.seeloyaltypoints==='ALLOW'" ng-class="{'text-danger':!$ctrl.posDocument.lty_lvl_sid}" class=" no-wrap">
+                <span class="glyphicon glyphicon-star margin-right-5"></span> {{$ctrl.posDocument.lty_balance_for_item_redeem|number:lty_decimals}}
+              </div>
+            </div>
+            <div class="" ng-show="$ctrl.customer.lastsaledate">
+              <div class=" no-wrap">
+                <span class="glyphicon glyphicon-calendar margin-right-5"></span> {{$ctrl.customerService.customerBT.lastsaledate|cleanDate:'locale':true}}
+              </div>
+            </div>
+          </div>
+          -->
+          <!-- If customer image is added back, add ng-if="$ctrl.pageWidth < 1201"-->
+          <div style="width:100%;overflow-x:auto;overflow-y:auto; height: 100px;padding:0 10px">
+            <div class ng-show="$ctrl.posDocument.bt_first_name || $ctrl.posDocument.bt_last_name">
+              <div uib-tooltip="{{'1113' | translate}}" tooltip-placement="left" class="no-wrap">
+                <span class="glyphicon glyphicon-user margin-right-5"></span> <span id="transactionCustomerName">{{$ctrl.posDocument.bt_first_name}} {{$ctrl.posDocument.bt_last_name}}</span>
+              </div>
+            </div>
+            <div class ng-show="$ctrl.posDocument.bt_primary_phone_no">
+              <div class="no-wrap" uib-tooltip="{{'1070' | translate}}" tooltip-placement="left">
+                <span class="glyphicon glyphicon-earphone margin-right-5"></span> <span id="transactionCustomerPhone">{{$ctrl.posDocument.bt_primary_phone_no}}</span>
+              </div>
+            </div>
+            <div class ng-show="$ctrl.posDocument.bt_email">
+              <div uib-tooltip="{{'529' | translate}}" tooltip-placement="left" class="no-wrap">
+                <span class="glyphicon glyphicon-envelope margin-right-5"></span> <span id="transactionCustomerEmail">{{$ctrl.posDocument.bt_email}}</span>
+              </div>
+            </div>
+            <div class ng-show="!$ctrl.$scope.toBoolean($ctrl.$scope.prefs.centrals_credit_enabled) && $ctrl.customer.storecredit && ($ctrl.posDocument.status == 3)">
+              <div uib-tooltip="{{'577' | translate}}" tooltip-placement="left" class="no-wrap">
+                <span class="glyphicon glyphicon-gift margin-right-5"></span> <span id="transactionCustomerStoreCredit">{{$ctrl.customerService.customerBT.storecredit|currency}}</span>
+              </div>
+            </div>
+            <div class ng-show="$ctrl.$scope.toBoolean($ctrl.$scope.prefs.centrals_credit_enabled) && $ctrl.customer.centralcredit && ($ctrl.posDocument.status == 3)">
+              <div uib-tooltip="{{'577' | translate}}" tooltip-placement="left" class="no-wrap">
+                <span class="glyphicon glyphicon-gift margin-right-5"></span> <span id="transactionCustomerNameCentralCredit">{{$ctrl.customerService.customerBT.centralcredit|currency}}</span>
+              </div>
+            </div>
+            <div class ng-show="$ctrl.$scope.toBoolean($ctrl.$scope.prefs.pos_loyalty_enabled)">
+              <div uib-tooltip="{{'605' | translate}}" tooltip-placement="left" ng-if="(!$ctrl.$scope.permissions.seeloyaltypoints || $ctrl.$scope.permissions.seeloyaltypoints==='OVERRIDE') && $ctrl.posDocument.lty_balance_for_item_redeem > 0" ng-class="{'text-danger':!$ctrl.posDocument.lty_lvl_sid}" class="no-wrap">
+                <span class="glyphicon glyphicon-star margin-right-5"></span> <span>***</span>
+              </div>
+              <div uib-tooltip="{{'605' | translate}}" tooltip-placement="left" ng-if="$ctrl.$scope.permissions.seeloyaltypoints==='ALLOW' && $ctrl.posDocument.lty_balance_for_item_redeem > 0" ng-class="{'text-danger':!$ctrl.posDocument.lty_lvl_sid}" class="no-wrap">
+                <span class="glyphicon glyphicon-star margin-right-5"></span> <span id="transactionCustomerLoyaltyBalance">{{$ctrl.posDocument.lty_balance_for_item_redeem|number:lty_decimals}}</span>
+              </div>
+            </div><!--
+            <div class="" ng-show="$ctrl.customer.lastsaledate">
+              <div class=" no-wrap">
+                <span class="glyphicon glyphicon-calendar margin-right-5"></span> {{$ctrl.customerService.customerBT.lastsaledate|cleanDate:'locale':true}}
+              </div>
+            </div>-->
+          </div>
+          <div style="width:100%" class="top-margin10">
+            <div class="col-xs-4" style="display:flex; padding-left:10px; padding-right:5px;">
+              <button style="width:100%" type="button" class="btn btn-danger" event-name="posTransactionRemoveCustomer" tabindex="104" id="customerRemoveButton" ng-if="$ctrl.posDocument.status !== 4" ng-click="$ctrl.$scope.removeCustomer()">
+                <span data-translate="1523">Remove</span>
+              </button>
+              <button style="width:100%" type="button" class="btn btn-danger" event-name="posTransactionChangeCustomer" tabindex="104" id="customerChangeButton" ng-if="$ctrl.posDocument.status === 4" ng-disabled="$ctrl.posDisabled||$ctrl.disableCustomerChange" ng-click="$ctrl.startCustomerChange()">
+                <span data-translate="1485">Change</span>
+              </button>
+            </div>
+            <div class="col-xs-4" style="padding-left:5px; padding-right:5px;">
+              <button style="width:100%" type="button" class="btn btn-info" id="customerDetailsButton" event-name="posTransactionCustomerDetails" tabindex="102" ng-click="$ctrl.$scope.customerDetails()" ng-disabled="$ctrl.disableCustomerDetailsButton">
+                <span data-translate="1522">Details</span>
+              </button>
+            </div>
+            <div class="col-xs-4" style="padding-left:5px; padding-right:10px;">
+              <button style="width:100%" type="button" class="btn btn-info" event-name="posTransactionCustomerHistory" tabindex="103" id="customerHistoryButton" ng-click="$ctrl.$scope.customerHistory()" ng-disabled="$ctrl.disableCustomerDetailsButton">
+                <span data-translate="6590">History</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:10px" ng-if="$ctrl.tab===2 && $ctrl.posDocument">
+      <div ng-if="!$ctrl.posDocument.st_cuid">
+        <div class="row col-xs-12" style="margin-top:13px;">
+          <customer-mini-lookup id="st_customer" doc-search="true" pos-document="$ctrl.posDocument" pos-callback="$ctrl.posCallback" pos-disabled="$ctrl.posDisabled || $ctrl.posDocument.ref_record_sale" default-search="$ctrl.defaultSearch" is-shipping="true"></customer-mini-lookup>
+        </div>
+        <div class="row col-xs-12 no-padding no-margin top-margin">
+          <hr style="border-top: 1px dashed lightgrey; margin-top:12px">
+        </div>
+        <div class="row col-xs-12 text-center top-margin">
+          <button id="shippingCustomerNewButton" type="button" class="btn btn-info" data-permission="customerscreatecustomer" data-permission-disabled="$ctrl.posDisabled || $ctrl.posDocument.ref_record_sale" ng-click="$ctrl.newCustomer()">
+            <span data-translate="516">New Customer</span>
+          </button>
+          <button id="sameAsBillingButton" type="button" class="btn btn-info" ng-disabled="!$ctrl.posDocument.bt_cuid || $ctrl.posDisabled || $ctrl.posDocument.ref_record_sale" ng-click="$ctrl.sameAsBilling($ctrl.posDocument.bt_cuid)">
+            <span data-translate="7699">Same as Billing</span>
+          </button>
+        </div>
+      </div>
+      <div ng-if="$ctrl.posDocument.st_cuid">
+        <div ng-if="$ctrl.posDocument.st_cuid" style="width:100%">
+          <div class="well well-sm" style="height: 165px">
+            <div style="width:100%;overflow-x:auto;overflow-y:auto; height: 100px;padding-left:15px">
+              <div class ng-show="$ctrl.posDocument.st_first_name || $ctrl.posDocument.st_last_name">
+                <div uib-tooltip="{{'1113' | translate}}" tooltip-placement="left" class="no-wrap">
+                  <span class="glyphicon glyphicon-user margin-right-5"></span> <span id="transactionShippingCustomerName">{{$ctrl.posDocument.st_first_name}} {{$ctrl.posDocument.st_last_name}}</span>
+                </div>
+              </div>
+              <div uib-tooltip="{{'1392' | translate}}" tooltip-placement="left-top">
+                <div class ng-show="$ctrl.posDocument.st_address_line1">
+                  <div class="no-wrap">
+                    <span class="glyphicon glyphicon-home margin-right-5"></span> <span id="transactionShippingCustomerAddress1">{{$ctrl.posDocument.st_address_line1}}</span>
+                  </div>
+                </div>
+                <div class ng-show="$ctrl.posDocument.st_address_line2">
+                  <div class="no-wrap">
+                    <span style="margin-left:29px" id="transactionShippingCustomerAddress2">{{$ctrl.posDocument.st_address_line2}}</span>
+                  </div>
+                </div>
+                <div class ng-show="$ctrl.posDocument.st_address_line3">
+                  <div class="no-wrap">
+                    <span style="margin-left:29px" id="transactionShippingCustomerAddress3">{{$ctrl.posDocument.st_address_line3}}</span>
+                  </div>
+                </div>
+                <div class ng-show="$ctrl.posDocument.st_address_line4">
+                  <div class="no-wrap">
+                    <span style="margin-left:29px" id="transactionShippingCustomerAddress4">{{$ctrl.posDocument.st_address_line4}}</span>
+                  </div>
+                </div>
+                <div class ng-show="$ctrl.posDocument.st_address_line5">
+                  <div class="no-wrap">
+                    <span style="margin-left:29px" id="transactionShippingCustomerAddress5">{{$ctrl.posDocument.st_address_line5}}</span>
+                  </div>
+                </div>
+                <div class ng-show="$ctrl.posDocument.st_address_line6">
+                  <div class="no-wrap">
+                    <span style="margin-left:29px" id="transactionShippingCustomerAddress6">{{$ctrl.posDocument.st_address_line6}}</span>
+                  </div>
+                </div>
+                <div class ng-show="$ctrl.posDocument.st_postal_code">
+                  <div class="no-wrap">
+                    <span style="margin-left:29px" id="transactionShippingCustomerPostalCode">{{$ctrl.posDocument.st_postal_code}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row col-xs-12 top-margin10">
+              <div style="width:100%">
+                <div style="width: 50%;float:left;padding-left:10px;">
+                  <button style="width: 100%;" type="button" class="btn btn-danger" event-name="posTransactionRemoveCustomer" tabindex="104" id="stCustomerRemoveButton" ng-disabled="$ctrl.posDisabled||$ctrl.removeCustomerButton||$ctrl.posDocument.ref_order_sid.length>0||($ctrl.posDocument.order_type!==null&&$ctrl.posDocument.order_type!==''&&($ctrl.posDocument.status===4))" ng-click="$ctrl.removeShippingAddress()">
+                    <span data-translate="1523">Remove</span>
+                  </button>
+                </div>
+                <div style="width: 50%;float:left;padding-left:10px;">
+                  <button style="width: 100%;" type="button" class="btn btn-info" id="stCustomerAddressButton" event-name="posTransactionCustomerDetails" tabindex="102" ng-disabled="$ctrl.posDisabled" ng-click="$ctrl.$scope.shippingAddress()">
+                    <span data-translate="7758">Change Address</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<div class="row col-xs-12 text-center top-margin" id="divgender" ng-controller = "genderselectCTRL">
+  <div class="panel panel-default flex-grow1">
+    <div class="panel-heading" style="padding: 0.8em; text-align: left; padding-top: .7em; padding-bottom: .7em;">
+        <span data-translate="">POS Flags</span>
+    </div>
+    <div class="panel-body row">
+
+      <label class="col-xs-3 control-label">{{flagName}}</label>
+      <div class="col-xs-9">
+        <select id="pos_flag2" name="pos_flag2" ng-model="selectedGender" ng-change="onSelectChange()" class="form-control" tabindex="13" >
+          <!-- <option value="" disabled>Select {{flagName}}</option> -->
+          <option ng-repeat="gender in genders" value="{{gender.value}}">{{gender.label}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
