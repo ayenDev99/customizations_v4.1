@@ -2890,16 +2890,6 @@
                             Z.period_begin BETWEEN '$from' AND '$to'
                     ) AS CASH_DROP_LESS,
                     (
-                        SELECT
-                            SUM(Z.drawer_leave_amount)
-                        FROM
-                            zout_control Z
-                        WHERE
-                            Z.status = 3 AND
-                            (Z.report_type = 2 OR Z.report_type = 3) AND 
-                            Z.period_begin BETWEEN '$from' AND '$to'
-                    ) AS TOTAL_IN_DRAWER,
-                    (
                         SELECT 
                             SUM(A.currency_count * B.multiplier)
                         FROM 

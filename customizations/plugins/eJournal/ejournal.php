@@ -156,9 +156,9 @@
             // $texts = [];
 
             $created_date = $request->data->created_dateTime;
-            $ws_no = $request->data->content->workstationNo;
-            $from_date = $request->data->content->fromDate;
-            $to_date = $request->data->content->toDate;
+            $ws_no = $request->data->filters->workstationNo;
+            $from_date = $request->data->filters->fromDate;
+            $to_date = $request->data->filters->toDate;
             $z_count = $request->data->z_count;
 
         

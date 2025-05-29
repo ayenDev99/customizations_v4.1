@@ -2630,20 +2630,20 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 							htmldata2.find('div').css('font-family', 'Tahoma', 'important');
  
 
-						    // sortable = {
-						    // 	// content: arrData3, 
-							// 	content: filters
-							// 	, created_dateTime: result[0].created_datetime
-						    // 	, print_type: printType
-							// 	, z_count : zcount
-						    // 	, width: parseInt((body.prevObject[0].style.width).replace("px", ""))
-						    // };
-
-							sortable = {
+						    sortable = {
 						    	content: arrData3, 
-						    	print_type: printType, 
-						    	width: parseInt((body.prevObject[0].style.width).replace("px", ""))
+								filters: filters
+								, created_dateTime: result[0].created_datetime
+						    	, print_type: printType
+								, z_count : zcount
+						    	, width: parseInt((body.prevObject[0].style.width).replace("px", ""))
 						    };
+
+							// sortable = {
+						    // 	content: arrData3, 
+						    // 	print_type: printType, 
+						    // 	width: parseInt((body.prevObject[0].style.width).replace("px", ""))
+						    // };
 
 						  //   var params = {
 								// action: 'printXOutZOut',
