@@ -415,7 +415,12 @@
                         $data[$key] = (isset($results['CASH_DROP_LESS'])) ? number_format($results['CASH_DROP_LESS'], 2) : '0.00' ;  
                         break;
                     case 'value#total_in_drawer':
-                        $data[$key] = (isset($results['TOTAL_IN_DRAWER'])) ? number_format($results['TOTAL_IN_DRAWER'], 2) : '0.00' ;  
+                        $data[$key] =
+                            number_format(((isset($results['OPEN_AMOUNT'])) ? $results['OPEN_AMOUNT'] : 0) +
+                            ((isset($results['CASH_PAYMENTS'])) ? $results['CASH_PAYMENTS'] : 0) +
+                            ((isset($results['DISB_PAID_IN'])) ? $results['DISB_PAID_IN'] : 0) -
+                            ((isset($results['DISB_PAID_OUT'])) ? $results['DISB_PAID_OUT'] : 0) -
+                            ((isset($results['CASH_DROP_LESS'])) ? $results['CASH_DROP_LESS'] : 0), 2);  
                         break;
                     case 'value#cash_count_declaration':
                         $data[$key] = (isset($results['CASH_COUNT_DECLARATION'])) ? number_format($results['CASH_COUNT_DECLARATION'], 2) : '0.00' ;  
