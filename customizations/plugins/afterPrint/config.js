@@ -2418,7 +2418,7 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 					    	'subsidiary': formFilter.find('#subsidiary').val().replace('string:', ''),
 					    	'installation': formFilter.find('#installation').val().replace('string:', ''),
 					    	'store': formFilter.find('#store').val().replace('string:', ''),
-					    	'workstationNo': workstationNo,
+					    	'workstationNo': session.workstationnumber,
 					    	'drawer': formFilter.find('#drawer').val().replace('string:', ''),
 					    	'till': formFilter.find('#till').val().replace('string:', ''),
 					    	'cashier':  formFilter.find('#cashier').val().replace('string:', ''),

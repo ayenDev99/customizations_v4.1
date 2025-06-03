@@ -37,203 +37,50 @@
         return false;
     }
 
-    // This method will print XOut or ZOut
-    // function printXOutZOut($request, $filename, $printerSetup) {
-    //     // $base64 = $request->dataURL;
-        
+    function printXOutZOut($request, $filename, $printerSetup) 
+    {
+        $printer_path = null;
 
-    //     // if (check_base64_image($request->dataURL, $filename)) {
+        if (isset($printerSetup[$request->port])) {
+            $printer_path = $printerSetup[$request->port];
+        } else {
+            $printer_path = $printerSetup['default'];
+        }
 
-    //         $printer_path = null;
+        $profile = CapabilityProfile::load("simple");
+        $connector = new WindowsPrintConnector($printer_path);
+        $printer = new Printer($connector, $profile);
 
-    //         if (isset($printerSetup[$request->port])) {
-    //             $printer_path = $printerSetup[$request->port];
-    //         } else {
-    //             $printer_path = $printerSetup['default'];
-    //         }
+        $created_date = $request->data->created_dateTime;
+        $ws_no = $request->data->filters->workstationNo;
+        $from_date = $request->data->filters->fromDate;
+        $to_date = $request->data->filters->toDate;
+        $z_count = $request->data->z_count;
 
-    //         $profile = CapabilityProfile::load("simple");
-    //         $connector = new WindowsPrintConnector($printer_path);
-    //         $printer = new Printer($connector, $profile);
+        if ($request->data->print_type == '6') {
+            $txtFilesPath = '../ZOut';
+            $filePath = $txtFilesPath . '/' . date_format(date_create($created_date), 'YmdHis') . '-WS' . $ws_no . '-Z' . $z_count . '.txt';
+        } 
+        else if (($request->data->print_type == '5')) {
+            $txtFilesPath = '../XOut';
+            $filePath = $txtFilesPath . '/' . date_format(date_create($created_date), 'YmdHis') . '-WS' . $ws_no . '-X-' . date('mdY', strtotime($from_date)) . '-' . date('mdY', strtotime($to_date)) . '.txt';
+        }
 
-    //         $currentY = 0;
-    //         $texts = [];
+        // Check if the file exists
+        if (file_exists($filePath)) {
+            // Get the file contents
+            $content = file_get_contents($filePath);
 
-    //         $oneColumnTextsWithFeed = [
-    //             'cashier', 'z-count:', 'x-reading'
-    //         ];
+            // Print the file contents
+            $printer->text($content);
+        } else {
+            echo "File not found: $filePath";
+        }
 
-    //         // $twoColumnTextsWithFeed = [
-    //         //     'ending balance', 'net sales', 'fee/gc excess', 'zero rated sales', 'total payments',
-    //         //     'customer loyalty', 'total discounts', 'ending return'
-    //         // ];
-
-    //         // echo "<pre>";
-    //         // print_r($request->data->content);
-
-    //         // foreach ($request->data->content as $sub_key => $sub_value) {
-
-    //         //     if ($sub_key == 0 && $sub_value->data == "") continue;
-
-    //         //     // if ($sub_key >= 0 && $sub_key <= 15) {
-    //         //         if ($sub_key == 0) $currentY = $sub_value->y;
-
-    //         //         if ($currentY != $request->data->content[$sub_key + 1]->y) {
-    //         //             switch (count($texts)) {
-    //         //                 case 0:
-    //         //                     $space_count = (40 - strlen($sub_value->data)) / 2;
-    //         //                     $space = "";
-    //         //                     for ($i=0; $i < $space_count; $i++):
-    //         //                         $space .= ' ';
-    //         //                     endfor;
-    //         //                     $printer->text($space . $sub_value->data . "\n");
-    //         //                     foreach ($oneColumnTextsWithFeed as $k => $t) {
-    //         //                        if (strpos(strtolower($sub_value->data), $t) !== false) {
-    //         //                             $printer->feed(1);
-    //         //                        }
-    //         //                     }
-    //         //                     break;
-                            
-    //         //                 case 1:
-    //         //                     $texts[] = $sub_value->data;
-
-    //         //                     $str_length = strlen($texts[0].$texts[1]);
-    //         //                     $spaces = '';
-    //         //                     $spaceCnt = 40 - $str_length;
-    //         //                     for ($i = 1; $i <= $spaceCnt; $i++) {
-    //         //                         $spaces .= ' ';
-    //         //                     }
-
-    //         //                     $printer->text($texts[0] . $spaces . $texts[1] . "\n");
-    //         //                     // foreach ($twoColumnTextsWithFeed as $k => $t) {
-    //         //                     //    if (strpos(strtolower($texts[0]), $t) !== false) {
-    //         //                     //         $printer->feed(1);
-    //         //                     //    }
-    //         //                     // }
-    //         //                     break;
-    //         //             }
-
-    //         //             $currentY = $request->data->content[$sub_key + 1]->y;
-    //         //             $texts = [];
-    //         //         } else {
-    //         //             $texts[] = $sub_value->data;
-    //         //         }
-
-
-
-    //         //     // }
-    //         // }
-
-    //         $printer->feed(10);
-    //         // $printer->text('---END---' . "\n");
-
-    //         /* Always close the printer! On some PrintConnectors, no actual
-    //         * data is sent until the printer is closed. */
-    //         $printer->close();
-
-    //     // }
-    // }
-
-    function printXOutZOut($request, $filename, $printerSetup) {
-        // $base64 = $request->dataURL;
-        
-
-        // if (check_base64_image($request->dataURL, $filename)) {
-
-            $printer_path = null;
-
-            if (isset($printerSetup[$request->port])) {
-                $printer_path = $printerSetup[$request->port];
-            } else {
-                $printer_path = $printerSetup['default'];
-            }
-
-            $profile = CapabilityProfile::load("simple");
-            $connector = new WindowsPrintConnector($printer_path);
-            $printer = new Printer($connector, $profile);
-
-            // $currentY = 0;
-            // $texts = [];
-
-            $created_date = $request->data->created_dateTime;
-            $ws_no = $request->data->filters->workstationNo;
-            $from_date = $request->data->filters->fromDate;
-            $to_date = $request->data->filters->toDate;
-            $z_count = $request->data->z_count;
-
-        
-            // echo "<pre>";
-            // print_r($request);
-            // echo "</pre>";
-            // die();
-            // exit();
-          
-
-            if ($request->data->print_type == '6') {
-                $txtFilesPath = '../ZOut';
-                $filePath = $txtFilesPath . '/' . date_format(date_create($created_date), 'YmdHis') . '-WS' . $ws_no . '-Z' . $z_count . '.txt';
-            } 
-            else if (($request->data->print_type == '5')) {
-                $txtFilesPath = '../XOut';
-                $filePath = $txtFilesPath . '/' . date_format(date_create($created_date), 'YmdHis') . '-WS' . $ws_no . '-X-' . date('mdY', strtotime($from_date)) . '-' . date('mdY', strtotime($to_date)) . '.txt';
-            }
-
-            // echo "<pre>";
-            // print_r($filePath );
-            // echo "</pre>";
-            // die();
-            // exit();
-
-            // $file_path = 'C:/ProgramData/RetailPro/Server/WebClient/customizations/plugins/XOut/20250325141936-WS-X-03022025-03262025.txt'; // Change this to your actual file path
-
-             // Check if the file exists
-            if (file_exists($filePath)) {
-                // Get the file contents
-                $content = file_get_contents($filePath);
-
-                // Print the file contents
-                $printer->text($content);
-            } else {
-                echo "File not found: $filePath";
-            }
-           
-            // echo "<pre>";
-            // print_r($texts);
-            // echo "</pre>";
-            // die();
-            // exit();
-
-            $printer->feed(10);
-            // $printer->text('---END---' . "\n");
-
-            /* Always close the printer! On some PrintConnectors, no actual
-            * data is sent until the printer is closed. */
-            $printer->close();
-
-        // }
+        $printer->feed(10);
+        $printer->cut();
+        $printer->close();
     }
-
-    // function check_base64_image($base64, $filename) {
-    //     list($type, $base64) = explode(';', $base64);
-    //     list(, $base64)      = explode(',', $base64);
-
-    //     $img = imagecreatefromstring(base64_decode($base64));
-    //     if (!$img):
-    //         return false;
-    //     endif;
-
-    //     $source_imagex = imagesx($img);
-    //     $source_imagey = imagesy($img);
-    //     $dest_imagex = 2500;
-    //     $dest_imagey = 2300;
-    //     $dest_image = imagecreatetruecolor($dest_imagex, $dest_imagey);
-
-    //     imagecopyresampled($dest_image, $img, 0, 0, 30, 0, $dest_imagex, $dest_imagey, $source_imagex, $source_imagey);
-
-    //     imagepng($dest_image, getcwd().'/'.$filename,0);
-
-    //     return true;
-    // }
 
     // Method use to export receipt data to text file with the same format or style
     function exportReceipt($request) {

@@ -2837,9 +2837,6 @@
                             DATE_FORMAT(A.invc_post_date, '%Y-%m-%d') ELSE @prevdate END
                         ))
                      AS PREV_PREV_DATE,
-
-                     
-
                     (
                         SELECT
                             SUM(Z.tender_total_open)
@@ -2857,11 +2854,21 @@
                             zout_control Z
                         LEFT JOIN drawer_event AS A
                         ON Z.open_drawer_event_sid = A.reference_event
-                        WHERE
-                            (A.event_type = 5) AND
-                            Z.status = 3 AND
-                            (Z.report_type = 2 OR Z.report_type = 3) AND 
-                            Z.period_begin BETWEEN '$from' AND '$to'
+                        WHERE 
+                            (
+                                A.event_type = 5
+                                AND Z.status = 3 
+                                AND (Z.report_type = 2 OR Z.report_type = 3)  
+                                AND (Z.period_begin BETWEEN '$from' AND '$to')
+                                ". 
+                                    (($this->workstation != 'all' AND $this->workstation != '') 
+                                    ? ' AND Z.workstation_sid = ' . $this->workstation 
+                                    : '') . 
+                                    (($this->cashier != 'all' AND $this->cashier != '') 
+                                    ? ' AND A.cashier_sid = ' . $this->cashier 
+                                    : '') 
+                                ."
+                            )
                     ) AS DISB_PAID_IN,
                     (
                        SELECT
@@ -2870,11 +2877,21 @@
                             zout_control Z
                         LEFT JOIN drawer_event AS A
                         ON Z.open_drawer_event_sid = A.reference_event
-                        WHERE
-                            A.event_type = 6 AND
-                            Z.status = 3 AND
-                            (Z.report_type = 2 OR Z.report_type = 3) AND 
-                            Z.period_begin BETWEEN '$from' AND '$to'
+                        WHERE 
+                            (
+                                A.event_type = 5
+                                AND Z.status = 3 
+                                AND (Z.report_type = 2 OR Z.report_type = 3)  
+                                AND (Z.period_begin BETWEEN '$from' AND '$to')
+                                ". 
+                                    (($this->workstation != 'all' AND $this->workstation != '') 
+                                    ? ' AND Z.workstation_sid = ' . $this->workstation 
+                                    : '') . 
+                                    (($this->cashier != 'all' AND $this->cashier != '') 
+                                    ? ' AND A.cashier_sid = ' . $this->cashier 
+                                    : '') 
+                                ."
+                            )
                     ) AS DISB_PAID_OUT,
                     (
                         SELECT
@@ -2883,36 +2900,36 @@
                             zout_control Z
                         LEFT JOIN drawer_event AS A
                         ON Z.open_drawer_event_sid = A.reference_event
-                        WHERE
-                            A.event_type = 3 AND
-                            Z.status = 3 AND
-                            (Z.report_type = 2 OR Z.report_type = 3) AND 
-                            Z.period_begin BETWEEN '$from' AND '$to'
+                        WHERE 
+                            (
+                                A.event_type = 5
+                                AND Z.status = 3 
+                                AND (Z.report_type = 2 OR Z.report_type = 3)  
+                                AND (Z.period_begin BETWEEN '$from' AND '$to')
+                                ". 
+                                    (($this->workstation != 'all' AND $this->workstation != '') 
+                                    ? ' AND Z.workstation_sid = ' . $this->workstation 
+                                    : '') . 
+                                    (($this->cashier != 'all' AND $this->cashier != '') 
+                                    ? ' AND A.cashier_sid = ' . $this->cashier 
+                                    : '') 
+                                ."
+                            )
                     ) AS CASH_DROP_LESS,
-                    (
-                        SELECT 
-                            SUM(A.currency_count * B.multiplier)
-                        FROM 
-                            drawer_event_currency AS A
-                        LEFT JOIN 
-                            zout_control Z ON A.drawer_event_sid = Z.close_drawer_event_sid
-                        LEFT JOIN 
-                            currency_denomination B ON A.denomination_sid = B.sid
-                        WHERE
-                            Z.status = 3 AND
-                            (Z.report_type = 2 OR Z.report_type = 3) AND 
-                            Z.period_begin BETWEEN '$from' AND '$to'
+                 (
+                    SELECT 
+                        SUM(A.currency_count * B.multiplier)
+                    FROM 
+                        drawer_event_currency AS A
+                    LEFT JOIN 
+                        zout_control Z ON A.drawer_event_sid = Z.close_drawer_event_sid
+                    LEFT JOIN 
+                        currency_denomination B ON A.denomination_sid = B.sid
+                    WHERE
+                        Z.status = 3 AND
+                        (Z.report_type = 2 OR Z.report_type = 3) AND 
+                        Z.period_begin BETWEEN '$from' AND '$to'
                     ) AS CASH_COUNT_DECLARATION,
-                    (
-                        SELECT
-                            SUM(Z.over_short_amt)
-                        FROM
-                            zout_control Z
-                        WHERE
-                            Z.status = 3 AND
-                            (Z.report_type = 2 OR Z.report_type = 3) AND 
-                            Z.period_begin BETWEEN '$from' AND '$to'
-                    ) AS CASH_OVER_SHORT,
                     (
                         SELECT 
                             GROUP_CONCAT(
@@ -2931,10 +2948,6 @@
                             Z.period_begin BETWEEN '$from' AND '$to'
                         ORDER BY B.denomination_name desc 
                     ) AS CASH_COUNT_DENOMINATION,
-
-
-
-
                     (
                         SELECT
                             COUNT(*)
