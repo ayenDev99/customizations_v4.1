@@ -2857,7 +2857,6 @@
                         WHERE 
                             (
                                 A.event_type = 5
-                                AND Z.status = 3 
                                 AND (Z.report_type = 2 OR Z.report_type = 3)  
                                 AND (Z.period_begin BETWEEN '$from' AND '$to')
                                 ". 
@@ -2879,8 +2878,7 @@
                         ON Z.open_drawer_event_sid = A.reference_event
                         WHERE 
                             (
-                                A.event_type = 5
-                                AND Z.status = 3 
+                                A.event_type = 6
                                 AND (Z.report_type = 2 OR Z.report_type = 3)  
                                 AND (Z.period_begin BETWEEN '$from' AND '$to')
                                 ". 
@@ -2902,8 +2900,7 @@
                         ON Z.open_drawer_event_sid = A.reference_event
                         WHERE 
                             (
-                                A.event_type = 5
-                                AND Z.status = 3 
+                                A.event_type = 3
                                 AND (Z.report_type = 2 OR Z.report_type = 3)  
                                 AND (Z.period_begin BETWEEN '$from' AND '$to')
                                 ". 
