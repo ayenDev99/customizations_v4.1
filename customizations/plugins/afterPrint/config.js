@@ -2228,54 +2228,6 @@ ButtonHooksManager.addHandler(['before_zOutGenerateTextFiles'],
 	}
 );
 
-// ButtonHooksManager.addHandler(['before_navZOutNext'],
-//     function($q, DocumentPersistedData, NotificationService, $uibModal, Templates, ModelService, ModelService2, $rootScope, HookEvent, $stateParams, base64, $http, prismSessionInfo, $location, LoadingScreen, $window, authService) {
-//     	var deferred = $q.defer();
-
-//     	var session = prismSessionInfo.get();
-
-//     	// console.log(zOutWorkstation);
-
-//     	if ($('[ng-model="filter.workstation"]').length) {
-
-//     		ModelService.get('Workstation').then(function(dataWorkstations) {
-//     			var allWorkstations = [];
-// 			  	for (var i = 0; i < dataWorkstations.length; i++) {
-// 			  		if (dataWorkstations[i].workstation_number != "") {
-// 			  			allWorkstations.push(dataWorkstations[i].workstation_number);
-// 			  		}
-// 			  	}
-// 			  	zOutAllWorkstations = allWorkstations.join();
-
-// 	    		var zOutWorkstationNo = session.workstationnumber;
-
-// 		    	var zOutWorkstationElem = $('[ng-model="filter.workstation"]').val();
-// 		    		zOutWorkstation = zOutWorkstationElem.replace('string:', '');
-// 		    		// console.log(zOutWorkstation);
-// 		    	if (zOutWorkstation == "" || $('#zout-consolidate-all-checkbox').is(':checked')) {
-// 		    		zOutWorkstation = 'all';
-// 		    	} else {
-// 		    		var tempWS = dataWorkstations.find(elem => elem.sid == zOutWorkstation);
-// 		    		zOutWorkstationNo = tempWS.workstation_number;
-// 		    	}
-
-// 		    	// console.log(zOutWorkstation);
-
-// 		    	// console.log(zOutWorkstation, ' ', zOutWorkstationNo, ' ', zOutAllWorkstations);
-
-// 		    	deferred.resolve();
-// 		    });
-//     	} else {
-//     		deferred.resolve();
-//     	}	
-    	
-//     	return deferred.promise;
-//     }
-// );
-
-
-
-
 function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCONTROLSID, session, printType, format, result, base64, ModelService, ModelService2, $http, LoadingScreen, $window, otherData) {
 	// LoadingScreen.Enable = 1;
 
@@ -2638,12 +2590,6 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 								, z_count : zcount
 						    	, width: parseInt((body.prevObject[0].style.width).replace("px", ""))
 						    };
-
-							// sortable = {
-						    // 	content: arrData3, 
-						    // 	print_type: printType, 
-						    // 	width: parseInt((body.prevObject[0].style.width).replace("px", ""))
-						    // };
 
 						  //   var params = {
 								// action: 'printXOutZOut',
@@ -3234,3 +3180,52 @@ var zoutControllerSaveHandler = ['ModelEvent', 'ModelService', 'authService', '$
 }]
 
 ConfigurationManager.addHandler(zoutControllerSaveHandler);
+
+ButtonHooksManager.addHandler(['after_posTenderTake', 'after_posTenderGive'],
+    function(LoadingScreen, $q, DocumentPersistedData, ResourceNotificationService, $uibModal, Templates, ModelService, $rootScope, HookEvent, $stateParams, base64, $http, prismSessionInfo, authService) {
+    	var deferred = $q.defer();
+    	var docSid = $stateParams.document_sid;
+
+		
+
+		setTimeout(() => {
+			$http.get('v1/rest/document/' + docSid + '/tender', {
+			headers: { "Auth-Session": sessionStorage.getItem("PRISMAUTH") },
+			params: {
+				cols: '*',
+				sort: 'created_datetime,desc'
+			}
+			}).then(function(tender) {	
+				let item = tender.data[0];
+				console.log(item);
+				let tender_sid = item.sid;
+				let tender_type = item.tender_type;
+
+				if(tender_type == 2) {
+					let card_no = $('#cardNo')[0].value;
+
+					
+					// document.getElementById("tender_card_number"); 
+					// let c = k = card_no;
+	
+					$.ajax({
+						url: 'plugins/afterPrint/updateTender.php',
+						method: 'POST',
+						contentType: 'application/json',
+						data: JSON.stringify({
+							card_no: card_no,
+							tender_sid: tender_sid
+						}),
+						success: function(response) {
+							setTimeout(() => {
+								$('#tender_card_number').html(card_no);
+							}, 100);
+						},
+					});
+				}
+			});
+		}, 1000);
+
+    	return deferred.promise;
+	}
+);

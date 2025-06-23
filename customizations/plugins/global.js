@@ -439,7 +439,7 @@ function storeReceipt(res, design, printType, base64, $http, ModelService, trans
 					    		storeName: data[0].store_name,
 					    		created_dateTime: res.created_datetime,
 					    		exportType: 'perTransaction',
-					    		docNo: res.document_number
+					    		docNo: res.document_number,
 					    	};
 
 					    	$http.post('plugins/eJournal/ejournal.php', params).then(function(result){
