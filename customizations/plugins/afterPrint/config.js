@@ -73,6 +73,26 @@ $( document ).ready(function() {
 	}
 });
 
+// Return to Document button. Force to redirect to screen after selecting return transaction.
+ButtonHooksManager.addHandler(['after_posItemReturnReturnToDocument','after_posItemReturnReturnToDocument'],
+    function($q, LoadingScreen, DocumentPersistedData, NotificationService, ResourceNotificationService, $uibModal, Templates, ModelService, ModelService2, $rootScope, HookEvent, $stateParams, base64, $http, prismSessionInfo, authService, $window) {
+		var docSid = $stateParams.document_sid;
+
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				let yesButton = document.getElementById('notificationsYesButton');
+
+				if (yesButton) {
+					yesButton.addEventListener('click', function() {
+						setTimeout(() => {
+							window.location.href = "http://prismpos1:8080/prism.shtml#/register/pos/docs/" + docSid + "/new"
+						}, 1000);
+					})
+				}
+			}, 1000);
+		});
+});
+
 ButtonHooksManager.addHandler(['before_posTransactionOrderDetails'], ($q, $stateParams, ModelService, ModelService2, $http, $state, $window) => {
 	var deferred = $q.defer();
 
@@ -777,6 +797,13 @@ function before_navPosTenderPrintUpdate_qts_queing(ModelService, ModelService2, 
 					    },
 					    success: function(response) {
 					    	var lastId = response;
+
+					    	doc.tracking_number = lastId;
+
+					    	doc.save().then(() => {
+					    		resolve(qtsPluginVars);
+					    	});
+
 					    	ResourceNotificationService.showSuccessfulMessage('Success', 'Order has been successfully added to the queue. #' + lastId);
 					    	qtsPluginVars.data.lastId = lastId;
 					    	resolve(qtsPluginVars);
@@ -1312,7 +1339,7 @@ function before_navPosTenderPrintUpdate_sequence_correction_callback(doc, prismS
 	});
 }
 
-function print_update_callback(qts, qtsManual, doc, items, prismSessionInfo, ModelService) 
+function print_update_callback(qts, qtsManual, doc, items, prismSessionInfo, ModelService, deferred) 
 {
 	return new Promise(function(resolve, reject) {
 
@@ -1365,16 +1392,31 @@ function print_update_callback(qts, qtsManual, doc, items, prismSessionInfo, Mod
 			            		});
 	            			});
 	            		} else {
-	            			doc.save().then(() => {
-		            			isSavingNewTransaction = true;
-		            			resolve(true);
-		            		});
+							$.ajax({
+								url: 'plugins/afterPrint/UpdateDocument.php',
+								method: 'GET',
+								data: {
+									sid: doc.sid
+									,udf_clob: udf_clob1 
+								},
+								success: function(data) {
+									var receipt_type = JSON.parse(data).receipt_type;
+									if (receipt_type == '1') {
+										isSavingNewTransaction = true;
+										deferred.resolve(true);
+									} else {
+										doc.save().then(() => {
+											isSavingNewTransaction = true;
+											resolve(true);
+											
+										});									
+									}
+								}
+							});
 	            		}
 		            }
 	        	});
-
 		   	} else {
-
 		   		if (doc.ref_order_sid != "" && config_isSOPluginEnabled) {
 	    			ModelService.get('Document', {sid: doc.ref_order_sid, cols:'*'}).then(function(dataOrderDocument) {
 	    				var orderDoc = dataOrderDocument[0];
@@ -1404,7 +1446,7 @@ function print_update_callback(qts, qtsManual, doc, items, prismSessionInfo, Mod
 function getDocItemsInvnsData(docSid, ModelService, $http) {
 	return new Promise(function(resolve, reject) {
 
-		ModelService.get('Item', {document_sid: docSid, cols: 'sid,discounts,invn_sbs_item_sid' + ',note' + modifier1Text1NoteNo + ',note' + modifier1Text2NoteNo + ',note' + modifier2Text3NoteNo + ',note' + modifier2Text4NoteNo}).then(function(items){
+		ModelService.get('Item', {document_sid: docSid, cols: 'sid,item_pos,discounts,invn_sbs_item_sid' + ',note' + modifier1Text1NoteNo + ',note' + modifier1Text2NoteNo + ',note' + modifier2Text3NoteNo + ',note' + modifier2Text4NoteNo}).then(function(items){
 
 			var itemsLen = items.length;
 
@@ -1424,6 +1466,7 @@ function getDocItemsInvnsData(docSid, ModelService, $http) {
 						modifier2: el['note' + modifier2Text3NoteNo] + '+' + el['note' + modifier2Text4NoteNo],
 						modifier3: el['note' + modifier3NoteNo],
 						udf1_string: invn.udf1_string,
+						item_pos: el.item_pos,
 						count: i,
 						quantity: el.quantity,
 						has_drink_coup_disc: false,
@@ -1784,22 +1827,16 @@ ButtonHooksManager.addHandler(['before_navPosTransactionPrint'],
 ButtonHooksManager.addHandler(['before_navZoutPrint', 'before_navZoutFinalize'],
     function($q, DocumentPersistedData, NotificationService, ResourceNotificationService, $uibModal, Templates, ModelService, ModelService2, $rootScope, HookEvent, $stateParams, base64, $http, prismSessionInfo, $location, LoadingScreen, $window, authService) {
     	var deferred = $q.defer();
-	console.log('before_navZoutFinalize');
+
     	authService.checkLicense().then(function(checkLicense) {
-		var test = currentZOutSID;
-		console.log(test);
 
     		if ($('.z-out-result-item-active').length) {
     			var currentZOut = $('.z-out-result-item-active');
-    			// currentZOutSID = currentZOut.attr('sid');
 			currentZOutSID = currentZOut.find('.sid').val();
     		}
 
             if (checkLicense && currentZOutSID) {
                 var session = prismSessionInfo.get();
-
-		  		// var fromDate = $.trim($('#customerSearchPane .active div:contains("Open Date")').last().text().replace('Open Date', ''));
-				// var toDate = $.trim($('#customerSearchPane .active div:contains("Close Date")').last().text().replace('Close Date', ''));
 
 				ModelService2.get('Employee', {sid:session.employeesid}).then(function(emp) {
 
@@ -1809,7 +1846,7 @@ ButtonHooksManager.addHandler(['before_navZoutPrint', 'before_navZoutFinalize'],
 
 					    	var zOut = zcontrol[0];
 					        var PCONTROLSID = zcontrol[0].sid;
-							
+
 					        var work = "all";
 					   		if (zOut.workstation_sid != null && zOut.workstation_sid != "") {
 					   			work = zOut.workstation_sid;
@@ -1820,57 +1857,24 @@ ButtonHooksManager.addHandler(['before_navZoutPrint', 'before_navZoutFinalize'],
 					   			workNo = zOut.workstation_number;
 					   		}
 
-							var path = $location.path().toString();
-								  
-							// let date_range = [
-							// 	{ key: 'period_begin', value: zOut.period_begin },
-							// 	{ key: 'period_end', value: zOut.period_end },
-							// ];
-
-							// date_range.forEach((date, idx) => {
-							// 	if (!isValidISOWithTimezoneOffset(date.value))
-							// 	{
-							// 		let date_value 		= new Date(date.value);
-							// 		let year 			= date_value.getFullYear();
-							// 		let month 			= String(date_value.getMonth() + 1).padStart(2, '0');
-							// 		let day 			= String(date_value.getDate()).padStart(2, '0');
-							// 		let hours 			= String(date_value.getHours()).padStart(2, '0');
-							// 		let minutes 		= String(date_value.getMinutes()).padStart(2, '0');
-							// 		let seconds 		= String(date_value.getSeconds()).padStart(2, '0');
-							// 		let milliseconds 	= String(date_value.getMilliseconds()).padStart(3, '0');
-							// 		let timezoneOffset 	= '+08:00';
-							// 		let formattedDate 	= `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}${timezoneOffset}`;
-
-							// 		date.value = formattedDate;
-							// 	};
-							// });
-
-							// let periodBeginValue = date_range.find(item => item.key === 'period_begin').value;
-							// let periodEndValue = date_range.find(item => item.key === 'period_end').value;
-
 							zOutFilters = {
-								'fromDate'			: zOut.period_begin
-								, 'toDate'			: zOut.period_end
-								, 'subsidiary'		: ''
-								, 'installation'	: ''
-								, 'store'			: ''
-								, 'workstation'		: work
-								, 'workstationNo'	: workNo
-								, 'allWorkstations'	: zOutAllWorkstations
-								, 'drawer'			: ''
-								, 'till'			: ''
-								, 'cashier'			: ''
-								, 'cashierName'		: emp[0].emplname
-							    , 'cashierId'		: emp[0].emplid
-							    , 'sequence'		: zOut.sequence
-							    , 'sbsNo'			: session.subsidiarynumber
-							    , 'storeNo'			: session.storenumber
+								'fromDate': zOut.period_begin,
+								'toDate': zOut.period_end,
+								'subsidiary': '',
+								'installation': '',
+								'store': '',
+								'workstation': work,
+								'workstationNo': workNo,
+								'allWorkstations': zOutAllWorkstations,
+								'drawer': '',
+								'till': '',
+								'cashier': '',
+								'cashierName': emp[0].emplname,
+							    'cashierId': emp[0].emplid,
+							    'sequence': zOut.sequence,
+							    'sbsNo': session.subsidiarynumber,
+							    'storeNo': session.storenumber
 							}
-
-							//if (zOut.finalized == "0") {
-							//	zOut.finalized = "1";
-							//	zOut.save();
-							// }
 							
 							if (config_settingsVersion_xzout == 'v3') {
 								$http.get('/v1/rest/transformdesign?cols=sid,design_name,link&filter=(design_name,eq,' + config_docDesign_ZOUT_v3 + ')AND(resource_name,eq,ZOUTCONTROL)', {headers: {"Auth-Session": sessionStorage.getItem("PRISMAUTH")}}).then(function(format){
@@ -1882,10 +1886,7 @@ ButtonHooksManager.addHandler(['before_navZoutPrint', 'before_navZoutFinalize'],
 										} else {
 											directPrintXOutZOut('zout', PCONTROLSID, session, 6, format, zcontrol, base64, ModelService, ModelService2, $http, LoadingScreen, $window, {});
 										}
-
-											processXOutZOut('zout', PCONTROLSID, session, 6, format, zcontrol, base64, ModelService, ModelService2, $http, 'print', path, true).then(() => {
-												
-										});
+										
 									}
 								});
 							} else {
@@ -1898,18 +1899,10 @@ ButtonHooksManager.addHandler(['before_navZoutPrint', 'before_navZoutFinalize'],
 										} else {
 											directPrintXOutZOut('zout', PCONTROLSID, session, 6, format, zcontrol, base64, ModelService, ModelService2, $http, LoadingScreen, $window, {});
 										}
-
-										processXOutZOut('zout', PCONTROLSID, session, 6, format, zcontrol, base64, ModelService, ModelService2, $http, 'print', path, true).then(() => {
-												
-										});
-			
 										
 									}
 								});
 							}
-							
-
-							
 						});
 					});
 
@@ -1921,12 +1914,6 @@ ButtonHooksManager.addHandler(['before_navZoutPrint', 'before_navZoutFinalize'],
 		return deferred.promise;
     }
 );
-
-function isValidISOWithTimezoneOffset(dateStr) 
-{
-	const regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?([+-]\d{2}:\d{2})$/;
-	return regex.test(dateStr);
-}
 
 // ZOUT - LOOKUP DIRECT PRINT
 ButtonHooksManager.addHandler(['before_zOutSearchPrint'],
@@ -2038,10 +2025,9 @@ ButtonHooksManager.addHandler(['before_navXOutPrint'],
                 var session = prismSessionInfo.get();
                 var path = $location.path().toString();
 
-				ModelService.get('ZoutControl', {page_no: 1, page_size: 1, cols: '*', sort: 'created_datetime,desc'}).then(function(result){
+				ModelService.get('ZoutControl', {page_no: 1, page_size: 1, cols: 'sid,created_datetime', sort: 'created_datetime,desc'}).then(function(result){
 		            
 					if (result.length) {
-
 						var formFilter = $('#xOutForm');
 
 						var sbsSID = formFilter.find('#subsidiary').val().replace('string:', '');
@@ -2076,7 +2062,13 @@ ButtonHooksManager.addHandler(['before_navXOutPrint'],
 											// }
 
 											processXOutZOut('xout', PCONTROLSID, session, 6, format, result, base64, ModelService, ModelService2, $http, 'print', path, isReturnSeparateSequence, data).then(() => {
-												
+												ModelService.get('ZoutControl',{sid:PCONTROLSID, cols:'*'}).then(function(zcontrolData) {
+													let zOut = zcontrolData[0];
+													if(zOut.status != 3){
+														let zout_payload = [{ 'report_xml' : null, 'finalized' : 0 }]
+														updateZoutControlsAPI(ModelService,$http, result[0], zout_payload)
+													}
+												});
 											});
 
 											$.ajax({
@@ -2108,7 +2100,13 @@ ButtonHooksManager.addHandler(['before_navXOutPrint'],
 											// }
 
 											processXOutZOut('xout', PCONTROLSID, session, 6, format, result, base64, ModelService, ModelService2, $http, 'print', path, isReturnSeparateSequence).then(() => {
-												
+												ModelService.get('ZoutControl',{sid:PCONTROLSID, cols:'*'}).then(function(zcontrolData) {
+													let zOut = zcontrolData[0];
+													if(zOut.status != 3){
+														let zout_payload = [{ 'report_xml' : null, 'finalized' : 0 }]
+														updateZoutControlsAPI(ModelService,$http, result[0], zout_payload)
+													}
+												});
 											});
 
 											$.ajax({
@@ -2237,29 +2235,26 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
         templateUrl: '/plugins/PLXZOutPreview/index.htm',
         controller: 'xzOutCtrl'
     };
-	
-	console.log('direct preview');
 
     $uibModal.open(modalOptions);
 
 	var params = [{
 		"Params": {
-			// "PMODE":"1",
-			"PMODE":"2",
-			"PCONTROLSID":PCONTROLSID,
-			"PREPORTDATE":(new Date).toISOString(),
-			"PSOURCE":null,
-			"PDESTSBSNO":session.subsidiarysid,
-			"PDATEFORMAT":null,
-			"PDISCREPANCYLIST":null,
-			"PNETCURRENCYTOT":null,
-			"PNETNONCURRENCYTOT":null,
-			"PCASHDROPAMT":null,
-			"PUSERID":null,
-			"PZREGISTERROWID":null,
-			"PTRANSLATEDSTRINGS":null,
-			"PDESIGNSID":format.data[0].sid,
-			"PDESTINATION":"preview"
+			"PMODE":"2"
+			, "PCONTROLSID"			: PCONTROLSID
+			, "PREPORTDATE"			: (new Date).toISOString()
+			, "PSOURCE"				: null
+			, "PDESTSBSNO"			: session.subsidiarysid
+			, "PDATEFORMAT"			: null
+			, "PDISCREPANCYLIST"	: null
+			, "PNETCURRENCYTOT"		: null
+			, "PNETNONCURRENCYTOT"	: null
+			, "PCASHDROPAMT"		: null
+			, "PUSERID"				: null
+			, "PZREGISTERROWID"		: null
+			, "PTRANSLATEDSTRINGS"	: null
+			, "PDESIGNSID"			: format.data[0].sid
+			, "PDESTINATION"		: "preview"
 		},
 		"MethodName":"GenerateXZOutReport"
 	}];
@@ -2278,7 +2273,15 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
         	auth: sessionStorage.getItem("PRISMAUTH") 
         }
         ,success: function(data) {
-
+			ModelService.get('ZoutControl',{sid:result[0].sid, cols:'*'}).then(function(zcontrolData) {
+        		let zOut = zcontrolData[0];
+				
+				if(zOut.status == 2) {
+					let zout_payload = [{ 'status' : 3, 'finalized' : 1 }];
+					updateZoutControlsAPI(ModelService,$http, zOut, zout_payload)
+				}
+			});	
+			
 			var content = JSON.parse(data);
 
 			if (!content.success) {
@@ -2370,7 +2373,7 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 					    	'subsidiary': formFilter.find('#subsidiary').val().replace('string:', ''),
 					    	'installation': formFilter.find('#installation').val().replace('string:', ''),
 					    	'store': formFilter.find('#store').val().replace('string:', ''),
-					    	'workstationNo': session.workstationnumber,
+					    	'workstationNo': workstationNo,
 					    	'drawer': formFilter.find('#drawer').val().replace('string:', ''),
 					    	'till': formFilter.find('#till').val().replace('string:', ''),
 					    	'cashier':  formFilter.find('#cashier').val().replace('string:', ''),
@@ -2380,8 +2383,6 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 					    	'allWorkstations': allWorkstations,
 					    	...otherData
 					    }
-						
-						console.log(filters);
 
 				    } else {
 				    	var formFilter = $('#zoutSearchForm');
@@ -2398,8 +2399,7 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 				    		config_settingsVersion: config_settingsVersion_xzout
 				    	},
 				    	success: function(data) {
-				    		var data = JSON.parse(data);
-							let zcount = data.zcount;	
+				    		var data = JSON.parse(data);	
 
 				    		dynamicElements.each((index, elem) => {
 
@@ -2584,80 +2584,13 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 
 						    sortable = {
 						    	content: arrData3, 
-								filters: filters
-								, created_dateTime: result[0].created_datetime
-						    	, print_type: printType
-								, z_count : zcount
-						    	, width: parseInt((body.prevObject[0].style.width).replace("px", ""))
+						    	print_type: printType, 
+						    	width: parseInt((body.prevObject[0].style.width).replace("px", ""))
 						    };
-
-						  //   var params = {
-								// action: 'printXOutZOut',
-								// port: $window.location.port,
-								// data: sortable
-					   //  	};
 
 					    	$('#xzout-preview-panel .preview').html(htmldata2.html());
 
 					    	globalSortableXZoutPrintInfo = sortable;
-
-						    // $http.post('plugins/eJournal/ejournal.php', params).then(function(result) {
-					     //    	LoadingScreen.Enable = 0;
-					     //    }, (err) => {
-					     //    	LoadingScreen.Enable = 0;
-					     //    });
-
-					  //       var contain = base64.encode(htmldata.wrap('<p/>').parent().html());
-
-					  //      	var dataBase64 = [
-							// 	{
-							// 		contain: contain,
-							// 		print_type: printType
-							// 	}
-							// ];
-
-					  //       generateSortableData(dataBase64, base64, 'xzout').then(sortable => {
-
-						 //        ModelService.get('Store',{sid: session.storesid}).then(function(dataStore) {
-							// 		var params = {
-							// 			created_dateTime: result[0].created_datetime,
-							// 			fromDate: filters.fromDate,
-							// 			toDate: filters.toDate,
-							// 			storeSid: session.storesid,
-							// 			workstation: session.workstationid,
-							// 			workstationNo: session.workstationnumber,
-							// 			contain: contain,
-							// 			printtype: printType, 
-		     //    						sid: PCONTROLSID, 
-		     //    						action: 'exportXOutZOut',
-		     //    						exportType: type,
-							//     		data: sortable,
-							//     		storeName: dataStore[0].store_name,
-							//     		zcount: data.zcount
-							//     	};
-
-							//     	$http.post('plugins/eJournal/ejournal.php', params).then(function(result){
-							//         	console.log('Z-Out text file has been generated!');
-							//         });
-							// 	});
-
-							// });	
-											        
-							// if (config_isXoutZoutPreviewEnabled) {
-							// 	// var iframeDocument = iframedoc.contentDocument || iframedoc.contentWindow.document;
-						 //  //           iframeDocument.write(htmldata.html());
-						 //  //           iframedoc.style.height = iframeDocument.body.scrollHeight + 'px';
-
-						 // 		var iframeDocument = iframedoc.contentDocument || iframedoc.contentWindow.document;
-						 //            iframeDocument.write(htmldata2.html());
-						 //            iframedoc.style.height = "calc(" + iframeDocument.body.scrollHeight + 'px + 100px)';
-							// } else {
-								// var iframeDocument = iframedoc.contentDocument || iframedoc.contentWindow.document;
-						  //           iframeDocument.write(htmldata.html());
-						  //           iframedoc.style.height = iframeDocument.body.scrollHeight + 'px';	
-							// }
-
-
 						}
 					});
 				});
@@ -3019,55 +2952,6 @@ function directPrintXOutZOut(type, PCONTROLSID, session, printType, format, resu
 					        	LoadingScreen.Enable = 0;
 					        });
 
-					  //       var contain = base64.encode(htmldata.wrap('<p/>').parent().html());
-
-					  //      	var dataBase64 = [
-							// 	{
-							// 		contain: contain,
-							// 		print_type: printType
-							// 	}
-							// ];
-
-					  //       generateSortableData(dataBase64, base64, 'xzout').then(sortable => {
-
-						 //        ModelService.get('Store',{sid: session.storesid}).then(function(dataStore) {
-							// 		var params = {
-							// 			created_dateTime: result[0].created_datetime,
-							// 			fromDate: filters.fromDate,
-							// 			toDate: filters.toDate,
-							// 			storeSid: session.storesid,
-							// 			workstation: session.workstationid,
-							// 			workstationNo: session.workstationnumber,
-							// 			contain: contain,
-							// 			printtype: printType, 
-		     //    						sid: PCONTROLSID, 
-		     //    						action: 'exportXOutZOut',
-		     //    						exportType: type,
-							//     		data: sortable,
-							//     		storeName: dataStore[0].store_name,
-							//     		zcount: data.zcount
-							//     	};
-
-							//     	$http.post('plugins/eJournal/ejournal.php', params).then(function(result){
-							//         	console.log('Z-Out text file has been generated!');
-							//         });
-							// 	});
-
-							// });	
-											        
-							// if (config_isXoutZoutPreviewEnabled) {
-								// var iframeDocument = iframedoc.contentDocument || iframedoc.contentWindow.document;
-						  //           iframeDocument.write(htmldata.html());
-						  //           iframedoc.style.height = iframeDocument.body.scrollHeight + 'px';
-
-						 // 		var iframeDocument = iframedoc.contentDocument || iframedoc.contentWindow.document;
-						 //            iframeDocument.write(htmldata2.html());
-						 //            iframedoc.style.height = "calc(" + iframeDocument.body.scrollHeight + 'px + 100px)';
-							// } else {
-								// var iframeDocument = iframedoc.contentDocument || iframedoc.contentWindow.document;
-						  //           iframeDocument.write(htmldata.html());
-						  //           iframedoc.style.height = iframeDocument.body.scrollHeight + 'px';	
-							// }
 						}
 					});
 				});
@@ -3084,14 +2968,7 @@ var zoutControllerSaveHandler = ['ModelEvent', 'ModelService', 'authService', '$
     var afterZOutControlSave = function($q, zoutcontrol) {
         var deferred = $q.defer();
 
-	// alert();
-	currentZOutSID = zoutcontrol.sid;
-
-	console.log(zoutcontrol.status);
         if (zoutcontrol.status == 2) {
-
-        	// console.log(zoutcontrol);
-
         	currentZOutSID = zoutcontrol.sid;
 
         	var session = prismSessionInfo.get();
@@ -3106,8 +2983,7 @@ var zoutControllerSaveHandler = ['ModelEvent', 'ModelService', 'authService', '$
 			});
 
         	ModelService.get('ZoutControl',{sid:zoutcontrol.sid, cols:'*'}).then(function(zcontrolData) {
-        		var zOut = zcontrolData[0];
-        		
+        		var zOut = zcontrolData[0];      		
 
         		ModelService2.get('Employee', {sid:zOut.cashier_sid}).then(function(emp2) {
 
@@ -3122,22 +2998,22 @@ var zoutControllerSaveHandler = ['ModelEvent', 'ModelService', 'authService', '$
 			   		}
 
 					zOutFilters = {
-						'fromDate': zOut.period_begin,
-						'toDate': zOut.period_end,
-						'subsidiary': '',
-						'installation': '',
-						'store': '',
-						'workstation': work,
-						'workstationNo': workNo,
-						'allWorkstations': zOutAllWorkstations,
-						'drawer': '',
-						'till': '',
-						'cashier': '',
-						'cashierName': emp2[0].emplname,
-						'cashierId': emp2[0].emplid,
-						'sequence': zOut.sequence,
-						'sbsNo': session.subsidiarynumber,
-						'storeNo': session.storenumber
+						'fromDate'			: zOut.period_begin
+						, 'toDate'			: zOut.period_end
+						, 'subsidiary'		: ''
+						, 'installation'	: ''
+						, 'store'			: ''
+						, 'workstation'		: work
+						, 'workstationNo'	: workNo
+						, 'allWorkstations'	: zOutAllWorkstations
+						, 'drawer'			: ''
+						, 'till'			: ''
+						, 'cashier'			: ''
+						, 'cashierName'		: emp2[0].emplname
+						, 'cashierId'		: emp2[0].emplid
+						, 'sequence'		: zOut.sequence
+						, 'sbsNo'			: session.subsidiarynumber
+						, 'storeNo'			: session.storenumber
 					}
 
 					var PCONTROLSID = zOut.sid;
@@ -3150,6 +3026,11 @@ var zoutControllerSaveHandler = ['ModelEvent', 'ModelService', 'authService', '$
 							if (transform_deisgn_validation) {
 			        			processXOutZOut('zout', PCONTROLSID, session, 6, format, zOut, base64, ModelService, ModelService2, $http, 'print', path, true).then(() => {
 									generateEjournalPerDay(zOut.period_begin, ModelService, $http, base64);
+									
+									if(zOut.status != 3 && zOut.finalized == 0) {
+										let zout_payload = [{ 'report_type' : 3, 'report_xml' : null, 'finalized' : 0 }]
+										updateZoutControlsAPI(ModelService,$http, zoutcontrol, zout_payload);
+									}
 								});
 							}
 						});
@@ -3160,6 +3041,11 @@ var zoutControllerSaveHandler = ['ModelEvent', 'ModelService', 'authService', '$
 							if (transform_deisgn_validation) {
 			        			processXOutZOut('zout', PCONTROLSID, session, 6, format, zOut, base64, ModelService, ModelService2, $http, 'print', path, true).then(() => {
 									generateEjournalPerDay(zOut.period_begin, ModelService, $http, base64);
+									
+									if(zOut.status != 3 && zOut.finalized == 0) {
+										let zout_payload = [{ 'report_type' : 3, 'report_xml' : null, 'finalized' : 0 }]
+										updateZoutControlsAPI(ModelService,$http, zoutcontrol, zout_payload);
+									}
 								});
 							}
 						});
@@ -3222,3 +3108,25 @@ ButtonHooksManager.addHandler(['after_posTenderTake', 'after_posTenderGive'],
     	return deferred.promise;
 	}
 );
+
+
+function updateZoutControlsAPI(ModelService,$http, p_zoutcontrol, p_payload)
+{
+	ModelService.get('ZoutControl',{sid:p_zoutcontrol.sid, cols:'*'}).then(function(zcontrolData) {
+		let zOut = zcontrolData[0];
+
+		$http.put(
+			'/v1/rest/zoutcontrol/' + zOut.sid + '?filter=row_version,eq,' + zOut.row_version + '&page_no=1&page_size=10',
+			p_payload
+		  ).then(
+			function success(response) {
+			  console.log('Update successful:', response.data);
+			},
+			function error(err) {
+			  console.error('Update failed:', err);
+			}
+		  );
+	});
+}
+
+ConfigurationManager.addHandler(zoutControllerSaveHandler);
