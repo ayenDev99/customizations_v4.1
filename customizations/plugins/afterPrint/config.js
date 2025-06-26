@@ -3185,8 +3185,7 @@ ButtonHooksManager.addHandler(['after_posTenderTake', 'after_posTenderGive'],
     function(LoadingScreen, $q, DocumentPersistedData, ResourceNotificationService, $uibModal, Templates, ModelService, $rootScope, HookEvent, $stateParams, base64, $http, prismSessionInfo, authService) {
     	var deferred = $q.defer();
     	var docSid = $stateParams.document_sid;
-
-		
+		let card_no = $('#cardNo')[0].value;
 
 		setTimeout(() => {
 			$http.get('v1/rest/document/' + docSid + '/tender', {
@@ -3202,12 +3201,6 @@ ButtonHooksManager.addHandler(['after_posTenderTake', 'after_posTenderGive'],
 				let tender_type = item.tender_type;
 
 				if(tender_type == 2) {
-					let card_no = $('#cardNo')[0].value;
-
-					
-					// document.getElementById("tender_card_number"); 
-					// let c = k = card_no;
-	
 					$.ajax({
 						url: 'plugins/afterPrint/updateTender.php',
 						method: 'POST',
