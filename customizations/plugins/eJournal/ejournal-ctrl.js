@@ -549,7 +549,7 @@ a.processApiPost = function(doc){
                                         arrData[j]['classname']= {};
                                         arrData[j]['classname']= (parsediv1.prevObject[j]).className;
                                         arrData[j]['data']= {};
-                                        arrData[j]['data'] = ((parsediv1.prevObject[j]).innerHTML);
+                                        arrData[j]['data'] = ((parsediv1.prevObject[j]).innerText);
                                     }
 
                                 }
