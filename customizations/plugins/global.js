@@ -183,7 +183,7 @@ function processXOutZOut(type, PCONTROLSID, session, printType, format, result, 
 										var params = {
 											fromDate: formFilter.find('input[ng-model="startDate.date"]').val(),
 											toDate: formFilter.find('input[ng-model="endDate.date"]').val(),
-											created_dateTime: res.created_datetime,
+											created_dateTime: res.period_end,
 											storeSid: res.store_sid,
 											workstation: res.workstation_sid,
 											workstationNo: workstation_no,
