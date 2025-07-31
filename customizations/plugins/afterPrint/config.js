@@ -3083,11 +3083,27 @@ var zoutControllerSaveHandler = ['ModelEvent', 'ModelService', 'authService', '$
     // Event handler to capture after item insert in the current document
     var afterZOutControlSave = function($q, zoutcontrol) {
         var deferred = $q.defer();
+		currentZOutSID = zoutcontrol.sid;
 
-	// alert();
-	currentZOutSID = zoutcontrol.sid;
+		if (zoutcontrol.status == 0) {
+			ModelService.get('ZoutControl',{sid:currentZOutSID, cols:'*'}).then(function(zcontrolData) {
+				let zOut = zcontrolData[0];
+				let payload = [{ 'report_xml' : null }];
 
-	console.log(zoutcontrol.status);
+				$http.put(
+					'/v1/rest/zoutcontrol/' + zOut.sid + '?filter=row_version,eq,' + zOut.row_version + '&page_no=1&page_size=10',
+					payload
+				).then(
+					function success(response) {
+					console.log('Update successful:', response.data);
+					},
+					function error(err) {
+					console.error('Update failed:', err);
+					}
+				);
+			});
+		}
+
         if (zoutcontrol.status == 2) {
 
         	// console.log(zoutcontrol);
