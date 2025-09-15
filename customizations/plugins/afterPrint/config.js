@@ -2585,7 +2585,7 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 						    sortable = {
 						    	content: arrData3, 
 								filters: filters
-								, created_dateTime: result[0].created_datetime
+								, created_dateTime: result[0].period_end
 						    	, print_type: printType
 								, z_count : zcount
 						    	, width: parseInt((body.prevObject[0].style.width).replace("px", ""))
