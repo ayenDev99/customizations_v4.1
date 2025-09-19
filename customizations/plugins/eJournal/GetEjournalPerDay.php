@@ -8,12 +8,24 @@
 
     $date = $_GET['date'];
     if ($date == 'all') {
-        $sql = "SELECT strftime('%Y-%m-%d', created_date) as date, * FROM tbl_ejournals ORDER BY `created_date` ASC";
+        $sql = "SELECT strftime('%Y-%m-%d', created_date) as date, * FROM tbl_ejournals ORDER BY CASE WHEN 
+	type = 'document' then 1
+    else 2
+    END
+    ,`created_date` ASC";
     } else {
-        $sql = "SELECT strftime('%Y-%m-%d', created_date) as date, * FROM tbl_ejournals WHERE strftime('%Y-%m-%d', created_date) = '" . $date . "' ORDER BY `created_date` ASC";
+        $sql = "SELECT strftime('%Y-%m-%d', created_date) as date, * FROM tbl_ejournals WHERE strftime('%Y-%m-%d', created_date) = '" . $date . "' ORDER BY CASE WHEN 
+	type = 'document' then 1
+    else 2
+    END
+    ,`created_date` ASC";
     }
 
     $rsResult = $conn->Execute($sql);
+
+// echo "<pre>";
+//	print_r($rsResult);
+//	echo "</pre>"; exit;
 
     $arr = [];
 
