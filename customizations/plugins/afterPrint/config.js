@@ -2581,11 +2581,12 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 							htmldata2.find('div').css('font-size', '12px', 'important');
 							htmldata2.find('div').css('font-family', 'Tahoma', 'important');
  
+							let res = Array.isArray(result) ? result[0] : result;
 
 						    sortable = {
 						    	content: arrData3, 
 								filters: filters
-								, created_dateTime: result[0].period_end
+								, created_dateTime: res.post_date
 						    	, print_type: printType
 								, z_count : zcount
 						    	, width: parseInt((body.prevObject[0].style.width).replace("px", ""))
