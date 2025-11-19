@@ -1145,7 +1145,7 @@ function before_navPosTenderPrintUpdate_sequence_correction_callback(doc, prismS
 		                var returnSeq = returnSeqs[0];
 
 		                if (prevDoc.document_number != returnSeq.previous_value) {
-		                    var obj = {message: 'Invoice has been skipped. Sequencing will be modified. previous document number: ' + prevDoc.document_number + ' current sequence: ' + saleSeq.previous_value};
+		                    var obj = {message: 'Invoice has been skipped. Sequencing will be modified. previous document number: ' + prevDoc.document_number + ' current sequence: ' + returnSeq.previous_value};
 		                    $.ajax({
 		                        url: '/plugins/PLLogs/api/write.php',
 		                        data: { log: obj },
