@@ -175,32 +175,42 @@ function processXOutZOut(type, PCONTROLSID, session, printType, format, result, 
 									}
 								];
 
+								function getWorkstationNumber(wsSid) {
+								    return ModelService.get('Workstation', { sid: wsSid })
+								        .then(dataWs => dataWs[0].workstation_number);
+								}
+
 						        generateSortableData(dataBase64, base64, 'xzout').then(sortable => {
 									let res = Array.isArray(result) ? result[0] : result;
 									let workstation_no = res.workstation_no ? res.workstation_no : res.workstation_number;
+									let wsSid =  path.includes('xout') ? formFilter.find('#workstation').val().replace('string:', '') : null;
+									let xoutWsNo = null;
 
-									ModelService.get('Store',{sid: res.store_sid}).then(function(dataStore) {
-										var params = {
-											fromDate: formFilter.find('input[ng-model="startDate.date"]').val(),
-											toDate: formFilter.find('input[ng-model="endDate.date"]').val(),
-											created_dateTime: res.post_date,
-											storeSid: res.store_sid,
-											workstation: res.workstation_sid,
-											workstationNo: workstation_no,
-											contain: contain,
-											printtype: printType, 
-			        						sid: PCONTROLSID, 
-			        						action: 'exportXOutZOut',
-			        						exportType: type,
-								    		data: sortable,
-								    		storeName: dataStore[0].store_name,
-								    		zcount: data.zcount
-								    	};
+									getWorkstationNumber(wsSid).then(function(wsNumber) {
+									    xoutWsNo = wsNumber;
+										ModelService.get('Store',{sid: res.store_sid}).then(function(dataStore) {
+											var params = {
+												fromDate: formFilter.find('input[ng-model="startDate.date"]').val(),
+												toDate: formFilter.find('input[ng-model="endDate.date"]').val(),
+												created_dateTime: res.post_date,
+												storeSid: res.store_sid,
+												workstation: res.workstation_sid,
+												workstationNo: path.includes('xout') ? xoutWsNo : workstation_no,
+												contain: contain,
+												printtype: printType, 
+												sid: PCONTROLSID, 
+												action: 'exportXOutZOut',
+												exportType: type,
+												data: sortable,
+												storeName: dataStore[0].store_name,
+												zcount: data.zcount
+											};
 
-								    	$http.post('plugins/eJournal/ejournal.php', params).then(function(result){
-								        	console.log('Z-Out text file has been generated!');
-								        	resolve(true);
-								        });
+											$http.post('plugins/eJournal/ejournal.php', params).then(function(result){
+												console.log('Z-Out text file has been generated!');
+												resolve(true);
+											});
+										});
 									});
 						        });
 					        }
