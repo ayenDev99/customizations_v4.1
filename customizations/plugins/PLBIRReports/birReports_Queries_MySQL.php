@@ -3431,7 +3431,8 @@
                                                     SUM(CASE WHEN (E.tender_type = '18') THEN E.amount ELSE 0 END) AS TENDER_CUSTOMER_LOYALTY,
                                                     (
                                                         GROUP_CONCAT(
-                                                            CASE WHEN (E.tender_type <> '0' AND E.tender_type <> '2') THEN CONCAT(E.tender_type, '=', E.amount) END
+                                                            CASE WHEN (E.tender_type <> '0' AND E.tender_type <> '2') THEN 
+                                                            CONCAT(E.tender_type, '=', E.amount) END
                                                         SEPARATOR '...')
                                                     ) AS NON_CASH_PAYMENTS_BREAKDOWN,
                                                     (

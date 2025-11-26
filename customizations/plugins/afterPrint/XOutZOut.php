@@ -46,11 +46,6 @@
             $workstation,
             $store = 'all',
             $cashier
-
-            // $fromDate, 
-            // $toDate,
-            // $workstation,
-            // $cashier
         );
 
         $sql = $queries->getXZReading();
@@ -78,8 +73,6 @@
         $currentWSConfig = [];
 
         if ($request['config_settingsVersion'] == 'v3') {
-
-
 
             $defaultSBSConfig = (count($docDesignConfig)) ? current((array)$docDesignConfig) : [] ;
 
@@ -539,29 +532,56 @@
             $resultTCC = explode('|',$results['TENDER_CREDIT_CARDS']);
             foreach ($resultTCC as $TCC) {
                 $eTCC = explode(":", $TCC);
-                $receiptType = $eTCC[1];
-                $creditCards = explode(",", $eTCC[0]);
+				
+				$expanded = [];
+				foreach ($eTCC as $part) {
+					foreach (explode("...", $part) as $sub) {
+						$expanded[] = $sub;
+					}
+				}
+				$eTCC = $expanded;
+				
+                $receiptType = 0;
 
-                foreach ($creditCards as $cc) {
-                    $creditCardInfo = explode("=", $cc);
-                    $key = $creditCardInfo[0];
-                    $value = $creditCardInfo[1];
-                    $currentValue = (isset($tender_credit_cards[strtoupper($key)])) ? $tender_credit_cards[strtoupper($key)] : 0 ;
-                    if ($receiptType != 2) {
-                        $tender_credit_cards[strtoupper($key)] = $currentValue + $value;
+				$creditCards = array_map(function($item) {
+					return preg_replace('/^0,/', '', $item); // Remove "0," prefix dynamically
+				}, $eTCC);
+				
+				$creditCards = array_filter($creditCards, function($item) {
+					return $item !== '0' && $item !== ''; // Remove "0" or empty string values
+				});
+				
+				$creditCards = array_values($creditCards);
+				
+				foreach ($creditCards as $cc) {
+					$creditCardInfo = explode("=", $cc);
+					
+					if(count($creditCardInfo) < 2) continue;
+
+					$key = $creditCardInfo[0];
+					$value = $creditCardInfo[1];
+					if($key === 'CATM'){
+						$currentValue = isset($value) ? $value : 0 ;
+					}else{
+						$currentValue = isset($value) ? $value : 0 ;
+					}
+	
+					if ($receiptType == 0) {
+						 if (!isset($tender_credit_cards[$key])) {
+							$tender_credit_cards[$key] = [$key, 0]; // Initialize with the key and default value 0
+						}
+                        $tender_credit_cards[$key][1] += $currentValue;
                     } else {
-                        $tender_credit_cards[strtoupper($key)] = $currentValue + 0;
+                        $tender_credit_cards[$key] = [$key, $currentValue];
                     }
-                }
-                
+				}	
             }
         }
-
         foreach ($tender_credit_cards as $key => $value) {
-            $tender_credit_cards[strtoupper($key)] = number_format($tender_credit_cards[$key], 2);
-            if ($tender_credit_cards[$key] == 0) unset($tender_credit_cards[$key]);
+            $tender_credit_cards[$key] = number_format($value[1], 2);
+            if ($receiptType == 0) unset($value[1]);
         }
-
+		
         $data['value#tender_credit_cards'] = (count($tender_credit_cards)) ? $tender_credit_cards : 'empty value' ;
 
         $non_cash_payments_breakdown = [];
@@ -577,61 +597,62 @@
 
                 foreach ($paymentPayments as $key => $pay) {
                     $payments = explode("=", $pay);
-                    $key = $payments[0];
-                    // switch ($payments[0]) {
-                    //     case '1':
-                    //         $key = 'CHECK';
-                    //         break;
-                    //     case '3':
-                    //         $key = 'COD';
-                    //         break;
-                    //     case '4':
-                    //         $key = 'CHARGE';
-                    //         break;
-                    //     case '5':
-                    //         $key = 'STORE CREDIT';
-                    //         break;
-                    //     case '7':
-                    //         $key = 'DEPOSIT';
-                    //         break;
-                    //     case '9':
-                    //         $key = 'GIFT CERTIFICATE';
-                    //         break;
-                    //     case '10':
-                    //         $key = 'GIFT CARD';
-                    //         break;
-                    //     case '11':
-                    //         $key = 'DEBIT CARD';
-                    //         break;
-                    //     case '13':
-                    //         $key = 'TRAVELER\'S CHECK';
-                    //         break;
-                    //     case '15':
-                    //         $key = 'CENTRAL GIFT CARD';
-                    //         break;
-                    //     case '16':
-                    //         $key = 'CENTRAL GIFT CERTIFICATE';
-                    //         break;
-                    //     case '17':
-                    //         $key = 'CENTRAL CREDIT';
-                    //         break;
-                    //     case '18':
-                    //         $key = 'CUSTOMER LOYALTY';
-                    //         break;
-                    // }
+                    $key = 'Others';
+                    switch ($payments[0]) {
+                        case '1':
+                            $key = 'CHECK';
+                            break;
+                        case '3':
+                            $key = 'COD';
+                            break;
+                        case '4':
+                            $key = 'CHARGE';
+                            break;
+                        case '5':
+                            $key = 'STORE CREDIT';
+                            break;
+                        case '7':
+                            $key = 'DEPOSIT';
+                            break;
+                        case '9':
+                            $key = 'GIFT CERTIFICATE';
+                            break;
+                        case '10':
+                            $key = 'GIFT CARD';
+                            break;
+                        case '11':
+                            $key = 'DEBIT CARD';
+                            break;
+                        case '13':
+                            $key = 'TRAVELER\'S CHECK';
+                            break;
+                        case '15':
+                            $key = 'CENTRAL GIFT CARD';
+                            break;
+                        case '16':
+                            $key = 'CENTRAL GIFT CERTIFICATE';
+                            break;
+                        case '17':
+                            $key = 'CENTRAL CREDIT';
+                            break;
+                        case '18':
+                            $key = 'CUSTOMER LOYALTY';
+                            break;
+                    }
                     $value = $payments[1];
-                    $currentValue = (isset($non_cash_payments_breakdown[strtoupper($key)])) ? $non_cash_payments_breakdown[strtoupper($key)] : 0 ;
+                    $currentValue = (isset($non_cash_payments_breakdown[$key])) ? $non_cash_payments_breakdown[$key] : 0 ;
+
                     if ($receiptType != 2) {
-                        $non_cash_payments_breakdown[strtoupper($key)] = $currentValue + $value;
+                        $non_cash_payments_breakdown[$key] = $currentValue + $value;
                     } else {
-                        $non_cash_payments_breakdown[strtoupper($key)] = $currentValue + 0;
+                        $non_cash_payments_breakdown[$key] = $currentValue + 0;
                     }
                 }
             }
         }
 
         foreach ($non_cash_payments_breakdown as $key => $value) {
-            $non_cash_payments_breakdown[strtoupper($key)] = number_format($non_cash_payments_breakdown[$key], 2);
+            $non_cash_payments_breakdown[$key] = number_format($non_cash_payments_breakdown[$key], 2);
         }
 
         $data['value#non_cash_payments_breakdown'] = (count($non_cash_payments_breakdown)) ? $non_cash_payments_breakdown : 'empty value' ;
