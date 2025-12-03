@@ -554,12 +554,32 @@
 				$creditCards = array_values($creditCards);
 				
 				foreach ($creditCards as $cc) {
-					$creditCardInfo = explode("=", $cc);
+					$creditCardInfo = [];
+					$total = 0;
+					$label = "";
 					
+					if (strpos($cc, ',') !== false) {
+						$cc_explode = explode(',', $cc);			
+						foreach ($cc_explode as $part) {
+							// Split each part by '='
+							$segments = explode('=', $part);
+							if (isset($segments[1])) {
+								if ($label === "") {
+									$label = $segments[0];
+								}
+								$total += (float)$segments[1];
+							}
+						}
+						$creditCardInfo = [$label, number_format($total, 4, '.', '')];
+					} else {
+						$creditCardInfo = explode("=", $cc);
+					}
+
 					if(count($creditCardInfo) < 2) continue;
 
 					$key = $creditCardInfo[0];
 					$value = $creditCardInfo[1];
+
 					if($key === 'CATM'){
 						$currentValue = isset($value) ? $value : 0 ;
 					}else{
