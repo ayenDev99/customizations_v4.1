@@ -2374,7 +2374,7 @@ function directPreviewXOutZOut(ResourceNotificationService, $uibModal, type, PCO
 					    	'drawer': formFilter.find('#drawer').val().replace('string:', ''),
 					    	'till': formFilter.find('#till').val().replace('string:', ''),
 					    	'cashier':  formFilter.find('#cashier').val().replace('string:', ''),
-					    	'cashierName': emp[0].emplname,
+					    	'cashierName': formFilter.find('#cashier option:selected').text(),
 					    	'cashierId': emp[0].emplid,
 					    	'workstation': workstation,
 					    	'allWorkstations': allWorkstations,
