@@ -109,9 +109,9 @@ b.post('plugins/eJournal/getdata.php', { filter: sFilter}).then(function(result)
     else{
         var error_count = 0;
 
-        angular.forEach(result.data, function(val, key){
+        angular.forEach(result.data, function(val, key) {
             var iframedoc = document.createElement('iframe');
-            iframedoc.setAttribute('id', 'preview_frame' + key);
+            iframedoc.setAttribute('id', 'preview_frame1');
             iframedoc.setAttribute('class', 'col-md-12');
             iframedoc.setAttribute('scrolling', 'no');
             iframedoc.style.border = 'none';
@@ -143,7 +143,7 @@ b.post('plugins/eJournal/getdata.php', { filter: sFilter}).then(function(result)
                         arrData[j]['classname']= {};
                         arrData[j]['classname']= (parsediv1.prevObject[j]).className;
                         arrData[j]['data']= {};
-                        arrData[j]['data'] = ((parsediv1.prevObject[j]).innerHTML);
+                        arrData[j]['data'] = ((parsediv1.prevObject[j]).innerText);
                     }
 
                 }
@@ -154,7 +154,123 @@ b.post('plugins/eJournal/getdata.php', { filter: sFilter}).then(function(result)
                 var filtered = arrData.filter(function (el) {
                     return el != null;
                 });
-                a.sortable.push({content: filtered, print_type: val.print_type, width: parseInt((body1.prevObject[0].style.width).replace("px", ""))});
+
+                var arrData2 = [];
+
+                var currentIndex = 0;
+                var previousY = 0;
+
+                for (var j = 0; j < arrData.length; j++) {
+		        	if (typeof arrData[j] != 'undefined') {
+		        		if (j == 0) {
+			    			previousY = y;
+			    		}
+
+			        	if (arrData[j].y != previousY) {
+		                	currentIndex++;
+		                }
+
+		                var d = "";
+
+		                if (arrData[j].classname.includes('json')) {
+		                	d = JSON.parse(arrData[j].data);
+		                } else {
+		                	d = arrData[j].data;
+		                }
+   
+		                if (typeof arrData2[currentIndex] == 'undefined') {
+		                	arrData2[currentIndex] = [];
+		                	arrData2[currentIndex].push(d);
+		                } else {
+		                	arrData2[currentIndex].push(d);
+		                }
+		               	
+		            	previousY = arrData[j].y;
+		        	}
+		        }
+
+		        var arrData3 = [];
+		        var row = 0;
+		        var currentY = 1;
+				for (var k = 0; k < arrData2.length; k++) {
+					
+					if (typeof arrData2[k] !== 'undefined') {
+						var h = "";
+
+						if (typeof arrData2[k][0] === 'object') {
+							var o = arrData2[k][0];
+
+							for (const key in o) {
+								arrData3[row] = {};
+								arrData3[row]['y'] = {};
+								arrData3[row]['x'] = 0;
+								arrData3[row]['classname'] = "";
+								arrData3[row]['data'] = {};
+								arrData3[row]['y'] = currentY;
+								arrData3[row]['data'] = key;
+								row++;
+								arrData3[row] = {};
+								arrData3[row]['y'] = {};
+								arrData3[row]['x'] = 0;
+								arrData3[row]['classname'] = "";
+								arrData3[row]['data'] = {};
+								arrData3[row]['y'] = currentY;
+								arrData3[row]['data'] = o[key];
+								row++;
+								currentY++;
+							}
+
+						} else if (arrData2[k].length == 1) {
+							arrData3[row] = {};
+							arrData3[row]['y'] = {};
+							arrData3[row]['x'] = 0;
+							arrData3[row]['classname'] = "";
+							arrData3[row]['data'] = {};
+							arrData3[row]['y'] = currentY;
+							arrData3[row]['data'] = arrData2[k][0];
+							row++;
+							currentY++;
+
+						} else {
+							if (arrData2[k][0] == "") {
+								arrData3[row] = {};
+								arrData3[row]['y'] = {};
+								arrData3[row]['x'] = 0;
+								arrData3[row]['classname'] = "";
+								arrData3[row]['data'] = {};
+								arrData3[row]['y'] = currentY;
+								arrData3[row]['data'] = arrData2[k][1];
+								row++;
+								currentY++;
+							} else {
+								arrData3[row] = {};
+								arrData3[row]['y'] = {};
+								arrData3[row]['x'] = 0;
+								arrData3[row]['classname'] = "";
+								arrData3[row]['data'] = {};
+								arrData3[row]['y'] = currentY;
+								arrData3[row]['data'] = arrData2[k][0];
+								row++;
+								arrData3[row] = {};
+								arrData3[row]['y'] = {};
+								arrData3[row]['x'] = 0;
+								arrData3[row]['classname'] = "";
+								arrData3[row]['data'] = {};
+								arrData3[row]['y'] = currentY;
+								arrData3[row]['data'] = arrData2[k][1];
+								row++;
+								currentY++;
+							}
+						}
+					}
+				}
+
+                var content = arrData3;
+				if (val.type == 'receipt') {
+					content = filtered;
+				}
+
+                a.sortable.push({content: content, print_type: val.print_type, width: parseInt((body1.prevObject[0].style.width).replace("px", ""))});
 
             }
 
@@ -560,11 +676,125 @@ a.processApiPost = function(doc){
                                 var filtered = arrData.filter(function (el) {
                                     return el != null;
                                 });
-                                a.sortable.push({content: filtered, width: parseInt((body1.prevObject[0].style.width).replace("px", ""))});
+
+                                var arrData2 = [];
+
+                                var currentIndex = 0;
+                                var previousY = 0;
+
+                                for (var j = 0; j < arrData.length; j++) {
+                                    if (typeof arrData[j] != 'undefined') {
+                                        if (j == 0) {
+                                            previousY = y;
+                                        }
+
+                                        if (arrData[j].y != previousY) {
+                                            currentIndex++;
+                                        }
+
+                                        var d = "";
+
+                                        if (arrData[j].classname.includes('json')) {
+                                            d = JSON.parse(arrData[j].data);
+                                        } else {
+                                            d = arrData[j].data;
+                                        }
+                
+                                        if (typeof arrData2[currentIndex] == 'undefined') {
+                                            arrData2[currentIndex] = [];
+                                            arrData2[currentIndex].push(d);
+                                        } else {
+                                            arrData2[currentIndex].push(d);
+                                        }
+                                        
+                                        previousY = arrData[j].y;
+                                    }
+                                }
+
+                                var arrData3 = [];
+                                var row = 0;
+                                var currentY = 1;
+                                for (var k = 0; k < arrData2.length; k++) {
+                                    
+                                    if (typeof arrData2[k] !== 'undefined') {
+                                        var h = "";
+
+                                        if (typeof arrData2[k][0] === 'object') {
+                                            var o = arrData2[k][0];
+
+                                            for (const key in o) {
+                                                arrData3[row] = {};
+                                                arrData3[row]['y'] = {};
+                                                arrData3[row]['x'] = 0;
+                                                arrData3[row]['classname'] = "";
+                                                arrData3[row]['data'] = {};
+                                                arrData3[row]['y'] = currentY;
+                                                arrData3[row]['data'] = key;
+                                                row++;
+                                                arrData3[row] = {};
+                                                arrData3[row]['y'] = {};
+                                                arrData3[row]['x'] = 0;
+                                                arrData3[row]['classname'] = "";
+                                                arrData3[row]['data'] = {};
+                                                arrData3[row]['y'] = currentY;
+                                                arrData3[row]['data'] = o[key];
+                                                row++;
+                                                currentY++;
+                                            }
+
+                                        } else if (arrData2[k].length == 1) {
+                                            arrData3[row] = {};
+                                            arrData3[row]['y'] = {};
+                                            arrData3[row]['x'] = 0;
+                                            arrData3[row]['classname'] = "";
+                                            arrData3[row]['data'] = {};
+                                            arrData3[row]['y'] = currentY;
+                                            arrData3[row]['data'] = arrData2[k][0];
+                                            row++;
+                                            currentY++;
+
+                                        } else {
+                                            if (arrData2[k][0] == "") {
+                                                arrData3[row] = {};
+                                                arrData3[row]['y'] = {};
+                                                arrData3[row]['x'] = 0;
+                                                arrData3[row]['classname'] = "";
+                                                arrData3[row]['data'] = {};
+                                                arrData3[row]['y'] = currentY;
+                                                arrData3[row]['data'] = arrData2[k][1];
+                                                row++;
+                                                currentY++;
+                                            } else {
+                                                arrData3[row] = {};
+                                                arrData3[row]['y'] = {};
+                                                arrData3[row]['x'] = 0;
+                                                arrData3[row]['classname'] = "";
+                                                arrData3[row]['data'] = {};
+                                                arrData3[row]['y'] = currentY;
+                                                arrData3[row]['data'] = arrData2[k][0];
+                                                row++;
+                                                arrData3[row] = {};
+                                                arrData3[row]['y'] = {};
+                                                arrData3[row]['x'] = 0;
+                                                arrData3[row]['classname'] = "";
+                                                arrData3[row]['data'] = {};
+                                                arrData3[row]['y'] = currentY;
+                                                arrData3[row]['data'] = arrData2[k][1];
+                                                row++;
+                                                currentY++;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                var content = arrData3;
+                                if (el2.type == 'document') {
+                                    content = filtered;
+                                }
+
+                                a.sortable.push({content: content, width: parseInt((body1.prevObject[0].style.width).replace("px", ""))});
 
                             }
-
-
                         }
 
                         if (i2 == len2) {

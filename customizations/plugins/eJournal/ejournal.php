@@ -178,11 +178,7 @@
                                                         'MINUS',
                                                         'NET VALUES',
                                                         'CUSTOMER NAME:',
-                                                        'CUST NAME:',
                                                         'TIN:',
-                                                        'BUS. STYLE:',
-                                                        'OSCA/PWD/ID#:',
-                                                        'NOTES:',
                                                         'ADDRESS:',
                                                         'RETURN SLIP #:',
                                                         'DATE AND TIME:',
@@ -278,6 +274,16 @@
                                     fwrite($file, $data_array[0].$space.$data_array[1].PHP_EOL.PHP_EOL);
                                 elseif(strpos(strtoupper($data_array[0]), 'SUBTOTAL:') !== FALSE OR strpos(strtoupper($data_array[0]), 'DISCOUNT:') !== FALSE):
                                     fwrite($file, $space.$data_array[0].'  '.$data_array[1].PHP_EOL);
+                                elseif(strpos(strtoupper($data_array[0]), 'ENDING RETURN') !== FALSE):
+                                    $spaces = '';
+                                    $spaceCnt = 40 - $str_length;
+                                    for($i = 1; $i <= $spaceCnt; $i++) {
+                                        $spaces .= ' ';
+                                    }
+
+                                    fwrite($file, $data_array[0].$spaces.$data_array[1].PHP_EOL);
+                                    fwrite($file, ' ' . PHP_EOL);
+                                    fwrite($file, ' ' . PHP_EOL);
                                 // elseif($value->print_type == 6 AND strpos(strtoupper($data_array[0]), 'CASH FLOW TOTAL:') !== FALSE):
                                 //     fwrite($file, $data_array[0].$space.$space.$data_array[1].PHP_EOL);
                                 // elseif($value->print_type == 6 AND count(explode('/', $data_array[0])) != 3):
@@ -329,8 +335,6 @@
                                 endif;
                                 fwrite($file, $data_array[0].$space.$data_array[1].$space.$data_array[2].$space.$data_array[3].PHP_EOL);
                                 break;
-                        
-
                             case 5:
                                 end($data_array);
                                 $last_key = key($data_array);

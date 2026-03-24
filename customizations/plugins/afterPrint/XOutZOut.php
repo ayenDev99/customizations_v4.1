@@ -528,80 +528,19 @@
 
         $tender_credit_cards = [];
 
-        if (isset($results['TENDER_CREDIT_CARDS'])) {
+         if (isset($results['TENDER_CREDIT_CARDS'])) {
             $resultTCC = explode('|',$results['TENDER_CREDIT_CARDS']);
             foreach ($resultTCC as $TCC) {
-                $eTCC = explode(":", $TCC);
-				
-				$expanded = [];
-				foreach ($eTCC as $part) {
-					foreach (explode("...", $part) as $sub) {
-						$expanded[] = $sub;
-					}
-				}
-				$eTCC = $expanded;
-				
-                $receiptType = 0;
-
-				$creditCards = array_map(function($item) {
-					return preg_replace('/^0,/', '', $item); // Remove "0," prefix dynamically
-				}, $eTCC);
-				
-				$creditCards = array_filter($creditCards, function($item) {
-					return $item !== '0' && $item !== ''; // Remove "0" or empty string values
-				});
-				
-				$creditCards = array_values($creditCards);
-				
-				foreach ($creditCards as $cc) {
-					$creditCardInfo = [];
-					$total = 0;
-					$label = "";
-					
-					if (strpos($cc, ',') !== false) {
-						$cc_explode = explode(',', $cc);			
-						foreach ($cc_explode as $part) {
-							// Split each part by '='
-							$segments = explode('=', $part);
-							if (isset($segments[1])) {
-								if ($label === "") {
-									$label = $segments[0];
-								}
-								$total += (float)$segments[1];
-							}
-						}
-						$creditCardInfo = [$label, number_format($total, 4, '.', '')];
-					} else {
-						$creditCardInfo = explode("=", $cc);
-					}
-
-					if(count($creditCardInfo) < 2) continue;
-
-					$key = $creditCardInfo[0];
-					$value = $creditCardInfo[1];
-
-					if($key === 'CATM'){
-						$currentValue = isset($value) ? $value : 0 ;
-					}else{
-						$currentValue = isset($value) ? $value : 0 ;
-					}
-	
-					if ($receiptType == 0) {
-						 if (!isset($tender_credit_cards[$key])) {
-							$tender_credit_cards[$key] = [$key, 0]; // Initialize with the key and default value 0
-						}
-                        $tender_credit_cards[$key][1] += $currentValue;
-                    } else {
-                        $tender_credit_cards[$key] = [$key, $currentValue];
-                    }
-				}	
+                $eTCC = explode("=", $TCC);
+                $key = $eTCC[0];
+                $value = $eTCC[1];
+                $currentValue = (isset($tender_credit_cards[$key])) ? $tender_credit_cards[$key] : 0 ;
+                $tender_credit_cards[$key] = $currentValue + $value;
             }
-        }
+        } 
         foreach ($tender_credit_cards as $key => $value) {
-            $tender_credit_cards[$key] = number_format($value[1], 2);
-            if ($receiptType == 0) unset($value[1]);
+            $tender_credit_cards[$key] = number_format($tender_credit_cards[$key], 2);
         }
-		
         $data['value#tender_credit_cards'] = (count($tender_credit_cards)) ? $tender_credit_cards : 'empty value' ;
 
         $non_cash_payments_breakdown = [];
